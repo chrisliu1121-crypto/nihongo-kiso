@@ -1,0 +1,955 @@
+{
+  "version": 1,
+  "rows": [
+    "",
+    "k",
+    "s",
+    "t",
+    "n",
+    "h",
+    "m",
+    "y",
+    "r",
+    "w"
+  ],
+  "cols": [
+    "a",
+    "i",
+    "u",
+    "e",
+    "o"
+  ],
+  "cells": [
+    {
+      "id": "a",
+      "hiragana": "あ",
+      "katakana": "ア",
+      "row": "",
+      "col": "a",
+      "romaji": "a",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "i",
+      "hiragana": "い",
+      "katakana": "イ",
+      "row": "",
+      "col": "i",
+      "romaji": "i",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "u",
+      "hiragana": "う",
+      "katakana": "ウ",
+      "row": "",
+      "col": "u",
+      "romaji": "u",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ゔ",
+          "katakana": "ヴ",
+          "romaji": "vu"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "e",
+      "hiragana": "え",
+      "katakana": "エ",
+      "row": "",
+      "col": "e",
+      "romaji": "e",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "o",
+      "hiragana": "お",
+      "katakana": "オ",
+      "row": "",
+      "col": "o",
+      "romaji": "o",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ka",
+      "hiragana": "か",
+      "katakana": "カ",
+      "row": "k",
+      "col": "a",
+      "romaji": "ka",
+      "derived": {
+        "dakuten": {
+          "hiragana": "が",
+          "katakana": "ガ",
+          "romaji": "ga"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ki",
+      "hiragana": "き",
+      "katakana": "キ",
+      "row": "k",
+      "col": "i",
+      "romaji": "ki",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ぎ",
+          "katakana": "ギ",
+          "romaji": "gi"
+        },
+        "handakuten": null
+      },
+      "yoon": {
+        "ya": {
+          "hiragana": "きゃ",
+          "romaji": "kya"
+        },
+        "yu": {
+          "hiragana": "きゅ",
+          "romaji": "kyu"
+        },
+        "yo": {
+          "hiragana": "きょ",
+          "romaji": "kyo"
+        }
+      },
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ku",
+      "hiragana": "く",
+      "katakana": "ク",
+      "row": "k",
+      "col": "u",
+      "romaji": "ku",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ぐ",
+          "katakana": "グ",
+          "romaji": "gu"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ke",
+      "hiragana": "け",
+      "katakana": "ケ",
+      "row": "k",
+      "col": "e",
+      "romaji": "ke",
+      "derived": {
+        "dakuten": {
+          "hiragana": "げ",
+          "katakana": "ゲ",
+          "romaji": "ge"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ko",
+      "hiragana": "こ",
+      "katakana": "コ",
+      "row": "k",
+      "col": "o",
+      "romaji": "ko",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ご",
+          "katakana": "ゴ",
+          "romaji": "go"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "sa",
+      "hiragana": "さ",
+      "katakana": "サ",
+      "row": "s",
+      "col": "a",
+      "romaji": "sa",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ざ",
+          "katakana": "ザ",
+          "romaji": "za"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "shi",
+      "hiragana": "し",
+      "katakana": "シ",
+      "row": "s",
+      "col": "i",
+      "romaji": "shi",
+      "derived": {
+        "dakuten": {
+          "hiragana": "じ",
+          "katakana": "ジ",
+          "romaji": "ji"
+        },
+        "handakuten": null
+      },
+      "yoon": {
+        "ya": {
+          "hiragana": "しゃ",
+          "romaji": "sha"
+        },
+        "yu": {
+          "hiragana": "しゅ",
+          "romaji": "shu"
+        },
+        "yo": {
+          "hiragana": "しょ",
+          "romaji": "sho"
+        }
+      },
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "su",
+      "hiragana": "す",
+      "katakana": "ス",
+      "row": "s",
+      "col": "u",
+      "romaji": "su",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ず",
+          "katakana": "ズ",
+          "romaji": "zu"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "se",
+      "hiragana": "せ",
+      "katakana": "セ",
+      "row": "s",
+      "col": "e",
+      "romaji": "se",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ぜ",
+          "katakana": "ゼ",
+          "romaji": "ze"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "so",
+      "hiragana": "そ",
+      "katakana": "ソ",
+      "row": "s",
+      "col": "o",
+      "romaji": "so",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ぞ",
+          "katakana": "ゾ",
+          "romaji": "zo"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ta",
+      "hiragana": "た",
+      "katakana": "タ",
+      "row": "t",
+      "col": "a",
+      "romaji": "ta",
+      "derived": {
+        "dakuten": {
+          "hiragana": "だ",
+          "katakana": "ダ",
+          "romaji": "da"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "chi",
+      "hiragana": "ち",
+      "katakana": "チ",
+      "row": "t",
+      "col": "i",
+      "romaji": "chi",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ぢ",
+          "katakana": "ヂ",
+          "romaji": "ji"
+        },
+        "handakuten": null
+      },
+      "yoon": {
+        "ya": {
+          "hiragana": "ちゃ",
+          "romaji": "cha"
+        },
+        "yu": {
+          "hiragana": "ちゅ",
+          "romaji": "chu"
+        },
+        "yo": {
+          "hiragana": "ちょ",
+          "romaji": "cho"
+        }
+      },
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "tsu",
+      "hiragana": "つ",
+      "katakana": "ツ",
+      "row": "t",
+      "col": "u",
+      "romaji": "tsu",
+      "derived": {
+        "dakuten": {
+          "hiragana": "づ",
+          "katakana": "ヅ",
+          "romaji": "zu"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "te",
+      "hiragana": "て",
+      "katakana": "テ",
+      "row": "t",
+      "col": "e",
+      "romaji": "te",
+      "derived": {
+        "dakuten": {
+          "hiragana": "で",
+          "katakana": "デ",
+          "romaji": "de"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "to",
+      "hiragana": "と",
+      "katakana": "ト",
+      "row": "t",
+      "col": "o",
+      "romaji": "to",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ど",
+          "katakana": "ド",
+          "romaji": "do"
+        },
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "na",
+      "hiragana": "な",
+      "katakana": "ナ",
+      "row": "n",
+      "col": "a",
+      "romaji": "na",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ni",
+      "hiragana": "に",
+      "katakana": "ニ",
+      "row": "n",
+      "col": "i",
+      "romaji": "ni",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": {
+        "ya": {
+          "hiragana": "にゃ",
+          "romaji": "nya"
+        },
+        "yu": {
+          "hiragana": "にゅ",
+          "romaji": "nyu"
+        },
+        "yo": {
+          "hiragana": "にょ",
+          "romaji": "nyo"
+        }
+      },
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "nu",
+      "hiragana": "ぬ",
+      "katakana": "ヌ",
+      "row": "n",
+      "col": "u",
+      "romaji": "nu",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ne",
+      "hiragana": "ね",
+      "katakana": "ネ",
+      "row": "n",
+      "col": "e",
+      "romaji": "ne",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "no",
+      "hiragana": "の",
+      "katakana": "ノ",
+      "row": "n",
+      "col": "o",
+      "romaji": "no",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ha",
+      "hiragana": "は",
+      "katakana": "ハ",
+      "row": "h",
+      "col": "a",
+      "romaji": "ha",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ば",
+          "katakana": "バ",
+          "romaji": "ba"
+        },
+        "handakuten": {
+          "hiragana": "ぱ",
+          "katakana": "パ",
+          "romaji": "pa"
+        }
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "hi",
+      "hiragana": "ひ",
+      "katakana": "ヒ",
+      "row": "h",
+      "col": "i",
+      "romaji": "hi",
+      "derived": {
+        "dakuten": {
+          "hiragana": "び",
+          "katakana": "ビ",
+          "romaji": "bi"
+        },
+        "handakuten": {
+          "hiragana": "ぴ",
+          "katakana": "ピ",
+          "romaji": "pi"
+        }
+      },
+      "yoon": {
+        "ya": {
+          "hiragana": "ひゃ",
+          "romaji": "hya"
+        },
+        "yu": {
+          "hiragana": "ひゅ",
+          "romaji": "hyu"
+        },
+        "yo": {
+          "hiragana": "ひょ",
+          "romaji": "hyo"
+        }
+      },
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "fu",
+      "hiragana": "ふ",
+      "katakana": "フ",
+      "row": "h",
+      "col": "u",
+      "romaji": "fu",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ぶ",
+          "katakana": "ブ",
+          "romaji": "bu"
+        },
+        "handakuten": {
+          "hiragana": "ぷ",
+          "katakana": "プ",
+          "romaji": "pu"
+        }
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "he",
+      "hiragana": "へ",
+      "katakana": "ヘ",
+      "row": "h",
+      "col": "e",
+      "romaji": "he",
+      "derived": {
+        "dakuten": {
+          "hiragana": "べ",
+          "katakana": "ベ",
+          "romaji": "be"
+        },
+        "handakuten": {
+          "hiragana": "ぺ",
+          "katakana": "ペ",
+          "romaji": "pe"
+        }
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ho",
+      "hiragana": "ほ",
+      "katakana": "ホ",
+      "row": "h",
+      "col": "o",
+      "romaji": "ho",
+      "derived": {
+        "dakuten": {
+          "hiragana": "ぼ",
+          "katakana": "ボ",
+          "romaji": "bo"
+        },
+        "handakuten": {
+          "hiragana": "ぽ",
+          "katakana": "ポ",
+          "romaji": "po"
+        }
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ma",
+      "hiragana": "ま",
+      "katakana": "マ",
+      "row": "m",
+      "col": "a",
+      "romaji": "ma",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "mi",
+      "hiragana": "み",
+      "katakana": "ミ",
+      "row": "m",
+      "col": "i",
+      "romaji": "mi",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": {
+        "ya": {
+          "hiragana": "みゃ",
+          "romaji": "mya"
+        },
+        "yu": {
+          "hiragana": "みゅ",
+          "romaji": "myu"
+        },
+        "yo": {
+          "hiragana": "みょ",
+          "romaji": "myo"
+        }
+      },
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "mu",
+      "hiragana": "む",
+      "katakana": "ム",
+      "row": "m",
+      "col": "u",
+      "romaji": "mu",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "me",
+      "hiragana": "め",
+      "katakana": "メ",
+      "row": "m",
+      "col": "e",
+      "romaji": "me",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "mo",
+      "hiragana": "も",
+      "katakana": "モ",
+      "row": "m",
+      "col": "o",
+      "romaji": "mo",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ya",
+      "hiragana": "や",
+      "katakana": "ヤ",
+      "row": "y",
+      "col": "a",
+      "romaji": "ya",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "yu",
+      "hiragana": "ゆ",
+      "katakana": "ユ",
+      "row": "y",
+      "col": "u",
+      "romaji": "yu",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "yo",
+      "hiragana": "よ",
+      "katakana": "ヨ",
+      "row": "y",
+      "col": "o",
+      "romaji": "yo",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ra",
+      "hiragana": "ら",
+      "katakana": "ラ",
+      "row": "r",
+      "col": "a",
+      "romaji": "ra",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ri",
+      "hiragana": "り",
+      "katakana": "リ",
+      "row": "r",
+      "col": "i",
+      "romaji": "ri",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": {
+        "ya": {
+          "hiragana": "りゃ",
+          "romaji": "rya"
+        },
+        "yu": {
+          "hiragana": "りゅ",
+          "romaji": "ryu"
+        },
+        "yo": {
+          "hiragana": "りょ",
+          "romaji": "ryo"
+        }
+      },
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ru",
+      "hiragana": "る",
+      "katakana": "ル",
+      "row": "r",
+      "col": "u",
+      "romaji": "ru",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "re",
+      "hiragana": "れ",
+      "katakana": "レ",
+      "row": "r",
+      "col": "e",
+      "romaji": "re",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "ro",
+      "hiragana": "ろ",
+      "katakana": "ロ",
+      "row": "r",
+      "col": "o",
+      "romaji": "ro",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "wa",
+      "hiragana": "わ",
+      "katakana": "ワ",
+      "row": "w",
+      "col": "a",
+      "romaji": "wa",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "wo",
+      "hiragana": "を",
+      "katakana": "ヲ",
+      "row": "w",
+      "col": "o",
+      "romaji": "o",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    },
+    {
+      "id": "n",
+      "hiragana": "ん",
+      "katakana": "ン",
+      "row": "",
+      "col": "",
+      "romaji": "n",
+      "derived": {
+        "dakuten": null,
+        "handakuten": null
+      },
+      "yoon": null,
+      "stroke_svg": null,
+      "audio": null,
+      "mnemonic": null
+    }
+  ]
+}
