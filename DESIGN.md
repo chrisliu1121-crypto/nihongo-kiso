@@ -138,6 +138,7 @@ nihongo-kiso/
 │   ├── store/highlight.ts        # 三層高亮 store（§5.2）
 │   └── routes/
 ├── scripts/
+│   ├── build-bank.ts             # words/*.json → bank.json；現階段全部驗證邏輯在這裡，validate.ts 要到第 6 步才拆出
 │   ├── generate-daily.ts         # 選詞 + 呼叫 Claude 加工
 │   ├── generate-exercises.ts
 │   ├── validate.ts               # 程式可驗的全部檢查（§9.2）
@@ -147,7 +148,9 @@ nihongo-kiso/
 
 **建置時預算所有可預算的東西**：`morae` 對映、羅馬字、`romaji_ascii` 全部寫進 JSON，runtime 不做轉換。但轉換函式本身要留著並測試，因為之後「使用者自輸入單詞」「句子逐字亮」會復用同一支。
 
-測試：`src/lib/kana/` 必須有完整測試（fluency-forge 全 repo 零測試，這裡不重蹈）。UI 層不強制。
+測試：`src/lib/kana/` 必須有完整測試（fluency-forge 全 repo 零測試，這裡不重蹈）。UI 層不強制。**vitest 環境是 `node`，未裝 jsdom／testing-library**——現有測試全是純函式；若要補元件測試，先裝 `jsdom` + `@testing-library/react` 並在 `vite.config.ts` 分檔指定環境，否則會得到 `document is not defined`。
+
+型別檢查：`data/bank.json` 不入版控，fresh clone 直接跑 `tsc --noEmit` 會因缺檔失敗。用 `npm run typecheck`（先 build:bank 再 tsc）；`dev`／`build` 已透過 `predev`／`prebuild` 自動處理。
 
 ---
 
@@ -191,13 +194,15 @@ interface HighlightSet {
   sourceId: string;                        // 誰要求的
   entries: Array<{
     cellId: CellId;
-    order: number[];                       // 在來源中的第幾拍，重複假名有多個
+    orders: number[];                      // 在來源中的第幾拍，重複假名有多個
     marks: CellMark[];                     // 徽章：dakuten / small / sokuon …
   }>;
 }
 ```
 
-未被高亮的格子**降低對比而非全暗**——表格結構不能因為高亮而消失。
+`resolveCell(state, cellId)` 回傳 `{ layer, orders, marks, dimmed }`：`layer` 取最高命中層；`dimmed` = 三層任一存在且此格不在任何層。context 層命中時 `orders`／`marks` 回空——它只有淡色底，沒有徽章、沒有拗音連線。
+
+未被高亮的格子**降低對比而非全暗**（opacity 約 0.4）——表格結構不能因為高亮而消失。
 
 ---
 
@@ -307,7 +312,7 @@ API 層：`readingToRomaji(reading, { particle: true })` 對字串中每個符�
 
 ### 已知限制：跨語素的 おう
 
-規則無法分辨 とうきょう（tōkyō，長音）與 思う／おもう（omou，語素邊界）。單詞層的 `romaji_override` 欄位負責處理這類例外；驗證器遇到 override 時只檢查 `romaji_ascii` 而不重新推導 `romaji`。
+規則無法分辨 とうきょう（tōkyō，長音）與 思う／おもう（omou，語素邊界）。單詞層的 `romaji_override: string | null` 負責處理這類例外——非 null 時直接當作 `romaji`，`romaji_ascii` 照常推導。
 
 **高亮仍然亮 `は` 格**（字形是 は）。這個「寫は讀wa」的落差本身是教學點，助詞頁首次出現時給註記。
 
@@ -359,6 +364,10 @@ API 層：`readingToRomaji(reading, { particle: true })` 對字串中每個符�
 
 ### 8.2 單詞 `data/words/YYYY-MM-DD.json`
 
+兩個形狀，**手寫的與建置產物的不同**（型別在 `src/lib/bank/types.ts`：`WordSeed` / `Word`）：
+
+**作者檔 `WordSeed`**——人或 AI 寫的，不含任何可推導欄位：
+
 ```jsonc
 {
   "date": "2026-09-13",
@@ -366,22 +375,14 @@ API 層：`readingToRomaji(reading, { particle: true })` 對字串中每個符�
     {
       "id": "w_0142",
       "surface": "学校",          // 表記，可能含漢字
-      "reading": "がっこう",      // 假名，對映用；驗證器強制只含假名
-      "romaji": "gakkō",
-      "romaji_ascii": "gakkou",
-      "romaji_override": false,    // true 時 romaji 為人工指定（如 思う→omou），驗證器不重新推導
+      "reading": "がっこう",      // 假名，對映用；驗證器強制只含假名、不含表外假名
+      "romaji_override": null,    // string | null；非 null 時直接取代推導的 romaji（如 思う→"omou"），romaji_ascii 仍推導
       "gloss": "學校",
-      "pos": "名詞",
-      "pitch": 0,                  // 預留：東京式聲調核位置，null 表未標
-      "freq_rank": 142,            // 來自頻率清單，選詞依據
+      "pos": "名詞",               // 枚舉的唯一來源是 types.ts 的 POS_VALUES
+      "pitch": null,               // 預留：東京式聲調核位置
+      "freq_rank": 142,            // 來自頻率清單；同檔嚴格遞增、全庫不重複
       "level": "N5",
-      "morae": [                   // 建置時由 kanaToCells 預算
-        { "index": 0, "text": "が", "cells": ["ka"],  "marks": ["dakuten"], "romaji": "ga" },
-        { "index": 1, "text": "っ", "cells": ["tsu"], "marks": ["sokuon"],  "romaji": "k"  },
-        { "index": 2, "text": "こ", "cells": ["ko"],  "marks": [],          "romaji": "kō" },
-        { "index": 3, "text": "う", "cells": ["u"],   "marks": ["chouon"],  "romaji": ""   }
-      ],
-      "example": {                 // AI 加工產物；逐 token，格式同 §8.3
+      "example": {                 // 逐 token，格式同 §8.3
         "ja": "学校まで歩いて行きます。",   // 必須等於 tokens.surface 串接 + 標點
         "zh": "走路去學校。",
         "tokens": [
@@ -389,20 +390,39 @@ API 層：`readingToRomaji(reading, { particle: true })` 對字串中每個符�
           { "surface": "まで",   "reading": "まで", "particle": true },
           { "surface": "歩いて", "reading": "あるいて" },
           { "surface": "行きます", "reading": "いきます" }
-        ],
-        "romaji": "gakkō made aruite ikimasu"   // 建置時各 token romaji 以空格 join
+        ]
       },
       "collocations": ["学校に行く", "学校を休む"],
-      "confusable_with": [],       // 易混淆詞的 word_id
+      "confusable_with": [],       // 易混淆詞的 word_id；必須對稱
       "note": null,                // 使用場景提醒
       "audio": null,               // 預留
       "source": "n5-freq",
-      "verified": true,
-      "generated_at": "2026-09-13T00:12:03Z"
+      "verified": true
     }
   ]
 }
 ```
+
+**建置產物 `Word`**（`data/bank.json`，gitignored，由 `scripts/build-bank.ts` 產生）——在 `WordSeed` 之上加：
+
+```jsonc
+{
+  "romaji": "gakkō",
+  "romaji_ascii": "gakkou",
+  "morae": [
+    { "index": 0, "text": "が", "cells": ["ka"],  "marks": ["dakuten"], "romaji": "ga" },
+    { "index": 1, "text": "っ", "cells": ["tsu"], "marks": ["sokuon"],  "romaji": "k"  },
+    { "index": 2, "text": "こ", "cells": ["ko"],  "marks": [],          "romaji": "kō" },
+    { "index": 3, "text": "う", "cells": ["u"],   "marks": ["chouon"],  "romaji": ""   }
+  ],
+  "example": {
+    "tokens": [ { "surface": "学校", "reading": "がっこう", "romaji": "gakkō", "romaji_ascii": "gakkou", "morae": [/*…*/] } /*…*/ ],
+    "romaji": "gakkō made aruite ikimasu"   // 各 token romaji 以空格 join
+  }
+}
+```
+
+`bank.json` 頂層：`{ "generated_at", "days": [{ "date", "words" }], "words": [全部展平] }`。
 
 `data/bank.json` 由建置時合併全部 `words/*.json` 產生，不手寫、不入版控（gitignore）。
 
@@ -419,7 +439,7 @@ API 層：`readingToRomaji(reading, { particle: true })` 對字串中每個符�
     { "i": 0, "surface": "食堂", "reading": "しょくどう", "romaji": "shokudō", "gloss": "食堂",   "role": "noun" },
     { "i": 1, "surface": "で",   "reading": "で",         "romaji": "de",      "gloss": "在（動作場所）", "role": "particle", "particle_id": "de" },
     { "i": 2, "surface": "昼ご飯", "reading": "ひるごはん", "romaji": "hirugohan", "gloss": "午餐", "role": "noun" },
-    { "i": 3, "surface": "を",   "reading": "を",         "romaji": "o", "romaji_override": true, "gloss": "（受詞）", "role": "particle", "particle_id": "wo" },
+    { "i": 3, "surface": "を",   "reading": "を",         "romaji": "o", "particle": true, "gloss": "（受詞）", "role": "particle", "particle_id": "wo" },
     { "i": 4, "surface": "食べます", "reading": "たべます", "romaji": "tabemasu", "gloss": "吃",  "role": "verb" }
   ],
   "bunsetsu": [[0, 1], [2, 3], [4]],   // 文節切分：排列練習用的積木單位
@@ -576,7 +596,8 @@ interface ProgressStore {
 ### 9.2 驗證器能查的（純程式，無 AI）
 
 - `reading` 只含假名（`kanaToCells` 回傳含 `out_of_table` 或非假名 → 失敗）
-- `romaji` 由 `reading` 重新推導後必須一致；助詞 override 必須符合 §7 的表
+- `romaji`／`romaji_ascii` 一律由建置腳本從 `reading` 推導，作者檔不填；`romaji_override` 非 null 時取代 `romaji`。助詞 token 的 wa/e/o 由 `particle: true` 觸發（§7）
+- `reading` 含表外假名（`out_of_table` mark：ゐ ゑ ヵ ヶ 踊り字）→ 失敗；孤兒小字與非假名字元由 `kanaToCells` throw，錯誤訊息分別指出「序列不合法」與「非假名」
 - `romaji_ascii` 為純 ASCII
 - 單詞不與現有 bank 重複（`surface` + `reading` 為鍵）
 - 例句 `tokens` 的 `particle: true` 必須在助詞白名單內（は が を に で と の も へ か から まで や ね よ でも には では とか）；反向：surface 恰為 は/を/へ/が 的獨立 token 未標 particle → 失敗。**這是弱模型照範本產詞時最容易靜默寫錯的欄位**（2026-09-12 審查：誤標會讓 romaji 變 wana 而 build 不紅）

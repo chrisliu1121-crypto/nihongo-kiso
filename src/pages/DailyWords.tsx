@@ -9,15 +9,7 @@
 import { useMemo, useState } from "react";
 import { KanaTable } from "../components/KanaTable";
 import { WordCard } from "../components/WordCard";
-import bank, { getDay, latestDayBefore, todayKey } from "../lib/bank";
-
-/** `dateKey` shifted by `deltaDays` calendar days, formatted back to YYYY-MM-DD. */
-function shiftDateKey(dateKey: string, deltaDays: number): string {
-  const [y, m, d] = dateKey.split("-").map(Number);
-  const dt = new Date(y ?? 1970, (m ?? 1) - 1, d ?? 1);
-  dt.setDate(dt.getDate() + deltaDays);
-  return todayKey(dt);
-}
+import bank, { getDay, latestDayBefore, shiftDateKey, todayKey } from "../lib/bank";
 
 export function DailyWords() {
   const [dateKey, setDateKey] = useState(() => todayKey());

@@ -19,15 +19,20 @@
 
 import type { Mora } from "../kana/types.ts";
 
-export type PartOfSpeech =
-  | "名詞"
-  | "動詞"
-  | "い形容詞"
-  | "な形容詞"
-  | "副詞"
-  | "代名詞"
-  | "疑問詞"
-  | "表現";
+/** Single source of truth for the pos enum -- scripts/build-bank.ts imports
+ *  this array directly rather than keeping its own duplicate list. */
+export const POS_VALUES = [
+  "名詞",
+  "動詞",
+  "い形容詞",
+  "な形容詞",
+  "副詞",
+  "代名詞",
+  "疑問詞",
+  "表現",
+] as const;
+
+export type PartOfSpeech = (typeof POS_VALUES)[number];
 
 export type JlptLevel = "N5" | "N4" | "N3" | "N2" | "N1";
 

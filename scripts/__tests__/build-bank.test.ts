@@ -185,6 +185,40 @@ describe("enrichWord", () => {
     );
   });
 
+  it("reading 含表外假名（ゐ）被抓：kanaToCells 不拋錯，靠 marks 檢查補上", () => {
+    const build = () => enrichWord(makeSeed({ id: "w_0010", reading: "ゐ" }), "wi.json", codec);
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/^wi\.json \/ w_0010 \/ reading 含表外假名：ゐ$/);
+  });
+
+  it("example.tokens[i].reading 含表外假名（ゐ）也被抓", () => {
+    const build = () =>
+      enrichWord(
+        makeSeed({
+          id: "w_0011",
+          example: {
+            ja: "ゐを見ます。",
+            zh: "（測試用）",
+            tokens: [
+              { surface: "ゐ", reading: "ゐ" },
+              { surface: "を", reading: "を", particle: true },
+              { surface: "見ます", reading: "みます" },
+            ],
+          },
+        }),
+        "token-wi.json",
+        codec,
+      );
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/^token-wi\.json \/ w_0011 \/ example\.tokens\[0\]\.reading 含表外假名：ゐ$/);
+  });
+
+  it("孤兒小字 reading 的錯誤訊息分類為「小字沒有可依附的前一拍」，非「含非假名字元」", () => {
+    const build = () => enrichWord(makeSeed({ id: "w_0012", reading: "ゃ" }), "orphan.json", codec);
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/^orphan\.json \/ w_0012 \/ reading 小字沒有可依附的前一拍：/);
+  });
+
   it("pos 不在枚舉內、level 不在 N5–N1 內、verified 非 boolean 都會被抓", () => {
     expect(() => enrichWord(makeSeed({ pos: "動名詞" as WordSeed["pos"] }), "x.json", codec)).toThrow(
       BuildError,

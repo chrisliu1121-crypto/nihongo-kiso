@@ -168,6 +168,7 @@ describe("kanaToCells", () => {
       } catch (e) {
         expect((e as KanaInputError).char).toBe(ch);
         expect((e as KanaInputError).index).toBe(0);
+        expect((e as KanaInputError).reason).toBe("orphan-small");
       }
     }
   });
@@ -187,6 +188,7 @@ describe("kanaToCells", () => {
       } catch (e) {
         expect((e as KanaInputError).char, input).toBe(char);
         expect((e as KanaInputError).index, input).toBe(index);
+        expect((e as KanaInputError).reason, input).toBe("orphan-small");
       }
     }
   });
@@ -199,6 +201,7 @@ describe("kanaToCells", () => {
       expect(e).toBeInstanceOf(KanaInputError);
       expect((e as KanaInputError).char).toBe("学");
       expect((e as KanaInputError).index).toBe(0);
+      expect((e as KanaInputError).reason).toBe("non-kana");
     }
   });
 
@@ -210,6 +213,7 @@ describe("kanaToCells", () => {
       expect(e).toBeInstanceOf(KanaInputError);
       expect((e as KanaInputError).char).toBe("a");
       expect((e as KanaInputError).index).toBe(1);
+      expect((e as KanaInputError).reason).toBe("non-kana");
     }
   });
 

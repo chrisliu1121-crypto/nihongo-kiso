@@ -12,7 +12,7 @@
 // prebuild cover `npm run dev`/`npm run build`, so this should only ever
 // bite a manual `tsc --noEmit` on a completely fresh clone.
 import bank from "../../../data/bank.json";
-import type { Bank, DayEntry } from "./types";
+import type { Bank } from "./types";
 
 export type {
   Bank,
@@ -26,28 +26,10 @@ export type {
   WordSeed,
 } from "./types";
 
+// Pure helpers live in dates.ts (no data/bank.json import there), so they
+// can be unit-tested without depending on the built bank -- see that file.
+export { todayKey, getDay, latestDayBefore, shiftDateKey } from "./dates.ts";
+
 const typedBank = bank as unknown as Bank;
 
 export default typedBank;
-
-/** `date`'s local-timezone YYYY-MM-DD key (defaults to right now). */
-export function todayKey(date: Date = new Date()): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
-}
-
-/** The day entry for exactly this date, or undefined if it hasn't been generated (yet). */
-export function getDay(b: Bank, date: string): DayEntry | undefined {
-  return b.days.find((d) => d.date === date);
-}
-
-/** The most recent day at or before `date`, or undefined if the bank is empty or every day is after `date`. */
-export function latestDayBefore(b: Bank, date: string): DayEntry | undefined {
-  let best: DayEntry | undefined;
-  for (const day of b.days) {
-    if (day.date <= date && (!best || day.date > best.date)) best = day;
-  }
-  return best;
-}

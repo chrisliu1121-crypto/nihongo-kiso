@@ -22,6 +22,7 @@ import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { kanaToCells, readingToRomaji } from "../src/lib/kana/index.ts";
 import { stripExamplePunctuation } from "../src/lib/bank/text.ts";
+import { POS_VALUES } from "../src/lib/bank/types.ts";
 import type {
   Bank,
   BuiltExampleToken,
@@ -29,10 +30,10 @@ import type {
   DaySeed,
   ExampleToken,
   JlptLevel,
-  PartOfSpeech,
   Word,
   WordSeed,
 } from "../src/lib/bank/types.ts";
+import { KanaInputError } from "../src/lib/kana/types.ts";
 import type { Mora } from "../src/lib/kana/types.ts";
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
@@ -40,16 +41,6 @@ const PROJECT_ROOT = resolve(SCRIPT_DIR, "..");
 const WORDS_DIR = join(PROJECT_ROOT, "data", "words");
 const BANK_PATH = join(PROJECT_ROOT, "data", "bank.json");
 
-const POS_VALUES: readonly PartOfSpeech[] = [
-  "名詞",
-  "動詞",
-  "い形容詞",
-  "な形容詞",
-  "副詞",
-  "代名詞",
-  "疑問詞",
-  "表現",
-];
 const LEVEL_VALUES: readonly JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
 const WORDS_PER_DAY = 10;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
@@ -82,6 +73,21 @@ function fail(file: string, id: string, reason: string): never {
   throw new BuildError(`${file} / ${id} / ${reason}`);
 }
 
+/** KanaInputError.reason -> the Chinese label build-bank puts in front of its own error message. */
+function kanaInputErrorLabel(err: unknown): string {
+  if (err instanceof KanaInputError && err.reason === "orphan-small") {
+    return "小字沒有可依附的前一拍";
+  }
+  return "含非假名字元";
+}
+
+/** The text of the first out-of-table mora in `morae` (ゐ/ゑ/ゕ/ゖ/踊り字...), or undefined if
+ *  none. kanaToCells doesn't throw for these -- it just marks them `out_of_table` -- so callers
+ *  that need to reject them (every authored reading in this bank) must check explicitly. */
+function findOutOfTable(morae: Mora[]): string | undefined {
+  return morae.find((m) => m.marks.includes("out_of_table"))?.text;
+}
+
 /** Run one example token through the codec, tagged with its own `particle` flag (§7 override). */
 function enrichExampleToken(
   token: ExampleToken,
@@ -109,7 +115,11 @@ function enrichExampleToken(
   try {
     morae = codec.kanaToCells(token.reading, { particle: token.particle });
   } catch (err) {
-    fail(file, id, `example.tokens[${index}].reading 含非假名字元：${(err as Error).message}`);
+    fail(file, id, `example.tokens[${index}].reading ${kanaInputErrorLabel(err)}：${(err as Error).message}`);
+  }
+  const outOfTable = findOutOfTable(morae);
+  if (outOfTable) {
+    fail(file, id, `example.tokens[${index}].reading 含表外假名：${outOfTable}`);
   }
   const romaji = codec.readingToRomaji(token.reading, { particle: token.particle }).romaji;
   return { ...token, morae, romaji };
@@ -134,7 +144,11 @@ export function enrichWord(seed: WordSeed, file: string, codec: KanaCodec): Word
   try {
     morae = codec.kanaToCells(seed.reading);
   } catch (err) {
-    fail(file, seed.id, `reading 含非假名字元：${(err as Error).message}`);
+    fail(file, seed.id, `reading ${kanaInputErrorLabel(err)}：${(err as Error).message}`);
+  }
+  const outOfTable = findOutOfTable(morae);
+  if (outOfTable) {
+    fail(file, seed.id, `reading 含表外假名：${outOfTable}`);
   }
 
   const strippedJa = stripExamplePunctuation(seed.example.ja);

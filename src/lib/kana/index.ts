@@ -6,6 +6,7 @@ export type {
   KanaDerivedForm,
   KanaYoonSet,
   KanaTable,
+  KanaInputErrorReason,
 } from "./types.ts";
 export { KanaInputError } from "./types.ts";
 

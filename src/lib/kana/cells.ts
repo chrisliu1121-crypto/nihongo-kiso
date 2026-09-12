@@ -88,6 +88,12 @@ const SMALL_VOWEL_TO_CELL: Record<string, CellId> = {
 const SMALL_VOWEL_LETTER: Record<string, string> = {
   ぁ: "a", ぃ: "i", ぅ: "u", ぇ: "e", ぉ: "o",
 };
+/** Every small kana that's structurally kana but needs something to attach to (KanaInputErrorReason "orphan-small" when it has nothing). ゎ has no attachment branch at all (yet) so it always falls through here. */
+const ORPHAN_SMALL_CHARS = new Set([
+  ...Object.keys(SMALL_Y_TO_CELL),
+  ...Object.keys(SMALL_VOWEL_TO_CELL),
+  "ゎ",
+]);
 
 const MACRON: Record<string, string> = { a: "ā", i: "ī", u: "ū", e: "ē", o: "ō" };
 
@@ -395,8 +401,8 @@ export function kanaToCells(reading: string, opts?: KanaToCellsOptions): Mora[] 
       continue;
     }
 
-    // --- not kana at all ---
-    throw new KanaInputError(oc, i);
+    // --- not kana at all, or a small kana with nothing to attach to ---
+    throw new KanaInputError(oc, i, ORPHAN_SMALL_CHARS.has(nc) ? "orphan-small" : "non-kana");
   }
 
   // Second pass (reverse, so "next" is always already resolved): fill in

@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "build:bank": "node scripts/build-bank.ts"
+    "build:bank": "node scripts/build-bank.ts",
+    "typecheck": "npm run build:bank && tsc --noEmit"
   },
   "dependencies": {
     "react": "^19.3.0",

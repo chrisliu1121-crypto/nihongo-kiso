@@ -71,19 +71,39 @@ export interface KanaTable {
 }
 
 /**
+ * Distinguishes the two situations that make kanaToCells throw (both share
+ * the same throw site -- see cells.ts's final "not kana at all" branch):
+ *   - "non-kana": the character isn't kana at all (kanji, latin letters,
+ *     punctuation, whitespace, digits, ...).
+ *   - "orphan-small": the character IS a small kana (ゃゅょぁぃぅぇぉゎ) but
+ *     has nothing to attach to -- string-initial, or right after a mora
+ *     that can't take one (yoon/sokuon/chouon/ん/out-of-table).
+ * Callers that want to react differently to the two cases (e.g.
+ * build-bank.ts's error messages) read `.reason` rather than parsing
+ * `.message`.
+ */
+export type KanaInputErrorReason = "non-kana" | "orphan-small";
+
+/**
  * Thrown by kanaToCells (and anything built on it) when the input reading
- * contains a character that is not kana (kanji, latin letters, punctuation,
- * whitespace, digits, ...). We throw rather than silently drop/skip because
- * a silent failure here would corrupt highlighting everywhere downstream.
+ * contains a character that is not kana, or a small kana with nothing to
+ * attach to. We throw rather than silently drop/skip because a silent
+ * failure here would corrupt highlighting everywhere downstream.
  */
 export class KanaInputError extends Error {
   char: string;
   index: number;
+  reason: KanaInputErrorReason;
 
-  constructor(char: string, index: number) {
-    super(`KanaInputError: non-kana character ${JSON.stringify(char)} at index ${index}`);
+  constructor(char: string, index: number, reason: KanaInputErrorReason = "non-kana") {
+    super(
+      reason === "orphan-small"
+        ? `KanaInputError: orphan small kana ${JSON.stringify(char)} at index ${index} (no attachable previous mora)`
+        : `KanaInputError: non-kana character ${JSON.stringify(char)} at index ${index}`,
+    );
     this.name = "KanaInputError";
     this.char = char;
     this.index = index;
+    this.reason = reason;
   }
 }
