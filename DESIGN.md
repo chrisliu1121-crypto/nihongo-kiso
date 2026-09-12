@@ -303,6 +303,8 @@ Token schema 因此需要 `romaji_override`。驗證器反向檢查：`role === 
 
 API 層：`readingToRomaji(reading, { particle: true })` 對字串中每個符合條件的 は/へ 套用 override，因此 では → `de wa` 也正確。呼叫者必須按 token 分別呼叫，不可把整句丟進去。
 
+**整句丟進去會錯的第二個理由**（2026-09-12 實測）：長音規則不知道詞界。「お金があります」整句轉換時 が＋あ 被合併成 `gā`。所以任何句子——例句、練習題、未來的使用者輸入——都必須先切成 token 再逐個轉換；§8.2 的 `example` 與 §8.3 的 `tokens` 是同一種格式，理由在此。
+
 ### 已知限制：跨語素的 おう
 
 規則無法分辨 とうきょう（tōkyō，長音）與 思う／おもう（omou，語素邊界）。單詞層的 `romaji_override` 欄位負責處理這類例外；驗證器遇到 override 時只檢查 `romaji_ascii` 而不重新推導 `romaji`。
@@ -379,10 +381,16 @@ API 層：`readingToRomaji(reading, { particle: true })` 對字串中每個符�
         { "index": 2, "text": "こ", "cells": ["ko"],  "marks": [],          "romaji": "kō" },
         { "index": 3, "text": "う", "cells": ["u"],   "marks": ["chouon"],  "romaji": ""   }
       ],
-      "example": {                 // AI 加工產物
-        "ja": "学校まで歩いて行きます。",
-        "reading": "がっこうまであるいていきます。",
-        "zh": "走路去學校。"
+      "example": {                 // AI 加工產物；逐 token，格式同 §8.3
+        "ja": "学校まで歩いて行きます。",   // 必須等於 tokens.surface 串接 + 標點
+        "zh": "走路去學校。",
+        "tokens": [
+          { "surface": "学校",   "reading": "がっこう" },
+          { "surface": "まで",   "reading": "まで", "particle": true },
+          { "surface": "歩いて", "reading": "あるいて" },
+          { "surface": "行きます", "reading": "いきます" }
+        ],
+        "romaji": "gakkō made aruite ikimasu"   // 建置時各 token romaji 以空格 join
       },
       "collocations": ["学校に行く", "学校を休む"],
       "confusable_with": [],       // 易混淆詞的 word_id
@@ -571,6 +579,9 @@ interface ProgressStore {
 - `romaji` 由 `reading` 重新推導後必須一致；助詞 override 必須符合 §7 的表
 - `romaji_ascii` 為純 ASCII
 - 單詞不與現有 bank 重複（`surface` + `reading` 為鍵）
+- 例句 `tokens` 的 `particle: true` 必須在助詞白名單內（は が を に で と の も へ か から まで や ね よ でも には では とか）；反向：surface 恰為 は/を/へ/が 的獨立 token 未標 particle → 失敗。**這是弱模型照範本產詞時最容易靜默寫錯的欄位**（2026-09-12 審查：誤標會讓 romaji 變 wana 而 build 不紅）
+- `example.ja` 去標點後必須等於 `tokens.surface` 串接
+- `freq_rank` 同檔嚴格遞增且全庫不重複；`confusable_with` 必須對稱
 - 句子的動詞 token 在最後；`bunsetsu` 覆蓋全部 token 恰一次
 - `valid_orders` 中每個序都通過規則檢查器
 - 助詞候選的 `particle_id` 在八大之內；至少一個 `natural`

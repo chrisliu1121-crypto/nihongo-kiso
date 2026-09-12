@@ -23,9 +23,9 @@
 // token must be its own reading (e.g. reading "は" alone, not a whole
 // sentence) -- call this once per token, never once for a whole sentence.
 
-import kanaData from "../../../data/kana.json";
-import type { CellId, CellMark, KanaCell, Mora } from "./types";
-import { KanaInputError } from "./types";
+import kanaData from "../../../data/kana.json" with { type: "json" };
+import type { CellId, CellMark, KanaCell, Mora } from "./types.ts";
+import { KanaInputError } from "./types.ts";
 
 const KANA_CELLS = kanaData.cells as unknown as KanaCell[];
 

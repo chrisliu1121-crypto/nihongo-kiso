@@ -6,11 +6,11 @@ export type {
   KanaDerivedForm,
   KanaYoonSet,
   KanaTable,
-} from "./types";
-export { KanaInputError } from "./types";
+} from "./types.ts";
+export { KanaInputError } from "./types.ts";
 
-export type { KanaToCellsOptions } from "./cells";
-export { kanaToCells, toHiragana } from "./cells";
+export type { KanaToCellsOptions } from "./cells.ts";
+export { kanaToCells, toHiragana } from "./cells.ts";
 
-export type { ReadingToRomajiOptions, RomajiResult } from "./romaji";
-export { readingToRomaji, moraeWithRomaji } from "./romaji";
+export type { ReadingToRomajiOptions, RomajiResult } from "./romaji.ts";
+export { readingToRomaji, moraeWithRomaji } from "./romaji.ts";

@@ -1,0 +1,267 @@
+{
+  "date": "2026-09-11",
+  "words": [
+    {
+      "id": "w_0011",
+      "surface": "食べる",
+      "reading": "たべる",
+      "gloss": "吃",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 11,
+      "romaji_override": null,
+      "example": {
+        "ja": "ご飯を食べます。",
+        "zh": "吃飯。",
+        "tokens": [
+          { "surface": "ご飯", "reading": "ごはん" },
+          { "surface": "を", "reading": "を", "particle": true },
+          { "surface": "食べます", "reading": "たべます" }
+        ]
+      },
+      "collocations": ["ご飯を食べる"],
+      "confusable_with": ["w_0012"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0012",
+      "surface": "飲む",
+      "reading": "のむ",
+      "gloss": "喝",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 12,
+      "romaji_override": null,
+      "example": {
+        "ja": "冷たい水を飲みます。",
+        "zh": "喝冰水。",
+        "tokens": [
+          { "surface": "冷たい水", "reading": "つめたいみず" },
+          { "surface": "を", "reading": "を", "particle": true },
+          { "surface": "飲みます", "reading": "のみます" }
+        ]
+      },
+      "collocations": ["水を飲む"],
+      "confusable_with": ["w_0011"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0013",
+      "surface": "時間",
+      "reading": "じかん",
+      "gloss": "時間",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 13,
+      "romaji_override": null,
+      "example": {
+        "ja": "時間がありません。",
+        "zh": "沒有時間。",
+        "tokens": [
+          { "surface": "時間", "reading": "じかん" },
+          { "surface": "が", "reading": "が", "particle": true },
+          { "surface": "ありません", "reading": "ありません" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0014",
+      "surface": "水",
+      "reading": "みず",
+      "gloss": "水",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 14,
+      "romaji_override": null,
+      "example": {
+        "ja": "水をください。",
+        "zh": "請給我水。",
+        "tokens": [
+          { "surface": "水", "reading": "みず" },
+          { "surface": "を", "reading": "を", "particle": true },
+          { "surface": "ください", "reading": "ください" }
+        ]
+      },
+      "collocations": ["水を飲む"],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0015",
+      "surface": "日本",
+      "reading": "にほん",
+      "gloss": "日本",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 15,
+      "romaji_override": null,
+      "example": {
+        "ja": "私は日本が好きです。",
+        "zh": "我喜歡日本。",
+        "tokens": [
+          { "surface": "私", "reading": "わたし" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "日本", "reading": "にほん" },
+          { "surface": "が", "reading": "が", "particle": true },
+          { "surface": "好きです", "reading": "すきです" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0016",
+      "surface": "大きい",
+      "reading": "おおきい",
+      "gloss": "大的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 16,
+      "romaji_override": null,
+      "example": {
+        "ja": "この家は大きいです。",
+        "zh": "這個家很大。",
+        "tokens": [
+          { "surface": "この家", "reading": "このいえ" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "大きいです", "reading": "おおきいです" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": ["w_0017"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0017",
+      "surface": "小さい",
+      "reading": "ちいさい",
+      "gloss": "小的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 17,
+      "romaji_override": null,
+      "example": {
+        "ja": "この本は小さいです。",
+        "zh": "這本書很小。",
+        "tokens": [
+          { "surface": "この本", "reading": "このほん" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "小さいです", "reading": "ちいさいです" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": ["w_0016"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0018",
+      "surface": "新しい",
+      "reading": "あたらしい",
+      "gloss": "新的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 18,
+      "romaji_override": null,
+      "example": {
+        "ja": "新しい本を買います。",
+        "zh": "買新書。",
+        "tokens": [
+          { "surface": "新しい本", "reading": "あたらしいほん" },
+          { "surface": "を", "reading": "を", "particle": true },
+          { "surface": "買います", "reading": "かいます" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0019",
+      "surface": "好き",
+      "reading": "すき",
+      "gloss": "喜歡",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 19,
+      "romaji_override": null,
+      "example": {
+        "ja": "日本語が好きです。",
+        "zh": "喜歡日語。",
+        "tokens": [
+          { "surface": "日本語", "reading": "にほんご" },
+          { "surface": "が", "reading": "が", "particle": true },
+          { "surface": "好きです", "reading": "すきです" }
+        ]
+      },
+      "collocations": ["〜が好き"],
+      "confusable_with": [],
+      "note": "は/が 對照的重點詞（DESIGN.md p_23）：日本語**が**好き才是常見講法",
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0020",
+      "surface": "本",
+      "reading": "ほん",
+      "gloss": "書",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 20,
+      "romaji_override": null,
+      "example": {
+        "ja": "本を読みます。",
+        "zh": "看書。",
+        "tokens": [
+          { "surface": "本", "reading": "ほん" },
+          { "surface": "を", "reading": "を", "particle": true },
+          { "surface": "読みます", "reading": "よみます" }
+        ]
+      },
+      "collocations": ["本を読む"],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    }
+  ]
+}

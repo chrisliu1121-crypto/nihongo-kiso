@@ -11,8 +11,8 @@
 // spells long vowels out literally (とうきょう -> "toukyou") instead of
 // merging them into a macron the way the display romaji does.
 
-import type { Mora } from "./types";
-import { kanaToCells, SEION_ROMAJI_BY_ID, type KanaToCellsOptions } from "./cells";
+import type { Mora } from "./types.ts";
+import { kanaToCells, SEION_ROMAJI_BY_ID, type KanaToCellsOptions } from "./cells.ts";
 
 export type ReadingToRomajiOptions = KanaToCellsOptions;
 

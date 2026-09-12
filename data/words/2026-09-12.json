@@ -1,0 +1,267 @@
+{
+  "date": "2026-09-12",
+  "words": [
+    {
+      "id": "w_0021",
+      "surface": "友達",
+      "reading": "ともだち",
+      "gloss": "朋友",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 21,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達と話します。",
+        "zh": "和朋友聊天。",
+        "tokens": [
+          { "surface": "友達", "reading": "ともだち" },
+          { "surface": "と", "reading": "と", "particle": true },
+          { "surface": "話します", "reading": "はなします" }
+        ]
+      },
+      "collocations": ["友達と話す"],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0022",
+      "surface": "家",
+      "reading": "いえ",
+      "gloss": "家",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 22,
+      "romaji_override": null,
+      "example": {
+        "ja": "家に帰ります。",
+        "zh": "回家。",
+        "tokens": [
+          { "surface": "家", "reading": "いえ" },
+          { "surface": "に", "reading": "に", "particle": true },
+          { "surface": "帰ります", "reading": "かえります" }
+        ]
+      },
+      "collocations": ["家に帰る"],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0023",
+      "surface": "電車",
+      "reading": "でんしゃ",
+      "gloss": "電車",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 23,
+      "romaji_override": null,
+      "example": {
+        "ja": "電車に乗ります。",
+        "zh": "搭電車。",
+        "tokens": [
+          { "surface": "電車", "reading": "でんしゃ" },
+          { "surface": "に", "reading": "に", "particle": true },
+          { "surface": "乗ります", "reading": "のります" }
+        ]
+      },
+      "collocations": ["電車に乗る"],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0024",
+      "surface": "駅",
+      "reading": "えき",
+      "gloss": "車站",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 24,
+      "romaji_override": null,
+      "example": {
+        "ja": "駅まで歩きます。",
+        "zh": "走路到車站。",
+        "tokens": [
+          { "surface": "駅", "reading": "えき" },
+          { "surface": "まで", "reading": "まで", "particle": true },
+          { "surface": "歩きます", "reading": "あるきます" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0025",
+      "surface": "お金",
+      "reading": "おかね",
+      "gloss": "錢",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 25,
+      "romaji_override": null,
+      "example": {
+        "ja": "お金がありません。",
+        "zh": "沒有錢。",
+        "tokens": [
+          { "surface": "お金", "reading": "おかね" },
+          { "surface": "が", "reading": "が", "particle": true },
+          { "surface": "ありません", "reading": "ありません" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0026",
+      "surface": "朝",
+      "reading": "あさ",
+      "gloss": "早上",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 26,
+      "romaji_override": null,
+      "example": {
+        "ja": "朝、水を飲みます。",
+        "zh": "早上喝水。",
+        "tokens": [
+          { "surface": "朝", "reading": "あさ" },
+          { "surface": "水", "reading": "みず" },
+          { "surface": "を", "reading": "を", "particle": true },
+          { "surface": "飲みます", "reading": "のみます" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0027",
+      "surface": "今",
+      "reading": "いま",
+      "gloss": "現在",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 27,
+      "romaji_override": null,
+      "example": {
+        "ja": "今、忙しいです。",
+        "zh": "現在很忙。",
+        "tokens": [
+          { "surface": "今", "reading": "いま" },
+          { "surface": "忙しいです", "reading": "いそがしいです" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": ["w_0003"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0028",
+      "surface": "何",
+      "reading": "なに",
+      "gloss": "什麼",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 28,
+      "romaji_override": null,
+      "example": {
+        "ja": "これは何ですか。",
+        "zh": "這是什麼？",
+        "tokens": [
+          { "surface": "これ", "reading": "これ" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "何ですか", "reading": "なんですか" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": [],
+      "note": "後接です／だ等時常讀作なん，例句即為一例",
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0029",
+      "surface": "これ",
+      "reading": "これ",
+      "gloss": "這個",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 29,
+      "romaji_override": null,
+      "example": {
+        "ja": "これは本です。",
+        "zh": "這是書。",
+        "tokens": [
+          { "surface": "これ", "reading": "これ" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "本です", "reading": "ほんです" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0030",
+      "surface": "ありがとう",
+      "reading": "ありがとう",
+      "gloss": "謝謝",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 30,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達にありがとうと言います。",
+        "zh": "跟朋友道謝。",
+        "tokens": [
+          { "surface": "友達", "reading": "ともだち" },
+          { "surface": "に", "reading": "に", "particle": true },
+          { "surface": "ありがとう", "reading": "ありがとう" },
+          { "surface": "と", "reading": "と", "particle": true },
+          { "surface": "言います", "reading": "いいます" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    }
+  ]
+}

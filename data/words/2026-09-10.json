@@ -1,0 +1,267 @@
+{
+  "date": "2026-09-10",
+  "words": [
+    {
+      "id": "w_0001",
+      "surface": "私",
+      "reading": "わたし",
+      "gloss": "我",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 1,
+      "romaji_override": null,
+      "example": {
+        "ja": "私は学生です。",
+        "zh": "我是學生。",
+        "tokens": [
+          { "surface": "私", "reading": "わたし" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "学生です", "reading": "がくせいです" }
+        ]
+      },
+      "collocations": ["私は", "私の"],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0002",
+      "surface": "人",
+      "reading": "ひと",
+      "gloss": "人",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 2,
+      "romaji_override": null,
+      "example": {
+        "ja": "あの人は先生です。",
+        "zh": "那個人是老師。",
+        "tokens": [
+          { "surface": "あの人", "reading": "あのひと" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "先生です", "reading": "せんせいです" }
+        ]
+      },
+      "collocations": ["あの人", "この人"],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0003",
+      "surface": "今日",
+      "reading": "きょう",
+      "gloss": "今天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 3,
+      "romaji_override": null,
+      "example": {
+        "ja": "今日は暑いです。",
+        "zh": "今天很熱。",
+        "tokens": [
+          { "surface": "今日", "reading": "きょう" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "暑いです", "reading": "あついです" }
+        ]
+      },
+      "collocations": ["今日は"],
+      "confusable_with": ["w_0027"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0004",
+      "surface": "明日",
+      "reading": "あした",
+      "gloss": "明天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 4,
+      "romaji_override": null,
+      "example": {
+        "ja": "明日、学校に行きます。",
+        "zh": "明天去學校。",
+        "tokens": [
+          { "surface": "明日", "reading": "あした" },
+          { "surface": "学校", "reading": "がっこう" },
+          { "surface": "に", "reading": "に", "particle": true },
+          { "surface": "行きます", "reading": "いきます" }
+        ]
+      },
+      "collocations": ["明日は"],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0005",
+      "surface": "学校",
+      "reading": "がっこう",
+      "gloss": "學校",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 5,
+      "romaji_override": null,
+      "example": {
+        "ja": "学校まで歩いて行きます。",
+        "zh": "走路去學校。",
+        "tokens": [
+          { "surface": "学校", "reading": "がっこう" },
+          { "surface": "まで", "reading": "まで", "particle": true },
+          { "surface": "歩いて", "reading": "あるいて" },
+          { "surface": "行きます", "reading": "いきます" }
+        ]
+      },
+      "collocations": ["学校に行く", "学校を休む"],
+      "confusable_with": ["w_0007"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0006",
+      "surface": "先生",
+      "reading": "せんせい",
+      "gloss": "老師",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 6,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生はやさしいです。",
+        "zh": "老師很親切。",
+        "tokens": [
+          { "surface": "先生", "reading": "せんせい" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "やさしいです", "reading": "やさしいです" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": ["w_0007"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0007",
+      "surface": "学生",
+      "reading": "がくせい",
+      "gloss": "學生",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 7,
+      "romaji_override": null,
+      "example": {
+        "ja": "彼は学生です。",
+        "zh": "他是學生。",
+        "tokens": [
+          { "surface": "彼", "reading": "かれ" },
+          { "surface": "は", "reading": "は", "particle": true },
+          { "surface": "学生です", "reading": "がくせいです" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": ["w_0005", "w_0006"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0008",
+      "surface": "行く",
+      "reading": "いく",
+      "gloss": "去",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 8,
+      "romaji_override": null,
+      "example": {
+        "ja": "学校に行きます。",
+        "zh": "去學校。",
+        "tokens": [
+          { "surface": "学校", "reading": "がっこう" },
+          { "surface": "に", "reading": "に", "particle": true },
+          { "surface": "行きます", "reading": "いきます" }
+        ]
+      },
+      "collocations": ["学校に行く"],
+      "confusable_with": ["w_0009"],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0009",
+      "surface": "来る",
+      "reading": "くる",
+      "gloss": "來",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 9,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達が来ます。",
+        "zh": "朋友要來。",
+        "tokens": [
+          { "surface": "友達", "reading": "ともだち" },
+          { "surface": "が", "reading": "が", "particle": true },
+          { "surface": "来ます", "reading": "きます" }
+        ]
+      },
+      "collocations": [],
+      "confusable_with": ["w_0008"],
+      "note": "不規則活用：来ます讀作きます",
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    },
+    {
+      "id": "w_0010",
+      "surface": "見る",
+      "reading": "みる",
+      "gloss": "看",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 10,
+      "romaji_override": null,
+      "example": {
+        "ja": "テレビを見ます。",
+        "zh": "看電視。",
+        "tokens": [
+          { "surface": "テレビ", "reading": "てれび" },
+          { "surface": "を", "reading": "を", "particle": true },
+          { "surface": "見ます", "reading": "みます" }
+        ]
+      },
+      "collocations": ["テレビを見る"],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "seed-manual",
+      "verified": true
+    }
+  ]
+}

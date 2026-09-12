@@ -11,9 +11,10 @@
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "allowImportingTsExtensions": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["vitest/globals", "vite/client"]
+    "types": ["vitest/globals", "vite/client", "node"]
   },
   "include": ["src", "data", "scripts"]
 }
