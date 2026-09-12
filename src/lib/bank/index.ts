@@ -16,19 +16,41 @@ import type { Bank } from "./types";
 
 export type {
   Bank,
+  BuiltSentenceToken,
+  ContrastPair,
+  ContrastSet,
   DayEntry,
   DaySeed,
   JlptLevel,
+  Particle,
+  ParticleClass,
+  ParticleId,
+  ParticlesFile,
+  ParticleSense,
+  ParticleWeight,
   PartOfSpeech,
+  Sentence,
+  SentenceFile,
+  SentenceSeed,
+  SentenceToken,
   Word,
   WordExample,
   WordExampleSeed,
   WordSeed,
 } from "./types";
+export { PARTICLE_IDS } from "./types";
 
-// Pure helpers live in dates.ts (no data/bank.json import there), so they
-// can be unit-tested without depending on the built bank -- see that file.
+// Pure helpers live in dates.ts/grammar.ts (no data/bank.json import there),
+// so they can be unit-tested without depending on the built bank -- see
+// those files.
 export { todayKey, getDay, latestDayBefore, shiftDateKey } from "./dates.ts";
+export {
+  adjacentParticles,
+  contrastSetsForParticle,
+  getContrastSet,
+  getParticle,
+  getSentence,
+} from "./grammar.ts";
 
 const typedBank = bank as unknown as Bank;
 

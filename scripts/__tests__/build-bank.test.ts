@@ -1,8 +1,18 @@
 import { describe, expect, it } from "vitest";
 import { kanaToCells, readingToRomaji } from "../../src/lib/kana";
 import { stripExamplePunctuation } from "../../src/lib/bank/text";
-import type { DaySeed, ExampleToken, WordSeed } from "../../src/lib/bank/types";
-import { BuildError, enrichWord, validateBank, type KanaCodec, type RawDay } from "../build-bank";
+import type { DaySeed, ExampleToken, ParticlesFile, SentenceSeed, WordSeed } from "../../src/lib/bank/types";
+import {
+  BuildError,
+  enrichSentence,
+  enrichWord,
+  validateBank,
+  validateParticles,
+  validateSentences,
+  type KanaCodec,
+  type RawDay,
+  type RawSentence,
+} from "../build-bank";
 
 // The real codec (same functions the app and build script both use) --
 // enrichWord/validateBank take it as a parameter specifically so tests
@@ -404,5 +414,191 @@ describe("validateBank", () => {
       ),
     );
     expect(() => validateBank([day])).not.toThrow();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Grammar sentences (build task 2026-09 step 4)
+
+function makeSentenceSeed(overrides: Partial<SentenceSeed> = {}): SentenceSeed {
+  return {
+    id: "s_g001",
+    pattern_id: null,
+    level: "N5",
+    tokens: [
+      { surface: "私", reading: "わたし", gloss: "我" },
+      { surface: "は", reading: "は", gloss: "（主題）", particle: true },
+      { surface: "学生", reading: "がくせい", gloss: "學生" },
+      { surface: "です", reading: "です", gloss: "是" },
+    ],
+    bunsetsu: [[0, 1], [2, 3]],
+    valid_orders: [[0, 1]],
+    preferred_order: [0, 1],
+    translation: "我是學生。",
+    verified: true,
+    tags: ["particle:wa"],
+    ...overrides,
+  };
+}
+
+describe("enrichSentence", () => {
+  it("derives ja/romaji from tokens, particle は 讀成 wa", () => {
+    const sentence = enrichSentence(makeSentenceSeed(), "grammar-seed.json", codec);
+    expect(sentence.ja).toBe("私は学生です。");
+    expect(sentence.romaji).toBe("watashi wa gakusei desu");
+    expect(sentence.tokens[1].romaji).toBe("wa");
+  });
+
+  it("bunsetsu 未覆蓋全部 token 被抓", () => {
+    const build = () =>
+      enrichSentence(
+        makeSentenceSeed({ id: "s_g002", bunsetsu: [[0, 1], [2]] }), // drops token 3
+        "grammar-seed.json",
+        codec,
+      );
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/bunsetsu 未恰好覆蓋全部 4 個 token 各一次/);
+  });
+
+  it("bunsetsu 重複覆蓋同一 token 被抓", () => {
+    const build = () =>
+      enrichSentence(
+        makeSentenceSeed({ id: "s_g003", bunsetsu: [[0, 1], [1, 2, 3]] }), // token 1 twice
+        "grammar-seed.json",
+        codec,
+      );
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/bunsetsu 未恰好覆蓋全部 4 個 token 各一次/);
+  });
+
+  it("valid_orders 的動詞文節不在最後時被抓，訊息指出違反的 id", () => {
+    const build = () =>
+      enrichSentence(
+        makeSentenceSeed({ id: "s_g004", valid_orders: [[1, 0]] }), // "学生です" bunsetsu first, "私は" last
+        "grammar-seed.json",
+        codec,
+      );
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/^grammar-seed\.json \/ s_g004 \/ valid_orders\[0\] 的動詞文節未在最後/);
+  });
+
+  it("valid_orders 不是 bunsetsu 索引排列時被抓", () => {
+    const build = () =>
+      enrichSentence(makeSentenceSeed({ id: "s_g005", valid_orders: [[0, 0]] }), "grammar-seed.json", codec);
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/valid_orders\[0\] 不是 bunsetsu 索引的排列/);
+  });
+
+  it("preferred_order 不在 valid_orders 內時被抓", () => {
+    const build = () =>
+      enrichSentence(
+        makeSentenceSeed({ id: "s_g006", valid_orders: [[0, 1]], preferred_order: [1, 0] }),
+        "grammar-seed.json",
+        codec,
+      );
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/preferred_order 必須是 valid_orders 之一/);
+  });
+
+  it("token particle:true 但不在助詞白名單內被抓（沿用 enrichExampleToken 同一套規則）", () => {
+    const build = () =>
+      enrichSentence(
+        makeSentenceSeed({
+          id: "s_g007",
+          tokens: [
+            { surface: "はな", reading: "はな", gloss: "花", particle: true },
+            { surface: "です", reading: "です", gloss: "是" },
+          ],
+          bunsetsu: [[0], [1]],
+        }),
+        "grammar-seed.json",
+        codec,
+      );
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/標了 particle:true 但 surface "はな" 不在助詞白名單內/);
+  });
+});
+
+describe("validateSentences", () => {
+  it("跨檔重複 id 被抓", () => {
+    const a: RawSentence = { file: "a.json", seed: makeSentenceSeed({ id: "s_g001" }) };
+    const b: RawSentence = { file: "b.json", seed: makeSentenceSeed({ id: "s_g001" }) };
+    expect(() => validateSentences([a, b])).toThrow(BuildError);
+    expect(() => validateSentences([a, b])).toThrow(/id 與 a\.json 重複/);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Particles (build task 2026-09 step 4)
+
+function makeParticlesFile(overrides: Partial<ParticlesFile> = {}): ParticlesFile {
+  const ids = ["wa", "ga", "wo", "ni", "de", "to", "no", "mo"] as const;
+  return {
+    particles: ids.map((id) => ({
+      id,
+      surface: id,
+      reading: id,
+      romaji: id,
+      romaji_note: null,
+      cell: "a",
+      class: "kaku",
+      core: "core",
+      zh_bridge: "bridge",
+      senses: [{ label: "sense", example_id: "s_g001" }],
+      contrast_with: [],
+      weight: "medium",
+    })),
+    contrast_sets: [],
+    ...overrides,
+  };
+}
+
+describe("validateParticles", () => {
+  const sentenceIds = new Set(["s_g001"]);
+
+  it("八筆都在時不報錯", () => {
+    expect(() => validateParticles(makeParticlesFile(), sentenceIds)).not.toThrow();
+  });
+
+  it("senses.example_id 指向不存在的句子被抓", () => {
+    const file = makeParticlesFile();
+    file.particles[0].senses = [{ label: "sense", example_id: "s_missing" }];
+    expect(() => validateParticles(file, sentenceIds)).toThrow(BuildError);
+    expect(() => validateParticles(file, sentenceIds)).toThrow(
+      /senses\[0\]\.example_id 指向不存在的句子：s_missing/,
+    );
+  });
+
+  it("cell 不在 46 格內被抓", () => {
+    const file = makeParticlesFile();
+    file.particles[0].cell = "xx" as ParticlesFile["particles"][number]["cell"];
+    expect(() => validateParticles(file, sentenceIds)).toThrow(BuildError);
+    expect(() => validateParticles(file, sentenceIds)).toThrow(/cell 不在 46 格內：xx/);
+  });
+
+  it("缺少八大助詞之一時被抓", () => {
+    const file = makeParticlesFile();
+    file.particles.pop();
+    expect(() => validateParticles(file, sentenceIds)).toThrow(BuildError);
+    expect(() => validateParticles(file, sentenceIds)).toThrow(/particles 未涵蓋全部八大助詞/);
+  });
+
+  it("contrast_sets.pairs.sentence_id 指向不存在的句子被抓", () => {
+    const file = makeParticlesFile({
+      contrast_sets: [
+        {
+          id: "cs_test",
+          particles: ["wa", "ga"],
+          title: "t",
+          summary: "s",
+          pairs: [{ sentence_id: "s_missing", note: "n" }],
+          exercise_ids: [],
+        },
+      ],
+    });
+    expect(() => validateParticles(file, sentenceIds)).toThrow(BuildError);
+    expect(() => validateParticles(file, sentenceIds)).toThrow(
+      /pairs\[0\]\.sentence_id 指向不存在的句子：s_missing/,
+    );
   });
 });

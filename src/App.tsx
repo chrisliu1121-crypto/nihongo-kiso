@@ -1,9 +1,26 @@
-// App — top-level route. The foundations demo (KanaTable + Token hand-test
-// harness) lived here through DESIGN.md §12 steps 1-2; it's kept in git
-// history. This is now the real first page: DESIGN.md §12 step 3.
+// App — top-level router (DESIGN.md §3, build task 2026-09 step 4). KanaTable
+// now lives in routes/Layout.tsx so it stays mounted across every route
+// (DailyWords used to render it inline through step 3 -- see that file's own
+// header comment).
 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Layout } from "./routes/Layout";
 import { DailyWords } from "./pages/DailyWords";
+import { GrammarOverview } from "./pages/GrammarOverview";
+import { ParticlePage } from "./pages/ParticlePage";
+import { NotFound } from "./pages/NotFound";
 
 export function App() {
-  return <DailyWords />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<DailyWords />} />
+          <Route path="grammar" element={<GrammarOverview />} />
+          <Route path="grammar/:particleId" element={<ParticlePage />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }

@@ -17,7 +17,7 @@
 // fields live only in the built Word, and `romaji_override` is the literal
 // replacement string (or null), not a flag.
 
-import type { Mora } from "../kana/types.ts";
+import type { CellId, Mora } from "../kana/types.ts";
 
 /** Single source of truth for the pos enum -- scripts/build-bank.ts imports
  *  this array directly rather than keeping its own duplicate list. */
@@ -134,4 +134,144 @@ export interface Bank {
   generated_at: string;
   days: DayEntry[];
   words: Word[];
+  sentences: Sentence[];
+  particles: ParticlesFile;
+}
+
+// ---------------------------------------------------------------------------
+// Grammar sentences (build task 2026-09 step 4, DESIGN.md §8.3) -- same
+// author-vs-built split as words above. A sentence feeds both the /grammar
+// overview skeleton and the particle senses/contrast pairs; the same
+// sentence id can be (and often is) referenced from more than one place, so
+// sentences are stored once in data/sentences/*.json and referenced by id,
+// never duplicated.
+
+/**
+ * One token inside a hand-authored sentence. Deliberately the same shape as
+ * ExampleToken plus `gloss` -- sentences are tokenized for the exact same
+ * reason word examples are (DESIGN.md §7: a particle's は/へ/を only read as
+ * wa/e/o when kanaToCells is told this token IS a particle, and feeding a
+ * whole sentence through kanaToCells at once can also misread an unrelated
+ * word-boundary vowel pair as a long vowel).
+ */
+export interface SentenceToken {
+  surface: string;
+  /** Kana-only reading of just this token. */
+  reading: string;
+  /** Chinese gloss shown under this token; for a particle this names its function ("（主題）"), not a literal translation. */
+  gloss: string;
+  /** True for a grammatical particle token -- see ExampleToken's own doc for why this must be per-token. */
+  particle?: boolean;
+}
+
+/** Author-facing shape: what a human writes in data/sentences/*.json's `sentences` array. */
+export interface SentenceSeed {
+  /** Globally unique across every data/sentences/*.json file, e.g. "s_g001". */
+  id: string;
+  /** Links to a data/patterns.json entry; null when this sentence isn't tied to one (patterns.json is out of this build task's scope). */
+  pattern_id: string | null;
+  level: JlptLevel;
+  tokens: SentenceToken[];
+  /**
+   * 文節 (bunsetsu) partition of `tokens`, each entry a list of token
+   * indices. Must cover every index in `tokens` exactly once -- this is the
+   * arrange-practice block unit (DESIGN.md §8.3).
+   */
+  bunsetsu: number[][];
+  /**
+   * Natural word orders, each expressed as a permutation of *bunsetsu*
+   * indices (not token indices). The verb-final bunsetsu must be last in
+   * every order (build-bank.ts checks this: the last token of the last
+   * bunsetsu must end in ます/です/ています/ません).
+   */
+  valid_orders: number[][];
+  /** The single most natural order, also a permutation of bunsetsu indices. */
+  preferred_order: number[];
+  translation: string;
+  verified: boolean;
+  /** Free-form labels for cross-referencing, e.g. "particle:wa". */
+  tags: string[];
+  /** Optional authoring note, e.g. flagging that `valid_orders` is a curated sample rather than an exhaustive permutation list. */
+  note?: string;
+}
+
+/** One SentenceToken after build-bank.ts has run it through kanaToCells/readingToRomaji (with its own `particle` flag). */
+export interface BuiltSentenceToken extends SentenceToken {
+  morae: Mora[];
+  romaji: string;
+}
+
+/** A SentenceSeed after scripts/build-bank.ts has computed its derived fields. */
+export interface Sentence extends Omit<SentenceSeed, "tokens"> {
+  tokens: BuiltSentenceToken[];
+  /** tokens' surfaces concatenated + "。" -- not authored, always derived so it can never drift from `tokens`. */
+  ja: string;
+  /** Every token's romaji, joined with a single space. */
+  romaji: string;
+}
+
+/** Shape of one data/sentences/*.json file. */
+export interface SentenceFile {
+  sentences: SentenceSeed[];
+}
+
+// ---------------------------------------------------------------------------
+// Particles (build task 2026-09 step 4, DESIGN.md §8.4). Unlike words/
+// sentences, particles.json has no derived fields -- romaji/cell are
+// hand-authored (there are only 8, and their readings are all irregular
+// exceptions anyway -- see DESIGN.md §7) and build-bank.ts only validates
+// and passes the file through unchanged into bank.json's `particles` field.
+
+/** Single source of truth for the 8-particle id set. */
+export const PARTICLE_IDS = ["wa", "ga", "wo", "ni", "de", "to", "no", "mo"] as const;
+export type ParticleId = (typeof PARTICLE_IDS)[number];
+
+export const PARTICLE_CLASS_VALUES = ["kaku", "kakari", "rentai"] as const;
+export type ParticleClass = (typeof PARTICLE_CLASS_VALUES)[number];
+
+export const PARTICLE_WEIGHT_VALUES = ["heavy", "medium", "light"] as const;
+export type ParticleWeight = (typeof PARTICLE_WEIGHT_VALUES)[number];
+
+/** One named usage of a particle, pointing at the Sentence that demonstrates it. */
+export interface ParticleSense {
+  label: string;
+  example_id: string;
+}
+
+export interface Particle {
+  id: ParticleId;
+  surface: string;
+  reading: string;
+  romaji: string;
+  /** Only non-null for irregular readings (currently just は). */
+  romaji_note: string | null;
+  /** Which of the 46 gojuon-table cells lights up for this particle (its *base* seion cell -- e.g. が lights up "ka", で lights up "te"). */
+  cell: CellId;
+  class: ParticleClass;
+  core: string;
+  zh_bridge: string;
+  senses: ParticleSense[];
+  contrast_with: ParticleId[];
+  weight: ParticleWeight;
+}
+
+export interface ContrastPair {
+  sentence_id: string;
+  note: string;
+}
+
+export interface ContrastSet {
+  id: string;
+  particles: ParticleId[];
+  title: string;
+  summary: string;
+  pairs: ContrastPair[];
+  /** Reserved for §8.5 practice exercises; always [] in this build task. */
+  exercise_ids: string[];
+}
+
+/** Shape of data/particles.json, and (unchanged) of bank.json's `particles` field. */
+export interface ParticlesFile {
+  particles: Particle[];
+  contrast_sets: ContrastSet[];
 }

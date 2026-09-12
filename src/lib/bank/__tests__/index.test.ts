@@ -14,6 +14,8 @@ function makeBank(dates: string[]): Bank {
     generated_at: "2026-01-01T00:00:00.000Z",
     days: dates.map((date): DayEntry => ({ date, words: [] as Word[] })),
     words: [],
+    sentences: [],
+    particles: { particles: [], contrast_sets: [] },
   };
 }
 

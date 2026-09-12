@@ -1,0 +1,589 @@
+{
+  "sentences": [
+    {
+      "id": "s_g001",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "学生", "reading": "がくせい", "gloss": "學生" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "我是學生。",
+      "verified": true,
+      "tags": ["particle:wa"]
+    },
+    {
+      "id": "s_g002",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
+        { "surface": "が", "reading": "が", "gloss": "（焦點）", "particle": true },
+        { "surface": "学生", "reading": "がくせい", "gloss": "學生" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "我才是學生。",
+      "verified": true,
+      "tags": ["particle:ga"]
+    },
+    {
+      "id": "s_g003",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "雨", "reading": "あめ", "gloss": "雨" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "降ります", "reading": "ふります", "gloss": "下（雨）" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "下雨了。",
+      "verified": true,
+      "tags": ["particle:ga"]
+    },
+    {
+      "id": "s_g004",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "田中さん", "reading": "たなかさん", "gloss": "田中先生" },
+        { "surface": "が", "reading": "が", "gloss": "（焦點）", "particle": true },
+        { "surface": "来ます", "reading": "きます", "gloss": "來" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "來的是田中先生。",
+      "verified": true,
+      "tags": ["particle:ga"]
+    },
+    {
+      "id": "s_g005",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "日本語", "reading": "にほんご", "gloss": "日語" },
+        { "surface": "が", "reading": "が", "gloss": "（對象）", "particle": true },
+        { "surface": "好きです", "reading": "すきです", "gloss": "喜歡" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "（我）喜歡日語。",
+      "verified": true,
+      "tags": ["particle:ga"]
+    },
+    {
+      "id": "s_g006",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "パン", "reading": "ぱん", "gloss": "麵包" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "食べます", "reading": "たべます", "gloss": "吃" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "吃麵包。",
+      "verified": true,
+      "tags": ["particle:wo"]
+    },
+    {
+      "id": "s_g007",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "公園", "reading": "こうえん", "gloss": "公園" },
+        { "surface": "を", "reading": "を", "gloss": "（通過的場所）", "particle": true },
+        { "surface": "歩きます", "reading": "あるきます", "gloss": "走" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "走過公園。",
+      "verified": true,
+      "tags": ["particle:wo"]
+    },
+    {
+      "id": "s_g008",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "家", "reading": "いえ", "gloss": "家" },
+        { "surface": "を", "reading": "を", "gloss": "（離開的起點）", "particle": true },
+        { "surface": "出ます", "reading": "でます", "gloss": "出去" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "從家裡出去。",
+      "verified": true,
+      "tags": ["particle:wo"]
+    },
+    {
+      "id": "s_g009",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "机", "reading": "つくえ", "gloss": "桌子" },
+        { "surface": "の", "reading": "の", "gloss": "（的）", "particle": true },
+        { "surface": "上", "reading": "うえ", "gloss": "上面" },
+        { "surface": "に", "reading": "に", "gloss": "（存在場所）", "particle": true },
+        { "surface": "本", "reading": "ほん", "gloss": "書" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "あります", "reading": "あります", "gloss": "有" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3], [4, 5], [6]],
+      "valid_orders": [[0, 1, 2, 3]],
+      "preferred_order": [0, 1, 2, 3],
+      "translation": "桌上有書。",
+      "verified": true,
+      "tags": ["particle:ni", "particle:no"]
+    },
+    {
+      "id": "s_g010",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "学校", "reading": "がっこう", "gloss": "學校" },
+        { "surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true },
+        { "surface": "行きます", "reading": "いきます", "gloss": "去" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "去學校。",
+      "verified": true,
+      "tags": ["particle:ni"]
+    },
+    {
+      "id": "s_g011",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "七時", "reading": "しちじ", "gloss": "七點" },
+        { "surface": "に", "reading": "に", "gloss": "（時間）", "particle": true },
+        { "surface": "起きます", "reading": "おきます", "gloss": "起床" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "七點起床。",
+      "verified": true,
+      "tags": ["particle:ni"]
+    },
+    {
+      "id": "s_g012",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "友達", "reading": "ともだち", "gloss": "朋友" },
+        { "surface": "に", "reading": "に", "gloss": "（對象）", "particle": true },
+        { "surface": "手紙", "reading": "てがみ", "gloss": "信" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "書きます", "reading": "かきます", "gloss": "寫" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3], [4]],
+      "valid_orders": [[0, 1, 2], [1, 0, 2]],
+      "preferred_order": [0, 1, 2],
+      "translation": "給朋友寫信。",
+      "verified": true,
+      "tags": ["particle:ni", "particle:wo"]
+    },
+    {
+      "id": "s_g013",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "食堂", "reading": "しょくどう", "gloss": "食堂" },
+        { "surface": "で", "reading": "で", "gloss": "（動作場所）", "particle": true },
+        { "surface": "昼ご飯", "reading": "ひるごはん", "gloss": "午餐" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "食べます", "reading": "たべます", "gloss": "吃" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3], [4]],
+      "valid_orders": [[0, 1, 2], [1, 0, 2]],
+      "preferred_order": [0, 1, 2],
+      "translation": "在食堂吃午餐。",
+      "verified": true,
+      "tags": ["particle:de", "particle:wo"]
+    },
+    {
+      "id": "s_g014",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "バス", "reading": "ばす", "gloss": "公車" },
+        { "surface": "で", "reading": "で", "gloss": "（手段）", "particle": true },
+        { "surface": "行きます", "reading": "いきます", "gloss": "去" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "坐公車去。",
+      "verified": true,
+      "tags": ["particle:de"]
+    },
+    {
+      "id": "s_g015",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "日本語", "reading": "にほんご", "gloss": "日語" },
+        { "surface": "で", "reading": "で", "gloss": "（方式）", "particle": true },
+        { "surface": "話します", "reading": "はなします", "gloss": "說" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "用日語說。",
+      "verified": true,
+      "tags": ["particle:de"]
+    },
+    {
+      "id": "s_g016",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "パン", "reading": "ぱん", "gloss": "麵包" },
+        { "surface": "と", "reading": "と", "gloss": "（並列）", "particle": true },
+        { "surface": "牛乳", "reading": "ぎゅうにゅう", "gloss": "牛奶" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "（是）麵包和牛奶。",
+      "verified": true,
+      "tags": ["particle:to"]
+    },
+    {
+      "id": "s_g017",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "友達", "reading": "ともだち", "gloss": "朋友" },
+        { "surface": "と", "reading": "と", "gloss": "（共同對象）", "particle": true },
+        { "surface": "話します", "reading": "はなします", "gloss": "說" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "和朋友交談。",
+      "verified": true,
+      "tags": ["particle:to"]
+    },
+    {
+      "id": "s_g018",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "「ありがとう」", "reading": "ありがとう", "gloss": "謝謝" },
+        { "surface": "と", "reading": "と", "gloss": "（引用）", "particle": true },
+        { "surface": "言います", "reading": "いいます", "gloss": "說" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "說「謝謝」。",
+      "verified": true,
+      "tags": ["particle:to"]
+    },
+    {
+      "id": "s_g019",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
+        { "surface": "の", "reading": "の", "gloss": "（所屬）", "particle": true },
+        { "surface": "本", "reading": "ほん", "gloss": "書" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "是我的書。",
+      "verified": true,
+      "tags": ["particle:no"]
+    },
+    {
+      "id": "s_g020",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "日本語", "reading": "にほんご", "gloss": "日語" },
+        { "surface": "の", "reading": "の", "gloss": "（屬性）", "particle": true },
+        { "surface": "先生", "reading": "せんせい", "gloss": "老師" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "是日語老師。",
+      "verified": true,
+      "tags": ["particle:no"]
+    },
+    {
+      "id": "s_g021",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "友達", "reading": "ともだち", "gloss": "朋友" },
+        { "surface": "の", "reading": "の", "gloss": "（同位）", "particle": true },
+        { "surface": "田中さん", "reading": "たなかさん", "gloss": "田中先生" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "是我朋友田中先生。",
+      "verified": true,
+      "tags": ["particle:no"]
+    },
+    {
+      "id": "s_g022",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
+        { "surface": "も", "reading": "も", "gloss": "（也）", "particle": true },
+        { "surface": "学生", "reading": "がくせい", "gloss": "學生" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "我也是學生。",
+      "verified": true,
+      "tags": ["particle:mo"]
+    },
+    {
+      "id": "s_g023",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "何", "reading": "なに", "gloss": "什麼" },
+        { "surface": "も", "reading": "も", "gloss": "（全盤否定）", "particle": true },
+        { "surface": "ありません", "reading": "ありません", "gloss": "沒有" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "什麼都沒有。",
+      "verified": true,
+      "tags": ["particle:mo"]
+    },
+    {
+      "id": "s_g024",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "日本語", "reading": "にほんご", "gloss": "日語" },
+        { "surface": "が", "reading": "が", "gloss": "（對象）", "particle": true },
+        { "surface": "好きです", "reading": "すきです", "gloss": "喜歡" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3], [4]],
+      "valid_orders": [[0, 1, 2]],
+      "preferred_order": [0, 1, 2],
+      "translation": "我喜歡日語。",
+      "verified": true,
+      "tags": ["particle:wa", "particle:ga"]
+    },
+    {
+      "id": "s_g025",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "象", "reading": "ぞう", "gloss": "大象" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "鼻", "reading": "はな", "gloss": "鼻子" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "長いです", "reading": "ながいです", "gloss": "長" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3], [4]],
+      "valid_orders": [[0, 1, 2]],
+      "preferred_order": [0, 1, 2],
+      "translation": "大象是鼻子長。",
+      "verified": true,
+      "tags": ["particle:wa", "particle:ga"]
+    },
+    {
+      "id": "s_g026",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "公園", "reading": "こうえん", "gloss": "公園" },
+        { "surface": "に", "reading": "に", "gloss": "（存在場所）", "particle": true },
+        { "surface": "います", "reading": "います", "gloss": "在" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "在公園（裡）。",
+      "verified": true,
+      "tags": ["particle:ni"]
+    },
+    {
+      "id": "s_g027",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "公園", "reading": "こうえん", "gloss": "公園" },
+        { "surface": "で", "reading": "で", "gloss": "（動作場所）", "particle": true },
+        { "surface": "遊びます", "reading": "あそびます", "gloss": "玩" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "在公園玩。",
+      "verified": true,
+      "tags": ["particle:de"]
+    },
+    {
+      "id": "s_g028",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "東京", "reading": "とうきょう", "gloss": "東京" },
+        { "surface": "に", "reading": "に", "gloss": "（附著的點）", "particle": true },
+        { "surface": "住んでいます", "reading": "すんでいます", "gloss": "住" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "住在東京。",
+      "verified": true,
+      "tags": ["particle:ni"]
+    },
+    {
+      "id": "s_g029",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "東京", "reading": "とうきょう", "gloss": "東京" },
+        { "surface": "で", "reading": "で", "gloss": "（活動範圍）", "particle": true },
+        { "surface": "働いています", "reading": "はたらいています", "gloss": "工作" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "在東京工作。",
+      "verified": true,
+      "tags": ["particle:de"]
+    },
+    {
+      "id": "s_g030",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "友達", "reading": "ともだち", "gloss": "朋友" },
+        { "surface": "に", "reading": "に", "gloss": "（單向對象）", "particle": true },
+        { "surface": "話します", "reading": "はなします", "gloss": "說" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "對朋友講。",
+      "verified": true,
+      "tags": ["particle:ni"]
+    },
+    {
+      "id": "s_g031",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "水", "reading": "みず", "gloss": "水" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "飲みたいです", "reading": "のみたいです", "gloss": "想喝" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "想喝水。",
+      "verified": true,
+      "tags": ["particle:wo"]
+    },
+    {
+      "id": "s_g032",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "水", "reading": "みず", "gloss": "水" },
+        { "surface": "が", "reading": "が", "gloss": "（想要的對象）", "particle": true },
+        { "surface": "飲みたいです", "reading": "のみたいです", "gloss": "想喝" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "想喝的是水。",
+      "verified": true,
+      "tags": ["particle:ga"]
+    },
+    {
+      "id": "s_g033",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "七時", "reading": "しちじ", "gloss": "七點" },
+        { "surface": "に", "reading": "に", "gloss": "（時間）", "particle": true },
+        { "surface": "食堂", "reading": "しょくどう", "gloss": "食堂" },
+        { "surface": "で", "reading": "で", "gloss": "（地點）", "particle": true },
+        { "surface": "友達", "reading": "ともだち", "gloss": "朋友" },
+        { "surface": "と", "reading": "と", "gloss": "（對象）", "particle": true },
+        { "surface": "朝ご飯", "reading": "あさごはん", "gloss": "早餐" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "食べます", "reading": "たべます", "gloss": "吃" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10]],
+      "valid_orders": [
+        [0, 1, 2, 3, 4, 5],
+        [0, 2, 1, 3, 4, 5],
+        [0, 1, 3, 2, 4, 5],
+        [0, 3, 1, 2, 4, 5],
+        [0, 1, 2, 4, 3, 5],
+        [0, 2, 1, 4, 3, 5],
+        [0, 1, 4, 2, 3, 5],
+        [0, 4, 1, 2, 3, 5]
+      ],
+      "preferred_order": [0, 1, 2, 3, 4, 5],
+      "translation": "我七點在食堂和朋友吃早餐。",
+      "verified": true,
+      "tags": ["skeleton"],
+      "note": "valid_orders 為常見自然序，非窮舉"
+    },
+    {
+      "id": "s_g034",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "肉", "reading": "にく", "gloss": "肉" },
+        { "surface": "は", "reading": "は", "gloss": "（對比）", "particle": true },
+        { "surface": "食べます", "reading": "たべます", "gloss": "吃" },
+        { "surface": "が", "reading": "が", "gloss": "（但是）", "particle": true },
+        { "surface": "魚", "reading": "さかな", "gloss": "魚" },
+        { "surface": "は", "reading": "は", "gloss": "（對比）", "particle": true },
+        { "surface": "食べません", "reading": "たべません", "gloss": "不吃" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3], [4, 5], [6]],
+      "valid_orders": [[0, 1, 2, 3]],
+      "preferred_order": [0, 1, 2, 3],
+      "translation": "肉吃，但魚不吃。",
+      "verified": true,
+      "tags": ["particle:wa"]
+    }
+  ]
+}
