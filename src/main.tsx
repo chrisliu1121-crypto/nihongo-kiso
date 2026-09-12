@@ -1,9 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-
-function App() {
-  return <main>nihongo-kiso</main>;
-}
+import "./styles/index.css";
+import { App } from "./App";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
