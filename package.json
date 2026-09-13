@@ -15,9 +15,11 @@
     "typecheck": "npm run build:bank && tsc --noEmit"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.125.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "react-router-dom": "^7.18.3"
+    "react-router-dom": "^7.18.3",
+    "zod": "^4.6.4"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

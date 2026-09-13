@@ -603,6 +603,9 @@ interface ProgressStore {
 - 例句 `tokens` 的 `particle: true` 必須在助詞白名單內（は が を に で と の も へ か から まで や ね よ でも には では とか）；反向：surface 恰為 は/を/へ/が 的獨立 token 未標 particle → 失敗。**這是弱模型照範本產詞時最容易靜默寫錯的欄位**（2026-09-12 審查：誤標會讓 romaji 變 wana 而 build 不紅）
 - `example.ja` 去標點後必須等於 `tokens.surface` 串接
 - `freq_rank` 同檔嚴格遞增且全庫不重複；`confusable_with` 必須對稱
+- 例句範圍：非助詞 token 的 surface 所含漢字必須出現在頻率表或既有 words/ 的 surface 中（漢字集合比對，不受活用影響）；例句 `ja` 跨全庫唯一。（2026-09-14 審查：AI 在無人看管的批次模式下最容易犯的兩種錯——超綱例句、對相似詞複製同一句——原清單攔不到）
+- 覆寫守門：`generate-daily` 對已存在的 `words/<date>.json` 一律拒絕（正式資料不由腳本覆寫）；對已存在的 `pending/<date>.json` 拒絕，除非 `--force`（人工編輯過的 pending 要用 `cross-check.ts` 重驗，不是重產）
+- 權威來源：新詞的 `gloss`／`pos` 取自頻率表；已 promote 的詞以 `words/` 為準，頻率表事後的修改不回寫
 - 句子的動詞 token 在最後；`bunsetsu` 覆蓋全部 token 恰一次
 - `valid_orders` 中每個序都通過規則檢查器
 - 助詞候選的 `particle_id` 在八大之內；至少一個 `natural`

@@ -1,0 +1,2854 @@
+{
+  "source": "hand-curated N5 core, 2026-09",
+  "words": [
+    {
+      "rank": 1,
+      "surface": "私",
+      "reading": "わたし",
+      "gloss": "我",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 2,
+      "surface": "人",
+      "reading": "ひと",
+      "gloss": "人",
+      "pos": "名詞"
+    },
+    {
+      "rank": 3,
+      "surface": "今日",
+      "reading": "きょう",
+      "gloss": "今天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 4,
+      "surface": "明日",
+      "reading": "あした",
+      "gloss": "明天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 5,
+      "surface": "学校",
+      "reading": "がっこう",
+      "gloss": "學校",
+      "pos": "名詞"
+    },
+    {
+      "rank": 6,
+      "surface": "先生",
+      "reading": "せんせい",
+      "gloss": "老師",
+      "pos": "名詞"
+    },
+    {
+      "rank": 7,
+      "surface": "学生",
+      "reading": "がくせい",
+      "gloss": "學生",
+      "pos": "名詞"
+    },
+    {
+      "rank": 8,
+      "surface": "行く",
+      "reading": "いく",
+      "gloss": "去",
+      "pos": "動詞"
+    },
+    {
+      "rank": 9,
+      "surface": "来る",
+      "reading": "くる",
+      "gloss": "來",
+      "pos": "動詞"
+    },
+    {
+      "rank": 10,
+      "surface": "見る",
+      "reading": "みる",
+      "gloss": "看",
+      "pos": "動詞"
+    },
+    {
+      "rank": 11,
+      "surface": "食べる",
+      "reading": "たべる",
+      "gloss": "吃",
+      "pos": "動詞"
+    },
+    {
+      "rank": 12,
+      "surface": "飲む",
+      "reading": "のむ",
+      "gloss": "喝",
+      "pos": "動詞"
+    },
+    {
+      "rank": 13,
+      "surface": "時間",
+      "reading": "じかん",
+      "gloss": "時間",
+      "pos": "名詞"
+    },
+    {
+      "rank": 14,
+      "surface": "水",
+      "reading": "みず",
+      "gloss": "水",
+      "pos": "名詞"
+    },
+    {
+      "rank": 15,
+      "surface": "日本",
+      "reading": "にほん",
+      "gloss": "日本",
+      "pos": "名詞"
+    },
+    {
+      "rank": 16,
+      "surface": "大きい",
+      "reading": "おおきい",
+      "gloss": "大的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 17,
+      "surface": "小さい",
+      "reading": "ちいさい",
+      "gloss": "小的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 18,
+      "surface": "新しい",
+      "reading": "あたらしい",
+      "gloss": "新的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 19,
+      "surface": "好き",
+      "reading": "すき",
+      "gloss": "喜歡",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 20,
+      "surface": "本",
+      "reading": "ほん",
+      "gloss": "書",
+      "pos": "名詞"
+    },
+    {
+      "rank": 21,
+      "surface": "友達",
+      "reading": "ともだち",
+      "gloss": "朋友",
+      "pos": "名詞"
+    },
+    {
+      "rank": 22,
+      "surface": "家",
+      "reading": "いえ",
+      "gloss": "家",
+      "pos": "名詞"
+    },
+    {
+      "rank": 23,
+      "surface": "電車",
+      "reading": "でんしゃ",
+      "gloss": "電車",
+      "pos": "名詞"
+    },
+    {
+      "rank": 24,
+      "surface": "駅",
+      "reading": "えき",
+      "gloss": "車站",
+      "pos": "名詞"
+    },
+    {
+      "rank": 25,
+      "surface": "お金",
+      "reading": "おかね",
+      "gloss": "錢",
+      "pos": "名詞"
+    },
+    {
+      "rank": 26,
+      "surface": "朝",
+      "reading": "あさ",
+      "gloss": "早上",
+      "pos": "名詞"
+    },
+    {
+      "rank": 27,
+      "surface": "今",
+      "reading": "いま",
+      "gloss": "現在",
+      "pos": "名詞"
+    },
+    {
+      "rank": 28,
+      "surface": "何",
+      "reading": "なに",
+      "gloss": "什麼",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 29,
+      "surface": "これ",
+      "reading": "これ",
+      "gloss": "這個",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 30,
+      "surface": "ありがとう",
+      "reading": "ありがとう",
+      "gloss": "謝謝",
+      "pos": "表現"
+    },
+    {
+      "rank": 31,
+      "surface": "あなた",
+      "reading": "あなた",
+      "gloss": "你",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 32,
+      "surface": "彼",
+      "reading": "かれ",
+      "gloss": "他",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 33,
+      "surface": "彼女",
+      "reading": "かのじょ",
+      "gloss": "她",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 34,
+      "surface": "私たち",
+      "reading": "わたしたち",
+      "gloss": "我們",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 35,
+      "surface": "みんな",
+      "reading": "みんな",
+      "gloss": "大家",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 36,
+      "surface": "それ",
+      "reading": "それ",
+      "gloss": "那個（近聽者）",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 37,
+      "surface": "あれ",
+      "reading": "あれ",
+      "gloss": "那個（遠）",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 38,
+      "surface": "ここ",
+      "reading": "ここ",
+      "gloss": "這裡",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 39,
+      "surface": "そこ",
+      "reading": "そこ",
+      "gloss": "那裡（近聽者）",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 40,
+      "surface": "あそこ",
+      "reading": "あそこ",
+      "gloss": "那裡（遠）",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 41,
+      "surface": "こちら",
+      "reading": "こちら",
+      "gloss": "這邊",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 42,
+      "surface": "そちら",
+      "reading": "そちら",
+      "gloss": "那邊（近聽者）",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 43,
+      "surface": "あちら",
+      "reading": "あちら",
+      "gloss": "那邊（遠）",
+      "pos": "代名詞"
+    },
+    {
+      "rank": 44,
+      "surface": "誰",
+      "reading": "だれ",
+      "gloss": "誰",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 45,
+      "surface": "いつ",
+      "reading": "いつ",
+      "gloss": "什麼時候",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 46,
+      "surface": "どこ",
+      "reading": "どこ",
+      "gloss": "哪裡",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 47,
+      "surface": "どちら",
+      "reading": "どちら",
+      "gloss": "哪一邊／哪位",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 48,
+      "surface": "どう",
+      "reading": "どう",
+      "gloss": "如何",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 49,
+      "surface": "どうして",
+      "reading": "どうして",
+      "gloss": "為什麼",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 50,
+      "surface": "なぜ",
+      "reading": "なぜ",
+      "gloss": "為什麼",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 51,
+      "surface": "いくつ",
+      "reading": "いくつ",
+      "gloss": "幾個／幾歲",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 52,
+      "surface": "いくら",
+      "reading": "いくら",
+      "gloss": "多少錢",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 53,
+      "surface": "どんな",
+      "reading": "どんな",
+      "gloss": "什麼樣的",
+      "pos": "疑問詞"
+    },
+    {
+      "rank": 54,
+      "surface": "一",
+      "reading": "いち",
+      "gloss": "一",
+      "pos": "名詞"
+    },
+    {
+      "rank": 55,
+      "surface": "二",
+      "reading": "に",
+      "gloss": "二",
+      "pos": "名詞"
+    },
+    {
+      "rank": 56,
+      "surface": "三",
+      "reading": "さん",
+      "gloss": "三",
+      "pos": "名詞"
+    },
+    {
+      "rank": 57,
+      "surface": "四",
+      "reading": "よん",
+      "gloss": "四",
+      "pos": "名詞"
+    },
+    {
+      "rank": 58,
+      "surface": "五",
+      "reading": "ご",
+      "gloss": "五",
+      "pos": "名詞"
+    },
+    {
+      "rank": 59,
+      "surface": "六",
+      "reading": "ろく",
+      "gloss": "六",
+      "pos": "名詞"
+    },
+    {
+      "rank": 60,
+      "surface": "七",
+      "reading": "なな",
+      "gloss": "七",
+      "pos": "名詞"
+    },
+    {
+      "rank": 61,
+      "surface": "八",
+      "reading": "はち",
+      "gloss": "八",
+      "pos": "名詞"
+    },
+    {
+      "rank": 62,
+      "surface": "九",
+      "reading": "きゅう",
+      "gloss": "九",
+      "pos": "名詞"
+    },
+    {
+      "rank": 63,
+      "surface": "十",
+      "reading": "じゅう",
+      "gloss": "十",
+      "pos": "名詞"
+    },
+    {
+      "rank": 64,
+      "surface": "百",
+      "reading": "ひゃく",
+      "gloss": "百",
+      "pos": "名詞"
+    },
+    {
+      "rank": 65,
+      "surface": "千",
+      "reading": "せん",
+      "gloss": "千",
+      "pos": "名詞"
+    },
+    {
+      "rank": 66,
+      "surface": "万",
+      "reading": "まん",
+      "gloss": "萬",
+      "pos": "名詞"
+    },
+    {
+      "rank": 67,
+      "surface": "一つ",
+      "reading": "ひとつ",
+      "gloss": "一個",
+      "pos": "名詞"
+    },
+    {
+      "rank": 68,
+      "surface": "二つ",
+      "reading": "ふたつ",
+      "gloss": "兩個",
+      "pos": "名詞"
+    },
+    {
+      "rank": 69,
+      "surface": "三つ",
+      "reading": "みっつ",
+      "gloss": "三個",
+      "pos": "名詞"
+    },
+    {
+      "rank": 70,
+      "surface": "曜日",
+      "reading": "ようび",
+      "gloss": "星期幾",
+      "pos": "名詞"
+    },
+    {
+      "rank": 71,
+      "surface": "月曜日",
+      "reading": "げつようび",
+      "gloss": "星期一",
+      "pos": "名詞"
+    },
+    {
+      "rank": 72,
+      "surface": "火曜日",
+      "reading": "かようび",
+      "gloss": "星期二",
+      "pos": "名詞"
+    },
+    {
+      "rank": 73,
+      "surface": "水曜日",
+      "reading": "すいようび",
+      "gloss": "星期三",
+      "pos": "名詞"
+    },
+    {
+      "rank": 74,
+      "surface": "木曜日",
+      "reading": "もくようび",
+      "gloss": "星期四",
+      "pos": "名詞"
+    },
+    {
+      "rank": 75,
+      "surface": "金曜日",
+      "reading": "きんようび",
+      "gloss": "星期五",
+      "pos": "名詞"
+    },
+    {
+      "rank": 76,
+      "surface": "土曜日",
+      "reading": "どようび",
+      "gloss": "星期六",
+      "pos": "名詞"
+    },
+    {
+      "rank": 77,
+      "surface": "日曜日",
+      "reading": "にちようび",
+      "gloss": "星期日",
+      "pos": "名詞"
+    },
+    {
+      "rank": 78,
+      "surface": "今週",
+      "reading": "こんしゅう",
+      "gloss": "這星期",
+      "pos": "名詞"
+    },
+    {
+      "rank": 79,
+      "surface": "来週",
+      "reading": "らいしゅう",
+      "gloss": "下星期",
+      "pos": "名詞"
+    },
+    {
+      "rank": 80,
+      "surface": "先週",
+      "reading": "せんしゅう",
+      "gloss": "上星期",
+      "pos": "名詞"
+    },
+    {
+      "rank": 81,
+      "surface": "今月",
+      "reading": "こんげつ",
+      "gloss": "這個月",
+      "pos": "名詞"
+    },
+    {
+      "rank": 82,
+      "surface": "来月",
+      "reading": "らいげつ",
+      "gloss": "下個月",
+      "pos": "名詞"
+    },
+    {
+      "rank": 83,
+      "surface": "先月",
+      "reading": "せんげつ",
+      "gloss": "上個月",
+      "pos": "名詞"
+    },
+    {
+      "rank": 84,
+      "surface": "今年",
+      "reading": "ことし",
+      "gloss": "今年",
+      "pos": "名詞"
+    },
+    {
+      "rank": 85,
+      "surface": "来年",
+      "reading": "らいねん",
+      "gloss": "明年",
+      "pos": "名詞"
+    },
+    {
+      "rank": 86,
+      "surface": "去年",
+      "reading": "きょねん",
+      "gloss": "去年",
+      "pos": "名詞"
+    },
+    {
+      "rank": 87,
+      "surface": "毎日",
+      "reading": "まいにち",
+      "gloss": "每天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 88,
+      "surface": "毎週",
+      "reading": "まいしゅう",
+      "gloss": "每星期",
+      "pos": "名詞"
+    },
+    {
+      "rank": 89,
+      "surface": "毎年",
+      "reading": "まいとし",
+      "gloss": "每年",
+      "pos": "名詞"
+    },
+    {
+      "rank": 90,
+      "surface": "午前",
+      "reading": "ごぜん",
+      "gloss": "上午",
+      "pos": "名詞"
+    },
+    {
+      "rank": 91,
+      "surface": "午後",
+      "reading": "ごご",
+      "gloss": "下午",
+      "pos": "名詞"
+    },
+    {
+      "rank": 92,
+      "surface": "昼",
+      "reading": "ひる",
+      "gloss": "中午／白天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 93,
+      "surface": "夜",
+      "reading": "よる",
+      "gloss": "晚上",
+      "pos": "名詞"
+    },
+    {
+      "rank": 94,
+      "surface": "晩",
+      "reading": "ばん",
+      "gloss": "晚上",
+      "pos": "名詞"
+    },
+    {
+      "rank": 95,
+      "surface": "夕方",
+      "reading": "ゆうがた",
+      "gloss": "傍晚",
+      "pos": "名詞"
+    },
+    {
+      "rank": 96,
+      "surface": "週末",
+      "reading": "しゅうまつ",
+      "gloss": "週末",
+      "pos": "名詞"
+    },
+    {
+      "rank": 97,
+      "surface": "一昨日",
+      "reading": "おととい",
+      "gloss": "前天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 98,
+      "surface": "明後日",
+      "reading": "あさって",
+      "gloss": "後天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 99,
+      "surface": "今夜",
+      "reading": "こんや",
+      "gloss": "今晚",
+      "pos": "名詞"
+    },
+    {
+      "rank": 100,
+      "surface": "時々",
+      "reading": "ときどき",
+      "gloss": "有時候",
+      "pos": "副詞"
+    },
+    {
+      "rank": 101,
+      "surface": "父",
+      "reading": "ちち",
+      "gloss": "（我的）爸爸",
+      "pos": "名詞"
+    },
+    {
+      "rank": 102,
+      "surface": "母",
+      "reading": "はは",
+      "gloss": "（我的）媽媽",
+      "pos": "名詞"
+    },
+    {
+      "rank": 103,
+      "surface": "お父さん",
+      "reading": "おとうさん",
+      "gloss": "爸爸",
+      "pos": "名詞"
+    },
+    {
+      "rank": 104,
+      "surface": "お母さん",
+      "reading": "おかあさん",
+      "gloss": "媽媽",
+      "pos": "名詞"
+    },
+    {
+      "rank": 105,
+      "surface": "兄",
+      "reading": "あに",
+      "gloss": "（我的）哥哥",
+      "pos": "名詞"
+    },
+    {
+      "rank": 106,
+      "surface": "姉",
+      "reading": "あね",
+      "gloss": "（我的）姊姊",
+      "pos": "名詞"
+    },
+    {
+      "rank": 107,
+      "surface": "弟",
+      "reading": "おとうと",
+      "gloss": "弟弟",
+      "pos": "名詞"
+    },
+    {
+      "rank": 108,
+      "surface": "妹",
+      "reading": "いもうと",
+      "gloss": "妹妹",
+      "pos": "名詞"
+    },
+    {
+      "rank": 109,
+      "surface": "お兄さん",
+      "reading": "おにいさん",
+      "gloss": "哥哥",
+      "pos": "名詞"
+    },
+    {
+      "rank": 110,
+      "surface": "お姉さん",
+      "reading": "おねえさん",
+      "gloss": "姊姊",
+      "pos": "名詞"
+    },
+    {
+      "rank": 111,
+      "surface": "家族",
+      "reading": "かぞく",
+      "gloss": "家人",
+      "pos": "名詞"
+    },
+    {
+      "rank": 112,
+      "surface": "両親",
+      "reading": "りょうしん",
+      "gloss": "父母",
+      "pos": "名詞"
+    },
+    {
+      "rank": 113,
+      "surface": "子供",
+      "reading": "こども",
+      "gloss": "小孩",
+      "pos": "名詞"
+    },
+    {
+      "rank": 114,
+      "surface": "赤ちゃん",
+      "reading": "あかちゃん",
+      "gloss": "嬰兒",
+      "pos": "名詞"
+    },
+    {
+      "rank": 115,
+      "surface": "主人",
+      "reading": "しゅじん",
+      "gloss": "（我的）先生",
+      "pos": "名詞"
+    },
+    {
+      "rank": 116,
+      "surface": "奥さん",
+      "reading": "おくさん",
+      "gloss": "太太",
+      "pos": "名詞"
+    },
+    {
+      "rank": 117,
+      "surface": "部屋",
+      "reading": "へや",
+      "gloss": "房間",
+      "pos": "名詞"
+    },
+    {
+      "rank": 118,
+      "surface": "教室",
+      "reading": "きょうしつ",
+      "gloss": "教室",
+      "pos": "名詞"
+    },
+    {
+      "rank": 119,
+      "surface": "会社",
+      "reading": "かいしゃ",
+      "gloss": "公司",
+      "pos": "名詞"
+    },
+    {
+      "rank": 120,
+      "surface": "病院",
+      "reading": "びょういん",
+      "gloss": "醫院",
+      "pos": "名詞"
+    },
+    {
+      "rank": 121,
+      "surface": "銀行",
+      "reading": "ぎんこう",
+      "gloss": "銀行",
+      "pos": "名詞"
+    },
+    {
+      "rank": 122,
+      "surface": "郵便局",
+      "reading": "ゆうびんきょく",
+      "gloss": "郵局",
+      "pos": "名詞"
+    },
+    {
+      "rank": 123,
+      "surface": "図書館",
+      "reading": "としょかん",
+      "gloss": "圖書館",
+      "pos": "名詞"
+    },
+    {
+      "rank": 124,
+      "surface": "公園",
+      "reading": "こうえん",
+      "gloss": "公園",
+      "pos": "名詞"
+    },
+    {
+      "rank": 125,
+      "surface": "映画館",
+      "reading": "えいがかん",
+      "gloss": "電影院",
+      "pos": "名詞"
+    },
+    {
+      "rank": 126,
+      "surface": "デパート",
+      "reading": "デパート",
+      "gloss": "百貨公司",
+      "pos": "名詞"
+    },
+    {
+      "rank": 127,
+      "surface": "店",
+      "reading": "みせ",
+      "gloss": "店",
+      "pos": "名詞"
+    },
+    {
+      "rank": 128,
+      "surface": "喫茶店",
+      "reading": "きっさてん",
+      "gloss": "咖啡店",
+      "pos": "名詞"
+    },
+    {
+      "rank": 129,
+      "surface": "レストラン",
+      "reading": "レストラン",
+      "gloss": "餐廳",
+      "pos": "名詞"
+    },
+    {
+      "rank": 130,
+      "surface": "ホテル",
+      "reading": "ホテル",
+      "gloss": "飯店",
+      "pos": "名詞"
+    },
+    {
+      "rank": 131,
+      "surface": "大学",
+      "reading": "だいがく",
+      "gloss": "大學",
+      "pos": "名詞"
+    },
+    {
+      "rank": 132,
+      "surface": "空港",
+      "reading": "くうこう",
+      "gloss": "機場",
+      "pos": "名詞"
+    },
+    {
+      "rank": 133,
+      "surface": "トイレ",
+      "reading": "トイレ",
+      "gloss": "廁所",
+      "pos": "名詞"
+    },
+    {
+      "rank": 134,
+      "surface": "台所",
+      "reading": "だいどころ",
+      "gloss": "廚房",
+      "pos": "名詞"
+    },
+    {
+      "rank": 135,
+      "surface": "玄関",
+      "reading": "げんかん",
+      "gloss": "玄關",
+      "pos": "名詞"
+    },
+    {
+      "rank": 136,
+      "surface": "庭",
+      "reading": "にわ",
+      "gloss": "庭院",
+      "pos": "名詞"
+    },
+    {
+      "rank": 137,
+      "surface": "国",
+      "reading": "くに",
+      "gloss": "國家",
+      "pos": "名詞"
+    },
+    {
+      "rank": 138,
+      "surface": "町",
+      "reading": "まち",
+      "gloss": "城鎮",
+      "pos": "名詞"
+    },
+    {
+      "rank": 139,
+      "surface": "道",
+      "reading": "みち",
+      "gloss": "路",
+      "pos": "名詞"
+    },
+    {
+      "rank": 140,
+      "surface": "橋",
+      "reading": "はし",
+      "gloss": "橋",
+      "pos": "名詞"
+    },
+    {
+      "rank": 141,
+      "surface": "建物",
+      "reading": "たてもの",
+      "gloss": "建築物",
+      "pos": "名詞"
+    },
+    {
+      "rank": 142,
+      "surface": "天気",
+      "reading": "てんき",
+      "gloss": "天氣",
+      "pos": "名詞"
+    },
+    {
+      "rank": 143,
+      "surface": "雨",
+      "reading": "あめ",
+      "gloss": "雨",
+      "pos": "名詞"
+    },
+    {
+      "rank": 144,
+      "surface": "雪",
+      "reading": "ゆき",
+      "gloss": "雪",
+      "pos": "名詞"
+    },
+    {
+      "rank": 145,
+      "surface": "風",
+      "reading": "かぜ",
+      "gloss": "風",
+      "pos": "名詞"
+    },
+    {
+      "rank": 146,
+      "surface": "空",
+      "reading": "そら",
+      "gloss": "天空",
+      "pos": "名詞"
+    },
+    {
+      "rank": 147,
+      "surface": "山",
+      "reading": "やま",
+      "gloss": "山",
+      "pos": "名詞"
+    },
+    {
+      "rank": 148,
+      "surface": "川",
+      "reading": "かわ",
+      "gloss": "河",
+      "pos": "名詞"
+    },
+    {
+      "rank": 149,
+      "surface": "海",
+      "reading": "うみ",
+      "gloss": "海",
+      "pos": "名詞"
+    },
+    {
+      "rank": 150,
+      "surface": "花",
+      "reading": "はな",
+      "gloss": "花",
+      "pos": "名詞"
+    },
+    {
+      "rank": 151,
+      "surface": "木",
+      "reading": "き",
+      "gloss": "樹",
+      "pos": "名詞"
+    },
+    {
+      "rank": 152,
+      "surface": "太陽",
+      "reading": "たいよう",
+      "gloss": "太陽",
+      "pos": "名詞"
+    },
+    {
+      "rank": 153,
+      "surface": "月",
+      "reading": "つき",
+      "gloss": "月亮",
+      "pos": "名詞"
+    },
+    {
+      "rank": 154,
+      "surface": "星",
+      "reading": "ほし",
+      "gloss": "星星",
+      "pos": "名詞"
+    },
+    {
+      "rank": 155,
+      "surface": "春",
+      "reading": "はる",
+      "gloss": "春天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 156,
+      "surface": "夏",
+      "reading": "なつ",
+      "gloss": "夏天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 157,
+      "surface": "秋",
+      "reading": "あき",
+      "gloss": "秋天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 158,
+      "surface": "冬",
+      "reading": "ふゆ",
+      "gloss": "冬天",
+      "pos": "名詞"
+    },
+    {
+      "rank": 159,
+      "surface": "赤",
+      "reading": "あか",
+      "gloss": "紅色",
+      "pos": "名詞"
+    },
+    {
+      "rank": 160,
+      "surface": "青",
+      "reading": "あお",
+      "gloss": "藍色",
+      "pos": "名詞"
+    },
+    {
+      "rank": 161,
+      "surface": "白",
+      "reading": "しろ",
+      "gloss": "白色",
+      "pos": "名詞"
+    },
+    {
+      "rank": 162,
+      "surface": "黒",
+      "reading": "くろ",
+      "gloss": "黑色",
+      "pos": "名詞"
+    },
+    {
+      "rank": 163,
+      "surface": "黄色",
+      "reading": "きいろ",
+      "gloss": "黃色",
+      "pos": "名詞"
+    },
+    {
+      "rank": 164,
+      "surface": "緑",
+      "reading": "みどり",
+      "gloss": "綠色",
+      "pos": "名詞"
+    },
+    {
+      "rank": 165,
+      "surface": "茶色",
+      "reading": "ちゃいろ",
+      "gloss": "咖啡色",
+      "pos": "名詞"
+    },
+    {
+      "rank": 166,
+      "surface": "パン",
+      "reading": "パン",
+      "gloss": "麵包",
+      "pos": "名詞"
+    },
+    {
+      "rank": 167,
+      "surface": "ご飯",
+      "reading": "ごはん",
+      "gloss": "飯",
+      "pos": "名詞"
+    },
+    {
+      "rank": 168,
+      "surface": "肉",
+      "reading": "にく",
+      "gloss": "肉",
+      "pos": "名詞"
+    },
+    {
+      "rank": 169,
+      "surface": "魚",
+      "reading": "さかな",
+      "gloss": "魚",
+      "pos": "名詞"
+    },
+    {
+      "rank": 170,
+      "surface": "野菜",
+      "reading": "やさい",
+      "gloss": "蔬菜",
+      "pos": "名詞"
+    },
+    {
+      "rank": 171,
+      "surface": "卵",
+      "reading": "たまご",
+      "gloss": "蛋",
+      "pos": "名詞"
+    },
+    {
+      "rank": 172,
+      "surface": "果物",
+      "reading": "くだもの",
+      "gloss": "水果",
+      "pos": "名詞"
+    },
+    {
+      "rank": 173,
+      "surface": "りんご",
+      "reading": "りんご",
+      "gloss": "蘋果",
+      "pos": "名詞"
+    },
+    {
+      "rank": 174,
+      "surface": "お茶",
+      "reading": "おちゃ",
+      "gloss": "茶",
+      "pos": "名詞"
+    },
+    {
+      "rank": 175,
+      "surface": "コーヒー",
+      "reading": "コーヒー",
+      "gloss": "咖啡",
+      "pos": "名詞"
+    },
+    {
+      "rank": 176,
+      "surface": "牛乳",
+      "reading": "ぎゅうにゅう",
+      "gloss": "牛奶",
+      "pos": "名詞"
+    },
+    {
+      "rank": 177,
+      "surface": "砂糖",
+      "reading": "さとう",
+      "gloss": "糖",
+      "pos": "名詞"
+    },
+    {
+      "rank": 178,
+      "surface": "塩",
+      "reading": "しお",
+      "gloss": "鹽",
+      "pos": "名詞"
+    },
+    {
+      "rank": 179,
+      "surface": "お酒",
+      "reading": "おさけ",
+      "gloss": "酒",
+      "pos": "名詞"
+    },
+    {
+      "rank": 180,
+      "surface": "ビール",
+      "reading": "ビール",
+      "gloss": "啤酒",
+      "pos": "名詞"
+    },
+    {
+      "rank": 181,
+      "surface": "朝ご飯",
+      "reading": "あさごはん",
+      "gloss": "早餐",
+      "pos": "名詞"
+    },
+    {
+      "rank": 182,
+      "surface": "昼ご飯",
+      "reading": "ひるごはん",
+      "gloss": "午餐",
+      "pos": "名詞"
+    },
+    {
+      "rank": 183,
+      "surface": "晩ご飯",
+      "reading": "ばんごはん",
+      "gloss": "晚餐",
+      "pos": "名詞"
+    },
+    {
+      "rank": 184,
+      "surface": "料理",
+      "reading": "りょうり",
+      "gloss": "料理",
+      "pos": "名詞"
+    },
+    {
+      "rank": 185,
+      "surface": "車",
+      "reading": "くるま",
+      "gloss": "車",
+      "pos": "名詞"
+    },
+    {
+      "rank": 186,
+      "surface": "自転車",
+      "reading": "じてんしゃ",
+      "gloss": "腳踏車",
+      "pos": "名詞"
+    },
+    {
+      "rank": 187,
+      "surface": "バス",
+      "reading": "バス",
+      "gloss": "公車",
+      "pos": "名詞"
+    },
+    {
+      "rank": 188,
+      "surface": "タクシー",
+      "reading": "タクシー",
+      "gloss": "計程車",
+      "pos": "名詞"
+    },
+    {
+      "rank": 189,
+      "surface": "飛行機",
+      "reading": "ひこうき",
+      "gloss": "飛機",
+      "pos": "名詞"
+    },
+    {
+      "rank": 190,
+      "surface": "電話",
+      "reading": "でんわ",
+      "gloss": "電話",
+      "pos": "名詞"
+    },
+    {
+      "rank": 191,
+      "surface": "新聞",
+      "reading": "しんぶん",
+      "gloss": "報紙",
+      "pos": "名詞"
+    },
+    {
+      "rank": 192,
+      "surface": "雑誌",
+      "reading": "ざっし",
+      "gloss": "雜誌",
+      "pos": "名詞"
+    },
+    {
+      "rank": 193,
+      "surface": "テレビ",
+      "reading": "テレビ",
+      "gloss": "電視",
+      "pos": "名詞"
+    },
+    {
+      "rank": 194,
+      "surface": "カメラ",
+      "reading": "カメラ",
+      "gloss": "相機",
+      "pos": "名詞"
+    },
+    {
+      "rank": 195,
+      "surface": "時計",
+      "reading": "とけい",
+      "gloss": "時鐘／手錶",
+      "pos": "名詞"
+    },
+    {
+      "rank": 196,
+      "surface": "鍵",
+      "reading": "かぎ",
+      "gloss": "鑰匙",
+      "pos": "名詞"
+    },
+    {
+      "rank": 197,
+      "surface": "かばん",
+      "reading": "かばん",
+      "gloss": "包包",
+      "pos": "名詞"
+    },
+    {
+      "rank": 198,
+      "surface": "傘",
+      "reading": "かさ",
+      "gloss": "雨傘",
+      "pos": "名詞"
+    },
+    {
+      "rank": 199,
+      "surface": "眼鏡",
+      "reading": "めがね",
+      "gloss": "眼鏡",
+      "pos": "名詞"
+    },
+    {
+      "rank": 200,
+      "surface": "手紙",
+      "reading": "てがみ",
+      "gloss": "信",
+      "pos": "名詞"
+    },
+    {
+      "rank": 201,
+      "surface": "切手",
+      "reading": "きって",
+      "gloss": "郵票",
+      "pos": "名詞"
+    },
+    {
+      "rank": 202,
+      "surface": "財布",
+      "reading": "さいふ",
+      "gloss": "錢包",
+      "pos": "名詞"
+    },
+    {
+      "rank": 203,
+      "surface": "ノート",
+      "reading": "ノート",
+      "gloss": "筆記本",
+      "pos": "名詞"
+    },
+    {
+      "rank": 204,
+      "surface": "ペン",
+      "reading": "ペン",
+      "gloss": "筆",
+      "pos": "名詞"
+    },
+    {
+      "rank": 205,
+      "surface": "辞書",
+      "reading": "じしょ",
+      "gloss": "字典",
+      "pos": "名詞"
+    },
+    {
+      "rank": 206,
+      "surface": "椅子",
+      "reading": "いす",
+      "gloss": "椅子",
+      "pos": "名詞"
+    },
+    {
+      "rank": 207,
+      "surface": "机",
+      "reading": "つくえ",
+      "gloss": "書桌",
+      "pos": "名詞"
+    },
+    {
+      "rank": 208,
+      "surface": "ドア",
+      "reading": "ドア",
+      "gloss": "門",
+      "pos": "名詞"
+    },
+    {
+      "rank": 209,
+      "surface": "窓",
+      "reading": "まど",
+      "gloss": "窗戶",
+      "pos": "名詞"
+    },
+    {
+      "rank": 210,
+      "surface": "テーブル",
+      "reading": "テーブル",
+      "gloss": "桌子",
+      "pos": "名詞"
+    },
+    {
+      "rank": 211,
+      "surface": "ベッド",
+      "reading": "ベッド",
+      "gloss": "床",
+      "pos": "名詞"
+    },
+    {
+      "rank": 212,
+      "surface": "頭",
+      "reading": "あたま",
+      "gloss": "頭",
+      "pos": "名詞"
+    },
+    {
+      "rank": 213,
+      "surface": "顔",
+      "reading": "かお",
+      "gloss": "臉",
+      "pos": "名詞"
+    },
+    {
+      "rank": 214,
+      "surface": "目",
+      "reading": "め",
+      "gloss": "眼睛",
+      "pos": "名詞"
+    },
+    {
+      "rank": 215,
+      "surface": "耳",
+      "reading": "みみ",
+      "gloss": "耳朵",
+      "pos": "名詞"
+    },
+    {
+      "rank": 216,
+      "surface": "口",
+      "reading": "くち",
+      "gloss": "嘴巴",
+      "pos": "名詞"
+    },
+    {
+      "rank": 217,
+      "surface": "手",
+      "reading": "て",
+      "gloss": "手",
+      "pos": "名詞"
+    },
+    {
+      "rank": 218,
+      "surface": "足",
+      "reading": "あし",
+      "gloss": "腳",
+      "pos": "名詞"
+    },
+    {
+      "rank": 219,
+      "surface": "体",
+      "reading": "からだ",
+      "gloss": "身體",
+      "pos": "名詞"
+    },
+    {
+      "rank": 220,
+      "surface": "髪",
+      "reading": "かみ",
+      "gloss": "頭髮",
+      "pos": "名詞"
+    },
+    {
+      "rank": 221,
+      "surface": "歯",
+      "reading": "は",
+      "gloss": "牙齒",
+      "pos": "名詞"
+    },
+    {
+      "rank": 222,
+      "surface": "会社員",
+      "reading": "かいしゃいん",
+      "gloss": "上班族",
+      "pos": "名詞"
+    },
+    {
+      "rank": 223,
+      "surface": "医者",
+      "reading": "いしゃ",
+      "gloss": "醫生",
+      "pos": "名詞"
+    },
+    {
+      "rank": 224,
+      "surface": "仕事",
+      "reading": "しごと",
+      "gloss": "工作",
+      "pos": "名詞"
+    },
+    {
+      "rank": 225,
+      "surface": "宿題",
+      "reading": "しゅくだい",
+      "gloss": "作業",
+      "pos": "名詞"
+    },
+    {
+      "rank": 226,
+      "surface": "試験",
+      "reading": "しけん",
+      "gloss": "考試",
+      "pos": "名詞"
+    },
+    {
+      "rank": 227,
+      "surface": "授業",
+      "reading": "じゅぎょう",
+      "gloss": "課",
+      "pos": "名詞"
+    },
+    {
+      "rank": 228,
+      "surface": "勉強",
+      "reading": "べんきょう",
+      "gloss": "唸書",
+      "pos": "名詞"
+    },
+    {
+      "rank": 229,
+      "surface": "質問",
+      "reading": "しつもん",
+      "gloss": "問題",
+      "pos": "名詞"
+    },
+    {
+      "rank": 230,
+      "surface": "言葉",
+      "reading": "ことば",
+      "gloss": "詞語",
+      "pos": "名詞"
+    },
+    {
+      "rank": 231,
+      "surface": "名前",
+      "reading": "なまえ",
+      "gloss": "名字",
+      "pos": "名詞"
+    },
+    {
+      "rank": 232,
+      "surface": "意味",
+      "reading": "いみ",
+      "gloss": "意思",
+      "pos": "名詞"
+    },
+    {
+      "rank": 233,
+      "surface": "漢字",
+      "reading": "かんじ",
+      "gloss": "漢字",
+      "pos": "名詞"
+    },
+    {
+      "rank": 234,
+      "surface": "平仮名",
+      "reading": "ひらがな",
+      "gloss": "平假名",
+      "pos": "名詞"
+    },
+    {
+      "rank": 235,
+      "surface": "片仮名",
+      "reading": "かたかな",
+      "gloss": "片假名",
+      "pos": "名詞"
+    },
+    {
+      "rank": 236,
+      "surface": "英語",
+      "reading": "えいご",
+      "gloss": "英語",
+      "pos": "名詞"
+    },
+    {
+      "rank": 237,
+      "surface": "日本語",
+      "reading": "にほんご",
+      "gloss": "日語",
+      "pos": "名詞"
+    },
+    {
+      "rank": 238,
+      "surface": "中国語",
+      "reading": "ちゅうごくご",
+      "gloss": "中文",
+      "pos": "名詞"
+    },
+    {
+      "rank": 239,
+      "surface": "外国",
+      "reading": "がいこく",
+      "gloss": "外國",
+      "pos": "名詞"
+    },
+    {
+      "rank": 240,
+      "surface": "外国人",
+      "reading": "がいこくじん",
+      "gloss": "外國人",
+      "pos": "名詞"
+    },
+    {
+      "rank": 241,
+      "surface": "住所",
+      "reading": "じゅうしょ",
+      "gloss": "住址",
+      "pos": "名詞"
+    },
+    {
+      "rank": 242,
+      "surface": "誕生日",
+      "reading": "たんじょうび",
+      "gloss": "生日",
+      "pos": "名詞"
+    },
+    {
+      "rank": 243,
+      "surface": "趣味",
+      "reading": "しゅみ",
+      "gloss": "興趣",
+      "pos": "名詞"
+    },
+    {
+      "rank": 244,
+      "surface": "音楽",
+      "reading": "おんがく",
+      "gloss": "音樂",
+      "pos": "名詞"
+    },
+    {
+      "rank": 245,
+      "surface": "歌",
+      "reading": "うた",
+      "gloss": "歌",
+      "pos": "名詞"
+    },
+    {
+      "rank": 246,
+      "surface": "絵",
+      "reading": "え",
+      "gloss": "畫",
+      "pos": "名詞"
+    },
+    {
+      "rank": 247,
+      "surface": "写真",
+      "reading": "しゃしん",
+      "gloss": "照片",
+      "pos": "名詞"
+    },
+    {
+      "rank": 248,
+      "surface": "スポーツ",
+      "reading": "スポーツ",
+      "gloss": "運動",
+      "pos": "名詞"
+    },
+    {
+      "rank": 249,
+      "surface": "野球",
+      "reading": "やきゅう",
+      "gloss": "棒球",
+      "pos": "名詞"
+    },
+    {
+      "rank": 250,
+      "surface": "映画",
+      "reading": "えいが",
+      "gloss": "電影",
+      "pos": "名詞"
+    },
+    {
+      "rank": 251,
+      "surface": "話す",
+      "reading": "はなす",
+      "gloss": "說話",
+      "pos": "動詞"
+    },
+    {
+      "rank": 252,
+      "surface": "聞く",
+      "reading": "きく",
+      "gloss": "聽／問",
+      "pos": "動詞"
+    },
+    {
+      "rank": 253,
+      "surface": "読む",
+      "reading": "よむ",
+      "gloss": "讀",
+      "pos": "動詞"
+    },
+    {
+      "rank": 254,
+      "surface": "書く",
+      "reading": "かく",
+      "gloss": "寫",
+      "pos": "動詞"
+    },
+    {
+      "rank": 255,
+      "surface": "買う",
+      "reading": "かう",
+      "gloss": "買",
+      "pos": "動詞"
+    },
+    {
+      "rank": 256,
+      "surface": "売る",
+      "reading": "うる",
+      "gloss": "賣",
+      "pos": "動詞"
+    },
+    {
+      "rank": 257,
+      "surface": "使う",
+      "reading": "つかう",
+      "gloss": "使用",
+      "pos": "動詞"
+    },
+    {
+      "rank": 258,
+      "surface": "作る",
+      "reading": "つくる",
+      "gloss": "做／製作",
+      "pos": "動詞"
+    },
+    {
+      "rank": 259,
+      "surface": "待つ",
+      "reading": "まつ",
+      "gloss": "等待",
+      "pos": "動詞"
+    },
+    {
+      "rank": 260,
+      "surface": "立つ",
+      "reading": "たつ",
+      "gloss": "站立",
+      "pos": "動詞"
+    },
+    {
+      "rank": 261,
+      "surface": "座る",
+      "reading": "すわる",
+      "gloss": "坐",
+      "pos": "動詞"
+    },
+    {
+      "rank": 262,
+      "surface": "歩く",
+      "reading": "あるく",
+      "gloss": "走路",
+      "pos": "動詞"
+    },
+    {
+      "rank": 263,
+      "surface": "走る",
+      "reading": "はしる",
+      "gloss": "跑步",
+      "pos": "動詞"
+    },
+    {
+      "rank": 264,
+      "surface": "泳ぐ",
+      "reading": "およぐ",
+      "gloss": "游泳",
+      "pos": "動詞"
+    },
+    {
+      "rank": 265,
+      "surface": "遊ぶ",
+      "reading": "あそぶ",
+      "gloss": "玩",
+      "pos": "動詞"
+    },
+    {
+      "rank": 266,
+      "surface": "休む",
+      "reading": "やすむ",
+      "gloss": "休息",
+      "pos": "動詞"
+    },
+    {
+      "rank": 267,
+      "surface": "働く",
+      "reading": "はたらく",
+      "gloss": "工作",
+      "pos": "動詞"
+    },
+    {
+      "rank": 268,
+      "surface": "教える",
+      "reading": "おしえる",
+      "gloss": "教",
+      "pos": "動詞"
+    },
+    {
+      "rank": 269,
+      "surface": "習う",
+      "reading": "ならう",
+      "gloss": "學習",
+      "pos": "動詞"
+    },
+    {
+      "rank": 270,
+      "surface": "分かる",
+      "reading": "わかる",
+      "gloss": "明白",
+      "pos": "動詞"
+    },
+    {
+      "rank": 271,
+      "surface": "知る",
+      "reading": "しる",
+      "gloss": "知道",
+      "pos": "動詞"
+    },
+    {
+      "rank": 272,
+      "surface": "思う",
+      "reading": "おもう",
+      "gloss": "覺得",
+      "pos": "動詞"
+    },
+    {
+      "rank": 273,
+      "surface": "言う",
+      "reading": "いう",
+      "gloss": "說",
+      "pos": "動詞"
+    },
+    {
+      "rank": 274,
+      "surface": "出る",
+      "reading": "でる",
+      "gloss": "出去",
+      "pos": "動詞"
+    },
+    {
+      "rank": 275,
+      "surface": "入る",
+      "reading": "はいる",
+      "gloss": "進入",
+      "pos": "動詞"
+    },
+    {
+      "rank": 276,
+      "surface": "開ける",
+      "reading": "あける",
+      "gloss": "打開",
+      "pos": "動詞"
+    },
+    {
+      "rank": 277,
+      "surface": "閉める",
+      "reading": "しめる",
+      "gloss": "關閉",
+      "pos": "動詞"
+    },
+    {
+      "rank": 278,
+      "surface": "起きる",
+      "reading": "おきる",
+      "gloss": "起床",
+      "pos": "動詞"
+    },
+    {
+      "rank": 279,
+      "surface": "寝る",
+      "reading": "ねる",
+      "gloss": "睡覺",
+      "pos": "動詞"
+    },
+    {
+      "rank": 280,
+      "surface": "帰る",
+      "reading": "かえる",
+      "gloss": "回去",
+      "pos": "動詞"
+    },
+    {
+      "rank": 281,
+      "surface": "出かける",
+      "reading": "でかける",
+      "gloss": "出門",
+      "pos": "動詞"
+    },
+    {
+      "rank": 282,
+      "surface": "着る",
+      "reading": "きる",
+      "gloss": "穿（上衣）",
+      "pos": "動詞"
+    },
+    {
+      "rank": 283,
+      "surface": "脱ぐ",
+      "reading": "ぬぐ",
+      "gloss": "脫",
+      "pos": "動詞"
+    },
+    {
+      "rank": 284,
+      "surface": "洗う",
+      "reading": "あらう",
+      "gloss": "洗",
+      "pos": "動詞"
+    },
+    {
+      "rank": 285,
+      "surface": "掃除する",
+      "reading": "そうじする",
+      "gloss": "打掃",
+      "pos": "動詞"
+    },
+    {
+      "rank": 286,
+      "surface": "洗濯する",
+      "reading": "せんたくする",
+      "gloss": "洗衣服",
+      "pos": "動詞"
+    },
+    {
+      "rank": 287,
+      "surface": "練習する",
+      "reading": "れんしゅうする",
+      "gloss": "練習",
+      "pos": "動詞"
+    },
+    {
+      "rank": 288,
+      "surface": "旅行する",
+      "reading": "りょこうする",
+      "gloss": "旅行",
+      "pos": "動詞"
+    },
+    {
+      "rank": 289,
+      "surface": "結婚する",
+      "reading": "けっこんする",
+      "gloss": "結婚",
+      "pos": "動詞"
+    },
+    {
+      "rank": 290,
+      "surface": "電話する",
+      "reading": "でんわする",
+      "gloss": "打電話",
+      "pos": "動詞"
+    },
+    {
+      "rank": 291,
+      "surface": "散歩する",
+      "reading": "さんぽする",
+      "gloss": "散步",
+      "pos": "動詞"
+    },
+    {
+      "rank": 292,
+      "surface": "泊まる",
+      "reading": "とまる",
+      "gloss": "住宿",
+      "pos": "動詞"
+    },
+    {
+      "rank": 293,
+      "surface": "乗る",
+      "reading": "のる",
+      "gloss": "搭乘",
+      "pos": "動詞"
+    },
+    {
+      "rank": 294,
+      "surface": "降りる",
+      "reading": "おりる",
+      "gloss": "下車",
+      "pos": "動詞"
+    },
+    {
+      "rank": 295,
+      "surface": "会う",
+      "reading": "あう",
+      "gloss": "見面",
+      "pos": "動詞"
+    },
+    {
+      "rank": 296,
+      "surface": "貸す",
+      "reading": "かす",
+      "gloss": "借出",
+      "pos": "動詞"
+    },
+    {
+      "rank": 297,
+      "surface": "借りる",
+      "reading": "かりる",
+      "gloss": "借入",
+      "pos": "動詞"
+    },
+    {
+      "rank": 298,
+      "surface": "あげる",
+      "reading": "あげる",
+      "gloss": "給（別人）",
+      "pos": "動詞"
+    },
+    {
+      "rank": 299,
+      "surface": "もらう",
+      "reading": "もらう",
+      "gloss": "得到",
+      "pos": "動詞"
+    },
+    {
+      "rank": 300,
+      "surface": "くれる",
+      "reading": "くれる",
+      "gloss": "給（我）",
+      "pos": "動詞"
+    },
+    {
+      "rank": 301,
+      "surface": "送る",
+      "reading": "おくる",
+      "gloss": "寄送",
+      "pos": "動詞"
+    },
+    {
+      "rank": 302,
+      "surface": "持つ",
+      "reading": "もつ",
+      "gloss": "拿／持有",
+      "pos": "動詞"
+    },
+    {
+      "rank": 303,
+      "surface": "忘れる",
+      "reading": "わすれる",
+      "gloss": "忘記",
+      "pos": "動詞"
+    },
+    {
+      "rank": 304,
+      "surface": "覚える",
+      "reading": "おぼえる",
+      "gloss": "記住",
+      "pos": "動詞"
+    },
+    {
+      "rank": 305,
+      "surface": "死ぬ",
+      "reading": "しぬ",
+      "gloss": "死",
+      "pos": "動詞"
+    },
+    {
+      "rank": 306,
+      "surface": "生まれる",
+      "reading": "うまれる",
+      "gloss": "出生",
+      "pos": "動詞"
+    },
+    {
+      "rank": 307,
+      "surface": "住む",
+      "reading": "すむ",
+      "gloss": "居住",
+      "pos": "動詞"
+    },
+    {
+      "rank": 308,
+      "surface": "押す",
+      "reading": "おす",
+      "gloss": "推／按",
+      "pos": "動詞"
+    },
+    {
+      "rank": 309,
+      "surface": "引く",
+      "reading": "ひく",
+      "gloss": "拉",
+      "pos": "動詞"
+    },
+    {
+      "rank": 310,
+      "surface": "切る",
+      "reading": "きる",
+      "gloss": "切",
+      "pos": "動詞"
+    },
+    {
+      "rank": 311,
+      "surface": "高い",
+      "reading": "たかい",
+      "gloss": "貴的／高的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 312,
+      "surface": "安い",
+      "reading": "やすい",
+      "gloss": "便宜的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 313,
+      "surface": "古い",
+      "reading": "ふるい",
+      "gloss": "舊的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 314,
+      "surface": "忙しい",
+      "reading": "いそがしい",
+      "gloss": "忙碌的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 315,
+      "surface": "暑い",
+      "reading": "あつい",
+      "gloss": "熱的（天氣）",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 316,
+      "surface": "寒い",
+      "reading": "さむい",
+      "gloss": "冷的（天氣）",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 317,
+      "surface": "熱い",
+      "reading": "あつい",
+      "gloss": "燙的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 318,
+      "surface": "涼しい",
+      "reading": "すずしい",
+      "gloss": "涼爽的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 319,
+      "surface": "難しい",
+      "reading": "むずかしい",
+      "gloss": "困難的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 320,
+      "surface": "易しい",
+      "reading": "やさしい",
+      "gloss": "簡單的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 321,
+      "surface": "面白い",
+      "reading": "おもしろい",
+      "gloss": "有趣的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 322,
+      "surface": "つまらない",
+      "reading": "つまらない",
+      "gloss": "無聊的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 323,
+      "surface": "楽しい",
+      "reading": "たのしい",
+      "gloss": "開心的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 324,
+      "surface": "美味しい",
+      "reading": "おいしい",
+      "gloss": "好吃的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 325,
+      "surface": "かわいい",
+      "reading": "かわいい",
+      "gloss": "可愛的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 326,
+      "surface": "早い",
+      "reading": "はやい",
+      "gloss": "早的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 327,
+      "surface": "遅い",
+      "reading": "おそい",
+      "gloss": "慢的／晚的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 328,
+      "surface": "近い",
+      "reading": "ちかい",
+      "gloss": "近的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 329,
+      "surface": "遠い",
+      "reading": "とおい",
+      "gloss": "遠的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 330,
+      "surface": "重い",
+      "reading": "おもい",
+      "gloss": "重的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 331,
+      "surface": "軽い",
+      "reading": "かるい",
+      "gloss": "輕的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 332,
+      "surface": "いい",
+      "reading": "いい",
+      "gloss": "好的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 333,
+      "surface": "悪い",
+      "reading": "わるい",
+      "gloss": "不好的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 334,
+      "surface": "多い",
+      "reading": "おおい",
+      "gloss": "多的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 335,
+      "surface": "少ない",
+      "reading": "すくない",
+      "gloss": "少的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 336,
+      "surface": "長い",
+      "reading": "ながい",
+      "gloss": "長的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 337,
+      "surface": "短い",
+      "reading": "みじかい",
+      "gloss": "短的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 338,
+      "surface": "強い",
+      "reading": "つよい",
+      "gloss": "強的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 339,
+      "surface": "弱い",
+      "reading": "よわい",
+      "gloss": "弱的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 340,
+      "surface": "明るい",
+      "reading": "あかるい",
+      "gloss": "明亮的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 341,
+      "surface": "暗い",
+      "reading": "くらい",
+      "gloss": "暗的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 342,
+      "surface": "広い",
+      "reading": "ひろい",
+      "gloss": "寬廣的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 343,
+      "surface": "狭い",
+      "reading": "せまい",
+      "gloss": "狹窄的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 344,
+      "surface": "甘い",
+      "reading": "あまい",
+      "gloss": "甜的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 345,
+      "surface": "辛い",
+      "reading": "からい",
+      "gloss": "辣的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 346,
+      "surface": "痛い",
+      "reading": "いたい",
+      "gloss": "痛的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 347,
+      "surface": "眠い",
+      "reading": "ねむい",
+      "gloss": "想睡的",
+      "pos": "い形容詞"
+    },
+    {
+      "rank": 348,
+      "surface": "静か",
+      "reading": "しずか",
+      "gloss": "安靜的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 349,
+      "surface": "賑やか",
+      "reading": "にぎやか",
+      "gloss": "熱鬧的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 350,
+      "surface": "便利",
+      "reading": "べんり",
+      "gloss": "方便的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 351,
+      "surface": "不便",
+      "reading": "ふべん",
+      "gloss": "不方便的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 352,
+      "surface": "有名",
+      "reading": "ゆうめい",
+      "gloss": "有名的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 353,
+      "surface": "元気",
+      "reading": "げんき",
+      "gloss": "有精神的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 354,
+      "surface": "親切",
+      "reading": "しんせつ",
+      "gloss": "親切的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 355,
+      "surface": "大丈夫",
+      "reading": "だいじょうぶ",
+      "gloss": "沒問題的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 356,
+      "surface": "大切",
+      "reading": "たいせつ",
+      "gloss": "重要的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 357,
+      "surface": "大変",
+      "reading": "たいへん",
+      "gloss": "辛苦的／嚴重的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 358,
+      "surface": "簡単",
+      "reading": "かんたん",
+      "gloss": "簡單的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 359,
+      "surface": "上手",
+      "reading": "じょうず",
+      "gloss": "擅長的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 360,
+      "surface": "下手",
+      "reading": "へた",
+      "gloss": "不擅長的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 361,
+      "surface": "暇",
+      "reading": "ひま",
+      "gloss": "空閒的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 362,
+      "surface": "綺麗",
+      "reading": "きれい",
+      "gloss": "漂亮的／乾淨的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 363,
+      "surface": "嫌い",
+      "reading": "きらい",
+      "gloss": "討厭的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 364,
+      "surface": "同じ",
+      "reading": "おなじ",
+      "gloss": "相同的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 365,
+      "surface": "特別",
+      "reading": "とくべつ",
+      "gloss": "特別的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 366,
+      "surface": "必要",
+      "reading": "ひつよう",
+      "gloss": "必要的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 367,
+      "surface": "素敵",
+      "reading": "すてき",
+      "gloss": "很棒的",
+      "pos": "な形容詞"
+    },
+    {
+      "rank": 368,
+      "surface": "とても",
+      "reading": "とても",
+      "gloss": "非常",
+      "pos": "副詞"
+    },
+    {
+      "rank": 369,
+      "surface": "少し",
+      "reading": "すこし",
+      "gloss": "一點點",
+      "pos": "副詞"
+    },
+    {
+      "rank": 370,
+      "surface": "たくさん",
+      "reading": "たくさん",
+      "gloss": "很多",
+      "pos": "副詞"
+    },
+    {
+      "rank": 371,
+      "surface": "もっと",
+      "reading": "もっと",
+      "gloss": "更加",
+      "pos": "副詞"
+    },
+    {
+      "rank": 372,
+      "surface": "あまり",
+      "reading": "あまり",
+      "gloss": "不太（後接否定）",
+      "pos": "副詞"
+    },
+    {
+      "rank": 373,
+      "surface": "全然",
+      "reading": "ぜんぜん",
+      "gloss": "完全（不）",
+      "pos": "副詞"
+    },
+    {
+      "rank": 374,
+      "surface": "全部",
+      "reading": "ぜんぶ",
+      "gloss": "全部",
+      "pos": "副詞"
+    },
+    {
+      "rank": 375,
+      "surface": "一緒に",
+      "reading": "いっしょに",
+      "gloss": "一起",
+      "pos": "副詞"
+    },
+    {
+      "rank": 376,
+      "surface": "一番",
+      "reading": "いちばん",
+      "gloss": "最",
+      "pos": "副詞"
+    },
+    {
+      "rank": 377,
+      "surface": "本当に",
+      "reading": "ほんとうに",
+      "gloss": "真的",
+      "pos": "副詞"
+    },
+    {
+      "rank": 378,
+      "surface": "多分",
+      "reading": "たぶん",
+      "gloss": "大概",
+      "pos": "副詞"
+    },
+    {
+      "rank": 379,
+      "surface": "例えば",
+      "reading": "たとえば",
+      "gloss": "例如",
+      "pos": "副詞"
+    },
+    {
+      "rank": 380,
+      "surface": "特に",
+      "reading": "とくに",
+      "gloss": "特別是",
+      "pos": "副詞"
+    },
+    {
+      "rank": 381,
+      "surface": "すぐ",
+      "reading": "すぐ",
+      "gloss": "馬上",
+      "pos": "副詞"
+    },
+    {
+      "rank": 382,
+      "surface": "もう",
+      "reading": "もう",
+      "gloss": "已經",
+      "pos": "副詞"
+    },
+    {
+      "rank": 383,
+      "surface": "まだ",
+      "reading": "まだ",
+      "gloss": "還沒／還",
+      "pos": "副詞"
+    },
+    {
+      "rank": 384,
+      "surface": "ゆっくり",
+      "reading": "ゆっくり",
+      "gloss": "慢慢地",
+      "pos": "副詞"
+    },
+    {
+      "rank": 385,
+      "surface": "だんだん",
+      "reading": "だんだん",
+      "gloss": "漸漸地",
+      "pos": "副詞"
+    },
+    {
+      "rank": 386,
+      "surface": "ちょうど",
+      "reading": "ちょうど",
+      "gloss": "剛好",
+      "pos": "副詞"
+    },
+    {
+      "rank": 387,
+      "surface": "いつも",
+      "reading": "いつも",
+      "gloss": "總是",
+      "pos": "副詞"
+    },
+    {
+      "rank": 388,
+      "surface": "たまに",
+      "reading": "たまに",
+      "gloss": "偶爾",
+      "pos": "副詞"
+    },
+    {
+      "rank": 389,
+      "surface": "初めて",
+      "reading": "はじめて",
+      "gloss": "第一次",
+      "pos": "副詞"
+    },
+    {
+      "rank": 390,
+      "surface": "一人で",
+      "reading": "ひとりで",
+      "gloss": "獨自",
+      "pos": "副詞"
+    },
+    {
+      "rank": 391,
+      "surface": "おはようございます",
+      "reading": "おはようございます",
+      "gloss": "早安",
+      "pos": "表現"
+    },
+    {
+      "rank": 392,
+      "surface": "こんにちは",
+      "reading": "こんにちは",
+      "gloss": "你好",
+      "pos": "表現"
+    },
+    {
+      "rank": 393,
+      "surface": "こんばんは",
+      "reading": "こんばんは",
+      "gloss": "晚安（見面時）",
+      "pos": "表現"
+    },
+    {
+      "rank": 394,
+      "surface": "さようなら",
+      "reading": "さようなら",
+      "gloss": "再見",
+      "pos": "表現"
+    },
+    {
+      "rank": 395,
+      "surface": "すみません",
+      "reading": "すみません",
+      "gloss": "不好意思",
+      "pos": "表現"
+    },
+    {
+      "rank": 396,
+      "surface": "ごめんなさい",
+      "reading": "ごめんなさい",
+      "gloss": "對不起",
+      "pos": "表現"
+    },
+    {
+      "rank": 397,
+      "surface": "いただきます",
+      "reading": "いただきます",
+      "gloss": "我開動了",
+      "pos": "表現"
+    },
+    {
+      "rank": 398,
+      "surface": "お願いします",
+      "reading": "おねがいします",
+      "gloss": "拜託了",
+      "pos": "表現"
+    },
+    {
+      "rank": 399,
+      "surface": "どういたしまして",
+      "reading": "どういたしまして",
+      "gloss": "不客氣",
+      "pos": "表現"
+    },
+    {
+      "rank": 400,
+      "surface": "いってきます",
+      "reading": "いってきます",
+      "gloss": "我出門了",
+      "pos": "表現"
+    },
+    {
+      "rank": 401,
+      "surface": "いってらっしゃい",
+      "reading": "いってらっしゃい",
+      "gloss": "路上小心",
+      "pos": "表現"
+    },
+    {
+      "rank": 402,
+      "surface": "ただいま",
+      "reading": "ただいま",
+      "gloss": "我回來了",
+      "pos": "表現"
+    },
+    {
+      "rank": 403,
+      "surface": "おかえりなさい",
+      "reading": "おかえりなさい",
+      "gloss": "歡迎回來",
+      "pos": "表現"
+    },
+    {
+      "rank": 404,
+      "surface": "おやすみなさい",
+      "reading": "おやすみなさい",
+      "gloss": "晚安（睡前）",
+      "pos": "表現"
+    },
+    {
+      "rank": 405,
+      "surface": "はじめまして",
+      "reading": "はじめまして",
+      "gloss": "初次見面",
+      "pos": "表現"
+    },
+    {
+      "rank": 406,
+      "surface": "わかりました",
+      "reading": "わかりました",
+      "gloss": "我明白了",
+      "pos": "表現"
+    },
+    {
+      "rank": 407,
+      "surface": "冷たい",
+      "reading": "つめたい",
+      "gloss": "冰的／冷的",
+      "pos": "い形容詞"
+    }
+  ]
+}

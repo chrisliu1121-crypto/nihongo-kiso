@@ -28,9 +28,17 @@ export function WordCard({ word }: WordCardProps) {
           showMorae
           id={word.id}
         />
-        <span className="mt-1 shrink-0 rounded bg-stone-100 px-2 py-0.5 text-xs text-stone-500">
-          {word.pos}
-        </span>
+        <div className="mt-1 flex shrink-0 items-center gap-1.5">
+          {!word.verified && (
+            <span
+              className="rounded bg-amber-50 px-2 py-0.5 text-xs text-amber-600"
+              title="這個詞尚未通過第二次獨立審查（DESIGN.md §9.3），內容可能有誤"
+            >
+              未校對
+            </span>
+          )}
+          <span className="rounded bg-stone-100 px-2 py-0.5 text-xs text-stone-500">{word.pos}</span>
+        </div>
       </div>
 
       <div className="border-t border-dashed border-stone-200 pt-3">
