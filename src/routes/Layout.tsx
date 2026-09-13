@@ -28,6 +28,12 @@ export function Layout() {
           <NavLink to="/grammar" className={NAV_LINK_CLASS}>
             文法
           </NavLink>
+          <NavLink to="/practice/arrange" className={NAV_LINK_CLASS}>
+            排列練習
+          </NavLink>
+          <NavLink to="/practice/particle" className={NAV_LINK_CLASS}>
+            助詞對照器
+          </NavLink>
         </nav>
       </header>
 

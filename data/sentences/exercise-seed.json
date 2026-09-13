@@ -1,0 +1,210 @@
+{
+  "sentences": [
+    {
+      "id": "s_x001",
+      "pattern_id": "p_18",
+      "level": "N5",
+      "tokens": [
+        { "surface": "友達", "reading": "ともだち", "gloss": "朋友" },
+        { "surface": "と", "reading": "と", "gloss": "（對象）", "particle": true },
+        { "surface": "話します", "reading": "はなします", "gloss": "說、聊" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "和朋友交談。",
+      "verified": true,
+      "tags": ["particle:to", "swap-slot"]
+    },
+    {
+      "id": "s_x002",
+      "pattern_id": "p_19",
+      "level": "N5",
+      "tokens": [
+        { "surface": "海", "reading": "うみ", "gloss": "海" },
+        { "surface": "で", "reading": "で", "gloss": "（地點）", "particle": true },
+        { "surface": "泳ぎます", "reading": "およぎます", "gloss": "游泳" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "在海裡游泳。",
+      "verified": true,
+      "tags": ["particle:de", "swap-slot"]
+    },
+    {
+      "id": "s_x003",
+      "pattern_id": "p_16",
+      "level": "N5",
+      "tokens": [
+        { "surface": "朝", "reading": "あさ", "gloss": "早上" },
+        { "surface": "学校", "reading": "がっこう", "gloss": "學校" },
+        { "surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true },
+        { "surface": "行きます", "reading": "いきます", "gloss": "去" }
+      ],
+      "bunsetsu": [[0], [1, 2], [3]],
+      "valid_orders": [[0, 1, 2]],
+      "preferred_order": [0, 1, 2],
+      "translation": "早上去學校。",
+      "verified": true,
+      "tags": ["particle:ni", "swap-slot"],
+      "note": "valid_orders 為常見自然序，非窮舉（時間副詞「朝」原則上可移動）"
+    },
+    {
+      "id": "s_x004",
+      "pattern_id": "p_19",
+      "level": "N5",
+      "tokens": [
+        { "surface": "自転車", "reading": "じてんしゃ", "gloss": "腳踏車" },
+        { "surface": "で", "reading": "で", "gloss": "（手段）", "particle": true },
+        { "surface": "行きます", "reading": "いきます", "gloss": "去" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "騎腳踏車去。",
+      "verified": true,
+      "tags": ["particle:de", "swap-slot"]
+    },
+    {
+      "id": "s_x005",
+      "pattern_id": "p_14",
+      "level": "N5",
+      "tokens": [
+        { "surface": "毎日", "reading": "まいにち", "gloss": "每天" },
+        { "surface": "水", "reading": "みず", "gloss": "水" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "飲みます", "reading": "のみます", "gloss": "喝" }
+      ],
+      "bunsetsu": [[0], [1, 2], [3]],
+      "valid_orders": [[0, 1, 2]],
+      "preferred_order": [0, 1, 2],
+      "translation": "每天喝水。",
+      "verified": true,
+      "tags": ["particle:wo", "swap-slot"],
+      "note": "valid_orders 為常見自然序，非窮舉（時間副詞「毎日」原則上可移動）"
+    },
+    {
+      "id": "s_x006",
+      "pattern_id": "p_16",
+      "level": "N5",
+      "tokens": [
+        { "surface": "大阪", "reading": "おおさか", "gloss": "大阪" },
+        { "surface": "に", "reading": "に", "gloss": "（靜態附著點）", "particle": true },
+        { "surface": "住んでいます", "reading": "すんでいます", "gloss": "住" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "住在大阪。",
+      "verified": true,
+      "tags": ["particle:ni", "swap-slot"]
+    },
+    {
+      "id": "s_x007",
+      "pattern_id": "p_01",
+      "level": "N5",
+      "tokens": [
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "先生", "reading": "せんせい", "gloss": "老師" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "我是老師。",
+      "verified": true,
+      "tags": ["particle:wa", "swap-slot"]
+    },
+    {
+      "id": "s_x008",
+      "pattern_id": "p_19",
+      "level": "N5",
+      "tokens": [
+        { "surface": "中国語", "reading": "ちゅうごくご", "gloss": "中文" },
+        { "surface": "で", "reading": "で", "gloss": "（語言・方式）", "particle": true },
+        { "surface": "話します", "reading": "はなします", "gloss": "說" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "用中文說。",
+      "verified": true,
+      "tags": ["particle:de", "swap-slot"]
+    },
+    {
+      "id": "s_x009",
+      "pattern_id": "p_21",
+      "level": "N5",
+      "tokens": [
+        { "surface": "毎朝", "reading": "まいあさ", "gloss": "每天早上" },
+        { "surface": "七時", "reading": "しちじ", "gloss": "七點" },
+        { "surface": "に", "reading": "に", "gloss": "（時間）", "particle": true },
+        { "surface": "起きます", "reading": "おきます", "gloss": "起床" }
+      ],
+      "bunsetsu": [[0], [1, 2], [3]],
+      "valid_orders": [[0, 1, 2]],
+      "preferred_order": [0, 1, 2],
+      "translation": "每天早上七點起床。",
+      "verified": true,
+      "tags": ["particle:ni", "swap-slot"],
+      "note": "valid_orders 為常見自然序，非窮舉（時間副詞「毎朝」原則上可移動）"
+    },
+    {
+      "id": "s_x010",
+      "pattern_id": "p_14",
+      "level": "N5",
+      "tokens": [
+        { "surface": "朝ご飯", "reading": "あさごはん", "gloss": "早餐" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "食べます", "reading": "たべます", "gloss": "吃" }
+      ],
+      "bunsetsu": [[0, 1], [2]],
+      "valid_orders": [[0, 1]],
+      "preferred_order": [0, 1],
+      "translation": "吃早餐。",
+      "verified": true,
+      "tags": ["particle:wo", "swap-slot"]
+    },
+    {
+      "id": "s_x011",
+      "pattern_id": "p_11",
+      "level": "N5",
+      "tokens": [
+        { "surface": "机", "reading": "つくえ", "gloss": "桌子" },
+        { "surface": "の", "reading": "の", "gloss": "（所屬）", "particle": true },
+        { "surface": "中", "reading": "なか", "gloss": "裡面" },
+        { "surface": "に", "reading": "に", "gloss": "（存在場所）", "particle": true },
+        { "surface": "鉛筆", "reading": "えんぴつ", "gloss": "鉛筆" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "あります", "reading": "あります", "gloss": "有" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3], [4, 5], [6]],
+      "valid_orders": [[0, 1, 2, 3], [2, 0, 1, 3]],
+      "preferred_order": [0, 1, 2, 3],
+      "translation": "桌子裡面有鉛筆。",
+      "verified": true,
+      "tags": ["particle:ni", "swap-slot"],
+      "note": "valid_orders 為常見自然序，非窮舉"
+    },
+    {
+      "id": "s_x012",
+      "pattern_id": "p_17",
+      "level": "N5",
+      "tokens": [
+        { "surface": "先生", "reading": "せんせい", "gloss": "老師" },
+        { "surface": "に", "reading": "に", "gloss": "（對象）", "particle": true },
+        { "surface": "手紙", "reading": "てがみ", "gloss": "信" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "書きます", "reading": "かきます", "gloss": "寫" }
+      ],
+      "bunsetsu": [[0, 1], [2, 3], [4]],
+      "valid_orders": [[0, 1, 2], [1, 0, 2]],
+      "preferred_order": [0, 1, 2],
+      "translation": "寫信給老師。",
+      "verified": true,
+      "tags": ["particle:ni", "swap-slot"]
+    }
+  ]
+}

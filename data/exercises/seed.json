@@ -1,0 +1,520 @@
+{
+  "exercises": [
+    {
+      "id": "ax_001",
+      "type": "arrange",
+      "sentence_id": "s_g033",
+      "prompt_zh": "我七點在食堂和朋友吃早餐。",
+      "hints": ["動詞放最後"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_002",
+      "type": "arrange",
+      "sentence_id": "s_g009",
+      "prompt_zh": "桌上有書。",
+      "hints": ["動詞（あります）放最後"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_003",
+      "type": "arrange",
+      "sentence_id": "s_g012",
+      "prompt_zh": "給朋友寫信。",
+      "hints": ["助詞跟著前面的名詞一起移動"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_004",
+      "type": "arrange",
+      "sentence_id": "s_g013",
+      "prompt_zh": "在食堂吃午餐。",
+      "hints": ["助詞跟著前面的名詞一起移動"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_005",
+      "type": "arrange",
+      "sentence_id": "s_g024",
+      "prompt_zh": "我喜歡日語。",
+      "hints": ["は 和 が 都在，注意誰標主題、誰標對象"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_006",
+      "type": "arrange",
+      "sentence_id": "s_g025",
+      "prompt_zh": "說到大象，鼻子很長。",
+      "hints": ["は 和 が 都在，注意誰標主題、誰標對象"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_007",
+      "type": "arrange",
+      "sentence_id": "s_g034",
+      "prompt_zh": "肉吃，但魚不吃。",
+      "hints": ["有兩個述語文節，各自的 は 都跟在自己的名詞後面"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_008",
+      "type": "arrange",
+      "sentence_id": "s_x003",
+      "prompt_zh": "早上去學校。",
+      "hints": ["動詞放最後"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_009",
+      "type": "arrange",
+      "sentence_id": "s_x005",
+      "prompt_zh": "每天喝水。",
+      "hints": ["動詞放最後"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_010",
+      "type": "arrange",
+      "sentence_id": "s_x009",
+      "prompt_zh": "每天早上七點起床。",
+      "hints": ["動詞放最後"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_011",
+      "type": "arrange",
+      "sentence_id": "s_x011",
+      "prompt_zh": "桌子裡面有鉛筆。",
+      "hints": ["動詞（あります）放最後"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "ax_012",
+      "type": "arrange",
+      "sentence_id": "s_x012",
+      "prompt_zh": "寫信給老師。",
+      "hints": ["助詞跟著前面的名詞一起移動"],
+      "distractors": [],
+      "verified": true
+    },
+    {
+      "id": "px_001",
+      "type": "particle-swap",
+      "sentence_id": "s_x001",
+      "slot_token_index": 1,
+      "focus": ["to", "ni"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "to",
+          "verdict": "natural",
+          "translation": "和朋友（互相）交談",
+          "note": "と 表相互，雙方都在說"
+        },
+        {
+          "particle_id": "ni",
+          "verdict": "different",
+          "translation": "對朋友講（單向告知）",
+          "note": "に 表單向，只有我在說"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "話す 的對話對象不用 を"
+        },
+        {
+          "particle_id": "de",
+          "verdict": "marginal",
+          "translation": "（用朋友當手段交談）",
+          "note": "文法可解析，但語意怪異，實際不說"
+        }
+      ]
+    },
+    {
+      "id": "px_002",
+      "type": "particle-swap",
+      "sentence_id": "s_x002",
+      "slot_token_index": 1,
+      "focus": ["de", "wo"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "de",
+          "verdict": "natural",
+          "translation": "在海裡游泳",
+          "note": "で 表示動作發生的場域"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "different",
+          "translation": "游過海（通過的路徑）",
+          "note": "を 表通過的場所，語意變成游過整片海"
+        },
+        {
+          "particle_id": "ni",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "泳ぐ 不是移動動詞，に 的到達點用法在此不通"
+        },
+        {
+          "particle_id": "ga",
+          "verdict": "marginal",
+          "translation": "（海在游？擬人化說法，日常不這樣說）",
+          "note": "文法可解析但語意怪異，實際不使用"
+        }
+      ]
+    },
+    {
+      "id": "px_003",
+      "type": "particle-swap",
+      "sentence_id": "s_x003",
+      "slot_token_index": 2,
+      "focus": ["ni", "de"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "ni",
+          "verdict": "natural",
+          "translation": "早上去學校",
+          "note": "に 標示到達的目的地"
+        },
+        {
+          "particle_id": "to",
+          "verdict": "marginal",
+          "translation": "（早上和「學校」一起去？）",
+          "note": "語意怪異，實際不說"
+        },
+        {
+          "particle_id": "de",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "で 不能標記到達點，行く 的目的地只能用 に"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "を 標通過的場所，不能標到達點"
+        }
+      ]
+    },
+    {
+      "id": "px_004",
+      "type": "particle-swap",
+      "sentence_id": "s_x004",
+      "slot_token_index": 1,
+      "focus": ["de", "wo"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "de",
+          "verdict": "natural",
+          "translation": "騎腳踏車去（手段）",
+          "note": "で 標示交通工具等手段"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "を 不能標示交通工具的手段，此處不成立"
+        },
+        {
+          "particle_id": "ni",
+          "verdict": "marginal",
+          "translation": "（到腳踏車那裡去？）",
+          "note": "語感牽強，一般不這樣講"
+        },
+        {
+          "particle_id": "to",
+          "verdict": "marginal",
+          "translation": "（和腳踏車一起去？）",
+          "note": "擬人化，實際不說"
+        }
+      ]
+    },
+    {
+      "id": "px_005",
+      "type": "particle-swap",
+      "sentence_id": "s_x005",
+      "slot_token_index": 2,
+      "focus": ["wo", "ga"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "wo",
+          "verdict": "natural",
+          "translation": "每天喝水",
+          "note": "を 標示喝的對象，是普通動作動詞的受詞"
+        },
+        {
+          "particle_id": "wa",
+          "verdict": "different",
+          "translation": "水的話，會喝（對比：其他東西不一定，但水會喝）",
+          "note": "は 把水拉成對比主題"
+        },
+        {
+          "particle_id": "ga",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "が 標對象只用於好き／わかる／できる／たい等狀態動詞，飲みます 是普通動作動詞不適用"
+        },
+        {
+          "particle_id": "de",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "で 標場所或手段，不能標示喝的對象"
+        }
+      ]
+    },
+    {
+      "id": "px_006",
+      "type": "particle-swap",
+      "sentence_id": "s_x006",
+      "slot_token_index": 1,
+      "focus": ["ni", "de"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "ni",
+          "verdict": "natural",
+          "translation": "住在大阪",
+          "note": "に 標示靜態附著的一個點"
+        },
+        {
+          "particle_id": "de",
+          "verdict": "marginal",
+          "translation": "（在大阪生活）",
+          "note": "把「住」引申成範圍內的日常活動，口語偶爾聽到但不算標準；住む 的地點原則上用 に"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "を 不能標示居住的地點"
+        },
+        {
+          "particle_id": "ga",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "が 會把「大阪」變成「住んでいます」的主語，語意不通（地方不會自己住）"
+        }
+      ]
+    },
+    {
+      "id": "px_007",
+      "type": "particle-swap",
+      "sentence_id": "s_x007",
+      "slot_token_index": 1,
+      "focus": ["wa", "ga"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "wa",
+          "verdict": "natural",
+          "translation": "我是老師（平鋪直敘，談「我」這個主題）",
+          "note": "は 標示這句話在談誰"
+        },
+        {
+          "particle_id": "ga",
+          "verdict": "different",
+          "translation": "我是老師（回答「誰是老師？」，焦點在「我」）",
+          "note": "が 標示新資訊／焦點，與 は 不同層"
+        },
+        {
+          "particle_id": "mo",
+          "verdict": "different",
+          "translation": "我也是老師（附加、與前面同類）",
+          "note": "も 取代 は，表「也」"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "です 判斷句沒有動作受詞，を 在此不適用"
+        }
+      ]
+    },
+    {
+      "id": "px_008",
+      "type": "particle-swap",
+      "sentence_id": "s_x008",
+      "slot_token_index": 1,
+      "focus": ["de", "ni"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "de",
+          "verdict": "natural",
+          "translation": "用中文說",
+          "note": "で 標示使用的語言／方式"
+        },
+        {
+          "particle_id": "wa",
+          "verdict": "different",
+          "translation": "中文的話，會說（對比：其他語言不一定，但中文會）",
+          "note": "は 把語言拉成對比主題"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "different",
+          "translation": "說中文（會說中文這個語言本身）",
+          "note": "を 是話す的直接受詞，標語言本身；で 是媒介（用中文說）。兩者都成立，語意不同"
+        },
+        {
+          "particle_id": "ni",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "に 不能標示語言方式"
+        }
+      ]
+    },
+    {
+      "id": "px_009",
+      "type": "particle-swap",
+      "sentence_id": "s_x009",
+      "slot_token_index": 2,
+      "focus": ["ni", "de"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "ni",
+          "verdict": "natural",
+          "translation": "每天早上七點起床",
+          "note": "に 標示精確的時間點"
+        },
+        {
+          "particle_id": "wa",
+          "verdict": "different",
+          "translation": "七點的話，就會起床（對比：其他時間不一定，但七點會）",
+          "note": "は 把時間拉成對比主題"
+        },
+        {
+          "particle_id": "de",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "で 不能標示精確的時間點，時間定點用 に"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "を 不能標示時間點"
+        }
+      ]
+    },
+    {
+      "id": "px_010",
+      "type": "particle-swap",
+      "sentence_id": "s_x010",
+      "slot_token_index": 1,
+      "focus": ["wo", "ga"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "wo",
+          "verdict": "natural",
+          "translation": "吃早餐",
+          "note": "を 標示吃的對象"
+        },
+        {
+          "particle_id": "wa",
+          "verdict": "different",
+          "translation": "早餐的話，會吃（對比：其他餐不一定，但早餐會吃）",
+          "note": "は 把早餐拉成對比主題"
+        },
+        {
+          "particle_id": "mo",
+          "verdict": "different",
+          "translation": "早餐也吃（附加）",
+          "note": "も 表「也」，取代 を"
+        },
+        {
+          "particle_id": "ga",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "が 標對象只用於好き／わかる／できる／たい等狀態動詞，食べます 是普通動作動詞不適用"
+        }
+      ]
+    },
+    {
+      "id": "px_011",
+      "type": "particle-swap",
+      "sentence_id": "s_x011",
+      "slot_token_index": 3,
+      "focus": ["ni", "de"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "ni",
+          "verdict": "natural",
+          "translation": "桌子裡面有鉛筆",
+          "note": "存在句的場所用 に（DESIGN：「桌上有書」的「在」是 に）"
+        },
+        {
+          "particle_id": "wa",
+          "verdict": "different",
+          "translation": "桌子裡面的話，有鉛筆（對比：其他地方不一定有）",
+          "note": "は 把場所拉成對比主題（には 的簡化說法）"
+        },
+        {
+          "particle_id": "de",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "で 標動作發生的場域，あります 是靜態存在，用 に 不用 で"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "を 不能標示存在的場所"
+        }
+      ]
+    },
+    {
+      "id": "px_012",
+      "type": "particle-swap",
+      "sentence_id": "s_x012",
+      "slot_token_index": 1,
+      "focus": ["ni", "to"],
+      "verified": true,
+      "candidates": [
+        {
+          "particle_id": "ni",
+          "verdict": "natural",
+          "translation": "寫信給老師（對象，單向）",
+          "note": "に 標示單向的對象"
+        },
+        {
+          "particle_id": "to",
+          "verdict": "different",
+          "translation": "和老師一起寫信（共同動作）",
+          "note": "と 表相互/共同，語意從「給老師」變成「跟老師一起」"
+        },
+        {
+          "particle_id": "wo",
+          "verdict": "invalid",
+          "translation": null,
+          "note": "一句不能有兩個 を（雙を限制）；收件人只能用 に"
+        },
+        {
+          "particle_id": "ga",
+          "verdict": "different",
+          "translation": "老師寫信（老師變成寫信的人，不再是收件人）",
+          "note": "が 把老師變成動作主體，語意從「給老師」變成「老師自己寫」"
+        }
+      ]
+    }
+  ]
+}

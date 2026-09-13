@@ -40,6 +40,17 @@ export type {
 } from "./types";
 export { PARTICLE_IDS } from "./types";
 
+// Practice exercises (build task 2026-09 step 5) -- re-exported here too so
+// pages can import everything bank-shaped from one place, same as the
+// particle types above.
+export type {
+  ArrangeExercise,
+  Exercise,
+  ParticleSwapExercise,
+  SwapCandidate,
+  SwapVerdict,
+} from "../exercise/types.ts";
+
 // Pure helpers live in dates.ts/grammar.ts (no data/bank.json import there),
 // so they can be unit-tested without depending on the built bank -- see
 // those files.

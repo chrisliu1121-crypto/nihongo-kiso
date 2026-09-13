@@ -37,6 +37,21 @@ export interface TokenProps {
   size?: TokenSize;
   /** Whether this token participates in highlighting at all. Default true. */
   interactive?: boolean;
+  /**
+   * Whether clicking this token may pin/unpin it (toggle the "pinned"
+   * highlight layer). Default true. Set false for a Token that's only ONE
+   * of several interchangeable choices rendered side by side (e.g. a
+   * particle-swap candidate) whose own click is already handled by a
+   * wrapping element for a DIFFERENT purpose (selecting that candidate) --
+   * without this, the Token's own togglePinned would ALSO fire on the same
+   * click, leaving a single candidate's highlight pinned on the gojuon
+   * table after the learner moves to another question or page (build task
+   * 2026-09 step 5 review: "pinned 殘留"). Hover/focus highlighting is
+   * unaffected -- only the click-to-pin behavior and its `aria-pressed`
+   * attribute (omitted entirely, not just false, when `pinnable` is false)
+   * are suppressed.
+   */
+  pinnable?: boolean;
   /** Render a per-mora breakdown strip below the token. Default false. */
   showMorae?: boolean;
   /**
@@ -79,6 +94,7 @@ export function Token({
   particle: particleProp,
   size = "md",
   interactive = true,
+  pinnable = true,
   showMorae = false,
   id,
 }: TokenProps) {
@@ -101,7 +117,7 @@ export function Token({
   );
 
   const highlightState = useHighlightState();
-  const isPinned = highlightState.pinned?.sourceId === sourceId;
+  const isPinned = pinnable && highlightState.pinned?.sourceId === sourceId;
 
   if (!interactive) {
     return (
@@ -117,7 +133,10 @@ export function Token({
 
   const handleEnter = () => setLayer("hover", wholeTokenSet());
   const handleLeave = () => clearLayer("hover");
-  const handleActivate = () => togglePinned(wholeTokenSet());
+  const handleActivate = () => {
+    if (!pinnable) return;
+    togglePinned(wholeTokenSet());
+  };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
@@ -130,7 +149,7 @@ export function Token({
     <div
       role="button"
       tabIndex={0}
-      aria-pressed={isPinned}
+      aria-pressed={pinnable ? isPinned : undefined}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onFocus={handleEnter}

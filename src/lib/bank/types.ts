@@ -18,6 +18,7 @@
 // replacement string (or null), not a flag.
 
 import type { CellId, Mora } from "../kana/types.ts";
+import type { Exercise } from "../exercise/types.ts";
 
 /** Single source of truth for the pos enum -- scripts/build-bank.ts imports
  *  this array directly rather than keeping its own duplicate list. */
@@ -136,6 +137,10 @@ export interface Bank {
   words: Word[];
   sentences: Sentence[];
   particles: ParticlesFile;
+  /** Practice exercises (build task 2026-09 step 5, DESIGN.md §8.5). Unlike
+   *  words/sentences, nothing here is computed at build time -- same
+   *  validate-and-pass-through treatment as `particles` above. */
+  exercises: Exercise[];
 }
 
 // ---------------------------------------------------------------------------

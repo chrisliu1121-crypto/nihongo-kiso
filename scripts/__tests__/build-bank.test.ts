@@ -1,16 +1,20 @@
 import { describe, expect, it } from "vitest";
 import { kanaToCells, readingToRomaji } from "../../src/lib/kana";
 import { stripExamplePunctuation } from "../../src/lib/bank/text";
-import type { DaySeed, ExampleToken, ParticlesFile, SentenceSeed, WordSeed } from "../../src/lib/bank/types";
+import type { DaySeed, ExampleToken, ParticlesFile, Sentence, SentenceSeed, WordSeed } from "../../src/lib/bank/types";
+import type { ArrangeExercise, ParticleSwapExercise, SwapCandidate } from "../../src/lib/exercise/types";
 import {
   BuildError,
   enrichSentence,
   enrichWord,
   validateBank,
+  validateExercise,
+  validateExercises,
   validateParticles,
   validateSentences,
   type KanaCodec,
   type RawDay,
+  type RawExercise,
   type RawSentence,
 } from "../build-bank";
 
@@ -600,5 +604,158 @@ describe("validateParticles", () => {
     expect(() => validateParticles(file, sentenceIds)).toThrow(
       /pairs\[0\]\.sentence_id 指向不存在的句子：s_missing/,
     );
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Practice exercises (build task 2026-09 step 5, DESIGN.md §8.5)
+
+// s_g001-shaped fixture: 私は学生です -- 2 bunsetsu, tokens[1] ("は") is the
+// only particle:true token, tokens[3] ("です") is not.
+const EXERCISE_SENTENCE: Sentence = enrichSentence(makeSentenceSeed(), "grammar-seed.json", codec);
+const SENTENCES_BY_ID = new Map<string, Sentence>([[EXERCISE_SENTENCE.id, EXERCISE_SENTENCE]]);
+
+function makeArrangeExercise(overrides: Partial<ArrangeExercise> = {}): ArrangeExercise {
+  return {
+    id: "ax_001",
+    type: "arrange",
+    sentence_id: EXERCISE_SENTENCE.id,
+    prompt_zh: "我是學生。",
+    hints: ["動詞放最後"],
+    distractors: [],
+    verified: true,
+    ...overrides,
+  };
+}
+
+const DEFAULT_CANDIDATES: SwapCandidate[] = [
+  { particle_id: "wa", verdict: "natural", translation: "我是學生（主題）", note: "は 標主題" },
+  { particle_id: "ga", verdict: "different", translation: "我是學生（焦點）", note: "が 標焦點" },
+  { particle_id: "wo", verdict: "invalid", translation: null, note: "です 判斷句沒有受詞" },
+];
+
+function makeSwapExercise(overrides: Partial<ParticleSwapExercise> = {}): ParticleSwapExercise {
+  return {
+    id: "px_001",
+    type: "particle-swap",
+    sentence_id: EXERCISE_SENTENCE.id,
+    slot_token_index: 1, // "は" -- the only particle:true token in EXERCISE_SENTENCE
+    focus: ["wa", "ga"],
+    candidates: DEFAULT_CANDIDATES,
+    verified: true,
+    ...overrides,
+  };
+}
+
+describe("validateExercise", () => {
+  const file = "seed.json";
+
+  it("合法的 arrange 練習不報錯", () => {
+    expect(() => validateExercise(makeArrangeExercise(), file, SENTENCES_BY_ID)).not.toThrow();
+  });
+
+  it("合法的 particle-swap 練習不報錯", () => {
+    expect(() => validateExercise(makeSwapExercise(), file, SENTENCES_BY_ID)).not.toThrow();
+  });
+
+  it("id 格式不符（非 ax_/px_ 開頭）被抓", () => {
+    const exercise = makeArrangeExercise({ id: "z_001" });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(/id 格式須為 ax_ 或 px_/);
+  });
+
+  it("sentence_id 指向不存在的句子被抓", () => {
+    const exercise = makeArrangeExercise({ sentence_id: "s_missing" });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(
+      /sentence_id 指向不存在的句子：s_missing/,
+    );
+  });
+
+  it("arrange：sentence 少於 2 個文節被抓", () => {
+    const oneBunsetsu: Sentence = { ...EXERCISE_SENTENCE, id: "s_one", bunsetsu: [[0, 1, 2, 3]] };
+    const map = new Map([[oneBunsetsu.id, oneBunsetsu]]);
+    const exercise = makeArrangeExercise({ sentence_id: oneBunsetsu.id });
+    expect(() => validateExercise(exercise, file, map)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, map)).toThrow(/少於 2 個文節/);
+  });
+
+  it("particle-swap：slot_token_index 指到非助詞 token 被抓（故障注入案例：改指向 tokens[3] 的「です」）", () => {
+    const exercise = makeSwapExercise({ slot_token_index: 3 });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(
+      /slot_token_index \(3\) 指向的 token "です" 不是助詞/,
+    );
+  });
+
+  it("particle-swap：slot_token_index 超出範圍被抓", () => {
+    const exercise = makeSwapExercise({ slot_token_index: 99 });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(/超出句子.*token 範圍/);
+  });
+
+  it("particle-swap：候選裡沒有任何 natural 被抓", () => {
+    const exercise = makeSwapExercise({
+      candidates: DEFAULT_CANDIDATES.map((c) => (c.verdict === "natural" ? { ...c, verdict: "marginal" } : c)),
+    });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(/至少要有一個 natural/);
+  });
+
+  it("particle-swap：invalid 候選帶了非 null 的 translation 被抓", () => {
+    const exercise = makeSwapExercise({
+      candidates: DEFAULT_CANDIDATES.map((c) =>
+        c.verdict === "invalid" ? { ...c, translation: "不應該有翻譯" } : c,
+      ),
+    });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(
+      /verdict 為 invalid 時 translation 必須是 null/,
+    );
+  });
+
+  it("particle-swap：candidates.particle_id 重複被抓", () => {
+    const exercise = makeSwapExercise({
+      candidates: [...DEFAULT_CANDIDATES, { ...DEFAULT_CANDIDATES[0] }],
+    });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(/particle_id 重複：wa/);
+  });
+
+  it("particle-swap：focus 含未出現在 candidates 裡的助詞 id 被抓", () => {
+    const exercise = makeSwapExercise({ focus: ["wa", "ni"] });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(
+      /focus 含未出現在 candidates 裡的助詞 id：ni/,
+    );
+  });
+
+  it("particle-swap：verdict 不在四值內被抓", () => {
+    const exercise = makeSwapExercise({
+      candidates: [{ ...DEFAULT_CANDIDATES[0], verdict: "correct" as SwapCandidate["verdict"] }],
+    });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(/verdict 不在四值內/);
+  });
+
+  it("arrange：distractors 非空陣列被抓", () => {
+    const exercise = makeArrangeExercise({ distractors: ["x"] as unknown as never[] });
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, SENTENCES_BY_ID)).toThrow(/distractors 這版必須固定為空陣列/);
+  });
+});
+
+describe("validateExercises", () => {
+  it("跨檔重複 id 被抓", () => {
+    const a: RawExercise = { file: "a.json", exercise: makeArrangeExercise({ id: "ax_dup" }) };
+    const b: RawExercise = { file: "b.json", exercise: makeArrangeExercise({ id: "ax_dup" }) };
+    expect(() => validateExercises([a, b], SENTENCES_BY_ID)).toThrow(BuildError);
+    expect(() => validateExercises([a, b], SENTENCES_BY_ID)).toThrow(/id 與 a\.json 重複/);
+  });
+
+  it("多筆合法練習不報錯", () => {
+    const a: RawExercise = { file: "a.json", exercise: makeArrangeExercise({ id: "ax_a" }) };
+    const b: RawExercise = { file: "a.json", exercise: makeSwapExercise({ id: "px_a" }) };
+    expect(() => validateExercises([a, b], SENTENCES_BY_ID)).not.toThrow();
   });
 });

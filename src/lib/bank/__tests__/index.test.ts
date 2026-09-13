@@ -16,6 +16,7 @@ function makeBank(dates: string[]): Bank {
     words: [],
     sentences: [],
     particles: { particles: [], contrast_sets: [] },
+    exercises: [],
   };
 }
 

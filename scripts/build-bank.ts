@@ -23,6 +23,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { kanaToCells, readingToRomaji } from "../src/lib/kana/index.ts";
 import { stripExamplePunctuation } from "../src/lib/bank/text.ts";
 import { PARTICLE_CLASS_VALUES, PARTICLE_IDS, PARTICLE_WEIGHT_VALUES, POS_VALUES } from "../src/lib/bank/types.ts";
+import { SWAP_VERDICT_VALUES } from "../src/lib/exercise/types.ts";
 import type {
   Bank,
   BuiltExampleToken,
@@ -39,6 +40,7 @@ import type {
   Word,
   WordSeed,
 } from "../src/lib/bank/types.ts";
+import type { Exercise, ExerciseFile } from "../src/lib/exercise/types.ts";
 import { KanaInputError } from "../src/lib/kana/types.ts";
 import type { Mora } from "../src/lib/kana/types.ts";
 import kanaData from "../data/kana.json" with { type: "json" };
@@ -48,6 +50,7 @@ const PROJECT_ROOT = resolve(SCRIPT_DIR, "..");
 const WORDS_DIR = join(PROJECT_ROOT, "data", "words");
 const SENTENCES_DIR = join(PROJECT_ROOT, "data", "sentences");
 const PARTICLES_PATH = join(PROJECT_ROOT, "data", "particles.json");
+const EXERCISES_DIR = join(PROJECT_ROOT, "data", "exercises");
 const BANK_PATH = join(PROJECT_ROOT, "data", "bank.json");
 
 /** Every valid 46-cell gojuon-table id, read straight off data/kana.json (includes "n"). Used to validate particles.json's `cell` field. */
@@ -458,6 +461,132 @@ async function loadParticles(): Promise<ParticlesFile> {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Practice exercises (build task 2026-09 step 5, DESIGN.md §8.5). Like
+// particles.json, nothing here is computed at build time -- validate then
+// pass through unchanged into bank.json's `exercises` field. Needs the full
+// Sentence list (not just their ids) because both exercise types validate
+// something ABOUT the referenced sentence's shape (bunsetsu count / which
+// token is a particle), not just that the id exists.
+
+const EXERCISE_ID_RE = /^(ax|px)_[a-zA-Z0-9]+$/;
+const SWAP_VERDICT_SET: ReadonlySet<string> = new Set(SWAP_VERDICT_VALUES);
+
+/** One raw exercise, tagged with the filename it came from. */
+export interface RawExercise {
+  file: string;
+  exercise: Exercise;
+}
+
+/** Validate one exercise against the fixed arrange/particle-swap schemas. `sentencesById` must already contain every built Sentence (bunsetsu/tokens are read off it). */
+export function validateExercise(
+  exercise: Exercise,
+  file: string,
+  sentencesById: ReadonlyMap<string, Sentence>,
+): void {
+  const id = exercise.id;
+  if (!EXERCISE_ID_RE.test(id)) {
+    fail(file, id, `id 格式須為 ax_ 或 px_ 加英數字：${id}`);
+  }
+
+  const sentence = sentencesById.get(exercise.sentence_id);
+  if (!sentence) {
+    fail(file, id, `sentence_id 指向不存在的句子：${exercise.sentence_id}`);
+  }
+
+  if (exercise.type === "arrange") {
+    if (sentence.bunsetsu.length < 2) {
+      fail(file, id, `sentence_id ${exercise.sentence_id} 的句子少於 2 個文節，不適合排列練習`);
+    }
+    if (exercise.distractors.length !== 0) {
+      fail(file, id, "distractors 這版必須固定為空陣列");
+    }
+    return;
+  }
+
+  // particle-swap
+  const slotToken = sentence.tokens[exercise.slot_token_index];
+  if (!slotToken) {
+    fail(
+      file,
+      id,
+      `slot_token_index (${exercise.slot_token_index}) 超出句子 ${exercise.sentence_id} 的 token 範圍`,
+    );
+  }
+  if (!slotToken.particle) {
+    fail(
+      file,
+      id,
+      `slot_token_index (${exercise.slot_token_index}) 指向的 token "${slotToken.surface}" 不是助詞（particle:true）`,
+    );
+  }
+
+  if (exercise.candidates.length === 0) {
+    fail(file, id, "candidates 不可為空");
+  }
+  const seenParticleIds = new Set<string>();
+  let hasNatural = false;
+  for (const [ci, candidate] of exercise.candidates.entries()) {
+    if (!PARTICLE_ID_SET.has(candidate.particle_id)) {
+      fail(file, id, `candidates[${ci}].particle_id 不在八大助詞內：${candidate.particle_id}`);
+    }
+    if (seenParticleIds.has(candidate.particle_id)) {
+      fail(file, id, `candidates[${ci}].particle_id 重複：${candidate.particle_id}`);
+    }
+    seenParticleIds.add(candidate.particle_id);
+
+    if (!SWAP_VERDICT_SET.has(candidate.verdict)) {
+      fail(file, id, `candidates[${ci}].verdict 不在四值內：${candidate.verdict}`);
+    }
+    if (candidate.verdict === "natural") hasNatural = true;
+    if (candidate.verdict === "invalid" && candidate.translation !== null) {
+      fail(file, id, `candidates[${ci}] verdict 為 invalid 時 translation 必須是 null`);
+    }
+    if (!candidate.note) {
+      fail(file, id, `candidates[${ci}] 缺少 note`);
+    }
+  }
+  if (!hasNatural) {
+    fail(file, id, "candidates 至少要有一個 natural");
+  }
+
+  for (const focusId of exercise.focus) {
+    if (!seenParticleIds.has(focusId)) {
+      fail(file, id, `focus 含未出現在 candidates 裡的助詞 id：${focusId}`);
+    }
+  }
+}
+
+/** Whole-exercises-set checks: id uniqueness across every data/exercises/*.json file. */
+export function validateExercises(
+  rawExercises: RawExercise[],
+  sentencesById: ReadonlyMap<string, Sentence>,
+): void {
+  const seenIds = new Map<string, string>();
+  for (const { file, exercise } of rawExercises) {
+    const prevFile = seenIds.get(exercise.id);
+    if (prevFile) fail(file, exercise.id, `id 與 ${prevFile} 重複`);
+    seenIds.set(exercise.id, file);
+    validateExercise(exercise, file, sentencesById);
+  }
+}
+
+async function loadExerciseFiles(): Promise<RawExercise[]> {
+  const filenames = (await readdir(EXERCISES_DIR)).filter((f) => f.endsWith(".json")).sort();
+  const out: RawExercise[] = [];
+  for (const filename of filenames) {
+    const raw = await readFile(join(EXERCISES_DIR, filename), "utf8");
+    let file: ExerciseFile;
+    try {
+      file = JSON.parse(raw) as ExerciseFile;
+    } catch (err) {
+      fail(filename, "-", `JSON 解析失敗：${(err as Error).message}`);
+    }
+    for (const exercise of file.exercises) out.push({ file: filename, exercise });
+  }
+  return out;
+}
+
 async function loadSeeds(): Promise<RawDay[]> {
   const filenames = (await readdir(WORDS_DIR)).filter((f) => f.endsWith(".json")).sort();
   const out: RawDay[] = [];
@@ -496,7 +625,12 @@ export async function buildBank(codec: KanaCodec): Promise<Bank> {
   const particles = await loadParticles();
   validateParticles(particles, sentenceIds);
 
-  return { generated_at: new Date().toISOString(), days, words, sentences, particles };
+  const sentencesById = new Map(sentences.map((s) => [s.id, s]));
+  const rawExercises = await loadExerciseFiles();
+  validateExercises(rawExercises, sentencesById);
+  const exercises = rawExercises.map(({ exercise }) => exercise);
+
+  return { generated_at: new Date().toISOString(), days, words, sentences, particles, exercises };
 }
 
 async function main(): Promise<void> {
@@ -505,7 +639,7 @@ async function main(): Promise<void> {
   await writeFile(BANK_PATH, JSON.stringify(bank, null, 2) + "\n", "utf8");
   const perDay = bank.days.map((d) => `${d.date}(${d.words.length})`).join(" / ");
   console.log(
-    `data/bank.json: ${bank.days.length} 天、${bank.words.length} 詞、${bank.sentences.length} 句、${bank.particles.particles.length} 助詞 -- ${perDay}`,
+    `data/bank.json: ${bank.days.length} 天、${bank.words.length} 詞、${bank.sentences.length} 句、${bank.particles.particles.length} 助詞、${bank.exercises.length} 練習題 -- ${perDay}`,
   );
 }
 

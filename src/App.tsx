@@ -8,6 +8,8 @@ import { Layout } from "./routes/Layout";
 import { DailyWords } from "./pages/DailyWords";
 import { GrammarOverview } from "./pages/GrammarOverview";
 import { ParticlePage } from "./pages/ParticlePage";
+import { PracticeArrange } from "./pages/PracticeArrange";
+import { PracticeParticle } from "./pages/PracticeParticle";
 import { NotFound } from "./pages/NotFound";
 
 export function App() {
@@ -18,6 +20,8 @@ export function App() {
           <Route index element={<DailyWords />} />
           <Route path="grammar" element={<GrammarOverview />} />
           <Route path="grammar/:particleId" element={<ParticlePage />} />
+          <Route path="practice/arrange" element={<PracticeArrange />} />
+          <Route path="practice/particle" element={<PracticeParticle />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
