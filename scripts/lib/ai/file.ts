@@ -11,6 +11,7 @@
 import { readFile } from "node:fs/promises";
 import type { Enricher, EnrichRequest, EnrichResult } from "./enricher.ts";
 import type { Judge, JudgeRequest, JudgeResult } from "./judge.ts";
+import { AiProviderError } from "./errors.ts";
 
 function wordKey(surface: string, reading: string): string {
   return `${surface}|${reading}`;
@@ -33,6 +34,15 @@ function makeLoader<T>(path: string): () => Promise<Record<string, T>> {
  * requested word isn't in the file -- silently falling back to some default
  * would defeat the point of a fixture file (a test that thinks it's
  * checking FileEnricher's output would actually be checking the fallback).
+ *
+ * Throws AiProviderError (kind "schema" -- "no valid recorded result for
+ * this word", the closest fit among the closed set of kinds) rather than a
+ * plain Error: this doubles as this codebase's offline stand-in for a real
+ * provider's per-word failure (code review item 1's "FileEnricher's
+ * existing 'throws if word not found' behavior... makes the test fully
+ * offline, no fetch mocking needed"), so it needs to be catchable the same
+ * way an openrouter.ts/claude.ts per-word failure is by generate-daily.ts's
+ * enrich loop.
  */
 export function FileEnricher(path: string): Enricher {
   const load = makeLoader<EnrichResult>(path);
@@ -43,7 +53,7 @@ export function FileEnricher(path: string): Enricher {
       const key = wordKey(req.surface, req.reading);
       const result = table[key];
       if (!result) {
-        throw new Error(`FileEnricher(${path})：找不到 "${key}" 的預錄結果`);
+        throw new AiProviderError(`file:${path}`, "schema", `FileEnricher(${path})：找不到 "${key}" 的預錄結果`);
       }
       return result;
     },
@@ -52,8 +62,8 @@ export function FileEnricher(path: string): Enricher {
 
 /**
  * Judge whose answers come from a pre-recorded JSON file at `path` (object
- * keyed by "surface|reading" -> JudgeResult). Throws if a requested word
- * isn't in the file, for the same reason FileEnricher does.
+ * keyed by "surface|reading" -> JudgeResult). Throws AiProviderError if a
+ * requested word isn't in the file, for the same reason FileEnricher does.
  */
 export function FileJudge(path: string): Judge {
   const load = makeLoader<JudgeResult>(path);
@@ -64,7 +74,7 @@ export function FileJudge(path: string): Judge {
       const key = wordKey(req.surface, req.reading);
       const result = table[key];
       if (!result) {
-        throw new Error(`FileJudge(${path})：找不到 "${key}" 的預錄結果`);
+        throw new AiProviderError(`file:${path}`, "schema", `FileJudge(${path})：找不到 "${key}" 的預錄結果`);
       }
       return result;
     },

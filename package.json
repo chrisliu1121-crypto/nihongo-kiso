@@ -3,11 +3,15 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "predev": "node scripts/build-bank.ts",
     "dev": "vite",
     "prebuild": "node scripts/build-bank.ts",
     "build": "tsc -b && vite build",
+    "postbuild": "node scripts/postbuild.ts",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",

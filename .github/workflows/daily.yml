@@ -1,0 +1,101 @@
+name: Daily content generation
+
+on:
+  schedule:
+    # 21:00 UTC = 05:00 next day in Asia/Taipei -- so "today" in the
+    # generated content is judged by Taiwan local time, not UTC.
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Date to generate (YYYY-MM-DD). Leave blank for today (Asia/Taipei)."
+        required: false
+        type: string
+      model:
+        description: "OpenRouter model id override. Leave blank for the default."
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # continue-on-error: the pipeline's own failure mode is "write
+      # data/pending/<date>.json and stop" (DESIGN.md §9.1), which is not a
+      # workflow failure by itself -- the pending file still needs to be
+      # committed below. steps.generate.outcome (not .conclusion, which
+      # continue-on-error always forces to "success") carries the real
+      # result forward to the commit-message and final-exit-code steps.
+      - name: Generate daily words
+        id: generate
+        continue-on-error: true
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          TZ: Asia/Taipei
+        run: >-
+          node scripts/generate-daily.ts
+          --enricher openrouter
+          --judge openrouter
+          --promote
+          ${{ inputs.date && format('--date {0}', inputs.date) || '' }}
+          ${{ inputs.model && format('--model {0}', inputs.model) || '' }}
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push changes
+        id: commit_push
+        run: |
+          git add data/words data/pending
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          DATE="${{ inputs.date }}"
+          if [ -z "$DATE" ]; then
+            DATE="$(TZ=Asia/Taipei date +%F)"
+          fi
+
+          if [ "${{ steps.generate.outcome }}" = "success" ]; then
+            git commit -m "daily: ${DATE} 10 words"
+          else
+            git commit -m "pending: ${DATE} needs review"
+          fi
+
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+          git push
+
+      # A push made with the default GITHUB_TOKEN does not trigger other
+      # workflows (GitHub's own anti-recursion rule), so deploy.yml's
+      # `push: branches:[main]` trigger silently never fires for this
+      # workflow's own commits -- trigger it explicitly via the API instead,
+      # and only when a commit actually happened above.
+      - name: Trigger deploy workflow
+        if: steps.commit_push.outputs.committed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
+
+      # Placed after the commit/push above on purpose: a pipeline failure
+      # still needs today's data/pending/*.json committed for human review
+      # (DESIGN.md §9.1) before the job is allowed to show red.
+      - name: Fail the job if generation did not succeed
+        if: steps.generate.outcome == 'failure'
+        run: exit 1

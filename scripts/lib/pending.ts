@@ -8,7 +8,7 @@
 import { access, readdir, readFile } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { DaySeed, WordSeed } from "../../src/lib/bank/types.ts";
+import type { DaySeed, PartOfSpeech, WordSeed } from "../../src/lib/bank/types.ts";
 import type { JudgeResult } from "./ai/judge.ts";
 import { buildKnownKanji, type RawDay, type WordValidationCtx } from "./validate-words.ts";
 
@@ -36,6 +36,49 @@ export async function fileExists(path: string): Promise<boolean> {
   }
 }
 
+/**
+ * One word that failed an Enricher/Judge call with an AiProviderError
+ * (code review item 1, P0) -- recorded instead of silently dropping the
+ * whole day's batch. Carries every EnrichRequest field the word needs so a
+ * later retry (scripts/cross-check.ts's `--enricher` retry pass) can
+ * reconstruct the request without re-reading the frequency table.
+ *
+ * `stage` records which phase produced this failure ("enrich": the word
+ * never made it into `PendingDayFile.words` at all, assembleSeed was never
+ * reached; "judge": enrich() already succeeded and the word IS already
+ * sitting in `words`, applyJudgments keeps every word so a failed/missing
+ * judgment just leaves it `verified: false`) -- useful context for a human
+ * reading a pending file, and for log messages.
+ *
+ * It is deliberately NOT the source of truth for whether
+ * scripts/cross-check.ts's retry pass should re-enrich a given entry.
+ * `stage` is optional, so a hand-edited or pre-this-field pending file may
+ * not have it at all -- and "no `stage` on this entry" does NOT imply "this
+ * was an enrich-stage failure"; it only means the entry predates this
+ * field, which says nothing about which phase actually produced it. An
+ * earlier version of this fix defaulted a missing `stage` to `"enrich"`,
+ * which silently mis-handled an untagged judge-stage entry the same way
+ * the original bug did (re-enriched and appended it, duplicating the
+ * word). scripts/cross-check.ts now decides structurally instead: an
+ * error's word id is looked up directly in `PendingDayFile.words` --
+ * present means "already valid, leave it for the ordinary judge pass",
+ * absent means "actually needs a fresh enrich() + append" -- a check that
+ * can't be wrong the way trusting (or defaulting) `stage` can.
+ */
+export interface PipelineErrorEntry {
+  id: string;
+  surface: string;
+  reading: string;
+  gloss: string;
+  pos: PartOfSpeech;
+  level: string;
+  freq_rank: number;
+  /** AiProviderErrorKind, kept as `string` here so pending.ts doesn't need to import errors.ts just for a type. */
+  kind: string;
+  detail: string;
+  stage?: "enrich" | "judge";
+}
+
 /** Per-word pipeline bookkeeping recorded alongside a pending day (DESIGN.md §9.1). */
 export interface PipelineMeta {
   enricher: string;
@@ -43,6 +86,16 @@ export interface PipelineMeta {
   generated_at: string;
   /** word id -> the judge's verdict for it (empty until the judge step has run). */
   judgments: Record<string, JudgeResult>;
+  /**
+   * Words whose enrich() call failed with an AiProviderError (code review
+   * item 1, P0) and so never made it into `words` above. Optional so old
+   * pending files written before this field existed still parse; always
+   * populated (possibly `[]`) by every writer added after this change.
+   * Non-empty means the day is incomplete -- scripts/cross-check.ts retries
+   * exactly these words before doing anything else, and promotion refuses
+   * while this is non-empty.
+   */
+  errors?: PipelineErrorEntry[];
 }
 
 /** Shape of one data/pending/YYYY-MM-DD.json file: a DaySeed (same shape as data/words/*.json) plus pipeline metadata build-bank.ts never reads (build-bank does not read data/pending/ at all -- DESIGN.md §12 step 6). */

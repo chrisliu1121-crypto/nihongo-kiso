@@ -63,3 +63,31 @@ describe("@anthropic-ai/sdk is only reachable through claude.ts", () => {
     expect(importsSdk(source)).toBe(false);
   });
 });
+
+// scripts/lib/ai/openrouter.ts is pure `fetch` (no SDK at all), but it's
+// still gated behind a dynamic import in generate-daily.ts for the same
+// isolation reason claude.ts is -- see openrouter.ts's own header comment.
+// This block extends the guarantees above to cover it.
+describe("openrouter.ts is pure fetch, and only reachable through a gated dynamic import", () => {
+  it("scripts/lib/ai/openrouter.ts never imports the SDK", () => {
+    const source = readFileSync(new URL("../openrouter.ts", import.meta.url), "utf8");
+    expect(importsSdk(source)).toBe(false);
+  });
+
+  it("scripts/lib/ai/openrouter.ts never imports anything from claude.ts (would drag the SDK in transitively)", () => {
+    const source = readFileSync(new URL("../openrouter.ts", import.meta.url), "utf8");
+    expect(/from\s+["'][^"']*\bclaude\.ts["']/.test(source)).toBe(false);
+  });
+
+  it("generate-daily.ts never statically imports openrouter.ts -- only a gated dynamic import inside resolveEnricher/resolveJudge reaches it", () => {
+    const source = readFileSync(new URL("../../../generate-daily.ts", import.meta.url), "utf8");
+    const staticImportRe = /^\s*import\s+.*from\s+["'][^"']*ai\/openrouter\.ts["']/m;
+    expect(staticImportRe.test(source), "generate-daily.ts statically imports openrouter.ts").toBe(false);
+    expect(source.includes('import("./lib/ai/openrouter.ts")')).toBe(true);
+  });
+
+  it("cross-check.ts never mentions ai/openrouter.ts at all -- it only reaches resolveJudge from generate-daily.ts, which owns the gated dynamic import", () => {
+    const source = readFileSync(new URL("../../../cross-check.ts", import.meta.url), "utf8");
+    expect(source.includes("ai/openrouter.ts")).toBe(false);
+  });
+});

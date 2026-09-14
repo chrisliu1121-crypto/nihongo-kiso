@@ -32,6 +32,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import type { Enricher, EnrichRequest, EnrichResult, EnrichResultToken } from "./enricher.ts";
 import type { Judge, JudgeRequest, JudgeResult } from "./judge.ts";
 import { EnrichResultSchema, JudgeResultSchema } from "../schemas.ts";
+import { AiProviderError } from "./errors.ts";
 
 const MODEL = "claude-opus-5";
 const MAX_TOKENS = 8192;
@@ -108,7 +109,7 @@ const JUDGE_SYSTEM_PROMPT = `你是日語教材的獨立審查者。你只會看
 function extractJsonText(message: Anthropic.Message): string {
   const textBlock = message.content.find((b): b is Anthropic.TextBlock => b.type === "text");
   if (!textBlock) {
-    throw new Error("Claude 回應沒有任何 text block，無法解析 JSON");
+    throw new AiProviderError("claude", "schema", "Claude 回應沒有任何 text block，無法解析 JSON");
   }
   return textBlock.text;
 }
@@ -131,51 +132,83 @@ function extractJsonText(message: Anthropic.Message): string {
  *     it loudly -- something about the request or the API changed in a way
  *     worth noticing, but the content might still be parseable.
  */
+// Code review item 1 (P0): the two failure branches below used to call
+// process.exit(2) directly. Both are per-call failures (this specific
+// word's output was refused or truncated), not a setup problem, so they now
+// throw AiProviderError instead -- see errors.ts's file header for the full
+// rationale (a mid-batch failure must leave the caller able to record this
+// one word and keep going, not kill the whole process).
+//   - "refusal": the model declined to answer. kind: "refusal".
+//   - "max_tokens": the response was cut off before finishing the JSON
+//     object. kind: "truncated".
+//   - anything else non-"end_turn" (stop_sequence / tool_use / pause_turn /
+//     model_context_window_exceeded): none of these are expected for this
+//     request shape (no tools, no stop sequences configured), so just log
+//     it loudly -- something about the request or the API changed in a way
+//     worth noticing, but the content might still be parseable.
 function checkStopReason(message: Anthropic.Message): void {
   if (message.stop_reason === "end_turn") return;
 
   if (message.stop_reason === "refusal") {
     const category = message.stop_details?.category ?? "(無 category)";
-    console.error(`[claude] 回應被拒絕（stop_reason: refusal），category=${category}`);
-    process.exit(2);
+    throw new AiProviderError("claude", "refusal", `回應被拒絕（stop_reason: refusal），category=${category}`);
   }
 
   if (message.stop_reason === "max_tokens") {
-    console.error(`[claude] 輸出被截斷，MAX_TOKENS (${MAX_TOKENS}) 不足`);
-    process.exit(2);
+    throw new AiProviderError("claude", "truncated", `輸出被截斷，MAX_TOKENS (${MAX_TOKENS}) 不足`);
   }
 
   console.error(`[claude] 非預期的 stop_reason：${message.stop_reason}`);
 }
 
 /**
- * No API key, or any other SDK-level failure: print a clear message and
- * exit(2) immediately. DESIGN.md's pipeline never silently falls back to
- * the stub backend when the real one was explicitly requested -- a
- * silent downgrade here would look like success while producing no
- * output, exactly the kind of "failure that doesn't fail loud" this whole
- * build task's brief calls out as the wrong direction.
+ * Code review item 1 (P0): translate whatever enrich()/judge()'s try block
+ * threw into either (a) process.exit(2) -- ONLY for the one case that's a
+ * local misconfiguration rather than a per-word failure (no usable
+ * ANTHROPIC_API_KEY at all, detected before any request is even sent), or
+ * (b) a re-thrown/wrapped AiProviderError for everything else, so the
+ * caller (generate-daily.ts's enrich loop) can catch it, record this one
+ * word into pipeline.errors, and keep going instead of losing the whole
+ * batch. DESIGN.md's pipeline never silently falls back to the stub
+ * backend when the real one was explicitly requested -- a silent downgrade
+ * here would look like success while producing no output, exactly the kind
+ * of "failure that doesn't fail loud" this whole build task's brief calls
+ * out as the wrong direction; throwing AiProviderError keeps that property
+ * (the caller MUST look at it, it can't be silently ignored) while still
+ * letting the batch continue.
  */
-function dieOnClaudeError(err: unknown): never {
+function handleClaudeError(err: unknown): never {
+  // checkStopReason above already throws a fully-formed AiProviderError --
+  // pass it straight through rather than re-wrapping it.
+  if (err instanceof AiProviderError) {
+    throw err;
+  }
+
   const isMissingAuthConfig = err instanceof Error && err.message.includes("Could not resolve authentication method");
-  if (err instanceof Anthropic.AuthenticationError || isMissingAuthConfig) {
-    // The SDK throws two different shapes for "no usable credentials": a
-    // plain client-side Error before any request is even sent when
-    // ANTHROPIC_API_KEY isn't set at all (isMissingAuthConfig -- this
-    // machine's actual case), or an AuthenticationError (HTTP 401) once a
-    // request DID go out with a key the server rejected. Both mean the same
-    // thing to an operator running this script, so both get the same
-    // message.
+  if (isMissingAuthConfig) {
+    // The SDK throws this plain client-side Error before any request is
+    // even sent when ANTHROPIC_API_KEY isn't set at all -- a local
+    // misconfiguration, not a per-word failure a pending-file retry could
+    // ever fix. Stays process.exit(2), exactly as before.
     console.error(
-      "[claude] 驗證失敗：沒有有效的 ANTHROPIC_API_KEY（環境變數未設定，或金鑰無效）。" +
+      "[claude] 驗證失敗：沒有有效的 ANTHROPIC_API_KEY（環境變數未設定）。" +
         "這台機器目前沒有 key，--enricher claude / --judge claude 無法使用。",
     );
-  } else if (err instanceof Anthropic.APIError) {
-    console.error(`[claude] API 錯誤（status ${err.status ?? "?"}）：${err.message}`);
-  } else {
-    console.error("[claude] 呼叫失敗：", err);
+    process.exit(2);
   }
-  process.exit(2);
+
+  if (err instanceof Anthropic.AuthenticationError) {
+    // Unlike isMissingAuthConfig above, this means a request DID go out
+    // with a key the server rejected (HTTP 401) -- a per-call failure like
+    // any other, not a setup problem, so it throws instead of exiting.
+    throw new AiProviderError("claude", "auth", err.message, err.status);
+  }
+
+  if (err instanceof Anthropic.APIError) {
+    throw new AiProviderError("claude", err.status === undefined ? "network" : "http", err.message, err.status);
+  }
+
+  throw new AiProviderError("claude", "network", err instanceof Error ? err.message : String(err));
 }
 
 let sharedClient: Anthropic | null = null;
@@ -212,7 +245,7 @@ export const ClaudeEnricher: Enricher = {
       const parsedJson: unknown = JSON.parse(extractJsonText(message));
       const result = EnrichResultSchema.safeParse(parsedJson);
       if (!result.success) {
-        throw new Error(`Claude 回傳的 JSON 不符合 EnrichResult schema：${result.error.message}`);
+        throw new AiProviderError("claude", "schema", `Claude 回傳的 JSON 不符合 EnrichResult schema：${result.error.message}`);
       }
       // result.data.example.tokens[].particle is required-but-nullable
       // (see file header); EnrichResultToken (the internal shape every
@@ -227,7 +260,7 @@ export const ClaudeEnricher: Enricher = {
       }));
       return { example: { ...result.data.example, tokens }, collocations: result.data.collocations, note: result.data.note };
     } catch (err) {
-      dieOnClaudeError(err);
+      handleClaudeError(err);
     }
   },
 };
@@ -259,11 +292,11 @@ export const ClaudeJudge: Judge = {
       const parsedJson: unknown = JSON.parse(extractJsonText(message));
       const result = JudgeResultSchema.safeParse(parsedJson);
       if (!result.success) {
-        throw new Error(`Claude 回傳的 JSON 不符合 JudgeResult schema：${result.error.message}`);
+        throw new AiProviderError("claude", "schema", `Claude 回傳的 JSON 不符合 JudgeResult schema：${result.error.message}`);
       }
       return result.data;
     } catch (err) {
-      dieOnClaudeError(err);
+      handleClaudeError(err);
     }
   },
 };
