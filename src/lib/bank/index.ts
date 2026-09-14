@@ -62,6 +62,7 @@ export {
   getParticle,
   getSentence,
 } from "./grammar.ts";
+export { filterWords, matchesWord } from "./search.ts";
 
 const typedBank = bank as unknown as Bank;
 

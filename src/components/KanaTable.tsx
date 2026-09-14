@@ -74,28 +74,36 @@ function CellView({ cell, registerRef, compact }: CellViewProps) {
       data-cell-id={cell.id}
       aria-label={`${cell.hiragana} ${cell.romaji}`}
       className={`relative flex flex-col items-center justify-center rounded-md border transition-all duration-150 ${
-        compact ? "h-12 w-12" : "h-16 w-16"
+        compact ? "h-11 w-11" : "h-16 w-16"
       } ${layerClass}`}
       style={{ opacity: resolved.dimmed ? 0.4 : 1 }}
     >
       {resolved.orders.length > 0 && (
-        <span className="absolute -right-1 -top-1 text-[11px] leading-none text-amber-700">
+        <span
+          className={`absolute -right-1 -top-1 leading-none text-amber-700 ${compact ? "text-[10px]" : "text-[11px]"}`}
+        >
           {resolved.orders.map(orderBadge).join("")}
         </span>
       )}
       {(hasDakuten || hasHandakuten) && (
-        <span className="absolute left-1 top-0 text-[10px] leading-none text-stone-500">
+        <span
+          className={`absolute left-1 top-0 leading-none text-stone-500 ${compact ? "text-[9px]" : "text-[10px]"}`}
+        >
           {hasDakuten ? "゛" : "゜"}
         </span>
       )}
-      <span className={compact ? "text-lg font-medium" : "text-2xl font-medium"}>
+      <span className={compact ? "text-base font-medium" : "text-2xl font-medium"}>
         {cell.hiragana}
       </span>
       <span className={compact ? "text-[9px] text-stone-500" : "text-xs text-stone-500"}>
         {cell.romaji}
       </span>
       {otherMarks.length > 0 && (
-        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 rounded bg-stone-700 px-1 text-[8px] leading-tight text-white">
+        <span
+          className={`absolute -bottom-1 left-1/2 -translate-x-1/2 rounded bg-stone-700 leading-tight text-white ${
+            compact ? "px-0.5 text-[7px]" : "px-1 text-[8px]"
+          }`}
+        >
           {otherMarks.join(" ")}
         </span>
       )}
@@ -111,7 +119,7 @@ function EmptyCell({ compact }: EmptyCellProps) {
   return (
     <div
       aria-hidden="true"
-      className={`rounded-md border border-dashed border-stone-200 ${compact ? "h-12 w-12" : "h-16 w-16"}`}
+      className={`rounded-md border border-dashed border-stone-200 ${compact ? "h-11 w-11" : "h-16 w-16"}`}
     />
   );
 }
@@ -139,11 +147,16 @@ function sameLines(a: LineSpec[], b: LineSpec[]): boolean {
 }
 
 export interface KanaTableProps {
-  /** Smaller cells, for a future mobile layout. Not used by the demo yet. */
+  /**
+   * Smaller cells. Defaults to true so the whole table fits above the fold
+   * inside Layout's sticky aside without scrolling (user feedback: "表太大，
+   * 不滑動看不了全貌") -- pass `compact={false}` explicitly for the larger
+   * size (e.g. a future standalone/print view).
+   */
   compact?: boolean;
 }
 
-export function KanaTable({ compact = false }: KanaTableProps) {
+export function KanaTable({ compact = true }: KanaTableProps) {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
   const cellRefs = useRef(new Map<CellId, HTMLDivElement>());
@@ -260,11 +273,14 @@ export function KanaTable({ compact = false }: KanaTableProps) {
       <table className="border-separate border-spacing-1">
         <thead>
           <tr>
-            <th className={compact ? "h-12 w-12" : "h-16 w-16"} />
+            <th className={compact ? "h-11 w-11" : "h-16 w-16"} />
             {TABLE.cols.map((col) => {
               const headerCell = CELLS_BY_ROW_COL.get(`|${col}`);
               return (
-                <th key={col} className="text-center text-sm font-normal text-stone-500">
+                <th
+                  key={col}
+                  className={`text-center font-normal text-stone-500 ${compact ? "text-xs" : "text-sm"}`}
+                >
                   {headerCell?.hiragana ?? col}
                 </th>
               );
@@ -276,7 +292,9 @@ export function KanaTable({ compact = false }: KanaTableProps) {
             const headerCell = CELLS_BY_ROW_COL.get(`${row}|a`);
             return (
               <tr key={row || "vowel-row"}>
-                <th className="pr-1 text-center text-sm font-normal text-stone-500">
+                <th
+                  className={`pr-1 text-center font-normal text-stone-500 ${compact ? "text-xs" : "text-sm"}`}
+                >
                   {headerCell?.hiragana ?? ""}
                 </th>
                 {TABLE.cols.map((col) => {

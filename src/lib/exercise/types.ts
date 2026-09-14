@@ -17,6 +17,15 @@ interface ExerciseBase {
   sentence_id: string;
   /** DESIGN.md §9.3: unreviewed content stays visible but flagged, never hidden. */
   verified: boolean;
+  /**
+   * Which generation batch this exercise came from, for the practice pages'
+   * 回顧選單 (review panel) grouping. `undefined` for the hand-authored
+   * data/exercises/seed.json set (rendered as "種子題組"); a future daily
+   * generator fills this with its own run's `YYYY-MM-DD`. Optional and
+   * unvalidated by scripts/build-bank.ts -- it's a display grouping key, not
+   * a fact this build checks.
+   */
+  batch?: string;
 }
 
 /**

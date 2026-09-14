@@ -25,6 +25,9 @@ export function Layout() {
           <NavLink to="/" end className={NAV_LINK_CLASS}>
             今日單詞
           </NavLink>
+          <NavLink to="/bank" className={NAV_LINK_CLASS}>
+            單詞庫
+          </NavLink>
           <NavLink to="/grammar" className={NAV_LINK_CLASS}>
             文法
           </NavLink>
@@ -38,7 +41,7 @@ export function Layout() {
       </header>
 
       <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-8 lg:flex-row lg:items-start">
-        <aside className="lg:sticky lg:top-8 lg:w-[22rem] lg:shrink-0">
+        <aside className="lg:sticky lg:top-4 lg:w-[17rem] lg:shrink-0">
           <KanaTable />
         </aside>
 

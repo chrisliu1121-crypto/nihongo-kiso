@@ -4,6 +4,7 @@
 
 import { useState } from "react";
 import { ExerciseView } from "../components/exercises/registry";
+import { ReviewPanel } from "../components/exercises/ReviewPanel";
 import bank from "../lib/bank";
 import type { ArrangeExercise, Exercise } from "../lib/exercise";
 
@@ -26,6 +27,12 @@ export function PracticeArrange() {
 
   const clampedIndex = Math.min(index, exercises.length - 1);
   const exercise = exercises[clampedIndex];
+  const reviewItems = exercises.map((ex) => ({
+    id: ex.id,
+    batch: ex.batch,
+    summary: ex.prompt_zh,
+    verified: ex.verified,
+  }));
 
   return (
     <div className="space-y-4">
@@ -53,6 +60,8 @@ export function PracticeArrange() {
           </button>
         </div>
       </header>
+
+      <ReviewPanel items={reviewItems} currentIndex={clampedIndex} onSelect={setIndex} />
 
       <ExerciseView exercise={exercise} />
     </div>

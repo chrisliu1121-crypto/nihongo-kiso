@@ -4,7 +4,8 @@
 
 import { useState } from "react";
 import { ExerciseView } from "../components/exercises/registry";
-import bank from "../lib/bank";
+import { ReviewPanel } from "../components/exercises/ReviewPanel";
+import bank, { getSentence } from "../lib/bank";
 import type { Exercise, ParticleSwapExercise } from "../lib/exercise";
 
 function isParticleSwapExercise(exercise: Exercise): exercise is ParticleSwapExercise {
@@ -26,6 +27,15 @@ export function PracticeParticle() {
 
   const clampedIndex = Math.min(index, exercises.length - 1);
   const exercise = exercises[clampedIndex];
+  const reviewItems = exercises.map((ex) => {
+    const sentence = getSentence(bank, ex.sentence_id);
+    return {
+      id: ex.id,
+      batch: ex.batch,
+      summary: sentence ? sentence.ja : ex.sentence_id,
+      verified: ex.verified,
+    };
+  });
 
   return (
     <div className="space-y-4">
@@ -53,6 +63,8 @@ export function PracticeParticle() {
           </button>
         </div>
       </header>
+
+      <ReviewPanel items={reviewItems} currentIndex={clampedIndex} onSelect={setIndex} />
 
       <ExerciseView exercise={exercise} />
     </div>

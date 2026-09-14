@@ -6,6 +6,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "./routes/Layout";
 import { DailyWords } from "./pages/DailyWords";
+import { WordBank } from "./pages/WordBank";
 import { GrammarOverview } from "./pages/GrammarOverview";
 import { ParticlePage } from "./pages/ParticlePage";
 import { PracticeArrange } from "./pages/PracticeArrange";
@@ -18,6 +19,7 @@ export function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<DailyWords />} />
+          <Route path="bank" element={<WordBank />} />
           <Route path="grammar" element={<GrammarOverview />} />
           <Route path="grammar/:particleId" element={<ParticlePage />} />
           <Route path="practice/arrange" element={<PracticeArrange />} />
