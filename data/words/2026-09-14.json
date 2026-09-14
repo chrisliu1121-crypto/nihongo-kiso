@@ -1,0 +1,527 @@
+{
+  "date": "2026-09-14",
+  "words": [
+    {
+      "id": "w_0031",
+      "surface": "あなた",
+      "reading": "あなた",
+      "gloss": "你",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 31,
+      "romaji_override": null,
+      "example": {
+        "ja": "あなたの傘はどれですか。",
+        "zh": "你的傘是哪一把？",
+        "tokens": [
+          {
+            "surface": "あなた",
+            "reading": "あなた"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "particle": true
+          },
+          {
+            "surface": "傘",
+            "reading": "かさ"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "どれ",
+            "reading": "どれ"
+          },
+          {
+            "surface": "です",
+            "reading": "です"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "あなたの本",
+        "あなたは学生ですか",
+        "あなたも行きますか"
+      ],
+      "confusable_with": [],
+      "note": "「あなた」是「你」，但日本人日常對話中常避免直接使用，多改用對方的名字加「さん」。教材中則常見於初學階段的基本句型。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0032",
+      "surface": "彼",
+      "reading": "かれ",
+      "gloss": "他",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 32,
+      "romaji_override": null,
+      "example": {
+        "ja": "彼は毎日図書館で勉強します。",
+        "zh": "他每天在圖書館讀書。",
+        "tokens": [
+          {
+            "surface": "彼",
+            "reading": "かれ"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "毎日",
+            "reading": "まいにち"
+          },
+          {
+            "surface": "図書館",
+            "reading": "としょかん"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "particle": true
+          },
+          {
+            "surface": "勉強します",
+            "reading": "べんきょうします"
+          }
+        ]
+      },
+      "collocations": [
+        "彼は",
+        "彼の",
+        "彼と",
+        "彼も"
+      ],
+      "confusable_with": [],
+      "note": "「彼」指第三人稱男性「他」；女性用「彼女」。另外「彼」在口語中也可指「男朋友」，請依上下文判斷。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0033",
+      "surface": "彼女",
+      "reading": "かのじょ",
+      "gloss": "她",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 33,
+      "romaji_override": null,
+      "example": {
+        "ja": "彼女は毎日音楽を聞きます。",
+        "zh": "她每天聽音樂。",
+        "tokens": [
+          {
+            "surface": "彼女",
+            "reading": "かのじょ"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "毎日",
+            "reading": "まいにち"
+          },
+          {
+            "surface": "音楽",
+            "reading": "おんがく"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "particle": true
+          },
+          {
+            "surface": "聞きます",
+            "reading": "ききます"
+          }
+        ]
+      },
+      "collocations": [
+        "彼女は",
+        "彼女の友達",
+        "彼女と話します"
+      ],
+      "confusable_with": [],
+      "note": "「彼女」在 N5 主要作代名詞「她」使用；口語中也可指「女朋友」，初學階段先記「她」即可。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0034",
+      "surface": "私たち",
+      "reading": "わたしたち",
+      "gloss": "我們",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 34,
+      "romaji_override": null,
+      "example": {
+        "ja": "私たちは公園で遊びます。",
+        "zh": "我們在公園玩。",
+        "tokens": [
+          {
+            "surface": "私たち",
+            "reading": "わたしたち"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "公園",
+            "reading": "こうえん"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "particle": true
+          },
+          {
+            "surface": "遊びます",
+            "reading": "あそびます"
+          }
+        ]
+      },
+      "collocations": [
+        "私たちは",
+        "私たちの学校",
+        "私たちも"
+      ],
+      "confusable_with": [],
+      "note": "「私たち」是「私」的複數形，表示「我們」。「たち」接在人的後面表示多人。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0035",
+      "surface": "みんな",
+      "reading": "みんな",
+      "gloss": "大家",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 35,
+      "romaji_override": null,
+      "example": {
+        "ja": "みんなで公園へ行きます。",
+        "zh": "大家一起去公園。",
+        "tokens": [
+          {
+            "surface": "みんな",
+            "reading": "みんな"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "particle": true
+          },
+          {
+            "surface": "公園",
+            "reading": "こうえん"
+          },
+          {
+            "surface": "へ",
+            "reading": "え",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます"
+          }
+        ]
+      },
+      "collocations": [
+        "みんなで",
+        "みんなが",
+        "みんなに"
+      ],
+      "confusable_with": [],
+      "note": "「みんなで」表示「大家一起」做某事，助詞「で」在這裡表示動作的參與者範圍。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0036",
+      "surface": "それ",
+      "reading": "それ",
+      "gloss": "那個（近聽者）",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 36,
+      "romaji_override": null,
+      "example": {
+        "ja": "それはあなたのかばんですか。",
+        "zh": "那個是你的包包嗎？",
+        "tokens": [
+          {
+            "surface": "それ",
+            "reading": "それ"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "あなた",
+            "reading": "あなた"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "particle": true
+          },
+          {
+            "surface": "かばん",
+            "reading": "かばん"
+          },
+          {
+            "surface": "です",
+            "reading": "です"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "それは",
+        "それを",
+        "それも"
+      ],
+      "confusable_with": [],
+      "note": "「それ」指離聽者較近的東西；離說話者近用「これ」，離兩人都遠用「あれ」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0037",
+      "surface": "あれ",
+      "reading": "あれ",
+      "gloss": "那個（遠）",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 37,
+      "romaji_override": null,
+      "example": {
+        "ja": "あれは私のかばんです。",
+        "zh": "那個是我的包包。",
+        "tokens": [
+          {
+            "surface": "あれ",
+            "reading": "あれ"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "私",
+            "reading": "わたし"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "particle": true
+          },
+          {
+            "surface": "かばん",
+            "reading": "かばん"
+          },
+          {
+            "surface": "です",
+            "reading": "です"
+          }
+        ]
+      },
+      "collocations": [
+        "あれは何ですか",
+        "あれを見ます",
+        "あれも買います"
+      ],
+      "confusable_with": [],
+      "note": "「あれ」指離說話者和聽者都遠的東西；「これ」指靠近說話者的，「それ」指靠近聽者的。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0038",
+      "surface": "ここ",
+      "reading": "ここ",
+      "gloss": "這裡",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 38,
+      "romaji_override": null,
+      "example": {
+        "ja": "ここで写真を撮ります。",
+        "zh": "在這裡拍照。",
+        "tokens": [
+          {
+            "surface": "ここ",
+            "reading": "ここ"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "particle": true
+          },
+          {
+            "surface": "写真",
+            "reading": "しゃしん"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "particle": true
+          },
+          {
+            "surface": "撮ります",
+            "reading": "とります"
+          }
+        ]
+      },
+      "collocations": [
+        "ここで",
+        "ここに",
+        "ここは",
+        "ここから"
+      ],
+      "confusable_with": [],
+      "note": "「ここ」指說話者附近的地方；「ここで」表示動作進行的場所。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0039",
+      "surface": "そこ",
+      "reading": "そこ",
+      "gloss": "那裡（近聽者）",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 39,
+      "romaji_override": null,
+      "example": {
+        "ja": "そこにかばんがあります。",
+        "zh": "那裡有包包。",
+        "tokens": [
+          {
+            "surface": "そこ",
+            "reading": "そこ"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "particle": true
+          },
+          {
+            "surface": "かばん",
+            "reading": "かばん"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります"
+          }
+        ]
+      },
+      "collocations": [
+        "そこに",
+        "そこで",
+        "そこから"
+      ],
+      "confusable_with": [],
+      "note": "「そこ」指靠近聽話者的地方；「ここ」是靫近說話者，「あそこ」則離兩人都遠。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0040",
+      "surface": "あそこ",
+      "reading": "あそこ",
+      "gloss": "那裡（遠）",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 40,
+      "romaji_override": null,
+      "example": {
+        "ja": "あそこで友達を待ちます。",
+        "zh": "在那裡等朋友。",
+        "tokens": [
+          {
+            "surface": "あそこ",
+            "reading": "あそこ"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "particle": true
+          },
+          {
+            "surface": "友達",
+            "reading": "ともだち"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "particle": true
+          },
+          {
+            "surface": "待ちます",
+            "reading": "まちます"
+          }
+        ]
+      },
+      "collocations": [
+        "あそこで待ちます",
+        "あそこに行きます",
+        "あそこは駅です"
+      ],
+      "confusable_with": [],
+      "note": "あそこ指離說話者和聽話者都遠的地方；ここ（這裡）、そこ（那裡，近聽話者）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
