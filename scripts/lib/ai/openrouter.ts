@@ -312,7 +312,7 @@ async function callOpenRouter(body: ChatRequestBody, fetchImpl: FetchLike): Prom
       headers: {
         Authorization: `Bearer ${key}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": process.env.OPENROUTER_REFERER ?? "https://github.com/nihongo-kiso",
+        "HTTP-Referer": process.env.OPENROUTER_REFERER ?? "https://github.com/chrisliu1121-crypto/nihongo-kiso",
         // Code review item 4 (P1): send both attribution headers -- X-Title
         // is OpenRouter's documented header, X-OpenRouter-Title is added
         // alongside it (not a replacement) per the review's request.

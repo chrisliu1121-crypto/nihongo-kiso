@@ -50,13 +50,13 @@ node scripts/cross-check.ts --judge openrouter --promote
 2. 在本機把它加為 remote 並 push：
    ```bash
    git branch -M main
-   git remote add origin <你的 repo 網址>
+   git remote add origin https://github.com/chrisliu1121-crypto/nihongo-kiso.git
    git push -u origin main
    ```
 3. 到 repo 的 **Settings → Pages**，把 **Source** 改成 **GitHub Actions**。
 4. 之後每次 push 到 `main`，`.github/workflows/deploy.yml` 會自動 build 並部署，網址是：
    ```
-   https://<你的 GitHub 帳號>.github.io/<repo 名稱>/
+   https://chrisliu1121-crypto.github.io/nihongo-kiso/
    ```
    （sub-path 由 `VITE_BASE` 依 repo 名稱自動帶入，不需要手動設定。）
 
