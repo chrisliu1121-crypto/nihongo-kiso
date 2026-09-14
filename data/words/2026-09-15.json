@@ -1,0 +1,468 @@
+{
+  "date": "2026-09-15",
+  "words": [
+    {
+      "id": "w_0041",
+      "surface": "こちら",
+      "reading": "こちら",
+      "gloss": "這邊",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 41,
+      "romaji_override": null,
+      "example": {
+        "ja": "トイレはこちらです。",
+        "zh": "洗手間在這邊。",
+        "tokens": [
+          {
+            "surface": "トイレ",
+            "reading": "といれ"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "こちら",
+            "reading": "こちら"
+          },
+          {
+            "surface": "です",
+            "reading": "です"
+          }
+        ]
+      },
+      "collocations": [
+        "こちらへどうぞ",
+        "こちらは〜さんです"
+      ],
+      "confusable_with": [],
+      "note": "「こちら」是「ここ」的禮貌說法，除了指方向或場所之外，也可以用來指稱身邊的人（這位）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0042",
+      "surface": "そちら",
+      "reading": "そちら",
+      "gloss": "那邊（近聽者）",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 42,
+      "romaji_override": null,
+      "example": {
+        "ja": "そちらへ行きます。",
+        "zh": "我去你那邊。",
+        "tokens": [
+          {
+            "surface": "そちら",
+            "reading": "そちら"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます"
+          }
+        ]
+      },
+      "collocations": [
+        "そちらへ",
+        "そちらは"
+      ],
+      "confusable_with": [],
+      "note": "「そちら」是指靠近對方的方向或場所，比「そこ」更為禮貌，在對話中也常用來指稱對方。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0043",
+      "surface": "あちら",
+      "reading": "あちら",
+      "gloss": "那邊（遠）",
+      "pos": "代名詞",
+      "level": "N5",
+      "freq_rank": 43,
+      "romaji_override": null,
+      "example": {
+        "ja": "トイレはあちらです。",
+        "zh": "洗手間在那邊。",
+        "tokens": [
+          {
+            "surface": "トイレ",
+            "reading": "といれ"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "あちら",
+            "reading": "あちら"
+          },
+          {
+            "surface": "です",
+            "reading": "です"
+          }
+        ]
+      },
+      "collocations": [
+        "あちらです",
+        "あちらへ"
+      ],
+      "confusable_with": [],
+      "note": "「あちら」是「あそこ」或「あっち」的禮貌說法，可用來指遠處的方向、場所或人物。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0044",
+      "surface": "誰",
+      "reading": "だれ",
+      "gloss": "誰",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 44,
+      "romaji_override": null,
+      "example": {
+        "ja": "あの人は誰ですか。",
+        "zh": "那個人是誰？",
+        "tokens": [
+          {
+            "surface": "あの",
+            "reading": "あの"
+          },
+          {
+            "surface": "人",
+            "reading": "ひと"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "誰",
+            "reading": "だれ"
+          },
+          {
+            "surface": "です",
+            "reading": "です"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "誰ですか",
+        "誰と",
+        "誰が"
+      ],
+      "confusable_with": [],
+      "note": "「誰」（だれ）是用來詢問人的疑問詞，較禮貌的說法為「どなた」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0045",
+      "surface": "いつ",
+      "reading": "いつ",
+      "gloss": "什麼時候",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 45,
+      "romaji_override": null,
+      "example": {
+        "ja": "いつ日本へ行きますか。",
+        "zh": "你什麼時候要去日本呢？",
+        "tokens": [
+          {
+            "surface": "いつ",
+            "reading": "いつ"
+          },
+          {
+            "surface": "日本",
+            "reading": "にほん"
+          },
+          {
+            "surface": "へ",
+            "reading": "え",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "いつ行きますか",
+        "いつですか"
+      ],
+      "confusable_with": [],
+      "note": "「いつ」是詢問「何時」的疑問名詞，後面原則上不接時間助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0046",
+      "surface": "どこ",
+      "reading": "どこ",
+      "gloss": "哪裡",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 46,
+      "romaji_override": null,
+      "example": {
+        "ja": "トイレはどこですか。",
+        "zh": "洗手間在哪裡？",
+        "tokens": [
+          {
+            "surface": "トイレ",
+            "reading": "といれ"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "どこ",
+            "reading": "どこ"
+          },
+          {
+            "surface": "です",
+            "reading": "です"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "どこですか",
+        "どこへ",
+        "どこで"
+      ],
+      "confusable_with": [],
+      "note": "「どこ」是用於詢問地點或方位的疑問詞，相當於中文的「哪裡」。搭配「〜はどこですか」可禮貌詢問某個場所或物品的位置。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0047",
+      "surface": "どちら",
+      "reading": "どちら",
+      "gloss": "哪一邊／哪位",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 47,
+      "romaji_override": null,
+      "example": {
+        "ja": "どちらが好きですか。",
+        "zh": "你喜歡哪一個呢？",
+        "tokens": [
+          {
+            "surface": "どちら",
+            "reading": "どちら"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "particle": true
+          },
+          {
+            "surface": "好きです",
+            "reading": "すきです"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "どちらですか",
+        "どちらが好きですか"
+      ],
+      "confusable_with": [],
+      "note": "「どちら」是「どっち」的禮貌說法，可用來詢問二選一（哪一個）、方向或場所。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0048",
+      "surface": "どう",
+      "reading": "どう",
+      "gloss": "如何",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 48,
+      "romaji_override": null,
+      "example": {
+        "ja": "日本料理はどうですか。",
+        "zh": "日本料理覺得如何呢？",
+        "tokens": [
+          {
+            "surface": "日本料理",
+            "reading": "にほんりょうり"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "particle": true
+          },
+          {
+            "surface": "どう",
+            "reading": "どう"
+          },
+          {
+            "surface": "です",
+            "reading": "です"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "どうですか",
+        "どう思いますか"
+      ],
+      "confusable_with": [],
+      "note": "「どうですか」是初級最常用的句型，可用來詢問對方的看法、感想，或是向對方提出建議與勸誘。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0049",
+      "surface": "どうして",
+      "reading": "どうして",
+      "gloss": "為什麼",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 49,
+      "romaji_override": null,
+      "example": {
+        "ja": "どうして日本語を勉強しますか。",
+        "zh": "為什麼學日語呢？",
+        "tokens": [
+          {
+            "surface": "どうして",
+            "reading": "どうして"
+          },
+          {
+            "surface": "日本語",
+            "reading": "にほんご"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "particle": true
+          },
+          {
+            "surface": "勉強します",
+            "reading": "べんきょうします"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "どうしてですか",
+        "どうして来ませんでしたか"
+      ],
+      "confusable_with": [],
+      "note": "「どうして」是詢問原因、理由的疑問詞，意思是「為什麼」，句尾常接助詞「か」。回答時常在句尾加上「から」（因為……）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0050",
+      "surface": "なぜ",
+      "reading": "なぜ",
+      "gloss": "為什麼",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 50,
+      "romaji_override": null,
+      "example": {
+        "ja": "なぜ日本語を勉強しますか。",
+        "zh": "為什麼學習日語呢？",
+        "tokens": [
+          {
+            "surface": "なぜ",
+            "reading": "なぜ"
+          },
+          {
+            "surface": "日本語",
+            "reading": "にほんご"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "particle": true
+          },
+          {
+            "surface": "勉強します",
+            "reading": "べんきょうします"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "なぜですか",
+        "なぜ勉強しますか"
+      ],
+      "confusable_with": [],
+      "note": "「なぜ」是詢問原因或理由的疑問詞，意思是「為什麼」。在較隨和的日常口語中也常用「どうして」或「なんで」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
