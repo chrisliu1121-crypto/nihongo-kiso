@@ -26,7 +26,7 @@ node scripts/generate-daily.ts --dry-run
 # stub provider：不呼叫外部 API，回傳固定假資料，適合測試流程本身
 node scripts/generate-daily.ts --enricher stub --judge stub --promote
 
-# openrouter provider：透過 OpenRouter 呼叫真正的模型（預設模型：anthropic/claude-fable-5.1，執行前會先向 OpenRouter 確認該模型 id 真的存在）
+# openrouter provider：透過 OpenRouter 呼叫真正的模型（預設模型：google/gemini-3.8-flash，執行前會先向 OpenRouter 確認該模型 id 真的存在）
 # PowerShell:
 $env:OPENROUTER_API_KEY="<你的 key>"
 # bash:
@@ -64,7 +64,8 @@ node scripts/cross-check.ts --judge openrouter --promote
 
 1. 到 repo 的 **Settings → Secrets and variables → Actions**，新增一個 secret：`OPENROUTER_API_KEY`。
 2. `.github/workflows/daily.yml` 預設每天 UTC 21:00（台灣時間隔天 05:00）自動跑一次，也可以到 **Actions** 分頁手動點 **Run workflow** 觸發一次來驗證（可選填 `date` / `model` 輸入）。
-3. 若當天產生失敗或有候選沒通過複查，工作流程仍會把 `data/pending/` 底下的檔案 commit 上去，並讓該次執行顯示為失敗（紅色），方便注意到需要人工檢視。失敗時先看 `data/pending/` 底下對應日期的檔案。
+3. **換模型**：預設用 `google/gemini-3.8-flash`。想讓每天自動跑改用別的模型，不用改程式：到 **Settings → Secrets and variables → Actions → Variables** 分頁新增 repository variable `OPENROUTER_MODEL`，值填 OpenRouter 上的模型 id（例如 `anthropic/claude-opus-5`）。手動 Run workflow 時填的 `model` 輸入會蓋過這個變數；兩者都沒設就用預設值。
+4. 若當天產生失敗或有候選沒通過複查，工作流程仍會把 `data/pending/` 底下的檔案 commit 上去，並讓該次執行顯示為失敗（紅色），方便注意到需要人工檢視。失敗時先看 `data/pending/` 底下對應日期的檔案。
 
 ## 設計文件
 

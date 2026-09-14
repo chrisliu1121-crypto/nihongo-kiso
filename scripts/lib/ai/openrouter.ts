@@ -47,7 +47,7 @@ const OPENROUTER_MODELS_URL = "https://openrouter.ai/api/v1/models";
 // preflightOpenRouterModel() below, which now checks the resolved model id
 // against the live model list before any per-word call is made, so a bad
 // override fails loud at startup instead of on the first word.
-export const DEFAULT_OPENROUTER_MODEL = "anthropic/claude-fable-5.1";
+export const DEFAULT_OPENROUTER_MODEL = "google/gemini-3.8-flash";
 const MAX_TOKENS = 8192;
 
 const ENRICH_SCHEMA = {
@@ -256,7 +256,10 @@ function checkFinishReason(finishReason: string): void {
 type FetchLike = typeof fetch;
 
 function resolveModel(cliModel: string | undefined): string {
-  return cliModel ?? process.env.OPENROUTER_MODEL ?? DEFAULT_OPENROUTER_MODEL;
+  // Empty / whitespace counts as unset: GitHub Actions expands an undefined
+  // `vars.OPENROUTER_MODEL` to "", and "" ?? default would keep the "".
+  const pick = (v: string | undefined) => (v && v.trim() ? v.trim() : undefined);
+  return pick(cliModel) ?? pick(process.env.OPENROUTER_MODEL) ?? DEFAULT_OPENROUTER_MODEL;
 }
 
 /**
@@ -380,8 +383,9 @@ export async function preflightOpenRouterModel(cliModel: string | undefined, fet
   const json: unknown = await response.json();
   const ids = extractModelIds(json);
   if (!ids.includes(model)) {
-    const anthropicIds = ids.filter((id) => id.startsWith("anthropic/"));
-    console.error(`模型不存在，可用的 anthropic/ 開頭 id 有：${anthropicIds.join(", ")}`);
+    const vendor = model.includes("/") ? model.slice(0, model.indexOf("/") + 1) : "anthropic/";
+    const sameVendor = ids.filter((id) => id.startsWith(vendor));
+    console.error(`模型 "${model}" 不存在。${vendor} 開頭的可用 id 有：${sameVendor.join(", ") || "(無)"}`);
     process.exit(2);
   }
 }

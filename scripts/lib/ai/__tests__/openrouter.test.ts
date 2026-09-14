@@ -489,7 +489,7 @@ describe("preflightOpenRouterModel", () => {
     );
     expect(exitSpy).toHaveBeenCalledWith(2);
     const loggedText = errorSpy.mock.calls.flat().map((v: unknown) => String(v)).join("\n");
-    expect(loggedText).toMatch(/模型不存在，可用的 anthropic\/ 開頭 id 有/);
+    expect(loggedText).toMatch(/不存在。anthropic[/] 開頭的可用 id 有/);
     expect(loggedText).toMatch(/anthropic\/claude-sonnet-4\.6/);
     expect(loggedText).toMatch(/anthropic\/claude-opus-5/);
     expect(loggedText.includes("openai/gpt-4o")).toBe(false); // only anthropic/-prefixed ids are listed
