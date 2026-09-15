@@ -16,20 +16,24 @@
         "tokens": [
           {
             "surface": "トイレ",
-            "reading": "といれ"
+            "reading": "といれ",
+            "gloss": "洗手間"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "こちら",
-            "reading": "こちら"
+            "reading": "こちら",
+            "gloss": "這邊"
           },
           {
             "surface": "です",
-            "reading": "です"
+            "reading": "です",
+            "gloss": "是"
           }
         ]
       },
@@ -59,16 +63,19 @@
         "tokens": [
           {
             "surface": "そちら",
-            "reading": "そちら"
+            "reading": "そちら",
+            "gloss": "那邊"
           },
           {
             "surface": "へ",
             "reading": "へ",
+            "gloss": "（往）",
             "particle": true
           },
           {
             "surface": "行きます",
-            "reading": "いきます"
+            "reading": "いきます",
+            "gloss": "去"
           }
         ]
       },
@@ -98,20 +105,24 @@
         "tokens": [
           {
             "surface": "トイレ",
-            "reading": "といれ"
+            "reading": "といれ",
+            "gloss": "洗手間"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "あちら",
-            "reading": "あちら"
+            "reading": "あちら",
+            "gloss": "那邊"
           },
           {
             "surface": "です",
-            "reading": "です"
+            "reading": "です",
+            "gloss": "是"
           }
         ]
       },
@@ -141,28 +152,34 @@
         "tokens": [
           {
             "surface": "あの",
-            "reading": "あの"
+            "reading": "あの",
+            "gloss": "那個"
           },
           {
             "surface": "人",
-            "reading": "ひと"
+            "reading": "ひと",
+            "gloss": "人"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "誰",
-            "reading": "だれ"
+            "reading": "だれ",
+            "gloss": "誰"
           },
           {
             "surface": "です",
-            "reading": "です"
+            "reading": "です",
+            "gloss": "是"
           },
           {
             "surface": "か",
             "reading": "か",
+            "gloss": "（疑問）",
             "particle": true
           }
         ]
@@ -194,24 +211,29 @@
         "tokens": [
           {
             "surface": "いつ",
-            "reading": "いつ"
+            "reading": "いつ",
+            "gloss": "什麼時候"
           },
           {
             "surface": "日本",
-            "reading": "にほん"
+            "reading": "にほん",
+            "gloss": "日本"
           },
           {
             "surface": "へ",
-            "reading": "え",
+            "reading": "へ",
+            "gloss": "（往）",
             "particle": true
           },
           {
             "surface": "行きます",
-            "reading": "いきます"
+            "reading": "いきます",
+            "gloss": "去"
           },
           {
             "surface": "か",
             "reading": "か",
+            "gloss": "（疑問）",
             "particle": true
           }
         ]
@@ -242,24 +264,29 @@
         "tokens": [
           {
             "surface": "トイレ",
-            "reading": "といれ"
+            "reading": "といれ",
+            "gloss": "洗手間"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "どこ",
-            "reading": "どこ"
+            "reading": "どこ",
+            "gloss": "哪裡"
           },
           {
             "surface": "です",
-            "reading": "です"
+            "reading": "です",
+            "gloss": "是"
           },
           {
             "surface": "か",
             "reading": "か",
+            "gloss": "（疑問）",
             "particle": true
           }
         ]
@@ -291,20 +318,24 @@
         "tokens": [
           {
             "surface": "どちら",
-            "reading": "どちら"
+            "reading": "どちら",
+            "gloss": "哪一個"
           },
           {
             "surface": "が",
             "reading": "が",
+            "gloss": "（對象）",
             "particle": true
           },
           {
             "surface": "好きです",
-            "reading": "すきです"
+            "reading": "すきです",
+            "gloss": "喜歡"
           },
           {
             "surface": "か",
             "reading": "か",
+            "gloss": "（疑問）",
             "particle": true
           }
         ]
@@ -335,24 +366,29 @@
         "tokens": [
           {
             "surface": "日本料理",
-            "reading": "にほんりょうり"
+            "reading": "にほんりょうり",
+            "gloss": "日本料理"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "どう",
-            "reading": "どう"
+            "reading": "どう",
+            "gloss": "如何"
           },
           {
             "surface": "です",
-            "reading": "です"
+            "reading": "です",
+            "gloss": "是"
           },
           {
             "surface": "か",
             "reading": "か",
+            "gloss": "（疑問）",
             "particle": true
           }
         ]
@@ -383,24 +419,29 @@
         "tokens": [
           {
             "surface": "どうして",
-            "reading": "どうして"
+            "reading": "どうして",
+            "gloss": "為什麼"
           },
           {
             "surface": "日本語",
-            "reading": "にほんご"
+            "reading": "にほんご",
+            "gloss": "日語"
           },
           {
             "surface": "を",
             "reading": "を",
+            "gloss": "（受詞）",
             "particle": true
           },
           {
             "surface": "勉強します",
-            "reading": "べんきょうします"
+            "reading": "べんきょうします",
+            "gloss": "學習"
           },
           {
             "surface": "か",
             "reading": "か",
+            "gloss": "（疑問）",
             "particle": true
           }
         ]
@@ -431,24 +472,29 @@
         "tokens": [
           {
             "surface": "なぜ",
-            "reading": "なぜ"
+            "reading": "なぜ",
+            "gloss": "為什麼"
           },
           {
             "surface": "日本語",
-            "reading": "にほんご"
+            "reading": "にほんご",
+            "gloss": "日語"
           },
           {
             "surface": "を",
             "reading": "を",
+            "gloss": "（受詞）",
             "particle": true
           },
           {
             "surface": "勉強します",
-            "reading": "べんきょうします"
+            "reading": "べんきょうします",
+            "gloss": "學習"
           },
           {
             "surface": "か",
             "reading": "か",
+            "gloss": "（疑問）",
             "particle": true
           }
         ]

@@ -23,10 +23,10 @@ import {
 } from "../lib/validate-words";
 
 const DEFAULT_TOKENS: ExampleToken[] = [
-  { surface: "学校", reading: "がっこう" },
-  { surface: "まで", reading: "まで", particle: true },
-  { surface: "歩いて", reading: "あるいて" },
-  { surface: "行きます", reading: "いきます" },
+  { surface: "学校", reading: "がっこう", gloss: "學校" },
+  { surface: "まで", reading: "まで", gloss: "（到）", particle: true },
+  { surface: "歩いて", reading: "あるいて", gloss: "走路" },
+  { surface: "行きます", reading: "いきます", gloss: "去" },
 ];
 
 function makeSeed(overrides: Partial<WordSeed> = {}): WordSeed {
@@ -136,8 +136,8 @@ describe("enrichWord -- particle 誤標 error message identical to the pre-refac
             ja: "はな学校です。",
             zh: "（測試用）",
             tokens: [
-              { surface: "はな", reading: "はな", particle: true },
-              { surface: "学校です", reading: "がっこうです" },
+              { surface: "はな", reading: "はな", gloss: "花", particle: true },
+              { surface: "学校です", reading: "がっこうです", gloss: "是學校" },
             ],
           },
         }),
@@ -179,8 +179,8 @@ describe("validateWordFile", () => {
           ja: `${kana}です。`,
           zh: "測試",
           tokens: [
-            { surface: kana, reading: kana },
-            { surface: "です", reading: "です" },
+            { surface: kana, reading: kana, gloss: "測試" },
+            { surface: "です", reading: "です", gloss: "是" },
           ],
         },
         ...overrides[i],
@@ -309,6 +309,33 @@ describe("validateWordFile", () => {
         /^2026-04-03\.json \/ w_1007 \/ schema 驗證失敗：words\.7\.example\.tokens\.0\.reading/,
       );
     });
+
+    it("tokens 缺 gloss（AI 漏產 gloss）被 zod 擋下", () => {
+      const words = tenWords();
+      const bad: WordSeed = {
+        ...words[7],
+        example: {
+          ja: words[7].example.ja,
+          zh: words[7].example.zh,
+          tokens: [
+            { surface: "く", reading: "く" } as unknown as ExampleToken,
+            { surface: "です", reading: "です", gloss: "是" },
+          ],
+        },
+      };
+      const patched = [...words.slice(0, 7), bad, ...words.slice(8)];
+      const seed: DaySeed = { date: "2026-04-09", words: patched };
+      let caught: unknown;
+      try {
+        validateWordFile("2026-04-09.json", seed, emptyCtx);
+      } catch (e) {
+        caught = e;
+      }
+      expect(caught).toBeInstanceOf(BuildError);
+      expect((caught as Error).message).toMatch(
+        /^2026-04-09\.json \/ w_1007 \/ schema 驗證失敗：words\.7\.example\.tokens\.0\.gloss/,
+      );
+    });
   });
 
   // review item 5(a): an example token's kanji must already be "in scope"
@@ -322,8 +349,8 @@ describe("validateWordFile", () => {
           ja: "学校です。",
           zh: "是學校。",
           tokens: [
-            { surface: "学校", reading: "がっこう" },
-            { surface: "です", reading: "です" },
+            { surface: "学校", reading: "がっこう", gloss: "學校" },
+            { surface: "です", reading: "です", gloss: "是" },
           ],
         },
       };
@@ -341,8 +368,8 @@ describe("validateWordFile", () => {
           ja: "学校です。",
           zh: "是學校。",
           tokens: [
-            { surface: "学校", reading: "がっこう" },
-            { surface: "です", reading: "です" },
+            { surface: "学校", reading: "がっこう", gloss: "學校" },
+            { surface: "です", reading: "です", gloss: "是" },
           ],
         },
       };
@@ -360,8 +387,8 @@ describe("validateWordFile", () => {
           ja: `${DISTINCT_KANA[0]}では。`,
           zh: "測試",
           tokens: [
-            { surface: DISTINCT_KANA[0], reading: DISTINCT_KANA[0] },
-            { surface: "では", reading: "では", particle: true },
+            { surface: DISTINCT_KANA[0], reading: DISTINCT_KANA[0], gloss: "測試" },
+            { surface: "では", reading: "では", gloss: "（測試）", particle: true },
           ],
         },
       };
@@ -413,8 +440,8 @@ describe("validateWordSet -- review item 5, opt-in via opts.knownKanji (off by d
           ja: "学校です。",
           zh: "是學校。",
           tokens: [
-            { surface: "学校", reading: "がっこう" },
-            { surface: "です", reading: "です" },
+            { surface: "学校", reading: "がっこう", gloss: "學校" },
+            { surface: "です", reading: "です", gloss: "是" },
           ],
         }),
       ),
@@ -427,8 +454,8 @@ describe("validateWordSet -- review item 5, opt-in via opts.knownKanji (off by d
       ja: "あです。",
       zh: "測試",
       tokens: [
-        { surface: "あ", reading: "あ" },
-        { surface: "です", reading: "です" },
+        { surface: "あ", reading: "あ", gloss: "測試" },
+        { surface: "です", reading: "です", gloss: "是" },
       ],
     };
     const dayA = makeDay(
@@ -441,5 +468,96 @@ describe("validateWordSet -- review item 5, opt-in via opts.knownKanji (off by d
     // (deliberately, to test the check with a single call) -- no second
     // day needed.
     expect(() => validateWordSet([dayA], { knownKanji: new Set() })).toThrow(/例句與 w_3000 重複/);
+  });
+});
+
+// DESIGN.md §9.2: example-token gloss rules, enforced inside enrichWord's
+// per-token pass so build-bank.ts (which never runs the zod schema) also
+// fails loud on a hand-edited data/words/*.json.
+describe("example token gloss（DESIGN.md §9.2）", () => {
+  function withTokenGloss(index: number, gloss: unknown): WordSeed {
+    const seed = makeSeed();
+    const tokens = seed.example.tokens.map((t, i) => (i === index ? ({ ...t, gloss } as ExampleToken) : t));
+    return { ...seed, example: { ...seed.example, tokens } };
+  }
+
+  it("預設 fixture（每個 token 都有中文 gloss，含助詞括號說明「（到）」）通過，gloss 帶進 built token", () => {
+    const word = enrichWord(makeSeed(), "g.json");
+    expect(word.example.tokens.map((t) => t.gloss)).toEqual(["學校", "（到）", "走路", "去"]);
+  });
+
+  it("缺 gloss 被抓，訊息指到 file / id / example.tokens[i]", () => {
+    const seed = makeSeed();
+    const tokens = seed.example.tokens.map((t, i) => {
+      if (i !== 2) return t;
+      const { gloss: _omit, ...rest } = t;
+      return rest as ExampleToken;
+    });
+    const build = () => enrichWord({ ...seed, example: { ...seed.example, tokens } }, "g.json");
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/^g\.json \/ w_0001 \/ example\.tokens\[2\] "歩いて" 缺少 gloss/);
+  });
+
+  it("gloss 為空白字串被抓", () => {
+    expect(() => enrichWord(withTokenGloss(0, "   "), "g.json")).toThrow(/^g\.json \/ w_0001 \/ example\.tokens\[0\] "学校" 缺少 gloss/);
+  });
+
+  it("gloss 含平假名（把讀音當意思：たべる）被抓", () => {
+    const build = () => enrichWord(withTokenGloss(3, "たべる"), "g.json");
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(/^g\.json \/ w_0001 \/ example\.tokens\[3\] "行きます" 的 gloss 含假名「た」/);
+  });
+
+  it("gloss 含片假名或長音符「ー」也被抓", () => {
+    expect(() => enrichWord(withTokenGloss(0, "ガッコウ"), "g.json")).toThrow(/example\.tokens\[0\] "学校" 的 gloss 含假名/);
+    expect(() => enrichWord(withTokenGloss(0, "學校ー"), "g.json")).toThrow(/的 gloss 含假名「ー」/);
+  });
+
+  it("中文標點、全形括號與片假名中點「・」不算假名，放行", () => {
+    expect(() => enrichWord(withTokenGloss(1, "（到）"), "g.json")).not.toThrow();
+    expect(() => enrichWord(withTokenGloss(2, "走路・步行"), "g.json")).not.toThrow();
+    expect(() => enrichWord(withTokenGloss(3, "去，前往。"), "g.json")).not.toThrow();
+  });
+});
+
+// Kana-only surface must match its reading (toHiragana-normalized). A particle
+// written with its pronunciation (へ/え, は/わ, を/お) would light the wrong
+// gojuon cell -- a real bug the 2026-09-15 cron produced (w_0045).
+describe("example token：純假名 surface 與 reading 必須是同一組假名", () => {
+  function seedWith(ja: string, tokens: ExampleToken[]): WordSeed {
+    return makeSeed({ id: "w_0001", example: { ja, zh: "測試", tokens } });
+  }
+
+  it.each([
+    ["へ", "え", "学校へ行きます。", [{ surface: "学校", reading: "がっこう", gloss: "學校" }, { surface: "へ", reading: "え", gloss: "（往）", particle: true }, { surface: "行きます", reading: "いきます", gloss: "去" }]],
+    ["は", "わ", "学校は大きいです。", [{ surface: "学校", reading: "がっこう", gloss: "學校" }, { surface: "は", reading: "わ", gloss: "（主題）", particle: true }, { surface: "大きいです", reading: "おおきいです", gloss: "很大" }]],
+    ["を", "お", "水を飲みます。", [{ surface: "水", reading: "みず", gloss: "水" }, { surface: "を", reading: "お", gloss: "（受詞）", particle: true }, { surface: "飲みます", reading: "のみます", gloss: "喝" }]],
+  ] as const)("助詞 %s 的 reading 寫成發音 %s 被擋，訊息指到 example.tokens[1] 並說明寫字形", (surface, reading, ja, tokens) => {
+    const build = () => enrichWord(seedWith(ja, tokens as unknown as ExampleToken[]), "r.json");
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow(`r.json / w_0001 / example.tokens[1] surface "${surface}" 與 reading "${reading}" 不一致`);
+    expect(build).toThrow(/助詞 は\/へ\/を 的 reading 寫字形本身（は\/へ\/を），發音由 particle:true 處理/);
+  });
+
+  it("片假名 surface：トイレ/トイレ 與 トイレ/といれ 都通過", () => {
+    const tokens = (reading: string): ExampleToken[] => [
+      { surface: "トイレ", reading, gloss: "洗手間" },
+      { surface: "です", reading: "です", gloss: "是" },
+    ];
+    expect(() => enrichWord(seedWith("トイレです。", tokens("トイレ")), "r.json")).not.toThrow();
+    expect(() => enrichWord(seedWith("トイレです。", tokens("といれ")), "r.json")).not.toThrow();
+  });
+
+  it("標點與引號先去掉再比：「ありがとう」/ありがとう 通過；「へ」/え 仍被擋；ー 保留不算標點", async () => {
+    const { surfaceReadingMismatchReason } = await import("../lib/validate-words");
+    expect(surfaceReadingMismatchReason("「ありがとう」", "ありがとう")).toBeNull();
+    expect(surfaceReadingMismatchReason("『ね』！", "ね")).toBeNull();
+    expect(surfaceReadingMismatchReason("「へ」", "え")).toContain('surface "「へ」" 與 reading "え" 不一致');
+    expect(surfaceReadingMismatchReason("ケーキ", "けーき")).toBeNull();
+    expect(surfaceReadingMismatchReason("ケーキ", "けき")).not.toBeNull();
+  });
+
+  it("含漢字的 surface 不套這條（学校/がっこう 照常通過）", () => {
+    expect(() => enrichWord(makeSeed(), "r.json")).not.toThrow();
   });
 });

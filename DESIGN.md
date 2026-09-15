@@ -174,6 +174,8 @@ nihongo-kiso/
 
 `Token` 自己負責 hover → 預覽高亮、click → 釘選高亮。其他元件只組合它，不自行處理高亮。
 
+`glossMode`（`"always"` 預設 ｜ `"hover"`）只決定 gloss 怎麼顯示、不影響高亮：`always` 是底下一行小字（文法頁、練習頁、單詞主詞卡）；`hover` 不佔版面，指到（或鍵盤聚焦）token 時它浮起約 2px、下方淡入中文小泡泡，移開即消失——觸控裝置（`hover: none`）改為釘選時才顯示，`prefers-reduced-motion` 時只顯示/隱藏不位移。目前用於今日單詞卡與單詞庫的例句 token。
+
 ### 5.2 三層高亮 store
 
 多來源同時要求高亮時必須疊加而非互相覆蓋：
@@ -385,11 +387,11 @@ API 層：`readingToRomaji(reading, { particle: true })` 對字串中每個符�
       "example": {                 // 逐 token，格式同 §8.3
         "ja": "学校まで歩いて行きます。",   // 必須等於 tokens.surface 串接 + 標點
         "zh": "走路去學校。",
-        "tokens": [
-          { "surface": "学校",   "reading": "がっこう" },
-          { "surface": "まで",   "reading": "まで", "particle": true },
-          { "surface": "歩いて", "reading": "あるいて" },
-          { "surface": "行きます", "reading": "いきます" }
+        "tokens": [                // gloss 必填：該詞在本句中的繁中意思；助詞寫括號功能說明
+          { "surface": "学校",   "reading": "がっこう", "gloss": "學校" },
+          { "surface": "まで",   "reading": "まで", "gloss": "（到）", "particle": true },
+          { "surface": "歩いて", "reading": "あるいて", "gloss": "走路" },
+          { "surface": "行きます", "reading": "いきます", "gloss": "去" }
         ]
       },
       "collocations": ["学校に行く", "学校を休む"],
@@ -601,9 +603,12 @@ interface ProgressStore {
 - `romaji_ascii` 為純 ASCII
 - 單詞不與現有 bank 重複（`surface` + `reading` 為鍵）
 - 例句 `tokens` 的 `particle: true` 必須在助詞白名單內（は が を に で と の も へ か から まで や ね よ でも には では とか）；反向：surface 恰為 は/を/へ/が 的獨立 token 未標 particle → 失敗。**這是弱模型照範本產詞時最容易靜默寫錯的欄位**（2026-09-12 審查：誤標會讓 romaji 變 wana 而 build 不紅）
+- 例句每個 token 必須有 `gloss`，trim 後非空（該詞在本句中的繁體中文意思；助詞寫「（主題）」「（受詞）」這類括號功能說明）→ 缺少或空白即失敗，錯誤指到 `file / id / example.tokens[i]`
+- 例句 token 的 `gloss` 不得含平假名／片假名（U+3040–30FF，「ー」也算；片假名中點「・」視為標點放行），中文標點與括號不受限 → 攔 AI 把讀音當意思填（如「たべる」）
 - `example.ja` 去標點後必須等於 `tokens.surface` 串接
 - `freq_rank` 同檔嚴格遞增且全庫不重複；`confusable_with` 必須對稱
 - 例句範圍：非助詞 token 的 surface 所含漢字必須出現在頻率表或既有 words/ 的 surface 中（漢字集合比對，不受活用影響）；例句 `ja` 跨全庫唯一。（2026-09-14 審查：AI 在無人看管的批次模式下最容易犯的兩種錯——超綱例句、對相似詞複製同一句——原清單攔不到）
+- 純假名 surface 的 reading 必須與 surface 是同一組假名（平／片假名視為相同，比對前去掉標點與引號）；助詞 は/へ/を 的 reading 寫字形本身，發音交給 `particle: true`。適用單詞例句與所有句子資料。（2026-09-15：第一次真實產詞的兩天裡，AI 兩度把助詞 へ 的 reading 寫成 え——五十音表因此亮 え 格而不是 へ 格，是在教錯字形；Gemini judge 沒抓到，所以必須機檢）
 - 覆寫守門：`generate-daily` 對已存在的 `words/<date>.json` 一律拒絕（正式資料不由腳本覆寫）；對已存在的 `pending/<date>.json` 拒絕，除非 `--force`（人工編輯過的 pending 要用 `cross-check.ts` 重驗，不是重產）
 - 權威來源：新詞的 `gloss`／`pos` 取自頻率表；已 promote 的詞以 `words/` 為準，頻率表事後的修改不回寫
 - 句子的動詞 token 在最後；`bunsetsu` 覆蓋全部 token 恰一次

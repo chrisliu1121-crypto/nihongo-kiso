@@ -65,9 +65,10 @@ const ENRICH_SCHEMA = {
             properties: {
               surface: { type: "string" },
               reading: { type: "string" },
+              gloss: { type: "string" },
               particle: { type: ["boolean", "null"] },
             },
-            required: ["surface", "reading", "particle"],
+            required: ["surface", "reading", "gloss", "particle"],
             additionalProperties: false,
           },
         },
@@ -108,6 +109,9 @@ const ENRICH_SYSTEM_PROMPT = `你是日語教材的例句產生器，服務對�
 - 標點符號（。、）只能出現在 "ja" 欄位，絕對不可出現在任何 token 的 surface 或 reading 裡。
 - "ja" 欄位必須恰好等於全部 tokens.surface 依序串接後，再加上句尾標點——不多字、不少字。
 - reading 欄位只能是假名（平假名或片假名），不可包含漢字或羅馬字。
+- 助詞 は/へ/を 的 reading 照字形寫 は/へ/を，不要寫成 わ/え/お（發音由 "particle": true 處理）；其他純假名 token 的 reading 也必須與 surface 是同一組假名。
+- 每個 token 都必須附 "gloss"：這個詞「在本句中」的繁體中文意思，力求簡短（1–4 字為主）；動詞寫句中活用後的意思（例：食べます → 吃；行きたい → 想去）；「です」寫「是」；助詞寫括號功能說明，例如「（主題）」「（主語）」「（受詞）」「（地點）」「（目的地）」「（時間）」「（對象）」「（和）」「（的）」「（也）」「（疑問）」。gloss 絕對不可寫假名讀音或羅馬字，也不可留空。
+- 完整 token 範例（例句「学校に行きます。」）：[{"surface": "学校", "reading": "がっこう", "gloss": "學校", "particle": null}, {"surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true}, {"surface": "行きます", "reading": "いきます", "gloss": "去", "particle": null}]
 - 盡量避免產生與 existing_surfaces 裡列出的例句幾乎相同的句子（換個場景或搭配）。
 - 回傳的 JSON 必須完全符合提供的 schema，不要加上 schema 之外的欄位。
 - 只能輸出 JSON 本體，不要用 markdown code fence（\`\`\`json ... \`\`\`）包裹，也不要加任何其他文字。`;
@@ -117,7 +121,7 @@ const JUDGE_SYSTEM_PROMPT = `你是日語教材的獨立審查者。你只會看
 檢查五件事：
 1. natural：這個例句作為 N5 教材是否自然、合乎文法。
 2. reading_ok：reading 是否是這個 surface 正確的假名讀音。
-3. gloss_ok：中文翻譯（zh／gloss）是否對應日文原意。
+3. gloss_ok：中文翻譯（zh／gloss）是否對應日文原意；並逐一檢查例句 example.tokens 中每個 token 的 gloss——是否正確表達該詞「在本句中」的意思（動詞看句中活用、助詞應為括號功能說明如「（主題）」「（受詞）」）、是否為繁體中文（不可是假名讀音、羅馬字、簡體字或空白）。任何一個 token 的 gloss 有誤都要把 gloss_ok 判為 false，並在 issues 指出是哪個 token。
 4. 例句是否整句都在 N5 範圍內用詞與文法——出現任何超出 N5 的詞彙、文法點、或非常見漢字，都要在 issues 說明並把 natural 判為 false。
 5. 例句是否與 existing_examples 裡列出的既有例句雷同（幾乎相同的句型、場景、用字）——雷同時在 issues 註明，並把 natural 判為 false，即使文法本身沒問題。
 
@@ -431,6 +435,7 @@ export function makeOpenRouterEnricher(opts: OpenRouterOptions = {}): Enricher {
       const tokens: EnrichResultToken[] = result.data.example.tokens.map((t) => ({
         surface: t.surface,
         reading: t.reading,
+        gloss: t.gloss,
         ...(t.particle === true ? { particle: true as const } : {}),
       }));
       return { example: { ...result.data.example, tokens }, collocations: result.data.collocations, note: result.data.note };

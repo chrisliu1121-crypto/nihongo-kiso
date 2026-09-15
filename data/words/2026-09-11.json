@@ -14,9 +14,9 @@
         "ja": "ご飯を食べます。",
         "zh": "吃飯。",
         "tokens": [
-          { "surface": "ご飯", "reading": "ごはん" },
-          { "surface": "を", "reading": "を", "particle": true },
-          { "surface": "食べます", "reading": "たべます" }
+          { "surface": "ご飯", "reading": "ごはん", "gloss": "飯" },
+          { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+          { "surface": "食べます", "reading": "たべます", "gloss": "吃" }
         ]
       },
       "collocations": ["ご飯を食べる"],
@@ -40,9 +40,9 @@
         "ja": "冷たい水を飲みます。",
         "zh": "喝冰水。",
         "tokens": [
-          { "surface": "冷たい水", "reading": "つめたいみず" },
-          { "surface": "を", "reading": "を", "particle": true },
-          { "surface": "飲みます", "reading": "のみます" }
+          { "surface": "冷たい水", "reading": "つめたいみず", "gloss": "冰水" },
+          { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+          { "surface": "飲みます", "reading": "のみます", "gloss": "喝" }
         ]
       },
       "collocations": ["水を飲む"],
@@ -66,9 +66,9 @@
         "ja": "時間がありません。",
         "zh": "沒有時間。",
         "tokens": [
-          { "surface": "時間", "reading": "じかん" },
-          { "surface": "が", "reading": "が", "particle": true },
-          { "surface": "ありません", "reading": "ありません" }
+          { "surface": "時間", "reading": "じかん", "gloss": "時間" },
+          { "surface": "が", "reading": "が", "gloss": "（主語）", "particle": true },
+          { "surface": "ありません", "reading": "ありません", "gloss": "沒有" }
         ]
       },
       "collocations": [],
@@ -92,9 +92,9 @@
         "ja": "水をください。",
         "zh": "請給我水。",
         "tokens": [
-          { "surface": "水", "reading": "みず" },
-          { "surface": "を", "reading": "を", "particle": true },
-          { "surface": "ください", "reading": "ください" }
+          { "surface": "水", "reading": "みず", "gloss": "水" },
+          { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+          { "surface": "ください", "reading": "ください", "gloss": "請給我" }
         ]
       },
       "collocations": ["水を飲む"],
@@ -118,11 +118,11 @@
         "ja": "私は日本が好きです。",
         "zh": "我喜歡日本。",
         "tokens": [
-          { "surface": "私", "reading": "わたし" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "日本", "reading": "にほん" },
-          { "surface": "が", "reading": "が", "particle": true },
-          { "surface": "好きです", "reading": "すきです" }
+          { "surface": "私", "reading": "わたし", "gloss": "我" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "日本", "reading": "にほん", "gloss": "日本" },
+          { "surface": "が", "reading": "が", "gloss": "（對象）", "particle": true },
+          { "surface": "好きです", "reading": "すきです", "gloss": "喜歡" }
         ]
       },
       "collocations": [],
@@ -146,9 +146,9 @@
         "ja": "この家は大きいです。",
         "zh": "這個家很大。",
         "tokens": [
-          { "surface": "この家", "reading": "このいえ" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "大きいです", "reading": "おおきいです" }
+          { "surface": "この家", "reading": "このいえ", "gloss": "這個家" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "大きいです", "reading": "おおきいです", "gloss": "很大" }
         ]
       },
       "collocations": [],
@@ -172,9 +172,9 @@
         "ja": "この本は小さいです。",
         "zh": "這本書很小。",
         "tokens": [
-          { "surface": "この本", "reading": "このほん" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "小さいです", "reading": "ちいさいです" }
+          { "surface": "この本", "reading": "このほん", "gloss": "這本書" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "小さいです", "reading": "ちいさいです", "gloss": "很小" }
         ]
       },
       "collocations": [],
@@ -198,9 +198,9 @@
         "ja": "新しい本を買います。",
         "zh": "買新書。",
         "tokens": [
-          { "surface": "新しい本", "reading": "あたらしいほん" },
-          { "surface": "を", "reading": "を", "particle": true },
-          { "surface": "買います", "reading": "かいます" }
+          { "surface": "新しい本", "reading": "あたらしいほん", "gloss": "新書" },
+          { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+          { "surface": "買います", "reading": "かいます", "gloss": "買" }
         ]
       },
       "collocations": [],
@@ -224,9 +224,9 @@
         "ja": "日本語が好きです。",
         "zh": "喜歡日語。",
         "tokens": [
-          { "surface": "日本語", "reading": "にほんご" },
-          { "surface": "が", "reading": "が", "particle": true },
-          { "surface": "好きです", "reading": "すきです" }
+          { "surface": "日本語", "reading": "にほんご", "gloss": "日語" },
+          { "surface": "が", "reading": "が", "gloss": "（對象）", "particle": true },
+          { "surface": "好きです", "reading": "すきです", "gloss": "喜歡" }
         ]
       },
       "collocations": ["〜が好き"],
@@ -250,9 +250,9 @@
         "ja": "本を読みます。",
         "zh": "看書。",
         "tokens": [
-          { "surface": "本", "reading": "ほん" },
-          { "surface": "を", "reading": "を", "particle": true },
-          { "surface": "読みます", "reading": "よみます" }
+          { "surface": "本", "reading": "ほん", "gloss": "書" },
+          { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+          { "surface": "読みます", "reading": "よみます", "gloss": "讀" }
         ]
       },
       "collocations": ["本を読む"],

@@ -22,6 +22,8 @@ export interface EnrichRequest {
 export interface EnrichResultToken {
   surface: string;
   reading: string;
+  /** Traditional-Chinese meaning of this token in this sentence; particles use a parenthesized function label ("（主題）"). Required -- see ExampleToken.gloss. */
+  gloss: string;
   particle?: boolean;
 }
 

@@ -22,8 +22,8 @@ const BASE_EXAMPLE: WordSeed["example"] = {
   ja: "これです。",
   zh: "是這個。",
   tokens: [
-    { surface: "これ", reading: "これ" },
-    { surface: "です", reading: "です" },
+    { surface: "これ", reading: "これ", gloss: "這" },
+    { surface: "です", reading: "です", gloss: "是" },
   ],
 };
 
@@ -132,11 +132,11 @@ describe("collectExistingExampleSurfaces", () => {
       makeDay("2026-01-01.json", [
         makeWord({
           id: "w_0001",
-          example: { ja: "水を飲みます。", zh: "喝水。", tokens: [{ surface: "水", reading: "みず" }, { surface: "を", reading: "を", particle: true }, { surface: "飲みます", reading: "のみます" }] },
+          example: { ja: "水を飲みます。", zh: "喝水。", tokens: [{ surface: "水", reading: "みず", gloss: "水" }, { surface: "を", reading: "を", gloss: "（受詞）", particle: true }, { surface: "飲みます", reading: "のみます", gloss: "喝" }] },
         }),
         makeWord({
           id: "w_0002",
-          example: { ja: "水です。", zh: "是水。", tokens: [{ surface: "水", reading: "みず" }, { surface: "です", reading: "です" }] },
+          example: { ja: "水です。", zh: "是水。", tokens: [{ surface: "水", reading: "みず", gloss: "水" }, { surface: "です", reading: "です", gloss: "是" }] },
         }),
       ]),
     ];

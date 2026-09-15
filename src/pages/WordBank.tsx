@@ -45,6 +45,8 @@ function WordRow({ word }: WordRowProps) {
             key={i}
             surface={token.surface}
             reading={token.reading}
+            gloss={token.gloss}
+            glossMode="hover"
             particle={token.particle}
             role={token.particle ? "particle" : "phrase"}
             size="sm"

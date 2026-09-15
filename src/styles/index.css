@@ -1,5 +1,37 @@
 @import "tailwindcss";
 
+:root {
+  /* Sticky header height -- the single source for both the header's
+     min-height and the lg sticky aside's top offset (src/routes/Layout.tsx). */
+  --nav-h: 3.5rem;
+}
+
 body {
   font-family: "Noto Sans JP", system-ui, sans-serif;
+}
+
+/* Token glossMode="hover" (src/components/Token.tsx, DESIGN.md §5.1).
+   The normal hover / keyboard-focus behaviour is plain Tailwind utilities in
+   Token.tsx (Tailwind v4's hover:/group-hover: variants already only apply
+   under @media (hover: hover)). These two media-specific overrides are
+   deliberately UNLAYERED so they beat those utilities regardless of
+   utility sort order. */
+@media (hover: none) {
+  /* No hover on touch: the gloss bubble shows only while the token is pinned. */
+  .token-hover[aria-pressed="true"] .token-gloss-bubble {
+    opacity: 1;
+    translate: -50% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* No lift / slide: keep only the show-hide (and colour) change. */
+  .token-hover {
+    transition-property: color, background-color, border-color, box-shadow;
+    translate: none;
+  }
+  .token-gloss-bubble {
+    transition-property: opacity;
+    translate: -50% 0;
+  }
 }

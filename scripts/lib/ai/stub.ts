@@ -12,11 +12,11 @@
 import type { Enricher, EnrichRequest, EnrichResult } from "./enricher.ts";
 import type { Judge, JudgeRequest, JudgeResult } from "./judge.ts";
 
-const COPULA = { surface: "です", reading: "です" };
+const COPULA = { surface: "です", reading: "です", gloss: "是" };
 
-/** Build the single most conservative example a POS allows: nouns/pronouns/question-words/adjectives get "{surface}です。"; verbs/adverbs/expressions get just the bare predicate "{surface}。" (there's no safe generic way to build a full sentence around an arbitrary verb without knowing its conjugation class). */
+/** Build the single most conservative example a POS allows: nouns/pronouns/question-words/adjectives get "{surface}です。"; verbs/adverbs/expressions get just the bare predicate "{surface}。" (there's no safe generic way to build a full sentence around an arbitrary verb without knowing its conjugation class). Every token carries a gloss (DESIGN.md §8.2): the headword token reuses the word's own gloss, です is "是". */
 function buildExample(req: EnrichRequest): EnrichResult["example"] {
-  const headToken = { surface: req.surface, reading: req.reading };
+  const headToken = { surface: req.surface, reading: req.reading, gloss: req.gloss };
 
   switch (req.pos) {
     case "名詞":

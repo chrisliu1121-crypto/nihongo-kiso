@@ -14,9 +14,9 @@
         "ja": "私は学生です。",
         "zh": "我是學生。",
         "tokens": [
-          { "surface": "私", "reading": "わたし" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "学生です", "reading": "がくせいです" }
+          { "surface": "私", "reading": "わたし", "gloss": "我" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "学生です", "reading": "がくせいです", "gloss": "是學生" }
         ]
       },
       "collocations": ["私は", "私の"],
@@ -40,9 +40,9 @@
         "ja": "あの人は先生です。",
         "zh": "那個人是老師。",
         "tokens": [
-          { "surface": "あの人", "reading": "あのひと" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "先生です", "reading": "せんせいです" }
+          { "surface": "あの人", "reading": "あのひと", "gloss": "那個人" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "先生です", "reading": "せんせいです", "gloss": "是老師" }
         ]
       },
       "collocations": ["あの人", "この人"],
@@ -66,9 +66,9 @@
         "ja": "今日は暑いです。",
         "zh": "今天很熱。",
         "tokens": [
-          { "surface": "今日", "reading": "きょう" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "暑いです", "reading": "あついです" }
+          { "surface": "今日", "reading": "きょう", "gloss": "今天" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "暑いです", "reading": "あついです", "gloss": "很熱" }
         ]
       },
       "collocations": ["今日は"],
@@ -92,10 +92,10 @@
         "ja": "明日、学校に行きます。",
         "zh": "明天去學校。",
         "tokens": [
-          { "surface": "明日", "reading": "あした" },
-          { "surface": "学校", "reading": "がっこう" },
-          { "surface": "に", "reading": "に", "particle": true },
-          { "surface": "行きます", "reading": "いきます" }
+          { "surface": "明日", "reading": "あした", "gloss": "明天" },
+          { "surface": "学校", "reading": "がっこう", "gloss": "學校" },
+          { "surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true },
+          { "surface": "行きます", "reading": "いきます", "gloss": "去" }
         ]
       },
       "collocations": ["明日は"],
@@ -119,10 +119,10 @@
         "ja": "学校まで歩いて行きます。",
         "zh": "走路去學校。",
         "tokens": [
-          { "surface": "学校", "reading": "がっこう" },
-          { "surface": "まで", "reading": "まで", "particle": true },
-          { "surface": "歩いて", "reading": "あるいて" },
-          { "surface": "行きます", "reading": "いきます" }
+          { "surface": "学校", "reading": "がっこう", "gloss": "學校" },
+          { "surface": "まで", "reading": "まで", "gloss": "（到）", "particle": true },
+          { "surface": "歩いて", "reading": "あるいて", "gloss": "走路" },
+          { "surface": "行きます", "reading": "いきます", "gloss": "去" }
         ]
       },
       "collocations": ["学校に行く", "学校を休む"],
@@ -146,9 +146,9 @@
         "ja": "先生はやさしいです。",
         "zh": "老師很親切。",
         "tokens": [
-          { "surface": "先生", "reading": "せんせい" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "やさしいです", "reading": "やさしいです" }
+          { "surface": "先生", "reading": "せんせい", "gloss": "老師" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "やさしいです", "reading": "やさしいです", "gloss": "很親切" }
         ]
       },
       "collocations": [],
@@ -172,9 +172,9 @@
         "ja": "彼は学生です。",
         "zh": "他是學生。",
         "tokens": [
-          { "surface": "彼", "reading": "かれ" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "学生です", "reading": "がくせいです" }
+          { "surface": "彼", "reading": "かれ", "gloss": "他" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "学生です", "reading": "がくせいです", "gloss": "是學生" }
         ]
       },
       "collocations": [],
@@ -198,9 +198,9 @@
         "ja": "学校に行きます。",
         "zh": "去學校。",
         "tokens": [
-          { "surface": "学校", "reading": "がっこう" },
-          { "surface": "に", "reading": "に", "particle": true },
-          { "surface": "行きます", "reading": "いきます" }
+          { "surface": "学校", "reading": "がっこう", "gloss": "學校" },
+          { "surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true },
+          { "surface": "行きます", "reading": "いきます", "gloss": "去" }
         ]
       },
       "collocations": ["学校に行く"],
@@ -224,9 +224,9 @@
         "ja": "友達が来ます。",
         "zh": "朋友要來。",
         "tokens": [
-          { "surface": "友達", "reading": "ともだち" },
-          { "surface": "が", "reading": "が", "particle": true },
-          { "surface": "来ます", "reading": "きます" }
+          { "surface": "友達", "reading": "ともだち", "gloss": "朋友" },
+          { "surface": "が", "reading": "が", "gloss": "（主語）", "particle": true },
+          { "surface": "来ます", "reading": "きます", "gloss": "要來" }
         ]
       },
       "collocations": [],
@@ -250,9 +250,9 @@
         "ja": "テレビを見ます。",
         "zh": "看電視。",
         "tokens": [
-          { "surface": "テレビ", "reading": "てれび" },
-          { "surface": "を", "reading": "を", "particle": true },
-          { "surface": "見ます", "reading": "みます" }
+          { "surface": "テレビ", "reading": "てれび", "gloss": "電視" },
+          { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+          { "surface": "見ます", "reading": "みます", "gloss": "看" }
         ]
       },
       "collocations": ["テレビを見る"],

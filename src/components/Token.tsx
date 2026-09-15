@@ -11,6 +11,7 @@ import { useHighlightState } from "../store/useHighlight";
 
 export type TokenRole = "noun" | "verb" | "particle" | "phrase" | "word";
 export type TokenSize = "sm" | "md" | "lg";
+export type GlossMode = "always" | "hover";
 
 export interface TokenProps {
   /** What's actually displayed as the main text (may include kanji). */
@@ -19,8 +20,20 @@ export interface TokenProps {
   reading: string;
   /** Display romaji; computed from `reading` (with particle override) when omitted. */
   romaji?: string;
-  /** Chinese gloss, shown as a small line under the romaji. */
+  /** Chinese gloss. How it's shown is controlled by `glossMode`. */
   gloss?: string;
+  /**
+   * How `gloss` is shown. Default `"always"`: a small line under the romaji
+   * that takes layout space (grammar/practice pages, headword cards --
+   * unchanged). `"hover"`: takes NO layout space -- an absolutely-positioned
+   * bubble under the token that fades/slides in while the token is hovered
+   * or keyboard-focused (focus-visible), with the token itself lifting ~2px.
+   * On touch devices (`@media (hover: none)`) the bubble shows only while
+   * this token is pinned; under `prefers-reduced-motion` there's no lift or
+   * slide, only show/hide (src/styles/index.css). Used for example-sentence
+   * tokens in WordCard/WordBank. Highlighting is unaffected either way.
+   */
+  glossMode?: GlossMode;
   role?: TokenRole;
   /**
    * Whether `reading`'s は/へ should be read as わ/え (§7 particle
@@ -90,6 +103,7 @@ export function Token({
   reading,
   romaji,
   gloss,
+  glossMode = "always",
   role = "word",
   particle: particleProp,
   size = "md",
@@ -119,12 +133,20 @@ export function Token({
   const highlightState = useHighlightState();
   const isPinned = pinnable && highlightState.pinned?.sourceId === sourceId;
 
+  const hoverMode = glossMode === "hover";
+  // In hover mode the gloss never goes into the in-flow TokenBody line.
+  const inlineGloss = hoverMode ? undefined : gloss;
+  const bubble = hoverMode && gloss ? <GlossBubble gloss={gloss} /> : null;
+
   if (!interactive) {
     return (
       <span
-        className={`inline-flex flex-col items-center rounded-lg border border-stone-200 bg-white ${PADDING_SIZE[size]}`}
+        className={`inline-flex flex-col items-center rounded-lg border border-stone-200 bg-white ${PADDING_SIZE[size]}${
+          hoverMode ? " group relative" : ""
+        }`}
       >
-        <TokenBody surface={surface} displayRomaji={displayRomaji} gloss={gloss} size={size} />
+        <TokenBody surface={surface} displayRomaji={displayRomaji} gloss={inlineGloss} size={size} />
+        {bubble}
       </span>
     );
   }
@@ -156,13 +178,16 @@ export function Token({
       onBlur={handleLeave}
       onClick={handleActivate}
       onKeyDown={handleKeyDown}
-      className={`inline-flex cursor-pointer flex-col items-center rounded-lg border transition-colors duration-150 ${PADDING_SIZE[size]} ${
+      className={`inline-flex cursor-pointer flex-col items-center rounded-lg border ${
+        hoverMode ? HOVER_MODE_CLASS : "transition-colors duration-150"
+      } ${PADDING_SIZE[size]} ${
         isPinned
           ? "border-amber-400 bg-amber-50"
           : "border-stone-200 bg-white hover:border-amber-300 hover:bg-amber-50/60"
       } focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400`}
     >
-      <TokenBody surface={surface} displayRomaji={displayRomaji} gloss={gloss} size={size} />
+      <TokenBody surface={surface} displayRomaji={displayRomaji} gloss={inlineGloss} size={size} />
+      {bubble}
       {showMorae && morae.length > 0 && (
         <div className="mt-1.5 flex flex-wrap justify-center gap-1 border-t border-dashed border-stone-200 pt-1.5">
           {morae.map((mora) => (
@@ -193,6 +218,27 @@ export function Token({
         </div>
       )}
     </div>
+  );
+}
+
+/**
+ * glossMode="hover" root classes. `group` drives the bubble; `relative` anchors
+ * it. The hovered/focused token is raised to z-20 (a pinned one to z-10) --
+ * the lift's `translate` makes the token its own stacking context, so without
+ * this a LATER sibling token (e.g. the next wrapped row) would paint over its
+ * bubble. z-20 stays below the sticky header's z-30 (routes/Layout.tsx).
+ * `token-hover` is the hook for the hover:none / reduced-motion overrides in
+ * src/styles/index.css.
+ */
+const HOVER_MODE_CLASS =
+  "token-hover group relative shadow-sm transition duration-200 ease-out hover:z-20 hover:-translate-y-0.5 hover:shadow-md focus-visible:z-20 focus-visible:-translate-y-0.5 focus-visible:shadow-md aria-pressed:z-10";
+
+/** The glossMode="hover" bubble: out of flow (never shifts wrapped lines), click-through, hidden until the parent token is hovered / focus-visible. */
+function GlossBubble({ gloss }: { gloss: string }) {
+  return (
+    <span className="token-gloss-bubble pointer-events-none absolute top-full left-1/2 z-20 mt-1 -translate-x-1/2 translate-y-1 rounded-md border border-stone-200 bg-white px-2 py-0.5 text-xs font-medium whitespace-nowrap text-stone-700 opacity-0 shadow-md transition duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+      {gloss}
+    </span>
   );
 }
 

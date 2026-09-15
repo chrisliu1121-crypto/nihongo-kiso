@@ -24,6 +24,7 @@ const LEVEL_VALUES = ["N5", "N4", "N3", "N2", "N1"] as const;
 export const ExampleTokenSchema = z.object({
   surface: z.string(),
   reading: z.string(),
+  gloss: z.string(),
   particle: z.boolean().optional(),
 });
 
@@ -67,6 +68,7 @@ export const WordFileSchema = z.object({
 export const EnrichResultTokenSchema = z.object({
   surface: z.string(),
   reading: z.string(),
+  gloss: z.string(),
   particle: z.boolean().nullable(),
 });
 

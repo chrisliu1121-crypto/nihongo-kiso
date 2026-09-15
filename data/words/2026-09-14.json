@@ -16,33 +16,40 @@
         "tokens": [
           {
             "surface": "あなた",
-            "reading": "あなた"
+            "reading": "あなた",
+            "gloss": "你"
           },
           {
             "surface": "の",
             "reading": "の",
+            "gloss": "（的）",
             "particle": true
           },
           {
             "surface": "傘",
-            "reading": "かさ"
+            "reading": "かさ",
+            "gloss": "傘"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "どれ",
-            "reading": "どれ"
+            "reading": "どれ",
+            "gloss": "哪一把"
           },
           {
             "surface": "です",
-            "reading": "です"
+            "reading": "です",
+            "gloss": "是"
           },
           {
             "surface": "か",
             "reading": "か",
+            "gloss": "（疑問）",
             "particle": true
           }
         ]
@@ -74,29 +81,35 @@
         "tokens": [
           {
             "surface": "彼",
-            "reading": "かれ"
+            "reading": "かれ",
+            "gloss": "他"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "毎日",
-            "reading": "まいにち"
+            "reading": "まいにち",
+            "gloss": "每天"
           },
           {
             "surface": "図書館",
-            "reading": "としょかん"
+            "reading": "としょかん",
+            "gloss": "圖書館"
           },
           {
             "surface": "で",
             "reading": "で",
+            "gloss": "（地點）",
             "particle": true
           },
           {
             "surface": "勉強します",
-            "reading": "べんきょうします"
+            "reading": "べんきょうします",
+            "gloss": "讀書"
           }
         ]
       },
@@ -128,29 +141,35 @@
         "tokens": [
           {
             "surface": "彼女",
-            "reading": "かのじょ"
+            "reading": "かのじょ",
+            "gloss": "她"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "毎日",
-            "reading": "まいにち"
+            "reading": "まいにち",
+            "gloss": "每天"
           },
           {
             "surface": "音楽",
-            "reading": "おんがく"
+            "reading": "おんがく",
+            "gloss": "音樂"
           },
           {
             "surface": "を",
             "reading": "を",
+            "gloss": "（受詞）",
             "particle": true
           },
           {
             "surface": "聞きます",
-            "reading": "ききます"
+            "reading": "ききます",
+            "gloss": "聽"
           }
         ]
       },
@@ -181,25 +200,30 @@
         "tokens": [
           {
             "surface": "私たち",
-            "reading": "わたしたち"
+            "reading": "わたしたち",
+            "gloss": "我們"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "公園",
-            "reading": "こうえん"
+            "reading": "こうえん",
+            "gloss": "公園"
           },
           {
             "surface": "で",
             "reading": "で",
+            "gloss": "（地點）",
             "particle": true
           },
           {
             "surface": "遊びます",
-            "reading": "あそびます"
+            "reading": "あそびます",
+            "gloss": "玩"
           }
         ]
       },
@@ -230,25 +254,30 @@
         "tokens": [
           {
             "surface": "みんな",
-            "reading": "みんな"
+            "reading": "みんな",
+            "gloss": "大家"
           },
           {
             "surface": "で",
             "reading": "で",
+            "gloss": "（範圍）",
             "particle": true
           },
           {
             "surface": "公園",
-            "reading": "こうえん"
+            "reading": "こうえん",
+            "gloss": "公園"
           },
           {
             "surface": "へ",
-            "reading": "え",
+            "reading": "へ",
+            "gloss": "（往）",
             "particle": true
           },
           {
             "surface": "行きます",
-            "reading": "いきます"
+            "reading": "いきます",
+            "gloss": "去"
           }
         ]
       },
@@ -279,33 +308,40 @@
         "tokens": [
           {
             "surface": "それ",
-            "reading": "それ"
+            "reading": "それ",
+            "gloss": "那個"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "あなた",
-            "reading": "あなた"
+            "reading": "あなた",
+            "gloss": "你"
           },
           {
             "surface": "の",
             "reading": "の",
+            "gloss": "（的）",
             "particle": true
           },
           {
             "surface": "かばん",
-            "reading": "かばん"
+            "reading": "かばん",
+            "gloss": "包包"
           },
           {
             "surface": "です",
-            "reading": "です"
+            "reading": "です",
+            "gloss": "是"
           },
           {
             "surface": "か",
             "reading": "か",
+            "gloss": "（疑問）",
             "particle": true
           }
         ]
@@ -337,29 +373,35 @@
         "tokens": [
           {
             "surface": "あれ",
-            "reading": "あれ"
+            "reading": "あれ",
+            "gloss": "那個"
           },
           {
             "surface": "は",
             "reading": "は",
+            "gloss": "（主題）",
             "particle": true
           },
           {
             "surface": "私",
-            "reading": "わたし"
+            "reading": "わたし",
+            "gloss": "我"
           },
           {
             "surface": "の",
             "reading": "の",
+            "gloss": "（的）",
             "particle": true
           },
           {
             "surface": "かばん",
-            "reading": "かばん"
+            "reading": "かばん",
+            "gloss": "包包"
           },
           {
             "surface": "です",
-            "reading": "です"
+            "reading": "です",
+            "gloss": "是"
           }
         ]
       },
@@ -390,25 +432,30 @@
         "tokens": [
           {
             "surface": "ここ",
-            "reading": "ここ"
+            "reading": "ここ",
+            "gloss": "這裡"
           },
           {
             "surface": "で",
             "reading": "で",
+            "gloss": "（地點）",
             "particle": true
           },
           {
             "surface": "写真",
-            "reading": "しゃしん"
+            "reading": "しゃしん",
+            "gloss": "照片"
           },
           {
             "surface": "を",
             "reading": "を",
+            "gloss": "（受詞）",
             "particle": true
           },
           {
             "surface": "撮ります",
-            "reading": "とります"
+            "reading": "とります",
+            "gloss": "拍"
           }
         ]
       },
@@ -440,25 +487,30 @@
         "tokens": [
           {
             "surface": "そこ",
-            "reading": "そこ"
+            "reading": "そこ",
+            "gloss": "那裡"
           },
           {
             "surface": "に",
             "reading": "に",
+            "gloss": "（地點）",
             "particle": true
           },
           {
             "surface": "かばん",
-            "reading": "かばん"
+            "reading": "かばん",
+            "gloss": "包包"
           },
           {
             "surface": "が",
             "reading": "が",
+            "gloss": "（主語）",
             "particle": true
           },
           {
             "surface": "あります",
-            "reading": "あります"
+            "reading": "あります",
+            "gloss": "有"
           }
         ]
       },
@@ -489,25 +541,30 @@
         "tokens": [
           {
             "surface": "あそこ",
-            "reading": "あそこ"
+            "reading": "あそこ",
+            "gloss": "那裡"
           },
           {
             "surface": "で",
             "reading": "で",
+            "gloss": "（地點）",
             "particle": true
           },
           {
             "surface": "友達",
-            "reading": "ともだち"
+            "reading": "ともだち",
+            "gloss": "朋友"
           },
           {
             "surface": "を",
             "reading": "を",
+            "gloss": "（受詞）",
             "particle": true
           },
           {
             "surface": "待ちます",
-            "reading": "まちます"
+            "reading": "まちます",
+            "gloss": "等"
           }
         ]
       },

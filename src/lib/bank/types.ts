@@ -51,6 +51,8 @@ export interface ExampleToken {
   surface: string;
   /** Kana-only reading of just this token. */
   reading: string;
+  /** Required. Traditional-Chinese meaning of this token IN THIS SENTENCE (a verb glosses its conjugated sense: 食べます → 吃); for a particle, its function in parentheses ("（主題）", "（受詞）"), same convention as SentenceToken.gloss. Must not contain kana (validate-words.ts rejects that -- it's almost always a reading pasted in by mistake). Shown only on hover in WordCard/WordBank (Token glossMode="hover"). */
+  gloss: string;
   /** True for a grammatical particle token (は/が/を/に/で/と/の/も/へ/まで/...).
    *  Passed straight through to kanaToCells/readingToRomaji as `{ particle }`
    *  so は/へ/を read as wa/e/o; a no-op for every other particle. */

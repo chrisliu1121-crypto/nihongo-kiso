@@ -46,6 +46,7 @@ import {
   kanaInputErrorLabel,
   PARTICLE_SURFACES,
   enrichWord,
+  surfaceReadingMismatchReason,
   validateWordSet as validateBank,
   type KanaCodec,
   type RawDay,
@@ -128,6 +129,12 @@ function enrichSentenceToken(
   const outOfTable = findOutOfTable(morae);
   if (outOfTable) {
     fail(file, id, `tokens[${index}].reading 含表外假名：${outOfTable}`);
+  }
+  // Same kana-only surface/reading rule as word example tokens (は/へ/を must
+  // be read as は/へ/を, never わ/え/お -- that would light the wrong cell).
+  const surfaceReadingProblem = surfaceReadingMismatchReason(token.surface, token.reading);
+  if (surfaceReadingProblem) {
+    fail(file, id, `tokens[${index}] ${surfaceReadingProblem}`);
   }
   const romaji = codec.readingToRomaji(token.reading, { particle: token.particle }).romaji;
   return { ...token, morae, romaji };

@@ -54,12 +54,12 @@ function writeFixture(): string {
   const path = join(dir, "fixture.json");
   const entries: Record<string, EnrichResult> = {
     "私|わたし": {
-      example: { ja: "私です。", zh: "我。", tokens: [{ surface: "私", reading: "わたし" }, { surface: "です", reading: "です" }] },
+      example: { ja: "私です。", zh: "我。", tokens: [{ surface: "私", reading: "わたし", gloss: "我" }, { surface: "です", reading: "です", gloss: "是" }] },
       collocations: [],
       note: null,
     },
     "人|ひと": {
-      example: { ja: "人です。", zh: "人。", tokens: [{ surface: "人", reading: "ひと" }, { surface: "です", reading: "です" }] },
+      example: { ja: "人です。", zh: "人。", tokens: [{ surface: "人", reading: "ひと", gloss: "人" }, { surface: "です", reading: "です", gloss: "是" }] },
       collocations: [],
       note: null,
     },

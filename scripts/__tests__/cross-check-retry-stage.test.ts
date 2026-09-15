@@ -255,7 +255,7 @@ describe("cross-check.ts pipeline.errors retry: stage-aware (regression -- verif
     // in for a successful retry with a real provider.
     const dir = mkdtempSync(join(tmpdir(), "nk-test-"));
     const fixturePath = join(dir, "fixture.json");
-    const fixtureEntry: EnrichResult = { example: { ja: "どこです。", zh: "哪裡。", tokens: [{ surface: "どこ", reading: "どこ" }, { surface: "です", reading: "です" }] }, collocations: [], note: null };
+    const fixtureEntry: EnrichResult = { example: { ja: "どこです。", zh: "哪裡。", tokens: [{ surface: "どこ", reading: "どこ", gloss: "哪裡" }, { surface: "です", reading: "です", gloss: "是" }] }, collocations: [], note: null };
     writeFileSync(fixturePath, JSON.stringify({ "どこ|どこ": fixtureEntry }), "utf8");
 
     const pipeline: PipelineMeta = {

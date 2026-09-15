@@ -18,7 +18,7 @@
 
 import { basename } from "node:path";
 import type { ZodError } from "zod";
-import { kanaToCells, readingToRomaji } from "../../src/lib/kana/index.ts";
+import { kanaToCells, readingToRomaji, toHiragana } from "../../src/lib/kana/index.ts";
 import { POS_VALUES } from "../../src/lib/bank/types.ts";
 import { stripExamplePunctuation } from "../../src/lib/bank/text.ts";
 import type { DaySeed, ExampleToken, JlptLevel, Word, WordSeed } from "../../src/lib/bank/types.ts";
@@ -173,8 +173,73 @@ export function enrichExampleToken(
   if (outOfTable) {
     fail(file, id, `example.tokens[${index}].reading 含表外假名：${outOfTable}`);
   }
+  const surfaceReadingProblem = surfaceReadingMismatchReason(token.surface, token.reading);
+  if (surfaceReadingProblem) {
+    fail(file, id, `example.tokens[${index}] ${surfaceReadingProblem}`);
+  }
+
+  checkExampleTokenGloss(token, index, file, id);
+
   const romaji = codec.readingToRomaji(token.reading, { particle: token.particle }).romaji;
   return { ...token, morae, romaji };
+}
+
+/** A token surface with no kanji at all: only kana, ー and punctuation. */
+const KANA_ONLY_SURFACE_RE = /^[\p{Script=Hiragana}\p{Script=Katakana}ー]+$/u;
+
+/**
+ * Punctuation and quote marks removed from BOTH surface and reading before
+ * they're compared: every Unicode punctuation char (「」『』（）、。！？・ …)
+ * plus the ASCII punctuation/symbol ranges. ー is a letter (Lm), not
+ * punctuation, so it's kept. This is what lets a quoted token such as
+ * grammar-seed s_g018's 「ありがとう」 / ありがとう pass.
+ */
+const SURFACE_READING_PUNCT_RE = /[\p{P}!-\/:-@\[-`{-~]/gu;
+
+/**
+ * For a kana-only surface (no kanji), the reading must be the SAME kana --
+ * katakana vs hiragana doesn't matter (トイレ/トイレ and トイレ/といれ both
+ * pass, compared via toHiragana). Catches a particle whose reading was
+ * written as its pronunciation (へ/え, は/わ, を/お): kanaToCells would then
+ * light the え/わ/お cell instead of the へ/は/を one the learner actually
+ * sees -- teaching the wrong character. Returns the reason text (without the
+ * "example.tokens[i]" / "tokens[i]" prefix, which differs between words and
+ * sentences), or null when fine / not applicable. Shared with build-bank.ts's
+ * sentence-token check.
+ */
+export function surfaceReadingMismatchReason(surface: string, reading: string): string | null {
+  const bareSurface = surface.replace(SURFACE_READING_PUNCT_RE, "");
+  if (bareSurface === "" || !KANA_ONLY_SURFACE_RE.test(bareSurface)) return null;
+  const bareReading = reading.replace(SURFACE_READING_PUNCT_RE, "");
+  if (toHiragana(bareSurface) === toHiragana(bareReading)) return null;
+  return `surface "${surface}" 與 reading "${reading}" 不一致：純假名 surface 的 reading 必須是同一組假名（平/片假名視為相同）；助詞 は/へ/を 的 reading 寫字形本身（は/へ/を），發音由 particle:true 處理`;
+}
+
+/**
+ * Hiragana + katakana (U+3040–U+30FF) EXCEPT the katakana middle dot ・
+ * (U+30FB), which is punctuation. The prolonged-sound mark ー (U+30FC) IS
+ * rejected -- it only ever shows up in a gloss as part of a pasted reading.
+ */
+const GLOSS_KANA_RE = /[぀-ヺー-ヿ]/u;
+
+/**
+ * Example-token gloss rules (DESIGN.md §9.2): every token must carry a
+ * non-blank `gloss`, and that gloss must not contain kana -- a kana gloss is
+ * almost always the model pasting the READING in where the MEANING belongs
+ * (e.g. "たべる" for 食べます). Chinese punctuation/brackets such as the
+ * particle convention "（主題）" are fine. Runs here (inside enrichWord's
+ * per-token pass) rather than only in the zod schema so build-bank.ts --
+ * which never runs WordFileSchema -- still fails loud on a hand-edited file.
+ */
+function checkExampleTokenGloss(token: ExampleToken, index: number, file: string, id: string): void {
+  const gloss: unknown = (token as { gloss?: unknown }).gloss;
+  if (typeof gloss !== "string" || gloss.trim() === "") {
+    fail(file, id, `example.tokens[${index}] "${token.surface}" 缺少 gloss（或為空字串）`);
+  }
+  const kana = GLOSS_KANA_RE.exec(gloss);
+  if (kana) {
+    fail(file, id, `example.tokens[${index}] "${token.surface}" 的 gloss 含假名「${kana[0]}」（gloss 應是中文意思，不是讀音）：${gloss}`);
+  }
 }
 
 /**

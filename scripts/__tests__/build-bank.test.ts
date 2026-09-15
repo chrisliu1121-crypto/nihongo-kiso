@@ -24,10 +24,10 @@ import {
 const codec: KanaCodec = { kanaToCells, readingToRomaji };
 
 const DEFAULT_TOKENS: ExampleToken[] = [
-  { surface: "学校", reading: "がっこう" },
-  { surface: "まで", reading: "まで", particle: true },
-  { surface: "歩いて", reading: "あるいて" },
-  { surface: "行きます", reading: "いきます" },
+  { surface: "学校", reading: "がっこう", gloss: "學校" },
+  { surface: "まで", reading: "まで", gloss: "（到）", particle: true },
+  { surface: "歩いて", reading: "あるいて", gloss: "走路" },
+  { surface: "行きます", reading: "いきます", gloss: "去" },
 ];
 
 function makeSeed(overrides: Partial<WordSeed> = {}): WordSeed {
@@ -92,9 +92,9 @@ describe("enrichWord", () => {
           ja: "東京に行きます。",
           zh: "去東京。",
           tokens: [
-            { surface: "東京", reading: "とうきょう" },
-            { surface: "に", reading: "に", particle: true },
-            { surface: "行きます", reading: "いきます" },
+            { surface: "東京", reading: "とうきょう", gloss: "東京" },
+            { surface: "に", reading: "に", gloss: "（目的地）", particle: true },
+            { surface: "行きます", reading: "いきます", gloss: "去" },
           ],
         },
       }),
@@ -113,9 +113,9 @@ describe("enrichWord", () => {
           ja: "私は学生です。",
           zh: "我是學生。",
           tokens: [
-            { surface: "私", reading: "わたし" },
-            { surface: "は", reading: "は", particle: true },
-            { surface: "学生です", reading: "がくせいです" },
+            { surface: "私", reading: "わたし", gloss: "我" },
+            { surface: "は", reading: "は", gloss: "（主題）", particle: true },
+            { surface: "学生です", reading: "がくせいです", gloss: "是學生" },
           ],
         },
       }),
@@ -138,9 +138,9 @@ describe("enrichWord", () => {
           ja: "お金がありません。",
           zh: "沒有錢。",
           tokens: [
-            { surface: "お金", reading: "おかね" },
-            { surface: "が", reading: "が", particle: true },
-            { surface: "ありません", reading: "ありません" },
+            { surface: "お金", reading: "おかね", gloss: "錢" },
+            { surface: "が", reading: "が", gloss: "（主語）", particle: true },
+            { surface: "ありません", reading: "ありません", gloss: "沒有" },
           ],
         },
       }),
@@ -177,9 +177,9 @@ describe("enrichWord", () => {
             ja: "学校に行きます。",
             zh: "去學校。",
             tokens: [
-              { surface: "学校", reading: "school" }, // not kana
-              { surface: "に", reading: "に", particle: true },
-              { surface: "行きます", reading: "いきます" },
+              { surface: "学校", reading: "school", gloss: "學校" }, // not kana
+              { surface: "に", reading: "に", gloss: "（目的地）", particle: true },
+              { surface: "行きます", reading: "いきます", gloss: "去" },
             ],
           },
         }),
@@ -214,9 +214,9 @@ describe("enrichWord", () => {
             ja: "ゐを見ます。",
             zh: "（測試用）",
             tokens: [
-              { surface: "ゐ", reading: "ゐ" },
-              { surface: "を", reading: "を", particle: true },
-              { surface: "見ます", reading: "みます" },
+              { surface: "ゐ", reading: "ゐ", gloss: "（測試）" },
+              { surface: "を", reading: "を", gloss: "（受詞）", particle: true },
+              { surface: "見ます", reading: "みます", gloss: "看" },
             ],
           },
         }),
@@ -254,8 +254,8 @@ describe("enrichWord", () => {
             ja: "はな学校です。",
             zh: "（測試用）",
             tokens: [
-              { surface: "はな", reading: "はな", particle: true },
-              { surface: "学校です", reading: "がっこうです" },
+              { surface: "はな", reading: "はな", gloss: "花", particle: true },
+              { surface: "学校です", reading: "がっこうです", gloss: "是學校" },
             ],
           },
         }),
@@ -277,9 +277,9 @@ describe("enrichWord", () => {
             ja: "水を飲みます。",
             zh: "喝水。",
             tokens: [
-              { surface: "水", reading: "みず" },
-              { surface: "を", reading: "を" }, // missing particle: true
-              { surface: "飲みます", reading: "のみます" },
+              { surface: "水", reading: "みず", gloss: "水" },
+              { surface: "を", reading: "を", gloss: "（受詞）" }, // missing particle: true
+              { surface: "飲みます", reading: "のみます", gloss: "喝" },
             ],
           },
         }),
@@ -451,6 +451,33 @@ describe("enrichSentence", () => {
     expect(sentence.ja).toBe("私は学生です。");
     expect(sentence.romaji).toBe("watashi wa gakusei desu");
     expect(sentence.tokens[1].romaji).toBe("wa");
+  });
+
+  it("純假名 surface 與 reading 不一致被抓（助詞 は 的 reading 寫成 わ），訊息指到 file / id / tokens[i]", () => {
+    const seed = makeSentenceSeed({ id: "s_g090" });
+    const tokens = seed.tokens.map((t, i) => (i === 1 ? { ...t, reading: "わ" } : t));
+    const build = () => enrichSentence({ ...seed, tokens }, "grammar-seed.json", codec);
+    expect(build).toThrow(BuildError);
+    expect(build).toThrow('grammar-seed.json / s_g090 / tokens[1] surface "は" 與 reading "わ" 不一致');
+  });
+
+  it("surface 帶引號（s_g018 形狀）：「ありがとう」/ありがとう 通過；「へ」/え 仍被擋", () => {
+    const quoted = (surface: string, reading: string): SentenceSeed =>
+      makeSentenceSeed({
+        id: "s_g091",
+        tokens: [
+          { surface, reading, gloss: "測試" },
+          { surface: "と", reading: "と", gloss: "（引用）", particle: true },
+          { surface: "言います", reading: "いいます", gloss: "說" },
+        ],
+        bunsetsu: [[0, 1], [2]],
+        valid_orders: [[0, 1]],
+        preferred_order: [0, 1],
+      });
+    expect(() => enrichSentence(quoted("「ありがとう」", "ありがとう"), "grammar-seed.json", codec)).not.toThrow();
+    expect(() => enrichSentence(quoted("「へ」", "え"), "grammar-seed.json", codec)).toThrow(
+      'grammar-seed.json / s_g091 / tokens[0] surface "「へ」" 與 reading "え" 不一致',
+    );
   });
 
   it("bunsetsu 未覆蓋全部 token 被抓", () => {

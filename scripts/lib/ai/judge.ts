@@ -24,6 +24,7 @@ export interface JudgeRequest {
 export interface JudgeResult {
   natural: boolean;
   reading_ok: boolean;
+  /** zh translation matches the Japanese, AND every example token's `gloss` is its correct in-sentence meaning in Traditional Chinese (both providers' JUDGE_SYSTEM_PROMPT spell this out). */
   gloss_ok: boolean;
   /** Human/AI-readable reasons for any false verdict above; empty when everything passed. */
   issues: string[];

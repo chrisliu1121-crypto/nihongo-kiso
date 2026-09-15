@@ -14,9 +14,9 @@
         "ja": "友達と話します。",
         "zh": "和朋友聊天。",
         "tokens": [
-          { "surface": "友達", "reading": "ともだち" },
-          { "surface": "と", "reading": "と", "particle": true },
-          { "surface": "話します", "reading": "はなします" }
+          { "surface": "友達", "reading": "ともだち", "gloss": "朋友" },
+          { "surface": "と", "reading": "と", "gloss": "（和）", "particle": true },
+          { "surface": "話します", "reading": "はなします", "gloss": "聊天" }
         ]
       },
       "collocations": ["友達と話す"],
@@ -40,9 +40,9 @@
         "ja": "家に帰ります。",
         "zh": "回家。",
         "tokens": [
-          { "surface": "家", "reading": "いえ" },
-          { "surface": "に", "reading": "に", "particle": true },
-          { "surface": "帰ります", "reading": "かえります" }
+          { "surface": "家", "reading": "いえ", "gloss": "家" },
+          { "surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true },
+          { "surface": "帰ります", "reading": "かえります", "gloss": "回" }
         ]
       },
       "collocations": ["家に帰る"],
@@ -66,9 +66,9 @@
         "ja": "電車に乗ります。",
         "zh": "搭電車。",
         "tokens": [
-          { "surface": "電車", "reading": "でんしゃ" },
-          { "surface": "に", "reading": "に", "particle": true },
-          { "surface": "乗ります", "reading": "のります" }
+          { "surface": "電車", "reading": "でんしゃ", "gloss": "電車" },
+          { "surface": "に", "reading": "に", "gloss": "（對象）", "particle": true },
+          { "surface": "乗ります", "reading": "のります", "gloss": "搭乘" }
         ]
       },
       "collocations": ["電車に乗る"],
@@ -92,9 +92,9 @@
         "ja": "駅まで歩きます。",
         "zh": "走路到車站。",
         "tokens": [
-          { "surface": "駅", "reading": "えき" },
-          { "surface": "まで", "reading": "まで", "particle": true },
-          { "surface": "歩きます", "reading": "あるきます" }
+          { "surface": "駅", "reading": "えき", "gloss": "車站" },
+          { "surface": "まで", "reading": "まで", "gloss": "（到）", "particle": true },
+          { "surface": "歩きます", "reading": "あるきます", "gloss": "走路" }
         ]
       },
       "collocations": [],
@@ -118,9 +118,9 @@
         "ja": "お金がありません。",
         "zh": "沒有錢。",
         "tokens": [
-          { "surface": "お金", "reading": "おかね" },
-          { "surface": "が", "reading": "が", "particle": true },
-          { "surface": "ありません", "reading": "ありません" }
+          { "surface": "お金", "reading": "おかね", "gloss": "錢" },
+          { "surface": "が", "reading": "が", "gloss": "（主語）", "particle": true },
+          { "surface": "ありません", "reading": "ありません", "gloss": "沒有" }
         ]
       },
       "collocations": [],
@@ -144,10 +144,10 @@
         "ja": "朝、水を飲みます。",
         "zh": "早上喝水。",
         "tokens": [
-          { "surface": "朝", "reading": "あさ" },
-          { "surface": "水", "reading": "みず" },
-          { "surface": "を", "reading": "を", "particle": true },
-          { "surface": "飲みます", "reading": "のみます" }
+          { "surface": "朝", "reading": "あさ", "gloss": "早上" },
+          { "surface": "水", "reading": "みず", "gloss": "水" },
+          { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+          { "surface": "飲みます", "reading": "のみます", "gloss": "喝" }
         ]
       },
       "collocations": [],
@@ -171,8 +171,8 @@
         "ja": "今、忙しいです。",
         "zh": "現在很忙。",
         "tokens": [
-          { "surface": "今", "reading": "いま" },
-          { "surface": "忙しいです", "reading": "いそがしいです" }
+          { "surface": "今", "reading": "いま", "gloss": "現在" },
+          { "surface": "忙しいです", "reading": "いそがしいです", "gloss": "很忙" }
         ]
       },
       "collocations": [],
@@ -196,9 +196,9 @@
         "ja": "これは何ですか。",
         "zh": "這是什麼？",
         "tokens": [
-          { "surface": "これ", "reading": "これ" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "何ですか", "reading": "なんですか" }
+          { "surface": "これ", "reading": "これ", "gloss": "這個" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "何ですか", "reading": "なんですか", "gloss": "是什麼" }
         ]
       },
       "collocations": [],
@@ -222,9 +222,9 @@
         "ja": "これは本です。",
         "zh": "這是書。",
         "tokens": [
-          { "surface": "これ", "reading": "これ" },
-          { "surface": "は", "reading": "は", "particle": true },
-          { "surface": "本です", "reading": "ほんです" }
+          { "surface": "これ", "reading": "これ", "gloss": "這個" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "本です", "reading": "ほんです", "gloss": "是書" }
         ]
       },
       "collocations": [],
@@ -248,11 +248,11 @@
         "ja": "友達にありがとうと言います。",
         "zh": "跟朋友道謝。",
         "tokens": [
-          { "surface": "友達", "reading": "ともだち" },
-          { "surface": "に", "reading": "に", "particle": true },
-          { "surface": "ありがとう", "reading": "ありがとう" },
-          { "surface": "と", "reading": "と", "particle": true },
-          { "surface": "言います", "reading": "いいます" }
+          { "surface": "友達", "reading": "ともだち", "gloss": "朋友" },
+          { "surface": "に", "reading": "に", "gloss": "（對象）", "particle": true },
+          { "surface": "ありがとう", "reading": "ありがとう", "gloss": "謝謝" },
+          { "surface": "と", "reading": "と", "gloss": "（引用）", "particle": true },
+          { "surface": "言います", "reading": "いいます", "gloss": "說" }
         ]
       },
       "collocations": [],

@@ -51,7 +51,7 @@ describe("pickNextWords", () => {
 
 describe("assembleSeed", () => {
   const enriched: EnrichResult = {
-    example: { ja: "話します。", zh: "說話。", tokens: [{ surface: "話します", reading: "はなします" }] },
+    example: { ja: "話します。", zh: "說話。", tokens: [{ surface: "話します", reading: "はなします", gloss: "說話" }] },
     collocations: ["日本語を話す"],
     note: "ます形",
   };
@@ -76,7 +76,7 @@ describe("assembleSeed", () => {
 describe("applyJudgments", () => {
   const seed = assembleSeed(
     FREQ[0],
-    { example: { ja: "私です。", zh: "我。", tokens: [{ surface: "私", reading: "わたし" }] }, collocations: [], note: null },
+    { example: { ja: "私です。", zh: "我。", tokens: [{ surface: "私", reading: "わたし", gloss: "我" }] }, collocations: [], note: null },
     "w_0001",
   );
 
@@ -107,21 +107,21 @@ describe("applyJudgments", () => {
 describe("canPromote", () => {
   it("true iff exactly WORDS_PER_DAY words, all verified", () => {
     const words = Array.from({ length: WORDS_PER_DAY }, (_, i) =>
-      assembleSeed(FREQ[0], { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x" }] }, collocations: [], note: null }, `w_a${i}`),
+      assembleSeed(FREQ[0], { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", gloss: "（測試）" }] }, collocations: [], note: null }, `w_a${i}`),
     ).map((w) => ({ ...w, verified: true }));
     expect(canPromote(words)).toBe(true);
   });
 
   it("false when one word isn't verified", () => {
     const words = Array.from({ length: WORDS_PER_DAY }, (_, i) =>
-      assembleSeed(FREQ[0], { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x" }] }, collocations: [], note: null }, `w_b${i}`),
+      assembleSeed(FREQ[0], { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", gloss: "（測試）" }] }, collocations: [], note: null }, `w_b${i}`),
     ).map((w, i) => ({ ...w, verified: i !== 0 }));
     expect(canPromote(words)).toBe(false);
   });
 
   it("false when the count isn't exactly WORDS_PER_DAY", () => {
     const words = Array.from({ length: WORDS_PER_DAY - 1 }, (_, i) =>
-      assembleSeed(FREQ[0], { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x" }] }, collocations: [], note: null }, `w_c${i}`),
+      assembleSeed(FREQ[0], { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", gloss: "（測試）" }] }, collocations: [], note: null }, `w_c${i}`),
     ).map((w) => ({ ...w, verified: true }));
     expect(canPromote(words)).toBe(false);
   });
@@ -229,7 +229,7 @@ describe("FileEnricher bad output is caught by enrichWord's own validation (same
   it("reading 含漢字 被抓", async () => {
     const path = writeFixture({
       "会社|かいしゃ": {
-        example: { ja: "会社です。", zh: "公司。", tokens: [{ surface: "会社", reading: "会社" }, { surface: "です", reading: "です" }] },
+        example: { ja: "会社です。", zh: "公司。", tokens: [{ surface: "会社", reading: "会社", gloss: "公司" }, { surface: "です", reading: "です", gloss: "是" }] },
         collocations: [],
         note: null,
       },
@@ -254,9 +254,9 @@ describe("FileEnricher bad output is caught by enrichWord's own validation (same
           ja: "水を飲みます。",
           zh: "喝水。",
           tokens: [
-            { surface: "水", reading: "みず" },
-            { surface: "を", reading: "を" }, // missing particle: true
-            { surface: "飲みます", reading: "のみます" },
+            { surface: "水", reading: "みず", gloss: "水" },
+            { surface: "を", reading: "を", gloss: "（受詞）" }, // missing particle: true
+            { surface: "飲みます", reading: "のみます", gloss: "喝" },
           ],
         },
         collocations: [],
@@ -277,7 +277,7 @@ describe("FileEnricher bad output is caught by enrichWord's own validation (same
         example: {
           ja: "日本語を話します。", // doesn't match tokens below at all
           zh: "說日語。",
-          tokens: [{ surface: "話します", reading: "はなします" }],
+          tokens: [{ surface: "話します", reading: "はなします", gloss: "說話" }],
         },
         collocations: [],
         note: null,
@@ -297,5 +297,22 @@ describe("FileEnricher bad output is caught by enrichWord's own validation (same
     await expect(
       enricher.enrich({ surface: "未知", reading: "みち", gloss: "?", pos: "名詞", level: "N5", existing_surfaces: [] }),
     ).rejects.toThrow(/找不到/);
+  });
+});
+
+describe("StubEnricher example tokens carry gloss (DESIGN.md §8.2)", () => {
+  it("noun template: headword token uses the word's own gloss, です is 是; passes enrichWord's gloss checks", async () => {
+    const result = await StubEnricher.enrich({ surface: "人", reading: "ひと", gloss: "人", pos: "名詞", level: "N5", existing_surfaces: [] });
+    expect(result.example.tokens).toEqual([
+      { surface: "人", reading: "ひと", gloss: "人" },
+      { surface: "です", reading: "です", gloss: "是" },
+    ]);
+    const seed = assembleSeed(FREQ[1], result, "w_9101");
+    expect(() => enrichWord(seed, "stub.json")).not.toThrow();
+  });
+
+  it("verb template: the single token uses the word's own gloss", async () => {
+    const result = await StubEnricher.enrich({ surface: "話す", reading: "はなす", gloss: "說話", pos: "動詞", level: "N5", existing_surfaces: [] });
+    expect(result.example.tokens).toEqual([{ surface: "話す", reading: "はなす", gloss: "說話" }]);
   });
 });

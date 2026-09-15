@@ -34,7 +34,7 @@ const JUDGE_REQ: JudgeRequest = {
   surface: "話す",
   reading: "はなす",
   gloss: "說話",
-  example: { ja: "話します。", zh: "說話。", tokens: [{ surface: "話します", reading: "はなします" }] },
+  example: { ja: "話します。", zh: "說話。", tokens: [{ surface: "話します", reading: "はなします", gloss: "說話" }] },
   existing_examples: ["私です。"],
 };
 
@@ -198,7 +198,7 @@ describe("OpenRouter enrich/judge via injected fetchImpl", () => {
 
   it("success case: enrich() returns a validated EnrichResult, and the injected fetch received the Authorization header with the key", async () => {
     const enrichResultJson = {
-      example: { ja: "話します。", zh: "說話。", tokens: [{ surface: "話します", reading: "はなします", particle: null }] },
+      example: { ja: "話します。", zh: "說話。", tokens: [{ surface: "話します", reading: "はなします", gloss: "說話", particle: null }] },
       collocations: ["日本語を話す"],
       note: null,
     };
@@ -345,7 +345,7 @@ describe("OpenRouter enrich/judge via injected fetchImpl", () => {
   });
 
   it("code review item 4 (P1): sends both X-Title and X-OpenRouter-Title attribution headers", async () => {
-    const enrichResultJson = { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", particle: null }] }, collocations: [], note: null };
+    const enrichResultJson = { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", gloss: "（測試）", particle: null }] }, collocations: [], note: null };
     const fetchImpl = vi.fn(async (_url: string, init?: RequestInit) => {
       const headers = init?.headers as Record<string, string>;
       expect(headers["X-Title"]).toBe("nihongo-kiso");
@@ -359,7 +359,7 @@ describe("OpenRouter enrich/judge via injected fetchImpl", () => {
 
   it("uses DEFAULT_OPENROUTER_MODEL when no --model / OPENROUTER_MODEL is set", async () => {
     delete process.env.OPENROUTER_MODEL;
-    const enrichResultJson = { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", particle: null }] }, collocations: [], note: null };
+    const enrichResultJson = { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", gloss: "（測試）", particle: null }] }, collocations: [], note: null };
     let sentBody: { model?: string } = {};
     const fetchImpl = vi.fn(async (_url: string, init?: RequestInit) => {
       sentBody = JSON.parse(init?.body as string);
@@ -501,5 +501,102 @@ describe("preflightOpenRouterModel", () => {
       "__EXIT_2__",
     );
     expect(exitSpy).toHaveBeenCalledWith(2);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Example-token gloss (DESIGN.md §8.2/§9.2): the AI must return a gloss for
+// every token, strict json_schema must require it, and the response
+// transform must carry it through.
+
+describe("example token gloss", () => {
+  it("request body: token items schema has gloss:string and lists it in required (strict: required === properties keys)", () => {
+    const body = buildEnrichRequestBody(ENRICH_REQ, "some/model");
+    const schema = body.response_format.json_schema.schema as Record<string, any>;
+    const items = schema.properties.example.properties.tokens.items;
+    expect(items.properties.gloss).toEqual({ type: "string" });
+    expect(items.required).toContain("gloss");
+    expect(items.required).toEqual(Object.keys(items.properties));
+    expect(items.additionalProperties).toBe(false);
+  });
+
+  it("enrich system prompt asks for a per-token gloss (Traditional Chinese, particle function labels, no readings)", () => {
+    const system = buildEnrichRequestBody(ENRICH_REQ, "some/model").messages[0].content;
+    expect(system).toMatch(/"gloss"/);
+    expect(system).toMatch(/繁體中文/);
+    expect(system).toMatch(/（主題）/);
+    expect(system).toMatch(/不可寫假名讀音或羅馬字/);
+  });
+
+  it("judge system prompt widens gloss_ok to every example token's gloss", () => {
+    const system = buildJudgeRequestBody(JUDGE_REQ, "some/model").messages[0].content;
+    expect(system).toMatch(/gloss_ok：[^\n]*每個 token 的 gloss/);
+    expect(system).toMatch(/繁體中文/);
+  });
+
+  describe("via injected fetchImpl", () => {
+    let errorSpy: ReturnType<typeof vi.spyOn>;
+    let originalKey: string | undefined;
+
+    beforeEach(() => {
+      originalKey = process.env.OPENROUTER_API_KEY;
+      process.env.OPENROUTER_API_KEY = FAKE_KEY;
+      errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      if (originalKey === undefined) delete process.env.OPENROUTER_API_KEY;
+      else process.env.OPENROUTER_API_KEY = originalKey;
+      errorSpy.mockRestore();
+    });
+
+    const reply = (payload: unknown) =>
+      vi.fn(async () => jsonResponse({ choices: [{ message: { content: JSON.stringify(payload) }, finish_reason: "stop" }] }));
+
+    it("response transform carries each token's gloss through (particle null collapses to absent, gloss does not)", async () => {
+      const fetchImpl = reply({
+        example: {
+          ja: "日本語を話します。",
+          zh: "說日語。",
+          tokens: [
+            { surface: "日本語", reading: "にほんご", gloss: "日語", particle: null },
+            { surface: "を", reading: "を", gloss: "（受詞）", particle: true },
+            { surface: "話します", reading: "はなします", gloss: "說", particle: null },
+          ],
+        },
+        collocations: [],
+        note: null,
+      });
+      const result = await makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch }).enrich(ENRICH_REQ);
+      expect(result.example.tokens).toEqual([
+        { surface: "日本語", reading: "にほんご", gloss: "日語" },
+        { surface: "を", reading: "を", gloss: "（受詞）", particle: true },
+        { surface: "話します", reading: "はなします", gloss: "說" },
+      ]);
+    });
+
+    it("AI response missing a token's gloss: zod rejects -> AiProviderError(kind: 'schema')", async () => {
+      const fetchImpl = reply({
+        example: { ja: "話します。", zh: "說話。", tokens: [{ surface: "話します", reading: "はなします", particle: null }] },
+        collocations: [],
+        note: null,
+      });
+      let caught: unknown;
+      try {
+        await makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch }).enrich(ENRICH_REQ);
+      } catch (err) {
+        caught = err;
+      }
+      expect(caught).toBeInstanceOf(AiProviderError);
+      expect((caught as AiProviderError).kind).toBe("schema");
+      expect((caught as AiProviderError).detail).toMatch(/gloss/);
+    });
+  });
+});
+
+describe("enrich system prompt: particle reading written as the character", () => {
+  it("tells the model は/へ/を readings stay は/へ/を, not わ/え/お", () => {
+    const system = buildEnrichRequestBody(ENRICH_REQ, "some/model").messages[0].content;
+    expect(system).toContain("助詞 は/へ/を 的 reading 照字形寫 は/へ/を，不要寫成 わ/え/お");
   });
 });
