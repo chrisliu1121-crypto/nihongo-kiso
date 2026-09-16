@@ -1,0 +1,544 @@
+{
+  "date": "2026-09-17",
+  "words": [
+    {
+      "id": "w_0051",
+      "surface": "いくつ",
+      "reading": "いくつ",
+      "gloss": "幾個／幾歲",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 51,
+      "romaji_override": null,
+      "example": {
+        "ja": "みかんをいくつ買いますか。",
+        "zh": "你要買幾個橘子呢？",
+        "tokens": [
+          {
+            "surface": "みかん",
+            "reading": "みかん",
+            "gloss": "橘子"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "いくつ",
+            "reading": "いくつ",
+            "gloss": "幾個"
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "gloss": "（疑問）",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "いくつありますか",
+        "いくつ買いますか",
+        "おいくつですか"
+      ],
+      "confusable_with": [],
+      "note": "「いくつ」可用於詢問物品的數量（幾個）或年齡（幾歲）。詢問他人年齡時，通常會加上「お」說成「おいくつ」，顯得更禮貌。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    },
+    {
+      "id": "w_0052",
+      "surface": "いくら",
+      "reading": "いくら",
+      "gloss": "多少錢",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 52,
+      "romaji_override": null,
+      "example": {
+        "ja": "このシャツはいくらですか。",
+        "zh": "這件襯衫多少錢？",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這件"
+          },
+          {
+            "surface": "シャツ",
+            "reading": "シャツ",
+            "gloss": "襯衫"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "いくら",
+            "reading": "いくら",
+            "gloss": "多少錢"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "gloss": "（疑問）",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "いくらですか",
+        "全部でいくら"
+      ],
+      "confusable_with": [],
+      "note": "「いくら」為詢問價錢的疑問詞，最常見的句型是「〜はいくらですか」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    },
+    {
+      "id": "w_0053",
+      "surface": "どんな",
+      "reading": "どんな",
+      "gloss": "什麼樣的",
+      "pos": "疑問詞",
+      "level": "N5",
+      "freq_rank": 53,
+      "romaji_override": null,
+      "example": {
+        "ja": "どんな映画が好きですか。",
+        "zh": "你喜歡什麼樣的電影？",
+        "tokens": [
+          {
+            "surface": "どんな",
+            "reading": "どんな",
+            "gloss": "什麼樣的"
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "好きです",
+            "reading": "すきです",
+            "gloss": "喜歡"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "gloss": "（疑問）",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "どんな人",
+        "どんな音楽",
+        "どんな料理"
+      ],
+      "confusable_with": [],
+      "note": "「どんな」是連體詞，後面必須直接接名詞，用來詢問人或事物的性質、特徵或種類，意思是「什麼樣的……」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    },
+    {
+      "id": "w_0054",
+      "surface": "一",
+      "reading": "いち",
+      "gloss": "一",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 54,
+      "romaji_override": null,
+      "example": {
+        "ja": "番号は一です。",
+        "zh": "號碼是一。",
+        "tokens": [
+          {
+            "surface": "番号",
+            "reading": "ばんごう",
+            "gloss": "號碼"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "一",
+            "reading": "いち",
+            "gloss": "一"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "一番",
+        "一時",
+        "一年"
+      ],
+      "confusable_with": [],
+      "note": "「一」單獨作為數字時音讀為「いち」。接在量詞前可能產生促音便（如「一分（いっぷん）」、「一回（いっかい）」），數物品時亦常使用訓讀「一つ（ひとつ）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    },
+    {
+      "id": "w_0055",
+      "surface": "二",
+      "reading": "に",
+      "gloss": "二",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 55,
+      "romaji_override": null,
+      "example": {
+        "ja": "今は二時です。",
+        "zh": "現在是兩點。",
+        "tokens": [
+          {
+            "surface": "今",
+            "reading": "いま",
+            "gloss": "現在"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "二",
+            "reading": "に",
+            "gloss": "二"
+          },
+          {
+            "surface": "時",
+            "reading": "じ",
+            "gloss": "點"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "二時",
+        "二月",
+        "二年生"
+      ],
+      "confusable_with": [],
+      "note": "「二」是數字「2」，音讀為「に」（如「二時」、「二月」）。需特別注意配合某些量詞時會有特殊訓讀，例如「二つ（ふたつ）」、「二人（ふたり）」、「二日（ふつか）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    },
+    {
+      "id": "w_0056",
+      "surface": "三",
+      "reading": "さん",
+      "gloss": "三",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 56,
+      "romaji_override": null,
+      "example": {
+        "ja": "今は三時です。",
+        "zh": "現在是三點。",
+        "tokens": [
+          {
+            "surface": "今",
+            "reading": "いま",
+            "gloss": "現在"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "三",
+            "reading": "さん",
+            "gloss": "三"
+          },
+          {
+            "surface": "時",
+            "reading": "じ",
+            "gloss": "點"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "三時（さんじ）",
+        "三月（さんがつ）",
+        "三日（みっか）",
+        "三つ（みっつ）"
+      ],
+      "confusable_with": [],
+      "note": "「三」讀作「さん」。接時間「時」時讀作「さんじ」，接月份「月」時讀作「さんがつ」。數東西時常使用固有詞讀音「みっつ」，日期3號則讀作「みっか」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    },
+    {
+      "id": "w_0057",
+      "surface": "四",
+      "reading": "よん",
+      "gloss": "四",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 57,
+      "romaji_override": null,
+      "example": {
+        "ja": "四番のバスに乗ります。",
+        "zh": "搭乘四號公車。",
+        "tokens": [
+          {
+            "surface": "四",
+            "reading": "よん",
+            "gloss": "四"
+          },
+          {
+            "surface": "番",
+            "reading": "ばん",
+            "gloss": "號"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "バス",
+            "reading": "ばす",
+            "gloss": "公車"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "乗ります",
+            "reading": "のります",
+            "gloss": "搭乘"
+          }
+        ]
+      },
+      "collocations": [
+        "四番（よんばん）",
+        "四階（よんかい）",
+        "四時（よじ）"
+      ],
+      "confusable_with": [],
+      "note": "「四」除了讀作「よん」之外，搭配不同量詞時也常讀作「よ」（如：四時／よじ、四人／よにん）或「し」（如：四月／しがつ）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    },
+    {
+      "id": "w_0058",
+      "surface": "五",
+      "reading": "ご",
+      "gloss": "五",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 58,
+      "romaji_override": null,
+      "example": {
+        "ja": "五時に起きます。",
+        "zh": "五點起床。",
+        "tokens": [
+          {
+            "surface": "五",
+            "reading": "ご",
+            "gloss": "五"
+          },
+          {
+            "surface": "時",
+            "reading": "じ",
+            "gloss": "點"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "起きます",
+            "reading": "おきます",
+            "gloss": "起床"
+          }
+        ]
+      },
+      "collocations": [
+        "五時",
+        "五月",
+        "五人",
+        "五つ"
+      ],
+      "confusable_with": [],
+      "note": "「五」接漢語量詞時音讀為「ご」（如：五時、五分、五人）；以日本固有詞數物品時讀作「五つ（いつつ）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    },
+    {
+      "id": "w_0059",
+      "surface": "六",
+      "reading": "ろく",
+      "gloss": "六",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 59,
+      "romaji_override": null,
+      "example": {
+        "ja": "六時に起きます。",
+        "zh": "我在六點起床。",
+        "tokens": [
+          {
+            "surface": "六",
+            "reading": "ろく",
+            "gloss": "六"
+          },
+          {
+            "surface": "時",
+            "reading": "じ",
+            "gloss": "點"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "起きます",
+            "reading": "おきます",
+            "gloss": "起床"
+          }
+        ]
+      },
+      "collocations": [
+        "六時（ろくじ）",
+        "六つ（むっつ）",
+        "六月（ろくがつ）",
+        "六人（ろくにん）"
+      ],
+      "confusable_with": [],
+      "note": "數字「六」通常讀作「ろく」，但數個數時讀作「むっつ」，表示日期或天數（六號、六天）時讀作「むいか」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    },
+    {
+      "id": "w_0060",
+      "surface": "七",
+      "reading": "なな",
+      "gloss": "七",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 60,
+      "romaji_override": null,
+      "example": {
+        "ja": "切手を七枚買います。",
+        "zh": "買七張郵票。",
+        "tokens": [
+          {
+            "surface": "切手",
+            "reading": "きって",
+            "gloss": "郵票"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "七",
+            "reading": "なな",
+            "gloss": "七"
+          },
+          {
+            "surface": "枚",
+            "reading": "まい",
+            "gloss": "張"
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "七つ（ななつ）",
+        "七日（なのか）",
+        "七時（しちじ）",
+        "七枚（ななまい）"
+      ],
+      "confusable_with": [],
+      "note": "「七」在日語中有「なな」與「しち」等讀法。時間的7點讀作「しちじ」，7號/7天讀作「なのか」，個數讀作「ななつ」，接在「枚」等量詞前則常讀作「ななまい」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": false
+    }
+  ],
+  "pipeline": {
+    "enricher": "openrouter",
+    "judge": "openrouter",
+    "generated_at": "2026-09-16T23:24:38.570Z",
+    "judgments": {},
+    "errors": []
+  }
+}
