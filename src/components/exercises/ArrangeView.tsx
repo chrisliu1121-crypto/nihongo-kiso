@@ -50,7 +50,7 @@ function ChunkBox({ chunk, onClick }: { chunk: Chunk; onClick: () => void }) {
           onClick();
         }
       }}
-      className={`flex cursor-pointer gap-0.5 rounded-lg border p-1 transition-colors duration-150 ${
+      className={`flex min-h-11 cursor-pointer items-center gap-0.5 rounded-lg border p-1 transition-colors duration-150 ${
         chunk.isPredicate
           ? "border-stone-400 bg-stone-100 hover:bg-stone-200"
           : "border-sky-200 bg-sky-50 hover:bg-sky-100"

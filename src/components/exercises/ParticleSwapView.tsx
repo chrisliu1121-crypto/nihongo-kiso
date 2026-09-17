@@ -128,7 +128,7 @@ export function ParticleSwapView({ exercise }: ParticleSwapViewProps) {
                     setSelected(c.particle_id);
                   }
                 }}
-                className={`cursor-pointer rounded-lg p-0.5 transition-colors duration-150 ${
+                className={`flex min-h-11 cursor-pointer items-center rounded-lg p-0.5 transition-colors duration-150 ${
                   isFocus ? "border-2 border-stone-400" : "border border-transparent"
                 } ${isSelected ? "ring-2 ring-amber-400" : ""}`}
               >

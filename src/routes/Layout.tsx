@@ -7,28 +7,50 @@
 // node itself must not be torn down and rebuilt on every navigation.
 
 import { NavLink, Outlet } from "react-router-dom";
+import { KanaDrawer } from "../components/KanaDrawer";
 import { KanaTable } from "../components/KanaTable";
+import { useMediaQuery } from "../lib/ui/useMediaQuery";
 
 // Beige header (#f5efe3): active = white pill + dark text + hairline ring so
 // it still reads clearly against the beige (the old amber-100 active pill
-// nearly vanished on it); hover = translucent white.
+// nearly vanished on it); hover = translucent white. shrink-0 so the nav's
+// new overflow-x-auto (mobile: six links no longer squeeze into a vertical
+// stack of wrapped single characters) never shrinks a link's own hit area
+// instead of scrolling past it.
 const NAV_LINK_CLASS = ({ isActive }: { isActive: boolean }) =>
-  `rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ${
+  `shrink-0 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ${
     isActive
       ? "bg-white text-stone-900 shadow-sm ring-1 ring-[#e6dccb]"
       : "text-stone-600 hover:bg-white/60 hover:text-stone-900"
   }`;
+
+// The lg breakpoint matches Tailwind's default `lg:` (min-width: 1024px) --
+// same cutoff every `lg:` utility below already uses, so the JS-driven
+// choice between <aside><KanaTable/></aside> and <KanaDrawer/> never
+// disagrees with the CSS.
+const DESKTOP_QUERY = "(min-width: 1024px)";
 
 // Sticky header height lives in ONE place: --nav-h (src/styles/index.css
 // :root). The header's min-height is --nav-h (border-box, border included)
 // and the lg sticky aside's top is --nav-h + 1rem, so the gojuon table can
 // never slide under the header.
 export function Layout() {
+  // KanaTable keeps a cellId -> HTMLDivElement ref map (for the yoon
+  // connector <line>s) that assumes exactly one mounted instance. Simply
+  // CSS-hiding an <aside> at narrow widths (e.g. `hidden lg:block`) would
+  // still mount a second KanaTable inside KanaDrawer alongside it, so the
+  // aside and the drawer are rendered as strict alternatives -- never both
+  // -- gated on this single boolean instead. The highlight store itself is
+  // a module-level singleton (src/store/highlight.ts), so switching which
+  // one is mounted (e.g. rotating a tablet across the breakpoint) never
+  // loses hover/pinned/context state.
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
+
   return (
     <div className="min-h-screen bg-stone-50 text-stone-800">
       <header className="sticky top-0 z-30 min-h-(--nav-h) border-b border-[#e6dccb] bg-[#f5efe3] shadow-[0_1px_3px_rgba(68,64,60,0.06)]">
-        <nav className="mx-auto flex min-h-(--nav-h) max-w-5xl items-center gap-2 px-4">
-          <span className="mr-2 text-sm font-semibold text-stone-900">日語基礎</span>
+        <nav className="mx-auto flex min-h-(--nav-h) max-w-5xl items-center gap-2 overflow-x-auto whitespace-nowrap px-4 no-scrollbar">
+          <span className="mr-2 shrink-0 text-sm font-semibold text-stone-900">日語基礎</span>
           <NavLink to="/" end className={NAV_LINK_CLASS}>
             今日單詞
           </NavLink>
@@ -48,14 +70,18 @@ export function Layout() {
       </header>
 
       <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-8 lg:flex-row lg:items-start">
-        <aside className="lg:sticky lg:top-[calc(var(--nav-h)+1rem)] lg:w-[17rem] lg:shrink-0">
-          <KanaTable />
-        </aside>
+        {isDesktop && (
+          <aside className="lg:sticky lg:top-[calc(var(--nav-h)+1rem)] lg:w-[17rem] lg:shrink-0">
+            <KanaTable />
+          </aside>
+        )}
 
-        <main className="flex-1 space-y-6">
+        <main className="flex-1 space-y-6 pb-[calc(3rem+env(safe-area-inset-bottom))] lg:pb-0">
           <Outlet />
         </main>
       </div>
+
+      {!isDesktop && <KanaDrawer />}
     </div>
   );
 }

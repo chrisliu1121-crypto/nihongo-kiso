@@ -154,9 +154,23 @@ export interface KanaTableProps {
    * size (e.g. a future standalone/print view).
    */
   compact?: boolean;
+  /**
+   * Bump this (any new number) to force a yoon-connector recompute even
+   * when nothing in the highlight store changed -- e.g. KanaDrawer (mobile,
+   * DESIGN.md §2.1) renders this table inside an animated-height container,
+   * and the coordinates `computeLines` reads via getBoundingClientRect can
+   * drift mid-transition, so the drawer bumps this once the expand
+   * animation's `transitionend` fires. The effect below already has no
+   * dependency array (it recomputes after every render), so passing a new
+   * prop value here is sufficient on its own to trigger that recompute --
+   * this prop isn't read inside the effect, it only exists to make the
+   * caller's intent to force a recompute explicit at the call site.
+   */
+  recalcKey?: number;
 }
 
-export function KanaTable({ compact = true }: KanaTableProps) {
+export function KanaTable({ compact = true, recalcKey }: KanaTableProps) {
+  void recalcKey; // see the prop's own doc above: existence, not value, matters
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
   const cellRefs = useRef(new Map<CellId, HTMLDivElement>());

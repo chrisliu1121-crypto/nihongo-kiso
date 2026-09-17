@@ -34,7 +34,7 @@ export function DailyWords() {
             type="button"
             onClick={() => setDateKey(prevKey)}
             disabled={!hasPrev}
-            className="rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-600 transition-colors duration-150 hover:border-amber-300 hover:bg-amber-50/60 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-stone-200 disabled:hover:bg-white"
+            className="min-h-11 rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-600 transition-colors duration-150 hover:border-amber-300 hover:bg-amber-50/60 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-stone-200 disabled:hover:bg-white"
           >
             ← 前一天
           </button>
@@ -45,7 +45,7 @@ export function DailyWords() {
             type="button"
             onClick={() => setDateKey(nextKey)}
             disabled={!hasNext}
-            className="rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-600 transition-colors duration-150 hover:border-amber-300 hover:bg-amber-50/60 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-stone-200 disabled:hover:bg-white"
+            className="min-h-11 rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-600 transition-colors duration-150 hover:border-amber-300 hover:bg-amber-50/60 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-stone-200 disabled:hover:bg-white"
           >
             後一天 →
           </button>
@@ -53,7 +53,7 @@ export function DailyWords() {
             type="button"
             onClick={() => setDateKey(todayKey())}
             disabled={isToday}
-            className="rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-sm font-medium text-amber-800 transition-colors duration-150 hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-40"
+            className="min-h-11 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-sm font-medium text-amber-800 transition-colors duration-150 hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-40"
           >
             今天
           </button>

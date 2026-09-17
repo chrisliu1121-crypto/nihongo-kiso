@@ -10,6 +10,19 @@ body {
   font-family: "Noto Sans JP", system-ui, sans-serif;
 }
 
+/* Layout.tsx's mobile nav: overflow-x-auto whitespace-nowrap lets the six
+   nav links scroll horizontally in one row instead of being squeezed into a
+   vertical stack of wrapped single characters at narrow widths -- but the
+   visible scrollbar that most browsers draw for a horizontal scroller reads
+   as a stray line under the header, so it's hidden here (the nav is still
+   fully scrollable by touch/trackpad, just without the bar chrome). */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
 /* Token glossMode="hover" (src/components/Token.tsx, DESIGN.md §5.1).
    The normal hover / keyboard-focus behaviour is plain Tailwind utilities in
    Token.tsx (Tailwind v4's hover:/group-hover: variants already only apply
