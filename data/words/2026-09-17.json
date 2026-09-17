@@ -1,0 +1,542 @@
+{
+  "date": "2026-09-17",
+  "words": [
+    {
+      "id": "w_0061",
+      "surface": "八",
+      "reading": "はち",
+      "gloss": "八",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 61,
+      "romaji_override": null,
+      "example": {
+        "ja": "八時に朝ご飯を食べます。",
+        "zh": "八點吃早餐。",
+        "tokens": [
+          {
+            "surface": "八時",
+            "reading": "はちじ",
+            "gloss": "八點"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "朝ご飯",
+            "reading": "あさごはん",
+            "gloss": "早餐"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "八時",
+        "八月",
+        "八日",
+        "八つ"
+      ],
+      "confusable_with": [],
+      "note": "「八」單獨時讀作「はち」。接在日期時讀作特殊音「八日（ようか）」，計算個數時讀作「八つ（やっつ）」，時間則為「八時（はちじ）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0062",
+      "surface": "九",
+      "reading": "きゅう",
+      "gloss": "九",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 62,
+      "romaji_override": null,
+      "example": {
+        "ja": "切手を九まい買います。",
+        "zh": "買九張郵票。",
+        "tokens": [
+          {
+            "surface": "切手",
+            "reading": "きって",
+            "gloss": "郵票"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "九",
+            "reading": "きゅう",
+            "gloss": "九"
+          },
+          {
+            "surface": "まい",
+            "reading": "まい",
+            "gloss": "張"
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "九まい",
+        "九百",
+        "九千"
+      ],
+      "confusable_with": [],
+      "note": "「九」通常讀作「きゅう」，在數時間（九時）或月份（九月）時則讀作「く」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0063",
+      "surface": "十",
+      "reading": "じゅう",
+      "gloss": "十",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 63,
+      "romaji_override": null,
+      "example": {
+        "ja": "夜十時に寝ます。",
+        "zh": "晚上十點睡覺。",
+        "tokens": [
+          {
+            "surface": "夜",
+            "reading": "よる",
+            "gloss": "晚上"
+          },
+          {
+            "surface": "十",
+            "reading": "じゅう",
+            "gloss": "十"
+          },
+          {
+            "surface": "時",
+            "reading": "じ",
+            "gloss": "點"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "寝ます",
+            "reading": "ねます",
+            "gloss": "睡覺"
+          }
+        ]
+      },
+      "collocations": [
+        "十時",
+        "十分",
+        "十月"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0064",
+      "surface": "百",
+      "reading": "ひゃく",
+      "gloss": "百",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 64,
+      "romaji_override": null,
+      "example": {
+        "ja": "このりんごは百えんです。",
+        "zh": "這個蘋果是一百日圓。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "りんご",
+            "reading": "りんご",
+            "gloss": "蘋果"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "百",
+            "reading": "ひゃく",
+            "gloss": "一百"
+          },
+          {
+            "surface": "えん",
+            "reading": "えん",
+            "gloss": "日圓"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "百えん（ひゃくえん：一百日圓）",
+        "百人（ひゃくにん：一百人）",
+        "三百（さんびゃく：三百）",
+        "六百（ろっぴゃく：六百）"
+      ],
+      "confusable_with": [],
+      "note": "數字「百」接在不同數字後讀音會有音便變化，例如「三百」讀作「さんびゃく（濁音）」、「六百」讀作「ろっぴゃく（半濁音與促音）」、「八百」讀作「はっぴゃく」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0065",
+      "surface": "千",
+      "reading": "せん",
+      "gloss": "千",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 65,
+      "romaji_override": null,
+      "example": {
+        "ja": "この辞書は千えんです。",
+        "zh": "這本字典是一千日圓。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這本"
+          },
+          {
+            "surface": "辞書",
+            "reading": "じしょ",
+            "gloss": "字典"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "千",
+            "reading": "せん",
+            "gloss": "千"
+          },
+          {
+            "surface": "えん",
+            "reading": "えん",
+            "gloss": "日圓"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "千えん",
+        "千人",
+        "二千"
+      ],
+      "confusable_with": [],
+      "note": "「千」表示「一千」，在日語中通常直接說「千（せん）」，不加「一」。部分數字搭配「千」會發生音變，例如「三千（さんぜん）」、「八千（はっせん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0066",
+      "surface": "万",
+      "reading": "まん",
+      "gloss": "萬",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 66,
+      "romaji_override": null,
+      "example": {
+        "ja": "この時計は一万えんです。",
+        "zh": "這隻手錶是一萬日圓。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "時計",
+            "reading": "とけい",
+            "gloss": "手錶"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "一万",
+            "reading": "いちまん",
+            "gloss": "一萬"
+          },
+          {
+            "surface": "えん",
+            "reading": "えん",
+            "gloss": "日圓"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "一万円",
+        "一万人",
+        "十万"
+      ],
+      "confusable_with": [],
+      "note": "「万」表示數詞「萬」（10,000）。日語數金額或人數時，以四位數為單位，如「一万円（いちまんえん）」、「一万人（いちまんにん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0067",
+      "surface": "一つ",
+      "reading": "ひとつ",
+      "gloss": "一個",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 67,
+      "romaji_override": null,
+      "example": {
+        "ja": "卵を一つ買います。",
+        "zh": "買一顆雞蛋。",
+        "tokens": [
+          {
+            "surface": "卵",
+            "reading": "たまご",
+            "gloss": "雞蛋"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "一つ",
+            "reading": "ひとつ",
+            "gloss": "一個"
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "一つください",
+        "一つ買います"
+      ],
+      "confusable_with": [],
+      "note": "日語自立數詞，用來計算一般物品或沒有專屬量詞的事物，數量詞通常直接放在動詞前，不加助詞。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0068",
+      "surface": "二つ",
+      "reading": "ふたつ",
+      "gloss": "兩個",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 68,
+      "romaji_override": null,
+      "example": {
+        "ja": "卵を二つ買います。",
+        "zh": "買兩個雞蛋。",
+        "tokens": [
+          {
+            "surface": "卵",
+            "reading": "たまご",
+            "gloss": "雞蛋"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "二つ",
+            "reading": "ふたつ",
+            "gloss": "兩個"
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "二つください",
+        "二つあります"
+      ],
+      "confusable_with": [],
+      "note": "和語數詞，用來數物品個數，相當於「兩個」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0069",
+      "surface": "三つ",
+      "reading": "みっつ",
+      "gloss": "三個",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 69,
+      "romaji_override": null,
+      "example": {
+        "ja": "卵を三つ買います。",
+        "zh": "買三個雞蛋。",
+        "tokens": [
+          {
+            "surface": "卵",
+            "reading": "たまご",
+            "gloss": "雞蛋"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "三つ",
+            "reading": "みっつ",
+            "gloss": "三個"
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "三つください",
+        "卵を三つ",
+        "三つあります"
+      ],
+      "confusable_with": [],
+      "note": "和語數量詞，用於計算一般無特定量詞的物品或水果、點心等。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0070",
+      "surface": "曜日",
+      "reading": "ようび",
+      "gloss": "星期幾",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 70,
+      "romaji_override": null,
+      "example": {
+        "ja": "今日は何曜日ですか。",
+        "zh": "今天星期幾？",
+        "tokens": [
+          {
+            "surface": "今日",
+            "reading": "きょう",
+            "gloss": "今天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "何",
+            "reading": "なん",
+            "gloss": "什麼"
+          },
+          {
+            "surface": "曜日",
+            "reading": "ようび",
+            "gloss": "星期"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "gloss": "（疑問）",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "何曜日",
+        "日曜日",
+        "月曜日"
+      ],
+      "confusable_with": [],
+      "note": "「何曜日（なんようび）」用來詢問「星期幾」；日語的一週以日月火水木金土搭配「曜日」表示。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
