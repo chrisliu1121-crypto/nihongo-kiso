@@ -2,7 +2,7 @@
 // fix, automated version of the build task's acceptance step 3: reproduces
 // the real 2026-09-16/17 failure (frequency-table rank 51-60, "一"'s example
 // using the out-of-scope kanji 号 in "番号は一です。") against the REAL
-// data/frequency/n5.json and REAL existing data/words/*.json bank, using
+// data/frequency/n5.json and a synthetic "rank 1-50 already published" bank (independent of data/words/), using
 // scripts/__tests__/fixtures/rank51-60-one-retry.json as the Enricher's
 // pre-recorded answers ("一"'s entry is a 3-element array: bad, bad again
 // [mirroring 09-16 -> 09-17 repeating the exact same mistake], then good in
@@ -23,8 +23,12 @@ describe("generate-daily against the REAL rank 51-60 batch (reproduces the 2026-
   it("「一」通過驗證在第 3 次嘗試；其餘 9 詞第 1 次就通過；最終湊滿 10 詞", async () => {
     const freqRaw = await readFile(FREQUENCY_PATH, "utf8");
     const freq = JSON.parse(freqRaw) as { words: FrequencyWord[] };
-    const existingDays = await loadExistingWordDays();
-    const existingKeys = new Set(existingDays.flatMap((d) => d.seed.words.map((w) => `${w.surface}|${w.reading}`)));
+    // Self-contained: pretend exactly rank 1-50 are already published, so the
+    // candidate pool is rank 51-60 regardless of what data/words/ holds today
+    // (this batch went live on 2026-09-16/17; reading the real bank made the
+    // test fail in CI the moment it did, which blocked deploys).
+    const existingDays: Awaited<ReturnType<typeof loadExistingWordDays>> = [];
+    const existingKeys = new Set(freq.words.filter((w) => w.rank <= 50).map((w) => `${w.surface}|${w.reading}`));
     const ctx = buildWordCtx(existingDays, freq.words.map((w) => w.surface));
 
     const pool = pickCandidatePool(freq.words, existingKeys, MAX_CANDIDATES);
