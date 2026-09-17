@@ -1,0 +1,530 @@
+{
+  "date": "2026-09-18",
+  "words": [
+    {
+      "id": "w_0071",
+      "surface": "月曜日",
+      "reading": "げつようび",
+      "gloss": "星期一",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 71,
+      "romaji_override": null,
+      "example": {
+        "ja": "月曜日に試験があります。",
+        "zh": "星期一有考試。",
+        "tokens": [
+          {
+            "surface": "月曜日",
+            "reading": "げつようび",
+            "gloss": "星期一"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "試験",
+            "reading": "しけん",
+            "gloss": "考試"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "月曜日の朝",
+        "来週の月曜日",
+        "月曜日に"
+      ],
+      "confusable_with": [],
+      "note": "表示特定的星期幾時，後面通常會接助詞「に」來表示動作發生的時間點。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0072",
+      "surface": "火曜日",
+      "reading": "かようび",
+      "gloss": "星期二",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 72,
+      "romaji_override": null,
+      "example": {
+        "ja": "火曜日に試験があります。",
+        "zh": "星期二有考試。",
+        "tokens": [
+          {
+            "surface": "火曜日",
+            "reading": "かようび",
+            "gloss": "星期二"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "試験",
+            "reading": "しけん",
+            "gloss": "考試"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "火曜日の朝",
+        "火曜日に"
+      ],
+      "confusable_with": [],
+      "note": "表示「星期二」，接助詞「に」可表示在星期二做某事。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0073",
+      "surface": "水曜日",
+      "reading": "すいようび",
+      "gloss": "星期三",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 73,
+      "romaji_override": null,
+      "example": {
+        "ja": "水曜日に映画を見ます。",
+        "zh": "星期三看電影。",
+        "tokens": [
+          {
+            "surface": "水曜日",
+            "reading": "すいようび",
+            "gloss": "星期三"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "毎週水曜日",
+        "水曜日の朝"
+      ],
+      "confusable_with": [],
+      "note": "「水曜日」表示星期三。表示在特定某一天做某事時，通常會加上時間助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0074",
+      "surface": "木曜日",
+      "reading": "もくようび",
+      "gloss": "星期四",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 74,
+      "romaji_override": null,
+      "example": {
+        "ja": "木曜日に会社を休みます。",
+        "zh": "星期四向公司請假。",
+        "tokens": [
+          {
+            "surface": "木曜日",
+            "reading": "もくようび",
+            "gloss": "星期四"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "会社",
+            "reading": "かいしゃ",
+            "gloss": "公司"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "休みます",
+            "reading": "やすみます",
+            "gloss": "請假"
+          }
+        ]
+      },
+      "collocations": [
+        "木曜日に",
+        "毎週木曜日"
+      ],
+      "confusable_with": [],
+      "note": "日語的一週以「日月火水木金土」順序排列，木曜日相當於中文的星期四，簡寫時常記作「木」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0075",
+      "surface": "金曜日",
+      "reading": "きんようび",
+      "gloss": "星期五",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 75,
+      "romaji_override": null,
+      "example": {
+        "ja": "金曜日に映画を見ます。",
+        "zh": "星期五看電影。",
+        "tokens": [
+          {
+            "surface": "金曜日",
+            "reading": "きんようび",
+            "gloss": "星期五"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "金曜日の夜",
+        "金曜日に"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0076",
+      "surface": "土曜日",
+      "reading": "どようび",
+      "gloss": "星期六",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 76,
+      "romaji_override": null,
+      "example": {
+        "ja": "土曜日に映画を見ます。",
+        "zh": "星期六看電影。",
+        "tokens": [
+          {
+            "surface": "土曜日",
+            "reading": "どようび",
+            "gloss": "星期六"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "土曜日の朝",
+        "土曜日の夜",
+        "今週の土曜日"
+      ],
+      "confusable_with": [],
+      "note": "「土曜日」常簡稱為「土曜」，對應西方星期制度中的 Saturday（土星日）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0077",
+      "surface": "日曜日",
+      "reading": "にちようび",
+      "gloss": "星期日",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 77,
+      "romaji_override": null,
+      "example": {
+        "ja": "日曜日に映画を見ます。",
+        "zh": "星期日去看電影。",
+        "tokens": [
+          {
+            "surface": "日曜日",
+            "reading": "にちようび",
+            "gloss": "星期日"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "日曜日に",
+        "次の日曜日"
+      ],
+      "confusable_with": [],
+      "note": "「日曜日」表示星期日。在表示某個特定星期進行動作時，後面通常會接助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0078",
+      "surface": "今週",
+      "reading": "こんしゅう",
+      "gloss": "這星期",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 78,
+      "romaji_override": null,
+      "example": {
+        "ja": "今週映画を見ます。",
+        "zh": "這星期要看電影。",
+        "tokens": [
+          {
+            "surface": "今週",
+            "reading": "こんしゅう",
+            "gloss": "這星期"
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "今週末",
+        "今週の月曜日"
+      ],
+      "confusable_with": [],
+      "note": "「今週」作為時間名詞修飾後面的動詞時，通常不接助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0079",
+      "surface": "来週",
+      "reading": "らいしゅう",
+      "gloss": "下星期",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 79,
+      "romaji_override": null,
+      "example": {
+        "ja": "来週友達と映画を見ます。",
+        "zh": "下週要和朋友看電影。",
+        "tokens": [
+          {
+            "surface": "来週",
+            "reading": "らいしゅう",
+            "gloss": "下週"
+          },
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "来週の日曜日",
+        "また来週"
+      ],
+      "confusable_with": [],
+      "note": "「来週」表示「下週」，後面通常不加助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0080",
+      "surface": "先週",
+      "reading": "せんしゅう",
+      "gloss": "上星期",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 80,
+      "romaji_override": null,
+      "example": {
+        "ja": "先週友達に会いました。",
+        "zh": "上週和朋友見面了。",
+        "tokens": [
+          {
+            "surface": "先週",
+            "reading": "せんしゅう",
+            "gloss": "上週"
+          },
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "会いました",
+            "reading": "あいました",
+            "gloss": "見面了"
+          }
+        ]
+      },
+      "collocations": [
+        "先週の日曜日",
+        "先週の金曜日"
+      ],
+      "confusable_with": [],
+      "note": "「先週」是表示時間的名詞，後面通常不需要加助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
