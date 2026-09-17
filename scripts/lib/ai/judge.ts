@@ -34,4 +34,6 @@ export interface JudgeResult {
 export interface Judge {
   name: string;
   judge(req: JudgeRequest): Promise<JudgeResult>;
+  /** 2026-09-18 P1 fix: see Enricher.requestCount's own doc comment -- same contract, mirrored here for the judge side. */
+  requestCount?(): number;
 }

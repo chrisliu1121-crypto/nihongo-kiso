@@ -82,7 +82,7 @@ const JUDGE_SCHEMA = {
   additionalProperties: false,
 } as const;
 
-const ENRICH_SYSTEM_PROMPT = `你是日語教材的例句產生器，服務對象是 N5 程度的中文母語初學者。
+const ENRICH_SYSTEM_PROMPT_BASE = `你是日語教材的例句產生器，服務對象是 N5 程度的中文母語初學者。
 
 規則（全部強制）：
 - 只用 N5 範圍的詞彙與文法；動詞一律用ます形，句子力求簡短（一個子句，不超過一個接續）。
@@ -95,6 +95,28 @@ const ENRICH_SYSTEM_PROMPT = `你是日語教材的例句產生器，服務對�
 - 完整 token 範例（例句「学校に行きます。」）：[{"surface": "学校", "reading": "がっこう", "gloss": "學校", "particle": null}, {"surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true}, {"surface": "行きます", "reading": "いきます", "gloss": "去", "particle": null}]
 - 盡量避免產生與 existing_surfaces 裡列出的例句幾乎相同的句子（換個場景或搭配）。
 - 回傳的 JSON 必須完全符合提供的 schema，不要加上 schema 之外的欄位。`;
+
+// ---------------------------------------------------------------------------
+// 2026-09-17 "卡死" fix (DESIGN.md §9.1 "逐詞重試與替補") -- copied verbatim
+// from openrouter.ts's own equivalent (see that file's header comment for
+// why this file never imports from openrouter.ts, and vice versa): the
+// enrich system prompt is now built PER REQUEST so allowed_kanji/feedback
+// (both vary per call) show up as plain instructional text, not just JSON.
+
+function allowedKanjiClause(req: EnrichRequest): string {
+  return `\n\n例句中出現的漢字只能使用以下允許的漢字：${req.allowed_kanji ?? ""}。需要用到範圍外的詞時，請改用平假名書寫（例：ばんごう）。token 的 reading 只能是假名，不可含漢字。`;
+}
+
+function feedbackClause(req: EnrichRequest): string {
+  const feedback = req.feedback ?? [];
+  if (feedback.length === 0) return "";
+  return `\n\n你上一次產生的內容被退回，原因如下：\n- ${feedback.join("\n- ")}\n請針對這些問題重新產生，不要重複同樣的錯誤。`;
+}
+
+/** Exported for the same reason openrouter.ts's own copy is: lets scripts/lib/ai/__tests__/claude.test.ts assert on the built prompt directly. */
+export function buildEnrichSystemPrompt(req: EnrichRequest): string {
+  return ENRICH_SYSTEM_PROMPT_BASE + allowedKanjiClause(req) + feedbackClause(req);
+}
 
 const JUDGE_SYSTEM_PROMPT = `你是日語教材的獨立審查者。你只會看到一個詞與它的例句候選，看不到任何人（或其他 AI）對這個候選的理由或判斷——請完全獨立判讀，不要猜測別人怎麼想。
 
@@ -209,7 +231,16 @@ function handleClaudeError(err: unknown): never {
   }
 
   if (err instanceof Anthropic.APIError) {
-    throw new AiProviderError("claude", err.status === undefined ? "network" : "http", err.message, err.status);
+    // 2026-09-18 P1 fix: the SDK itself already retries 429/5xx (its own
+    // default retry policy, 2 attempts) before ever surfacing an error here
+    // -- this file is NOT changing that. The only change is classification:
+    // a 429 that still reaches here (after the SDK's own retries) gets its
+    // own "rate_limit" kind instead of being folded into "http", so it's
+    // treated the same way openrouter.ts's equivalent case is (see
+    // errors.ts's AiProviderErrorKind doc comment) -- both are still
+    // "systemic" in generate-daily.ts's isSystemicProviderErrorKind either way.
+    const kind = err.status === 429 ? "rate_limit" : err.status === undefined ? "network" : "http";
+    throw new AiProviderError("claude", kind, err.message, err.status);
   }
 
   throw new AiProviderError("claude", "network", err instanceof Error ? err.message : String(err));
@@ -231,6 +262,8 @@ export const ClaudeEnricher: Enricher = {
       pos: req.pos,
       level: req.level,
       existing_surfaces: req.existing_surfaces,
+      allowed_kanji: req.allowed_kanji,
+      feedback: req.feedback,
     });
 
     try {
@@ -239,7 +272,7 @@ export const ClaudeEnricher: Enricher = {
       const message = await client.messages.create({
         model: MODEL,
         max_tokens: MAX_TOKENS,
-        system: ENRICH_SYSTEM_PROMPT,
+        system: buildEnrichSystemPrompt(req),
         messages,
         output_config: { format: { type: "json_schema", schema: ENRICH_SCHEMA } },
       });

@@ -101,7 +101,7 @@ const JUDGE_SCHEMA = {
 // since OpenRouter's docs don't guarantee fence-free output the way
 // Anthropic's dedicated json_schema output_config does -- stripFence()
 // below defends against it anyway even with this instruction in place.
-const ENRICH_SYSTEM_PROMPT = `你是日語教材的例句產生器，服務對象是 N5 程度的中文母語初學者。
+const ENRICH_SYSTEM_PROMPT_BASE = `你是日語教材的例句產生器，服務對象是 N5 程度的中文母語初學者。
 
 規則（全部強制）：
 - 只用 N5 範圍的詞彙與文法；動詞一律用ます形，句子力求簡短（一個子句，不超過一個接續）。
@@ -115,6 +115,33 @@ const ENRICH_SYSTEM_PROMPT = `你是日語教材的例句產生器，服務對�
 - 盡量避免產生與 existing_surfaces 裡列出的例句幾乎相同的句子（換個場景或搭配）。
 - 回傳的 JSON 必須完全符合提供的 schema，不要加上 schema 之外的欄位。
 - 只能輸出 JSON 本體，不要用 markdown code fence（\`\`\`json ... \`\`\`）包裹，也不要加任何其他文字。`;
+
+// ---------------------------------------------------------------------------
+// 2026-09-17 "卡死" fix (DESIGN.md §9.1 "逐詞重試與替補"): the enrich system
+// prompt is now built PER REQUEST instead of being one static string --
+// allowed_kanji and feedback both vary per call, and both need to be spelled
+// out in plain instructional text (not just tucked into the user JSON
+// payload) so the model actually reads and follows them. The base rules
+// above stay exactly the same static string (existing prompt-content tests
+// assert against ENRICH_SYSTEM_PROMPT_BASE's text verbatim); only the two
+// clauses below are appended, and only when they have something to say.
+
+/** Always appended: tells the model which kanji its example is allowed to use in a non-particle token's surface (req.allowed_kanji, DESIGN.md §9.1 -- see EnrichRequest.allowed_kanji's own doc comment for why this exists). An empty/absent allowed_kanji still gets the clause (with an empty list) rather than being skipped -- silently omitting the whole rule on the first-ever call (when the known-kanji set might legitimately be small) would defeat the point. */
+function allowedKanjiClause(req: EnrichRequest): string {
+  return `\n\n例句中出現的漢字只能使用以下允許的漢字：${req.allowed_kanji ?? ""}。需要用到範圍外的詞時，請改用平假名書寫（例：ばんごう）。token 的 reading 只能是假名，不可含漢字。`;
+}
+
+/** Appended ONLY when `req.feedback` is non-empty -- a retry after this exact word was rejected once already (DESIGN.md §9.1). Absent on a word's first attempt, deliberately: an empty "here's your feedback: (none)" section would just be noise. */
+function feedbackClause(req: EnrichRequest): string {
+  const feedback = req.feedback ?? [];
+  if (feedback.length === 0) return "";
+  return `\n\n你上一次產生的內容被退回，原因如下：\n- ${feedback.join("\n- ")}\n請針對這些問題重新產生，不要重複同樣的錯誤。`;
+}
+
+/** The full enrich system prompt for one request: base rules + allowed_kanji clause + (conditionally) feedback clause. Exported so scripts/lib/ai/__tests__/openrouter.test.ts can assert on it directly without going through the full request body. */
+export function buildEnrichSystemPrompt(req: EnrichRequest): string {
+  return ENRICH_SYSTEM_PROMPT_BASE + allowedKanjiClause(req) + feedbackClause(req);
+}
 
 const JUDGE_SYSTEM_PROMPT = `你是日語教材的獨立審查者。你只會看到一個詞與它的例句候選，看不到任何人（或其他 AI）對這個候選的理由或判斷——請完全獨立判讀，不要猜測別人怎麼想。
 
@@ -161,6 +188,12 @@ function userContentForEnrich(req: EnrichRequest): string {
     pos: req.pos,
     level: req.level,
     existing_surfaces: req.existing_surfaces,
+    // Both are `undefined` when the caller didn't set them -- JSON.stringify
+    // drops an undefined-valued key entirely, so an old-style EnrichRequest
+    // (no allowed_kanji/feedback at all) still round-trips to exactly the
+    // same JSON shape as before this field existed.
+    allowed_kanji: req.allowed_kanji,
+    feedback: req.feedback,
   });
 }
 
@@ -179,7 +212,7 @@ export function buildEnrichRequestBody(req: EnrichRequest, model: string): ChatR
   return {
     model,
     messages: [
-      { role: "system", content: ENRICH_SYSTEM_PROMPT },
+      { role: "system", content: buildEnrichSystemPrompt(req) },
       { role: "user", content: userContentForEnrich(req) },
     ],
     response_format: {
@@ -258,6 +291,46 @@ function checkFinishReason(finishReason: string): void {
 // tests never touch the real network (scripts/lib/ai/__tests__/openrouter.test.ts).
 
 type FetchLike = typeof fetch;
+type SleepLike = (ms: number) => Promise<void>;
+
+// ---------------------------------------------------------------------------
+// 2026-09-18 P1 fix: a single transient HTTP failure (429/5xx, or the fetch
+// call itself throwing -- a DNS hiccup, a dropped connection) used to become
+// an immediate AiProviderError, which generate-daily.ts's runGenerationPipeline
+// treats as systemic (kind "http"/"network") and aborts the WHOLE run on --
+// with the new per-candidate retry design allowing up to 84 calls in one
+// run (14 candidates × 3 attempts × up to 2 calls each), the odds of hitting
+// a rate limit or a transient 5xx at least once went up, and throwing away
+// an entire night's progress over one 429 is exactly the kind of "success
+// that isn't" this pipeline exists to avoid repeating (see generate-daily.ts's
+// own "卡死" fix header comment for the 2026-09-16/17 precedent).
+//
+// This retries INSIDE one enrich()/judge() call -- generate-daily.ts's
+// attempt/feedback loop never sees it, and it does NOT count against
+// MAX_ATTEMPTS_PER_WORD. It's the LAST line of defense before the caller
+// has to decide whether to burn one of its own attempts: only once retries
+// are exhausted does the caller find out anything went wrong at all.
+const RETRYABLE_STATUSES = new Set([429, 500, 502, 503, 504, 529]);
+/** How many times to retry AFTER the initial attempt (so up to 4 actual HTTP requests total). */
+const MAX_BACKOFF_RETRIES = 3;
+/** Wait before retry #1/#2/#3 respectively, when the response carries no (or an unusable) Retry-After header. */
+const BACKOFF_DELAYS_MS = [2000, 6000, 18000];
+/** Retry-After (seconds, per HTTP spec) is honored when present, but never trusted past this -- a misbehaving/malicious upstream sending "Retry-After: 999999" must not be able to hang this process for that long. */
+const MAX_BACKOFF_WAIT_MS = 60000;
+
+const REAL_SLEEP: SleepLike = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/** How long to wait before the NEXT attempt, given the attempt index (0-based) that just failed and that failure's Retry-After header value (if any -- only meaningful for an actual HTTP response, never for a network-level throw). */
+function computeBackoffWaitMs(failedAttemptIndex: number, retryAfterHeader: string | null): number {
+  if (retryAfterHeader !== null) {
+    const seconds = Number(retryAfterHeader);
+    if (Number.isFinite(seconds) && seconds >= 0) {
+      return Math.min(seconds * 1000, MAX_BACKOFF_WAIT_MS);
+    }
+  }
+  const fallback = BACKOFF_DELAYS_MS[failedAttemptIndex] ?? BACKOFF_DELAYS_MS[BACKOFF_DELAYS_MS.length - 1];
+  return Math.min(fallback, MAX_BACKOFF_WAIT_MS);
+}
 
 function resolveModel(cliModel: string | undefined): string {
   // Empty / whitespace counts as unset: GitHub Actions expands an undefined
@@ -308,43 +381,86 @@ function redactSecret(text: string, secret: string): string {
  * the response BODY, redacted (item 3) -- never the Authorization header,
  * never the request body (which would echo the key's own header context),
  * never the key itself.
+ *
+ * 2026-09-18 P1 fix: retries internally (see RETRYABLE_STATUSES/
+ * MAX_BACKOFF_RETRIES above) on 429/5xx/network before throwing at all --
+ * `onHttpRequest` fires once per ACTUAL attempt (including retries) so a
+ * caller can report a true HTTP-request count (makeOpenRouterEnricher/
+ * makeOpenRouterJudge's own `requestCount()`), and `sleep` is injectable so
+ * tests never actually wait.
  */
-async function callOpenRouter(body: ChatRequestBody, fetchImpl: FetchLike): Promise<{ content: string; finish_reason: string }> {
+async function callOpenRouter(
+  body: ChatRequestBody,
+  fetchImpl: FetchLike,
+  sleep: SleepLike,
+  onHttpRequest?: () => void,
+): Promise<{ content: string; finish_reason: string }> {
   const key = requireApiKey();
+  const maxAttempts = 1 + MAX_BACKOFF_RETRIES;
 
-  let response: Response;
-  try {
-    response = await fetchImpl(OPENROUTER_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${key}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": process.env.OPENROUTER_REFERER ?? "https://github.com/chrisliu1121-crypto/nihongo-kiso",
-        // Code review item 4 (P1): send both attribution headers -- X-Title
-        // is OpenRouter's documented header, X-OpenRouter-Title is added
-        // alongside it (not a replacement) per the review's request.
-        "X-Title": "nihongo-kiso",
-        "X-OpenRouter-Title": "nihongo-kiso",
-      },
-      body: JSON.stringify(body),
-    });
-  } catch (err) {
-    throw new AiProviderError("openrouter", "network", `網路請求失敗：${err instanceof Error ? err.message : String(err)}`);
-  }
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    onHttpRequest?.();
+    const isLastAttempt = attempt === maxAttempts - 1;
 
-  if (!response.ok) {
-    const bodyText = await response.text().catch(() => "(無法讀取回應內容)");
-    const snippet = redactSecret(bodyText.slice(0, 300), key);
-    if (response.status === 401) {
-      throw new AiProviderError("openrouter", "auth", `OPENROUTER_API_KEY 無效（HTTP 401）：${snippet}`, response.status);
+    let response: Response;
+    try {
+      response = await fetchImpl(OPENROUTER_URL, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${key}`,
+          "Content-Type": "application/json",
+          "HTTP-Referer": process.env.OPENROUTER_REFERER ?? "https://github.com/chrisliu1121-crypto/nihongo-kiso",
+          // Code review item 4 (P1): send both attribution headers -- X-Title
+          // is OpenRouter's documented header, X-OpenRouter-Title is added
+          // alongside it (not a replacement) per the review's request.
+          "X-Title": "nihongo-kiso",
+          "X-OpenRouter-Title": "nihongo-kiso",
+        },
+        body: JSON.stringify(body),
+      });
+    } catch (err) {
+      if (!isLastAttempt) {
+        await sleep(computeBackoffWaitMs(attempt, null));
+        continue;
+      }
+      throw new AiProviderError("openrouter", "network", `網路請求失敗（已重試 ${MAX_BACKOFF_RETRIES} 次）：${err instanceof Error ? err.message : String(err)}`);
     }
-    throw new AiProviderError("openrouter", "http", `API 錯誤（status ${response.status}）：${snippet}`, response.status);
+
+    if (!response.ok) {
+      const bodyText = await response.text().catch(() => "(無法讀取回應內容)");
+      const snippet = redactSecret(bodyText.slice(0, 300), key);
+
+      if (response.status === 401) {
+        // Retrying with the same invalid key can never succeed -- fail loud immediately, no backoff.
+        throw new AiProviderError("openrouter", "auth", `OPENROUTER_API_KEY 無效（HTTP 401）：${snippet}`, response.status);
+      }
+
+      if (RETRYABLE_STATUSES.has(response.status) && !isLastAttempt) {
+        await sleep(computeBackoffWaitMs(attempt, response.headers.get("retry-after")));
+        continue;
+      }
+
+      if (response.status === 429) {
+        throw new AiProviderError("openrouter", "rate_limit", `API 錯誤（status 429，已重試 ${MAX_BACKOFF_RETRIES} 次）：${snippet}`, response.status);
+      }
+      if (RETRYABLE_STATUSES.has(response.status)) {
+        // A retryable 5xx that's STILL failing after every retry -- the
+        // service is genuinely down, not just momentarily hiccuping.
+        throw new AiProviderError("openrouter", "http", `API 錯誤（status ${response.status}，已重試 ${MAX_BACKOFF_RETRIES} 次）：${snippet}`, response.status);
+      }
+      // Any other 4xx (400/403/404/422/...): not retryable, fails exactly as before.
+      throw new AiProviderError("openrouter", "http", `API 錯誤（status ${response.status}）：${snippet}`, response.status);
+    }
+
+    const json: unknown = await response.json();
+    const completion = parseCompletion(json);
+    checkFinishReason(completion.finish_reason);
+    return completion;
   }
 
-  const json: unknown = await response.json();
-  const completion = parseCompletion(json);
-  checkFinishReason(completion.finish_reason);
-  return completion;
+  // Unreachable (the loop above always either returns or throws on its last
+  // iteration) -- kept only so TypeScript sees every path returning/throwing.
+  throw new AiProviderError("openrouter", "network", "重試次數用盡");
 }
 
 function parseContent(content: string): unknown {
@@ -408,16 +524,22 @@ export interface OpenRouterOptions {
   model?: string;
   /** Injectable for tests -- defaults to the global fetch. */
   fetchImpl?: FetchLike;
+  /** 2026-09-18 P1 fix: injectable for tests -- defaults to a real setTimeout-based wait. Used for the backoff-retry delay in callOpenRouter. */
+  sleep?: SleepLike;
 }
 
 export function makeOpenRouterEnricher(opts: OpenRouterOptions = {}): Enricher {
   const fetchImpl = opts.fetchImpl ?? fetch;
+  const sleep = opts.sleep ?? REAL_SLEEP;
+  let httpRequests = 0;
   return {
     name: "openrouter",
     async enrich(req: EnrichRequest): Promise<EnrichResult> {
       const model = resolveModel(opts.model);
       const body = buildEnrichRequestBody(req, model);
-      const completion = await callOpenRouter(body, fetchImpl);
+      const completion = await callOpenRouter(body, fetchImpl, sleep, () => {
+        httpRequests++;
+      });
 
       let parsedJson: unknown;
       try {
@@ -440,17 +562,22 @@ export function makeOpenRouterEnricher(opts: OpenRouterOptions = {}): Enricher {
       }));
       return { example: { ...result.data.example, tokens }, collocations: result.data.collocations, note: result.data.note };
     },
+    requestCount: () => httpRequests,
   };
 }
 
 export function makeOpenRouterJudge(opts: OpenRouterOptions = {}): Judge {
   const fetchImpl = opts.fetchImpl ?? fetch;
+  const sleep = opts.sleep ?? REAL_SLEEP;
+  let httpRequests = 0;
   return {
     name: "openrouter",
     async judge(req: JudgeRequest): Promise<JudgeResult> {
       const model = resolveModel(opts.model);
       const body = buildJudgeRequestBody(req, model);
-      const completion = await callOpenRouter(body, fetchImpl);
+      const completion = await callOpenRouter(body, fetchImpl, sleep, () => {
+        httpRequests++;
+      });
 
       let parsedJson: unknown;
       try {
@@ -464,6 +591,7 @@ export function makeOpenRouterJudge(opts: OpenRouterOptions = {}): Judge {
       }
       return result.data;
     },
+    requestCount: () => httpRequests,
   };
 }
 

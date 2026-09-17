@@ -24,7 +24,7 @@ import { stripExamplePunctuation } from "../../src/lib/bank/text.ts";
 import type { DaySeed, ExampleToken, JlptLevel, Word, WordSeed } from "../../src/lib/bank/types.ts";
 import { KanaInputError } from "../../src/lib/kana/types.ts";
 import type { Mora } from "../../src/lib/kana/types.ts";
-import { WordFileSchema } from "./schemas.ts";
+import { WordFileSchema, WordSeedSchema } from "./schemas.ts";
 
 /** The two functions this module (and build-bank.ts) need out of src/lib/kana/, narrowed to what's actually called. */
 export interface KanaCodec {
@@ -77,6 +77,28 @@ export function buildKnownKanji(surfaces: Iterable<string>): Set<string> {
 }
 
 /**
+ * 2026-09-18 P2 fix: the single shared message text for "this example
+ * token's surface contains a kanji outside the known-kanji set" -- used by
+ * BOTH checkExampleKanjiScope below (validateWordFile/validateWordSet's
+ * per-day pass, which throws on this via fail()) and
+ * collectExampleTokenProblems further down (validateWordStandalone's
+ * per-token pass, which collects it instead of throwing). Before this fix
+ * the two had two independently-written copies of this message that had
+ * drifted apart in wording/word-order -- a caller printing both a
+ * validateWordFile BuildError and a validateWordStandalone problem for the
+ * exact same underlying mistake would see two DIFFERENT sentences for it.
+ * This is the OLDER of the two wordings, kept as-is on purpose:
+ * validate-words.test.ts's "例句超綱漢字" describe block pins
+ * checkExampleKanjiScope's message verbatim (`/例句含超綱漢字：[学校]/` etc),
+ * and that test is explicitly off-limits to change (build task's own "不要
+ * 改 validateWordFile / build-bank 既有行為與錯誤訊息" rule) -- so
+ * collectExampleTokenProblems switched TO this wording, not the reverse.
+ */
+function kanjiScopeProblem(tokenIndex: number, kanjiChar: string, tokenSurface: string): string {
+  return `例句含超綱漢字：${kanjiChar}（example.tokens[${tokenIndex}] "${tokenSurface}"）`;
+}
+
+/**
  * Review item 5(a): every kanji character appearing in a non-particle
  * example token's surface must already be "in scope" -- present somewhere
  * in the frequency table or an existing word's own surface. Particle
@@ -90,7 +112,7 @@ function checkExampleKanjiScope(file: string, word: { id: string; example: WordS
     if (token.particle) continue;
     for (const ch of extractKanji(token.surface)) {
       if (!knownKanji.has(ch)) {
-        fail(file, word.id, `例句含超綱漢字：${ch}（example.tokens[${i}] "${token.surface}"）`);
+        fail(file, word.id, kanjiScopeProblem(i, ch, token.surface));
       }
     }
   }
@@ -513,4 +535,160 @@ export function validateWordFile(file: string, seed: DaySeed, ctx: WordValidatio
   }
 
   return built;
+}
+
+// ---------------------------------------------------------------------------
+// validateWordStandalone (2026-09-17 "卡死" fix, DESIGN.md §9.1 "逐詞重試與
+// 替補"): every check above (fail()/BuildError) stops at the FIRST problem
+// found in a word -- exactly the design that made the 2026-09-16/17 cron
+// failures so hard to recover from (a word with 2-3 real problems only ever
+// reported the first one, so a retry that fixed problem #1 would just
+// surface problem #2 on the NEXT run, one day at a time). This function
+// answers a different question: "list EVERY problem this one word has",
+// so a caller (generate-daily.ts's per-word retry loop, cross-check.ts's
+// reporting) can hand an AI (or a human) the complete picture in one pass
+// instead of a single symptom.
+//
+// Deliberately does NOT reuse enrichWord/enrichExampleToken/fail() (all of
+// which throw on the first problem, by design, and whose exact
+// messages/behavior this build task's spec explicitly forbids changing --
+// "不要改 validateWordFile / build-bank 既有行為與錯誤訊息"). Every check
+// below is a hand-collected sibling of an existing check, written to push a
+// message onto an array instead of throwing. This is deliberate
+// duplication, not a refactor: enrichWord's throwing behavior stays exactly
+// as it always has for build-bank.ts/validateWordFile's callers.
+//
+// Scope is intentionally narrower than validateWordFile/validateWordSet:
+// this checks only what's knowable about ONE word in isolation (its own
+// shape, its own reading/example content, and whether its example.ja
+// collides with something already known) -- id/surface+reading/freq_rank
+// uniqueness and confusable_with symmetry need the WHOLE day/bank at once
+// and stay validateWordFile/validateWordSet's job.
+
+/** What validateWordStandalone needs to know about the rest of the bank/batch to check one word in isolation. */
+export interface StandaloneWordCtx {
+  /** Every kanji character "in scope" (buildKnownKanji's output) -- see checkExampleKanjiScope above. */
+  knownKanji: ReadonlySet<string>;
+  /** Every example.ja sentence already published in data/words/*.json. */
+  existingExampleJa: ReadonlySet<string>;
+  /** example.ja -> "surface|reading" (or word id) for every OTHER word already accepted earlier in the same generate-daily run/day, so an intra-batch duplicate is caught before it ever reaches validateWordFile. */
+  batchExampleJa: ReadonlyMap<string, string>;
+  codec?: KanaCodec;
+}
+
+/** Non-throwing sibling of enrichExampleToken's per-token checks (particle whitelist, reading legality, surface/reading agreement, gloss, kanji scope) -- collects every problem instead of stopping at the first. */
+function collectExampleTokenProblems(
+  token: ExampleToken,
+  index: number,
+  codec: KanaCodec,
+  knownKanji: ReadonlySet<string>,
+): string[] {
+  const problems: string[] = [];
+
+  if (token.particle && !PARTICLE_SURFACES.has(token.surface)) {
+    problems.push(`example.tokens[${index}] 標了 particle:true 但 surface "${token.surface}" 不在助詞白名單內`);
+  }
+  if (!token.particle && ALWAYS_PARTICLE_SURFACES.has(token.surface)) {
+    problems.push(`example.tokens[${index}] surface "${token.surface}" 幾乎必為助詞，但未標 particle:true`);
+  }
+
+  let morae: Mora[] | undefined;
+  try {
+    morae = codec.kanaToCells(token.reading, { particle: token.particle });
+  } catch (err) {
+    problems.push(`example.tokens[${index}].reading ${kanaInputErrorLabel(err)}：${(err as Error).message}`);
+  }
+  if (morae) {
+    const outOfTable = findOutOfTable(morae);
+    if (outOfTable) problems.push(`example.tokens[${index}].reading 含表外假名：${outOfTable}`);
+  }
+
+  const mismatch = surfaceReadingMismatchReason(token.surface, token.reading);
+  if (mismatch) problems.push(`example.tokens[${index}] ${mismatch}`);
+
+  const gloss: unknown = (token as { gloss?: unknown }).gloss;
+  if (typeof gloss !== "string" || gloss.trim() === "") {
+    problems.push(`example.tokens[${index}] "${token.surface}" 缺少 gloss（或為空字串）`);
+  } else {
+    const kana = GLOSS_KANA_RE.exec(gloss);
+    if (kana) {
+      problems.push(`example.tokens[${index}] "${token.surface}" 的 gloss 含假名「${kana[0]}」（gloss 應是中文意思，不是讀音）：${gloss}`);
+    }
+  }
+
+  if (!token.particle) {
+    for (const ch of extractKanji(token.surface)) {
+      if (!knownKanji.has(ch)) {
+        problems.push(kanjiScopeProblem(index, ch, token.surface));
+      }
+    }
+  }
+
+  return problems;
+}
+
+/**
+ * Every problem `word` has, checked in isolation against `ctx` (nothing
+ * about the rest of the day/bank beyond what `ctx` supplies). Empty array
+ * means the word passes every check this function knows how to run.
+ * `fileLabel` is used only to prefix each message the same "`${file} / ${id}
+ * / ${reason}`" shape BuildError's message already uses elsewhere in this
+ * module, so a caller printing these strings gets output that reads
+ * consistently with everything else this pipeline logs.
+ *
+ * If the zod shape check itself fails, every other check is skipped (there
+ * is no reliable `word.example.tokens` to walk if `example` itself is the
+ * wrong shape) -- the shape problems are returned alone, exactly like
+ * validateWordFile's own "step 1: safeParse first" ordering.
+ */
+export function validateWordStandalone(word: WordSeed, ctx: StandaloneWordCtx, fileLabel: string): string[] {
+  const idForLabel = typeof (word as { id?: unknown })?.id === "string" ? (word as { id: string }).id : "-";
+  const prefix = (reason: string) => `${fileLabel} / ${idForLabel} / ${reason}`;
+
+  const shapeResult = WordSeedSchema.safeParse(word);
+  if (!shapeResult.success) {
+    return shapeResult.error.issues.map((issue) => {
+      const pathStr = issue.path.join(".") || "(root)";
+      return prefix(`schema 驗證失敗：${pathStr} - ${issue.message}`);
+    });
+  }
+
+  const codec = ctx.codec ?? DEFAULT_CODEC;
+  const problems: string[] = [];
+
+  if (!ID_RE.test(word.id)) problems.push(`id 格式須為 w_ 加四位數：${word.id}`);
+  if (!POS_VALUES.includes(word.pos)) problems.push(`pos 不在枚舉內：${word.pos}`);
+  if (!LEVEL_VALUES.includes(word.level)) problems.push(`level 不在 N5–N1 內：${word.level}`);
+  if (typeof word.verified !== "boolean") problems.push("verified 必須是 boolean");
+
+  let morae: Mora[] | undefined;
+  try {
+    morae = codec.kanaToCells(word.reading);
+  } catch (err) {
+    problems.push(`reading ${kanaInputErrorLabel(err)}：${(err as Error).message}`);
+  }
+  if (morae) {
+    const outOfTable = findOutOfTable(morae);
+    if (outOfTable) problems.push(`reading 含表外假名：${outOfTable}`);
+  }
+
+  const strippedJa = stripExamplePunctuation(word.example.ja);
+  const tokenSurfaces = word.example.tokens.map((t) => t.surface).join("");
+  if (strippedJa !== tokenSurfaces) {
+    problems.push(`example.ja 與 tokens 串接不一致：去標點後 "${strippedJa}" ≠ tokens 串接 "${tokenSurfaces}"`);
+  }
+
+  word.example.tokens.forEach((t, i) => {
+    problems.push(...collectExampleTokenProblems(t, i, codec, ctx.knownKanji));
+  });
+
+  if (ctx.existingExampleJa.has(word.example.ja)) {
+    problems.push(`例句與既有 bank 重複：${word.example.ja}`);
+  }
+  const batchOwner = ctx.batchExampleJa.get(word.example.ja);
+  if (batchOwner && batchOwner !== word.id) {
+    problems.push(`例句與本批次 ${batchOwner} 重複：${word.example.ja}`);
+  }
+
+  return problems.map(prefix);
 }

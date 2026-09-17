@@ -68,7 +68,7 @@ import {
   type PendingDayFile,
   type PipelineErrorEntry,
 } from "./lib/pending.ts";
-import { BuildError, validateWordFile, type RawDay } from "./lib/validate-words.ts";
+import { BuildError, validateWordFile, validateWordStandalone, type RawDay } from "./lib/validate-words.ts";
 
 interface FrequencyFile {
   words: { surface: string }[];
@@ -241,6 +241,13 @@ export async function crossCheckOne(
         pos: e.pos,
         level: e.level,
         existing_surfaces: [...existingSurfaces],
+        // 2026-09-17 "卡死" fix: this retry pass has no per-attempt feedback
+        // history of its own (unlike generate-daily.ts's own loop) -- it
+        // only ever gets ONE retry per pipeline.errors entry -- so feedback
+        // stays empty; allowed_kanji is still worth passing since ctx
+        // already has it on hand at zero extra cost.
+        allowed_kanji: [...ctx.knownKanji].join(""),
+        feedback: [],
       };
       try {
         const enriched = await enricher.enrich(req);
@@ -261,6 +268,33 @@ export async function crossCheckOne(
   const daySeed: DaySeed = { date: pending.date, words };
 
   if (errors.length === 0) {
+    // 2026-09-17 "卡死" fix (DESIGN.md §9.1 §4): validateWordFile itself
+    // still gates promotion below, UNCHANGED (its behavior/messages are
+    // pinned by scripts/__tests__/validate-words.test.ts -- this fix does
+    // not touch it) -- but it throws on the FIRST problem it finds, which
+    // is exactly the "only ever hear about one mistake at a time" pattern
+    // that made 2026-09-16/17 so slow to recover from by hand. Run
+    // validateWordStandalone over every word FIRST and print every problem
+    // across the whole file in one pass; only fall through to
+    // validateWordFile's own (still first-error-only) structural checks
+    // (id/surface+reading/freq_rank uniqueness, confusable_with symmetry --
+    // things validateWordStandalone deliberately doesn't check, see its own
+    // doc comment) once every word is individually clean.
+    const existingExampleJaSet = new Set(ctx.existingExampleJa.keys());
+    const batchExampleJa = new Map<string, string>();
+    const standaloneProblems: string[] = [];
+    for (const w of words) {
+      standaloneProblems.push(
+        ...validateWordStandalone(w, { knownKanji: ctx.knownKanji, existingExampleJa: existingExampleJaSet, batchExampleJa }, `${date}.json`),
+      );
+      batchExampleJa.set(w.example.ja, w.id);
+    }
+    if (standaloneProblems.length > 0) {
+      console.error(`[cross-check] ${date} 驗證失敗，共 ${standaloneProblems.length} 個問題：`);
+      for (const p of standaloneProblems) console.error(`  ${p}`);
+      return false;
+    }
+
     try {
       validateWordFile(`${date}.json`, daySeed, ctx);
     } catch (err) {

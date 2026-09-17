@@ -595,6 +595,21 @@ interface ProgressStore {
 
 原則：**骨架固定，AI 填內容**。AI 不決定學什麼，只決定怎麼講。
 
+### 9.1a 逐詞重試與替補（2026-09-17）
+
+上面的流程圖有一個隱藏假設：一天 10 詞是「整批」處理——AI 加工一次、驗證一次、cross-check 一次，一詞失敗就整天作廢，寫進 `pending/` 等人工。2026-09-16、09-17 兩晚的 cron 都跑了、都失敗，而且兩天選到的是**同一批** 10 詞（頻率表 rank 51–60）：09-16 一詞（「一」的例句「番号は一です」用了超綱漢字「号」）驗證失敗，整天作廢；09-17 因為 09-16 沒有任何詞上線，選詞邏輯照樣選中同一批，AI 對「一」又寫出幾乎一樣的例句，再度用了「号」——因為 AI 完全不知道昨天為什麼被退。兩天，零新詞。
+
+修法是把「整批批次」改成「逐詞嘗試、失敗重試、仍失敗則替補下一個候選」：
+
+- `MAX_ATTEMPTS_PER_WORD = 3`（1 次 + 2 次重試）、`MAX_CANDIDATES = 14`：候選池取頻率表中尚未上線、依 rank 升冪的最多 14 個詞（不是固定 10 個），逐一嘗試，直到湊滿 `WORDS_PER_DAY`（10）個或候選池用盡。
+- 對每個候選：`enricher.enrich()` → `validateWordStandalone()`（程式驗證，回傳這個詞的**全部**問題，不是只回傳第一個）→ 通過才 `judge.judge()`。任一步失敗，problems 變成下一次 `enrich()` 呼叫的 `feedback`，同一個詞重試，最多 3 次。三次都失敗就跳過（記進 `skipped`），換下一個候選——被跳過的詞沒有上線，隔天自然又是候選池第一順位，不另外做黑名單。
+- `enrich()` 的請求多帶兩個欄位：`allowed_kanji`（目前已知範圍內的漢字全部串接）與 `feedback`（上一次嘗試的問題列表，第一次為空）。兩個 provider（openrouter.ts / claude.ts）的 system prompt 都會把這兩者轉成白話指示：「例句漢字只能用 allowed_kanji 裡的字，範圍外的詞請改寫平假名」「上一次被退回的原因是……，請不要重複同樣的錯誤」。這是讓 AI 真正「學到教訓」而不是每天原地重犯的關鍵——單純把壞例句丟進 pending 等人工，不會讓下一次的 AI 呼叫變聰明。
+- **系統性錯誤（`AiProviderError` 的 kind 為 `auth`／`http`／`network`）立即中止整個執行**，不重試、不替補——這類錯誤代表 API 本身出問題，繼續嘗試下一個候選只會把同樣的錯誤重複 14×3 次，沒有意義。已接受的詞連同錯誤一起寫進 `pending/`，exit 2。`schema`／`truncated`／`refusal`（模型輸出本身有問題，不是連線問題）則視為這個詞這次嘗試的失敗，照常重試。
+- 接受的詞最後依 rank 排序、重新配發連續 id，確保 `freq_rank` 嚴格遞增、id 連續——候選是依 rank 嘗試的，但哪些詞會被跳過事先不知道，id 必須等最終名單確定才配。
+- pending 檔的 `pipeline` 多兩個欄位：`attempts`（每個嘗試過的候選，每次嘗試的階段與問題）、`skipped`（最終被跳過的候選與其問題），方便人工或下一次的 AI 呼叫回顧「這批到底發生了什麼」。
+
+`validateWordStandalone`（`scripts/lib/validate-words.ts`）是這次修法新增的驗證入口：對「一個詞」回傳它的**全部**問題（zod 形狀、`enrichWord` 的各種檢查、例句超綱漢字、例句與既有/同批詞重複），而不是像 `fail()`／`BuildError` 那樣遇到第一個問題就丟出例外中止。`validateWordFile`／`build-bank.ts` 既有的行為與錯誤訊息完全不變（既有測試逐字比對它們）——`validateWordStandalone` 是平行的新函式，不是重構。`scripts/cross-check.ts` 對 pending 檔的程式驗證也改成先跑 `validateWordStandalone` 印出每個詞的全部問題，再跑 `validateWordFile` 做跨檔案的結構檢查（id/surface+reading/freq_rank 唯一性、confusable_with 對稱）；後者維持「遇到第一個問題就停」，但此時多半已經沒有問題可停了。
+
 ### 9.2 驗證器能查的（純程式，無 AI）
 
 - `reading` 只含假名（`kanaToCells` 回傳含 `out_of_table` 或非假名 → 失敗）

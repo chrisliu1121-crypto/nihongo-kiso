@@ -18,8 +18,21 @@
 // per-word failure -- it still calls process.exit(2) directly, exactly as
 // before. A pending-file retry can't fix "there is no key at all".
 
-/** What kind of failure this was, one call away from an actual network/API layer. Deliberately a small closed set -- callers (generate-daily.ts/cross-check.ts) branch on it, so it stays exhaustively checkable. */
-export type AiProviderErrorKind = "auth" | "http" | "network" | "schema" | "truncated" | "refusal";
+/**
+ * What kind of failure this was, one call away from an actual network/API
+ * layer. Deliberately a small closed set -- callers (generate-daily.ts/
+ * cross-check.ts) branch on it, so it stays exhaustively checkable.
+ *
+ * `rate_limit` (2026-09-18 P1 fix): HTTP 429, kept distinct from `http` even
+ * though generate-daily.ts treats both as systemic/abort-worthy the same
+ * way -- a rate limit is a fundamentally different condition from a server
+ * error (a 5xx after retries suggests the API is actually down; a 429 after
+ * retries means this project is calling it too fast), and openrouter.ts's
+ * own backoff-retry logic (see its own file header) already burns 3 retries
+ * on both before either kind is ever thrown, so a human reading pipeline
+ * metadata should be able to tell them apart.
+ */
+export type AiProviderErrorKind = "auth" | "http" | "network" | "schema" | "truncated" | "refusal" | "rate_limit";
 
 export class AiProviderError extends Error {
   readonly provider: string;

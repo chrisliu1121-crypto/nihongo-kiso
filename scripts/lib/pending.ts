@@ -79,6 +79,30 @@ export interface PipelineErrorEntry {
   stage?: "enrich" | "judge";
 }
 
+/**
+ * One attempt at enriching/validating/judging a single candidate word (2026-09-17
+ * "卡死" fix, DESIGN.md §9.1 "逐詞重試與替補"). `stage` is which step this
+ * particular attempt failed at: "enrich" (the Enricher call itself threw a
+ * non-systemic AiProviderError, e.g. schema/truncated/refusal), "validate"
+ * (validateWordStandalone found problems in what the Enricher returned), or
+ * "judge" (validation passed but the Judge's verdict wasn't clean).
+ * `problems` is the full list from whichever of those produced this
+ * attempt's failure -- and becomes next attempt's EnrichRequest.feedback.
+ */
+export interface AttemptRecord {
+  attempt: number;
+  stage: "enrich" | "validate" | "judge";
+  problems: string[];
+}
+
+/** A frequency-table candidate that used up MAX_ATTEMPTS_PER_WORD without ever producing a clean word, and so was skipped in favor of the next candidate (DESIGN.md §9.1). Not on the bank -- it stays first in line the next time generate-daily.ts runs (no separate blacklist, by design). */
+export interface SkippedEntry {
+  surface: string;
+  reading: string;
+  rank: number;
+  problems: string[];
+}
+
 /** Per-word pipeline bookkeeping recorded alongside a pending day (DESIGN.md §9.1). */
 export interface PipelineMeta {
   enricher: string;
@@ -94,8 +118,25 @@ export interface PipelineMeta {
    * Non-empty means the day is incomplete -- scripts/cross-check.ts retries
    * exactly these words before doing anything else, and promotion refuses
    * while this is non-empty.
+   *
+   * 2026-09-17 "卡死" fix: generate-daily.ts's own per-candidate retry loop
+   * no longer uses this array for an ordinary per-word failure (that's what
+   * `attempts`/`skipped` below are for) -- it's reserved for the ONE case
+   * that still aborts the whole run outright: a systemic AiProviderError
+   * (kind auth/http/network, or a missing API key), recorded here so
+   * scripts/cross-check.ts's existing pipeline.errors retry pass (unchanged
+   * by this fix) can still pick it up.
    */
   errors?: PipelineErrorEntry[];
+  /**
+   * Every attempt (successful or not) made at every candidate this run
+   * touched, keyed by "surface|reading" (2026-09-17 "卡死" fix, DESIGN.md
+   * §9.1). Lets a human (or the next run's feedback loop) see exactly why a
+   * word was retried or skipped, instead of only the final outcome.
+   */
+  attempts?: Record<string, AttemptRecord[]>;
+  /** Every candidate that used up its attempts without ever passing, in the order it was tried (DESIGN.md §9.1 "逐詞重試與替補"). */
+  skipped?: SkippedEntry[];
 }
 
 /** Shape of one data/pending/YYYY-MM-DD.json file: a DaySeed (same shape as data/words/*.json) plus pipeline metadata build-bank.ts never reads (build-bank does not read data/pending/ at all -- DESIGN.md §12 step 6). */

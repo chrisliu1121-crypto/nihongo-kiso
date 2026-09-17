@@ -152,3 +152,39 @@ describe("ClaudeEnricher -- particle reading rule in system prompt", () => {
     expect(params.system).toContain("助詞 は/へ/を 的 reading 照字形寫 は/へ/を，不要寫成 わ/え/お");
   });
 });
+
+// ---------------------------------------------------------------------------
+// 2026-09-17 "卡死" fix (DESIGN.md §9.1a): same allowed_kanji/feedback
+// prompt-content contract as openrouter.ts (scripts/lib/ai/__tests__/openrouter.test.ts's
+// own equivalent describe block) -- this file's ClaudeEnricher builds its
+// system prompt via a separate copy of the same buildEnrichSystemPrompt
+// logic (see claude.ts's own header comment for why the two files never
+// import from each other).
+
+describe("ClaudeEnricher -- allowed_kanji / feedback in system prompt (2026-09-17 卡死 fix)", () => {
+  const okResponse = () =>
+    textMessage({ example: { ja: "学校です。", zh: "是學校。", tokens: [{ surface: "学校", reading: "がっこう", gloss: "學校", particle: null }, { surface: "です", reading: "です", gloss: "是", particle: null }] }, collocations: [], note: null });
+
+  it("embeds the allowed_kanji string in the system prompt", async () => {
+    createMock.mockReset();
+    createMock.mockResolvedValue(okResponse());
+    await ClaudeEnricher.enrich({ ...ENRICH_REQ, allowed_kanji: "一二三話" });
+    const params = createMock.mock.calls[0][0] as CapturedParams;
+    expect(params.system).toContain("例句中出現的漢字只能使用以下允許的漢字：一二三話");
+  });
+
+  it("omits the feedback clause when feedback is empty/absent, includes it (with every problem) when non-empty", async () => {
+    createMock.mockReset();
+    createMock.mockResolvedValue(okResponse());
+    await ClaudeEnricher.enrich(ENRICH_REQ);
+    const bareParams = createMock.mock.calls[0][0] as CapturedParams;
+    expect(bareParams.system).not.toContain("你上一次產生的內容被退回");
+
+    createMock.mockReset();
+    createMock.mockResolvedValue(okResponse());
+    await ClaudeEnricher.enrich({ ...ENRICH_REQ, feedback: ["例句含超綱漢字：号"] });
+    const feedbackParams = createMock.mock.calls[0][0] as CapturedParams;
+    expect(feedbackParams.system).toContain("你上一次產生的內容被退回");
+    expect(feedbackParams.system).toContain("例句含超綱漢字：号");
+  });
+});

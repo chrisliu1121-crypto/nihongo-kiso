@@ -15,6 +15,11 @@ import type { Judge, JudgeRequest, JudgeResult } from "./judge.ts";
 const COPULA = { surface: "です", reading: "です", gloss: "是" };
 
 /** Build the single most conservative example a POS allows: nouns/pronouns/question-words/adjectives get "{surface}です。"; verbs/adverbs/expressions get just the bare predicate "{surface}。" (there's no safe generic way to build a full sentence around an arbitrary verb without knowing its conjugation class). Every token carries a gloss (DESIGN.md §8.2): the headword token reuses the word's own gloss, です is "是". */
+// 2026-09-17 "卡死" fix (DESIGN.md §9.1): EnrichRequest grew `allowed_kanji`/
+// `feedback` fields for the real providers to act on -- StubEnricher
+// deliberately ignores both (never reads req.allowed_kanji or req.feedback
+// anywhere below). Its whole point is a fixed, always-valid template output
+// regardless of input, so there is nothing for either field to change.
 function buildExample(req: EnrichRequest): EnrichResult["example"] {
   const headToken = { surface: req.surface, reading: req.reading, gloss: req.gloss };
 

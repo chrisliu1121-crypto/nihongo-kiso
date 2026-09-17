@@ -63,9 +63,10 @@ node scripts/cross-check.ts --judge openrouter --promote
 ## 每日內容自動化（cron）
 
 1. 到 repo 的 **Settings → Secrets and variables → Actions**，新增一個 secret：`OPENROUTER_API_KEY`。
-2. `.github/workflows/daily.yml` 預設每天 UTC 21:00（台灣時間隔天 05:00）自動跑一次，也可以到 **Actions** 分頁手動點 **Run workflow** 觸發一次來驗證（可選填 `date` / `model` 輸入）。
+2. `.github/workflows/daily.yml` 預設每天 UTC 21:00（台灣時間隔天 05:00）自動跑一次，也可以到 **Actions** 分頁手動點 **Run workflow** 觸發一次來驗證（可選填 `date` / `model` / `force` 輸入）。
 3. **換模型**：預設用 `google/gemini-3.8-flash`。想讓每天自動跑改用別的模型，不用改程式：到 **Settings → Secrets and variables → Actions → Variables** 分頁新增 repository variable `OPENROUTER_MODEL`，值填 OpenRouter 上的模型 id（例如 `anthropic/claude-opus-5`）。手動 Run workflow 時填的 `model` 輸入會蓋過這個變數；兩者都沒設就用預設值。
 4. 若當天產生失敗或有候選沒通過複查，工作流程仍會把 `data/pending/` 底下的檔案 commit 上去，並讓該次執行顯示為失敗（紅色），方便注意到需要人工檢視。失敗時先看 `data/pending/` 底下對應日期的檔案。
+5. 手動 Run workflow 時若勾選 `force`，會多帶 `--force` 給 `generate-daily.ts`——`data/pending/` 已有同日期的檔案時（可能還沒人工審完）預設會直接拒絕執行，勾選 `force` 才會覆寫它重新產生，避免不小心蓋掉還沒審完的內容。
 
 ## 設計文件
 

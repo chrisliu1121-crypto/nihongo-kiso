@@ -15,10 +15,29 @@ on:
         description: "OpenRouter model id override. Leave blank for the default."
         required: false
         type: string
+      force:
+        description: "data/pending/ 已有同日期的檔案時勾選（會覆寫待審檔）"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
   actions: write
+
+# 2026-09-17 "卡死" fix: two back-to-back manual triggers (or a manual
+# trigger landing while the scheduled run is still going) used to be able to
+# run concurrently -- both would pick the same not-yet-promoted candidate
+# batch (generate-daily.ts only sees what's already in data/words/ when it
+# starts) and then race to `git push`, so the second one to finish either
+# duplicated a day's content or hit a push conflict. Queue instead of
+# canceling (cancel-in-progress: false) -- generate-daily.ts's own pipeline
+# takes real AI calls and minutes to run; killing a run partway through
+# would throw that work away for no benefit, since the next queued run would
+# just redo it anyway.
+concurrency:
+  group: daily-content
+  cancel-in-progress: false
 
 jobs:
   generate:
@@ -53,6 +72,7 @@ jobs:
           --promote
           ${{ inputs.date && format('--date {0}', inputs.date) || '' }}
           ${{ inputs.model && format('--model {0}', inputs.model) || '' }}
+          ${{ inputs.force && '--force' || '' }}
 
       - name: Configure git identity
         run: |

@@ -29,8 +29,25 @@ function makeLoader<T>(path: string): () => Promise<Record<string, T>> {
 }
 
 /**
+ * 2026-09-17 "卡死" fix (DESIGN.md §9.1 "逐詞重試與替補"): a fixture entry
+ * can now be EITHER a single result (unchanged, back-compat) OR an array of
+ * results consumed one per call -- call N (1-indexed) gets `arr[N-1]`; once
+ * N exceeds the array's length, every further call keeps getting the LAST
+ * element. This is what lets a test fixture simulate "this word's first
+ * attempt is bad, its second attempt is good" offline, entirely through the
+ * fixture file's own data instead of custom test-only Enricher/Judge
+ * objects.
+ */
+function pickByCallCount<T>(entry: T | T[], callIndex: number): T {
+  if (!Array.isArray(entry)) return entry;
+  const idx = Math.min(callIndex, entry.length - 1);
+  return entry[idx];
+}
+
+/**
  * Enricher whose answers come from a pre-recorded JSON file at `path`
- * (object keyed by "surface|reading" -> EnrichResult). Throws if a
+ * (object keyed by "surface|reading" -> EnrichResult, or -> EnrichResult[]
+ * for a per-attempt sequence -- see pickByCallCount above). Throws if a
  * requested word isn't in the file -- silently falling back to some default
  * would defeat the point of a fixture file (a test that thinks it's
  * checking FileEnricher's output would actually be checking the fallback).
@@ -45,38 +62,46 @@ function makeLoader<T>(path: string): () => Promise<Record<string, T>> {
  * enrich loop.
  */
 export function FileEnricher(path: string): Enricher {
-  const load = makeLoader<EnrichResult>(path);
+  const load = makeLoader<EnrichResult | EnrichResult[]>(path);
+  const callCounts = new Map<string, number>();
   return {
     name: `file:${path}`,
     async enrich(req: EnrichRequest): Promise<EnrichResult> {
       const table = await load();
       const key = wordKey(req.surface, req.reading);
-      const result = table[key];
-      if (!result) {
+      const entry = table[key];
+      if (!entry) {
         throw new AiProviderError(`file:${path}`, "schema", `FileEnricher(${path})：找不到 "${key}" 的預錄結果`);
       }
-      return result;
+      const callIndex = callCounts.get(key) ?? 0;
+      callCounts.set(key, callIndex + 1);
+      return pickByCallCount(entry, callIndex);
     },
   };
 }
 
 /**
  * Judge whose answers come from a pre-recorded JSON file at `path` (object
- * keyed by "surface|reading" -> JudgeResult). Throws AiProviderError if a
- * requested word isn't in the file, for the same reason FileEnricher does.
+ * keyed by "surface|reading" -> JudgeResult, or -> JudgeResult[] for a
+ * per-attempt sequence -- same pickByCallCount treatment as FileEnricher
+ * above). Throws AiProviderError if a requested word isn't in the file, for
+ * the same reason FileEnricher does.
  */
 export function FileJudge(path: string): Judge {
-  const load = makeLoader<JudgeResult>(path);
+  const load = makeLoader<JudgeResult | JudgeResult[]>(path);
+  const callCounts = new Map<string, number>();
   return {
     name: `file:${path}`,
     async judge(req: JudgeRequest): Promise<JudgeResult> {
       const table = await load();
       const key = wordKey(req.surface, req.reading);
-      const result = table[key];
-      if (!result) {
+      const entry = table[key];
+      if (!entry) {
         throw new AiProviderError(`file:${path}`, "schema", `FileJudge(${path})：找不到 "${key}" 的預錄結果`);
       }
-      return result;
+      const callIndex = callCounts.get(key) ?? 0;
+      callCounts.set(key, callIndex + 1);
+      return pickByCallCount(entry, callIndex);
     },
   };
 }

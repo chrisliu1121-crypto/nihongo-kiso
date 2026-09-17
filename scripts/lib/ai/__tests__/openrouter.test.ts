@@ -171,8 +171,8 @@ describe("stripFence", () => {
 // enrich()/judge() over an injected fetchImpl -- never touches the real
 // network.
 
-function jsonResponse(body: unknown, status = 200): Response {
-  return new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } });
+function jsonResponse(body: unknown, status = 200, extraHeaders: Record<string, string> = {}): Response {
+  return new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", ...extraHeaders } });
 }
 
 describe("OpenRouter enrich/judge via injected fetchImpl", () => {
@@ -251,9 +251,10 @@ describe("OpenRouter enrich/judge via injected fetchImpl", () => {
     expect(exitSpy).not.toHaveBeenCalled();
   });
 
-  it("non-2xx (non-401) HTTP response: throws AiProviderError(kind: 'http') with status and a body snippet, never the key", async () => {
+  it("non-2xx (non-401) HTTP response: throws AiProviderError(kind: 'http') with status and a body snippet, never the key -- 2026-09-18 P1 fix: only AFTER exhausting the 500-is-retryable backoff (4 total attempts, 3 sleeps, no real waiting via the injected fake sleep)", async () => {
     const fetchImpl = vi.fn(async () => jsonResponse({ error: { message: "server exploded" } }, 500));
-    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch });
+    const fakeSleep = vi.fn(async (_ms: number) => {});
+    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch, sleep: fakeSleep });
 
     let caught: unknown;
     try {
@@ -268,6 +269,9 @@ describe("OpenRouter enrich/judge via injected fetchImpl", () => {
     expect(err.detail).toMatch(/500/);
     expect(err.detail.includes(FAKE_KEY)).toBe(false);
     expect(exitSpy).not.toHaveBeenCalled();
+    expect(fetchImpl).toHaveBeenCalledTimes(4); // 1 initial + 3 retries
+    expect(fakeSleep).toHaveBeenCalledTimes(3);
+    expect(fakeSleep.mock.calls.map((c) => c[0])).toEqual([2000, 6000, 18000]);
   });
 
   it("code review item 3 (P1): a 401 body containing a canary API-key-shaped string is redacted before it ever reaches the thrown error's message/detail", async () => {
@@ -298,11 +302,12 @@ describe("OpenRouter enrich/judge via injected fetchImpl", () => {
     }
   });
 
-  it("a thrown network error (fetch itself rejecting) is caught and rethrown as AiProviderError(kind: 'network')", async () => {
+  it("a thrown network error (fetch itself rejecting) is caught and rethrown as AiProviderError(kind: 'network') -- 2026-09-18 P1 fix: only after exhausting backoff retries (network errors retry the same as 5xx)", async () => {
     const fetchImpl = vi.fn(async () => {
       throw new Error("ENOTFOUND openrouter.ai");
     });
-    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch });
+    const fakeSleep = vi.fn(async (_ms: number) => {});
+    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch, sleep: fakeSleep });
 
     let caught: unknown;
     try {
@@ -313,6 +318,8 @@ describe("OpenRouter enrich/judge via injected fetchImpl", () => {
     expect(caught).toBeInstanceOf(AiProviderError);
     expect((caught as AiProviderError).kind).toBe("network");
     expect(exitSpy).not.toHaveBeenCalled();
+    expect(fetchImpl).toHaveBeenCalledTimes(4);
+    expect(fakeSleep).toHaveBeenCalledTimes(3);
   });
 
   it("finish_reason length: throws AiProviderError(kind: 'truncated') before attempting to parse JSON", async () => {
@@ -598,5 +605,193 @@ describe("enrich system prompt: particle reading written as the character", () =
   it("tells the model は/へ/を readings stay は/へ/を, not わ/え/お", () => {
     const system = buildEnrichRequestBody(ENRICH_REQ, "some/model").messages[0].content;
     expect(system).toContain("助詞 は/へ/を 的 reading 照字形寫 は/へ/を，不要寫成 わ/え/お");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 2026-09-17 "卡死" fix (DESIGN.md §9.1a): EnrichRequest.allowed_kanji /
+// .feedback -- both must show up as plain instructional text in the enrich
+// system prompt (not just buried in the user JSON), and .feedback's clause
+// must be entirely absent when there's nothing to say (a first attempt).
+
+// ---------------------------------------------------------------------------
+// 2026-09-18 P1 fix: 429/5xx/network backoff retry -- a single transient
+// failure must not make generate-daily.ts abort a whole night's progress
+// the way an immediate throw did before. See openrouter.ts's own
+// RETRYABLE_STATUSES/callOpenRouter doc comments for the full design.
+
+describe("callOpenRouter backoff retry (2026-09-18 P1 fix)", () => {
+  let errorSpy: ReturnType<typeof vi.spyOn>;
+  let originalKey: string | undefined;
+
+  beforeEach(() => {
+    originalKey = process.env.OPENROUTER_API_KEY;
+    process.env.OPENROUTER_API_KEY = FAKE_KEY;
+    errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+  afterEach(() => {
+    if (originalKey === undefined) delete process.env.OPENROUTER_API_KEY;
+    else process.env.OPENROUTER_API_KEY = originalKey;
+    errorSpy.mockRestore();
+  });
+
+  it("429 twice then success: the word is accepted normally (enrich() resolves), sleep is called twice, and the FIRST wait honors Retry-After while the second falls back to the fixed backoff schedule", async () => {
+    const okBody = { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", gloss: "（測試）", particle: null }] }, collocations: [], note: null };
+    let call = 0;
+    const fetchImpl = vi.fn(async () => {
+      call++;
+      if (call === 1) return jsonResponse({ error: { message: "rate limited" } }, 429, { "retry-after": "5" });
+      if (call === 2) return jsonResponse({ error: { message: "rate limited again" } }, 429);
+      return jsonResponse({ choices: [{ message: { content: JSON.stringify(okBody) }, finish_reason: "stop" }] });
+    });
+    const fakeSleep = vi.fn(async (_ms: number) => {});
+    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch, sleep: fakeSleep });
+
+    const result = await enricher.enrich(ENRICH_REQ);
+    expect(result.example.ja).toBe("x。"); // succeeded -- this word would be accepted by generate-daily.ts's pipeline
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+    expect(fakeSleep).toHaveBeenCalledTimes(2);
+    expect(fakeSleep.mock.calls[0][0]).toBe(5000); // honored Retry-After: 5 (seconds -> ms)
+    expect(fakeSleep.mock.calls[1][0]).toBe(6000); // no Retry-After on the 2nd failure -> fixed schedule's 2nd delay
+    expect(enricher.requestCount?.()).toBe(3);
+  });
+
+  it("503 four times in a row: exhausts all 3 retries (4 total requests) and throws AiProviderError(kind: 'http') -- generate-daily.ts treats this as systemic and aborts", async () => {
+    const fetchImpl = vi.fn(async () => jsonResponse({ error: { message: "service unavailable" } }, 503));
+    const fakeSleep = vi.fn(async (_ms: number) => {});
+    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch, sleep: fakeSleep });
+
+    let caught: unknown;
+    try {
+      await enricher.enrich(ENRICH_REQ);
+    } catch (err) {
+      caught = err;
+    }
+    expect(caught).toBeInstanceOf(AiProviderError);
+    expect((caught as AiProviderError).kind).toBe("http");
+    expect((caught as AiProviderError).status).toBe(503);
+    expect(fetchImpl).toHaveBeenCalledTimes(4);
+    expect(fakeSleep).toHaveBeenCalledTimes(3);
+    expect(fakeSleep.mock.calls.map((c) => c[0])).toEqual([2000, 6000, 18000]);
+  });
+
+  it("429 exhausted after retries: throws AiProviderError(kind: 'rate_limit'), not 'http'", async () => {
+    const fetchImpl = vi.fn(async () => jsonResponse({ error: { message: "rate limited" } }, 429));
+    const fakeSleep = vi.fn(async (_ms: number) => {});
+    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch, sleep: fakeSleep });
+
+    let caught: unknown;
+    try {
+      await enricher.enrich(ENRICH_REQ);
+    } catch (err) {
+      caught = err;
+    }
+    expect((caught as AiProviderError).kind).toBe("rate_limit");
+    expect(fetchImpl).toHaveBeenCalledTimes(4);
+  });
+
+  it("400: not retried, throws immediately (kind: 'http'), no sleep called", async () => {
+    const fetchImpl = vi.fn(async () => jsonResponse({ error: { message: "bad request" } }, 400));
+    const fakeSleep = vi.fn(async (_ms: number) => {});
+    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch, sleep: fakeSleep });
+
+    let caught: unknown;
+    try {
+      await enricher.enrich(ENRICH_REQ);
+    } catch (err) {
+      caught = err;
+    }
+    expect(caught).toBeInstanceOf(AiProviderError);
+    expect((caught as AiProviderError).kind).toBe("http");
+    expect((caught as AiProviderError).status).toBe(400);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fakeSleep).not.toHaveBeenCalled();
+  });
+
+  it("401: not retried either (retrying with the same bad key can never succeed), throws kind 'auth' immediately", async () => {
+    const fetchImpl = vi.fn(async () => jsonResponse({ error: { message: "invalid key" } }, 401));
+    const fakeSleep = vi.fn(async (_ms: number) => {});
+    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch, sleep: fakeSleep });
+
+    let caught: unknown;
+    try {
+      await enricher.enrich(ENRICH_REQ);
+    } catch (err) {
+      caught = err;
+    }
+    expect((caught as AiProviderError).kind).toBe("auth");
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fakeSleep).not.toHaveBeenCalled();
+  });
+
+  it("Retry-After capped at 60s even if the header asks for longer", async () => {
+    let call = 0;
+    const okBody = { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", gloss: "（測試）", particle: null }] }, collocations: [], note: null };
+    const fetchImpl = vi.fn(async () => {
+      call++;
+      if (call === 1) return jsonResponse({ error: { message: "slow down" } }, 429, { "retry-after": "999999" });
+      return jsonResponse({ choices: [{ message: { content: JSON.stringify(okBody) }, finish_reason: "stop" }] });
+    });
+    const fakeSleep = vi.fn(async (_ms: number) => {});
+    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch, sleep: fakeSleep });
+    await enricher.enrich(ENRICH_REQ);
+    expect(fakeSleep).toHaveBeenCalledTimes(1);
+    expect(fakeSleep.mock.calls[0][0]).toBe(60000);
+  });
+
+  it("requestCount() accumulates across multiple enrich()/judge() calls on the same instance (starts at 0, no retries needed on a clean success)", async () => {
+    const okBody = { example: { ja: "x。", zh: "x", tokens: [{ surface: "x", reading: "x", gloss: "（測試）", particle: null }] }, collocations: [], note: null };
+    const fetchImpl = vi.fn(async () => jsonResponse({ choices: [{ message: { content: JSON.stringify(okBody) }, finish_reason: "stop" }] }));
+    const enricher = makeOpenRouterEnricher({ fetchImpl: fetchImpl as unknown as typeof fetch });
+    expect(enricher.requestCount?.()).toBe(0);
+    await enricher.enrich(ENRICH_REQ);
+    await enricher.enrich(ENRICH_REQ);
+    expect(enricher.requestCount?.()).toBe(2);
+  });
+
+  it("stub/file providers never implement requestCount -- generate-daily.ts's fallback to logical call counts is what makes that safe", async () => {
+    const { StubEnricher } = await import("../stub.ts");
+    expect(StubEnricher.requestCount).toBeUndefined();
+  });
+});
+
+describe("enrich system prompt: allowed_kanji / feedback (2026-09-17 卡死 fix)", () => {
+  it("always states the allowed_kanji list, even when ENRICH_REQ itself doesn't set one (falls back to an empty list, not a missing clause)", () => {
+    const system = buildEnrichRequestBody(ENRICH_REQ, "some/model").messages[0].content;
+    expect(system).toContain("例句中出現的漢字只能使用以下允許的漢字");
+    expect(system).toContain("請改用平假名書寫");
+  });
+
+  it("embeds the actual allowed_kanji string when the request sets one", () => {
+    const req: EnrichRequest = { ...ENRICH_REQ, allowed_kanji: "一二三話" };
+    const system = buildEnrichRequestBody(req, "some/model").messages[0].content;
+    expect(system).toContain("例句中出現的漢字只能使用以下允許的漢字：一二三話");
+  });
+
+  it("omits the feedback clause entirely when req.feedback is empty/absent", () => {
+    const system = buildEnrichRequestBody(ENRICH_REQ, "some/model").messages[0].content;
+    expect(system).not.toContain("你上一次產生的內容被退回");
+  });
+
+  it("includes the feedback clause, with every problem listed, when req.feedback is non-empty", () => {
+    const req: EnrichRequest = { ...ENRICH_REQ, feedback: ["例句含超綱漢字：号", "reading 含非假名字元"] };
+    const system = buildEnrichRequestBody(req, "some/model").messages[0].content;
+    expect(system).toContain("你上一次產生的內容被退回");
+    expect(system).toContain("例句含超綱漢字：号");
+    expect(system).toContain("reading 含非假名字元");
+    expect(system).toContain("不要重複同樣的錯誤");
+  });
+
+  it("the user message JSON carries allowed_kanji/feedback through when set (and omits them entirely when not, so the existing exact-match test above keeps passing)", () => {
+    const req: EnrichRequest = { ...ENRICH_REQ, allowed_kanji: "一二", feedback: ["問題A"] };
+    const body = buildEnrichRequestBody(req, "some/model");
+    const userPayload = JSON.parse(body.messages[1].content);
+    expect(userPayload.allowed_kanji).toBe("一二");
+    expect(userPayload.feedback).toEqual(["問題A"]);
+
+    const bareBody = buildEnrichRequestBody(ENRICH_REQ, "some/model");
+    const barePayload = JSON.parse(bareBody.messages[1].content);
+    expect("allowed_kanji" in barePayload).toBe(false);
+    expect("feedback" in barePayload).toBe(false);
   });
 });

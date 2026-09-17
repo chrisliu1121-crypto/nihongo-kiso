@@ -28,15 +28,15 @@
 // only invited generating a day that validateWordFile would then reject
 // anyway. Review item 6.)
 
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { appendFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import { todayKey } from "../src/lib/bank/dates.ts";
 import type { DaySeed, PartOfSpeech, WordSeed } from "../src/lib/bank/types.ts";
-import type { Enricher, EnrichRequest } from "./lib/ai/enricher.ts";
+import type { Enricher, EnrichRequest, EnrichResult } from "./lib/ai/enricher.ts";
 import type { Judge, JudgeRequest, JudgeResult } from "./lib/ai/judge.ts";
 import { StubEnricher, StubJudge } from "./lib/ai/stub.ts";
 import { FileEnricher, FileJudge } from "./lib/ai/file.ts";
-import { AiProviderError } from "./lib/ai/errors.ts";
+import { AiProviderError, type AiProviderErrorKind } from "./lib/ai/errors.ts";
 import {
   buildWordCtx,
   collectExistingExampleJa,
@@ -48,11 +48,35 @@ import {
   PENDING_DIR,
   pendingPath,
   wordsPath,
+  type AttemptRecord,
   type PendingDayFile,
   type PipelineErrorEntry,
   type PipelineMeta,
+  type SkippedEntry,
 } from "./lib/pending.ts";
-import { BuildError, validateWordFile, WORDS_PER_DAY, type RawDay } from "./lib/validate-words.ts";
+import { BuildError, validateWordFile, validateWordStandalone, WORDS_PER_DAY, type RawDay } from "./lib/validate-words.ts";
+
+// ---------------------------------------------------------------------------
+// 2026-09-17 "卡死" fix (DESIGN.md §9.1 "逐詞重試與替補"): 2026-09-16/17's
+// cron both failed on the exact same 10-word batch (rank 51-60) because one
+// bad word (番号 using the out-of-scope kanji 号) made validate-words.ts's
+// FIRST BuildError abort the entire day's file before judge ever ran, and
+// the next night's run picked the identical batch again with zero memory of
+// what went wrong. MAX_ATTEMPTS_PER_WORD/MAX_CANDIDATES below are what let a
+// single bad candidate get retried (with feedback) or skipped in favor of
+// the next-ranked word, instead of taking the whole day down with it.
+export const MAX_ATTEMPTS_PER_WORD = 3;
+export const MAX_CANDIDATES = 14;
+
+function isSystemicProviderErrorKind(kind: AiProviderErrorKind): boolean {
+  // 2026-09-18 P1 fix: "rate_limit" (HTTP 429) joins the systemic set --
+  // openrouter.ts's own backoff-retry logic already burned 3 retries before
+  // ever throwing this, so by the time generate-daily.ts sees it, the
+  // service really is refusing requests, not just momentarily busy. See
+  // errors.ts's AiProviderErrorKind doc comment for why it's a distinct
+  // kind from "http" rather than folded into it.
+  return kind === "auth" || kind === "http" || kind === "network" || kind === "rate_limit";
+}
 
 // ---------------------------------------------------------------------------
 // Frequency table (DESIGN.md §12 step 6, data/frequency/n5.json)
@@ -94,6 +118,30 @@ export function pickNextWords(
   }
   if (picked.length < count) {
     throw new Error(`頻率表剩餘可用詞不足：需要 ${count} 個，只找到 ${picked.length} 個尚未收錄的詞`);
+  }
+  return picked;
+}
+
+/**
+ * 2026-09-17 "卡死" fix sibling of pickNextWords above: instead of exactly
+ * `maxCount` words (throwing if the table can't supply that many),
+ * pickCandidatePool returns UP TO `maxCount` -- the candidate POOL
+ * runGenerationPipeline works through one at a time, accepting some and
+ * skipping others, until either WORDS_PER_DAY are accepted or the pool runs
+ * out. A short pool (fewer than `maxCount` words left in the table) is not
+ * an error here the way it is for pickNextWords -- "ran out of candidates"
+ * is exactly the "不滿 10 → 寫 pending" case main() itself already handles.
+ */
+export function pickCandidatePool(
+  freq: readonly FrequencyWord[],
+  existingKeys: ReadonlySet<string>,
+  maxCount: number,
+): FrequencyWord[] {
+  const picked: FrequencyWord[] = [];
+  for (const w of freq) {
+    if (existingKeys.has(`${w.surface}|${w.reading}`)) continue;
+    picked.push(w);
+    if (picked.length === maxCount) break;
   }
   return picked;
 }
@@ -367,6 +415,26 @@ function printCandidates(candidates: readonly FrequencyWord[]): void {
   }
 }
 
+/**
+ * 2026-09-17 "卡死" fix: print every candidate that needed more than one
+ * attempt (successful or not), with each failed attempt's stage and
+ * problems -- this is what lets a human (or the acceptance run this
+ * function's doc comment traces back to) actually SEE "一 在第 3 次通過"
+ * in the CLI output, not just infer it from the pending file's `pipeline.attempts`.
+ * A candidate that passed on attempt 1 has no entry in `attempts` at all
+ * (see runGenerationPipeline) and is silently skipped here -- nothing
+ * interesting happened for it.
+ */
+function printAttemptHistory(attempts: Readonly<Record<string, AttemptRecord[]>>, acceptedKeys: ReadonlySet<string>): void {
+  for (const [key, records] of Object.entries(attempts)) {
+    const outcome = acceptedKeys.has(key) ? `第 ${records.length + 1} 次通過` : `${records.length} 次嘗試全部失敗，已跳過`;
+    console.log(`  [retry] ${key}：${outcome}`);
+    for (const r of records) {
+      console.log(`    #${r.attempt} (${r.stage})：${r.problems.join("；")}`);
+    }
+  }
+}
+
 /** Code review item 1 (P0): print a short per-word breakdown of a batch's AiProviderError failures, used by both the enrich phase and the judge phase below. */
 export function printErrorSummary(date: string, phase: "enrich" | "judge" | "enrich/judge", errors: readonly PipelineErrorEntry[], succeededCount: number): void {
   console.error(
@@ -435,6 +503,268 @@ export async function judgeWords(
   return { judgments, errors };
 }
 
+// ---------------------------------------------------------------------------
+// 2026-09-17 "卡死" fix: the core per-candidate attempt/retry/replace loop
+// (DESIGN.md §9.1 "逐詞重試與替補"). Replaces main()'s old
+// enrich-everything-then-validate-the-whole-file-then-judge-everything
+// pipeline (still available above as enrichCandidates/judgeWords, kept
+// unchanged for scripts/cross-check.ts's own retry pass, which this fix
+// deliberately leaves alone) with a per-word loop: each candidate gets up
+// to MAX_ATTEMPTS_PER_WORD tries (enrich -> validateWordStandalone -> judge,
+// in that order, each gated on the previous step) before being skipped in
+// favor of the next-ranked candidate. A failed attempt's problems become
+// next attempt's EnrichRequest.feedback -- the AI is told exactly what to
+// fix instead of repeating the same mistake with no memory of it, which is
+// what actually happened on 2026-09-16 -> 2026-09-17.
+
+export interface RunPipelineOptions {
+  /** Candidate pool, already in rank order and already excluding anything on the bank (pickCandidatePool's output). */
+  candidates: readonly FrequencyWord[];
+  enricher: Enricher;
+  judge: Judge;
+  existingSurfaces: readonly string[];
+  existingExamples: readonly string[];
+  /** WordValidationCtx.knownKanji (buildWordCtx's output) -- also concatenated into EnrichRequest.allowed_kanji for each attempt. */
+  knownKanji: ReadonlySet<string>;
+  /** Every example.ja already published in data/words/*.json (WordValidationCtx.existingExampleJa's keys). */
+  existingExampleJa: ReadonlySet<string>;
+  /** Used only to label validateWordStandalone's messages (and, downstream, EnrichRequest.feedback text) -- "`${date}.json`" reads consistently with every other BuildError-style message this pipeline produces. */
+  date: string;
+  level?: string;
+  /** Defaults to WORDS_PER_DAY; overridable so a test can ask for a small batch without building a full 10-word fixture. */
+  wordsPerDay?: number;
+  /** Defaults to MAX_ATTEMPTS_PER_WORD. */
+  maxAttempts?: number;
+}
+
+/** One candidate whose every attempt (enrich, validate, or judge) failed -- or, if every attempt succeeded, its accepted result. */
+export interface RunPipelineResult {
+  accepted: Array<{ freqWord: FrequencyWord; enriched: EnrichResult; judgment: JudgeResult }>;
+  skipped: SkippedEntry[];
+  attempts: Record<string, AttemptRecord[]>;
+  enrichCalls: number;
+  judgeCalls: number;
+  /**
+   * Set iff a systemic AiProviderError (kind auth/http/network) was thrown
+   * by ANY enrich()/judge() call -- the one case that still aborts the
+   * whole run rather than being retried/skipped (DESIGN.md §9.1: "系統性錯
+   * 誤立即中止整個執行"). `accepted`/`skipped`/`attempts` above still
+   * reflect everything that happened before the abort.
+   */
+  aborted?: {
+    kind: AiProviderErrorKind;
+    detail: string;
+    stage: "enrich" | "judge";
+    candidate: FrequencyWord;
+  };
+}
+
+export async function runGenerationPipeline(opts: RunPipelineOptions): Promise<RunPipelineResult> {
+  const wordsPerDay = opts.wordsPerDay ?? WORDS_PER_DAY;
+  const maxAttempts = opts.maxAttempts ?? MAX_ATTEMPTS_PER_WORD;
+  const level = opts.level ?? "N5";
+  const allowedKanjiStr = [...opts.knownKanji].join("");
+  const fileLabel = `${opts.date}.json`;
+
+  const accepted: RunPipelineResult["accepted"] = [];
+  const skipped: SkippedEntry[] = [];
+  const attempts: Record<string, AttemptRecord[]> = {};
+  // "surface|reading" example.ja -> the candidate key that produced it, so a
+  // LATER candidate in this same run can't silently duplicate an EARLIER
+  // one's accepted example (validateWordStandalone's batchExampleJa ctx).
+  const batchExampleJa = new Map<string, string>();
+  let enrichCalls = 0;
+  let judgeCalls = 0;
+
+  for (const candidate of opts.candidates) {
+    if (accepted.length >= wordsPerDay) break;
+
+    const key = `${candidate.surface}|${candidate.reading}`;
+    const wordAttempts: AttemptRecord[] = [];
+    let feedback: string[] = [];
+    let acceptedThisCandidate: { enriched: EnrichResult; judgment: JudgeResult } | null = null;
+
+    for (let attemptNum = 1; attemptNum <= maxAttempts; attemptNum++) {
+      const req: EnrichRequest = {
+        surface: candidate.surface,
+        reading: candidate.reading,
+        gloss: candidate.gloss,
+        pos: candidate.pos,
+        level,
+        existing_surfaces: [...opts.existingSurfaces],
+        allowed_kanji: allowedKanjiStr,
+        feedback: [...feedback],
+      };
+
+      let enriched: EnrichResult;
+      try {
+        enrichCalls++;
+        enriched = await opts.enricher.enrich(req);
+      } catch (err) {
+        if (err instanceof AiProviderError) {
+          if (isSystemicProviderErrorKind(err.kind)) {
+            if (wordAttempts.length > 0) attempts[key] = wordAttempts;
+            return { accepted, skipped, attempts, enrichCalls, judgeCalls, aborted: { kind: err.kind, detail: err.detail, stage: "enrich", candidate } };
+          }
+          const problems = [`enrich 失敗（${err.kind}）：${err.detail}`];
+          wordAttempts.push({ attempt: attemptNum, stage: "enrich", problems });
+          feedback = problems;
+          continue;
+        }
+        throw err;
+      }
+
+      // "w_0000" is a placeholder that satisfies ID_RE (w_ + 4 digits) so
+      // validateWordStandalone's own id-format check doesn't fire a bogus
+      // problem for every attempt -- the real id is only assigned once this
+      // candidate is accepted and the whole day's words are sorted by rank
+      // (see main()'s finalizeWords).
+      const candidateSeed: WordSeed = assembleSeed(candidate, enriched, "w_0000");
+      const validationProblems = validateWordStandalone(
+        candidateSeed,
+        { knownKanji: opts.knownKanji, existingExampleJa: opts.existingExampleJa, batchExampleJa },
+        fileLabel,
+      );
+      if (validationProblems.length > 0) {
+        wordAttempts.push({ attempt: attemptNum, stage: "validate", problems: validationProblems });
+        feedback = validationProblems;
+        continue;
+      }
+
+      let judgment: JudgeResult;
+      try {
+        judgeCalls++;
+        judgment = await opts.judge.judge({
+          surface: candidate.surface,
+          reading: candidate.reading,
+          gloss: candidate.gloss,
+          example: enriched.example,
+          existing_examples: [...opts.existingExamples],
+        });
+      } catch (err) {
+        if (err instanceof AiProviderError) {
+          if (isSystemicProviderErrorKind(err.kind)) {
+            if (wordAttempts.length > 0) attempts[key] = wordAttempts;
+            return { accepted, skipped, attempts, enrichCalls, judgeCalls, aborted: { kind: err.kind, detail: err.detail, stage: "judge", candidate } };
+          }
+          const problems = [`judge 失敗（${err.kind}）：${err.detail}`];
+          wordAttempts.push({ attempt: attemptNum, stage: "judge", problems });
+          feedback = problems;
+          continue;
+        }
+        throw err;
+      }
+
+      const clean = judgment.natural && judgment.reading_ok && judgment.gloss_ok && judgment.issues.length === 0;
+      if (!clean) {
+        const problems = judgment.issues.length > 0 ? judgment.issues : ["judge 未通過（無 issues）"];
+        wordAttempts.push({ attempt: attemptNum, stage: "judge", problems });
+        feedback = problems;
+        continue;
+      }
+
+      acceptedThisCandidate = { enriched, judgment };
+      break;
+    }
+
+    if (wordAttempts.length > 0) attempts[key] = wordAttempts;
+
+    if (acceptedThisCandidate) {
+      accepted.push({ freqWord: candidate, enriched: acceptedThisCandidate.enriched, judgment: acceptedThisCandidate.judgment });
+      batchExampleJa.set(acceptedThisCandidate.enriched.example.ja, key);
+    } else {
+      skipped.push({
+        surface: candidate.surface,
+        reading: candidate.reading,
+        rank: candidate.rank,
+        problems: wordAttempts.flatMap((a) => a.problems),
+      });
+    }
+  }
+
+  return { accepted, skipped, attempts, enrichCalls, judgeCalls };
+}
+
+/**
+ * Sort a RunPipelineResult's accepted candidates by rank and assign them
+ * real, permanent ids (nextWordIds, continuing from the bank's current max
+ * -- DESIGN.md §8.6) -- shared by every main() branch (abort / too-few /
+ * full-10) so id assignment always behaves identically regardless of which
+ * branch is writing the pending/words file. Every returned word is
+ * `verified: true`: acceptance into RunPipelineResult.accepted already
+ * REQUIRED a clean judge verdict (see runGenerationPipeline above), so
+ * there is no "accepted but unverified" state in this pipeline the way the
+ * old enrich-all/judge-all flow had.
+ */
+export function finalizeAcceptedWords(
+  existingDays: readonly RawDay[],
+  accepted: RunPipelineResult["accepted"],
+): { words: WordSeed[]; judgments: Record<string, JudgeResult> } {
+  const sorted = [...accepted].sort((a, b) => a.freqWord.rank - b.freqWord.rank);
+  const ids = nextWordIds(existingDays as RawDay[], sorted.length);
+  const judgments: Record<string, JudgeResult> = {};
+  const words = sorted.map((a, i) => {
+    const id = ids[i];
+    judgments[id] = a.judgment;
+    return { ...assembleSeed(a.freqWord, a.enriched, id), verified: true };
+  });
+  return { words, judgments };
+}
+
+/**
+ * 2026-09-18 P2 fix: a skipped candidate's `problems` is the flattened
+ * concatenation of every failed attempt's problems (runGenerationPipeline's
+ * own `skipped.push({ ..., problems: wordAttempts.flatMap(...) })`) -- when
+ * the SAME mistake repeats across attempts (the exact "AI keeps making the
+ * same mistake" pattern this whole fix exists to catch and correct), that
+ * one sentence would otherwise print 2-3 times in a row in both the CLI
+ * output and the step summary. This collapses consecutive-or-not duplicates
+ * to one line with a `（×N）` count suffix, preserving first-occurrence
+ * order. Deliberately ONLY a display-time transform: the pending file's own
+ * `pipeline.attempts`/`pipeline.skipped` (writePending's input) keep every
+ * attempt's problems exactly as produced, undeduplicated -- that's the
+ * record a human or a future run needs to see in full.
+ */
+export function dedupProblemsForDisplay(problems: readonly string[]): string[] {
+  const counts = new Map<string, number>();
+  for (const p of problems) counts.set(p, (counts.get(p) ?? 0) + 1);
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const p of problems) {
+    if (seen.has(p)) continue;
+    seen.add(p);
+    const count = counts.get(p)!;
+    out.push(count > 1 ? `${p}（×${count}）` : p);
+  }
+  return out;
+}
+
+/** Appends a markdown section to $GITHUB_STEP_SUMMARY (a no-op off CI, where that env var is unset) -- DESIGN.md §9.1: date, the accepted words (surface + example), every skipped word with its per-attempt problems, and the total AI call count. */
+export async function writeStepSummary(
+  date: string,
+  words: readonly WordSeed[],
+  skipped: readonly SkippedEntry[],
+  totalAiCalls: number,
+): Promise<void> {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (!summaryPath) return;
+
+  const lines: string[] = [`## generate-daily：${date}`, "", `共 ${totalAiCalls} 次 AI 呼叫（enrich + judge）。`, ""];
+  lines.push(`### 接受的詞（${words.length}）`);
+  for (const w of words) {
+    lines.push(`- **${w.surface}**（${w.reading}）— ${w.example.ja}`);
+  }
+  if (skipped.length > 0) {
+    lines.push("", `### 跳過的詞（${skipped.length}）`);
+    for (const s of skipped) {
+      lines.push(`- **${s.surface}**（${s.reading}，rank ${s.rank}）`);
+      for (const p of dedupProblemsForDisplay(s.problems)) lines.push(`  - ${p}`);
+    }
+  }
+  lines.push("");
+  await appendFile(summaryPath, lines.join("\n") + "\n", "utf8");
+}
+
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
 
@@ -466,17 +796,21 @@ async function main(): Promise<void> {
     existingDays.flatMap((d) => d.seed.words.map((w) => `${w.surface}|${w.reading}`)),
   );
 
-  let candidates: FrequencyWord[];
-  try {
-    candidates = pickNextWords(freq.words, existingKeys, WORDS_PER_DAY);
-  } catch (err) {
-    console.error(`[generate-daily] ${(err as Error).message}`);
-    process.exit(1);
-  }
+  // 2026-09-17 "卡死" fix (DESIGN.md §9.1): the candidate POOL is bigger
+  // than WORDS_PER_DAY (up to MAX_CANDIDATES) specifically so a bad
+  // candidate has somewhere to be replaced FROM -- pickNextWords (still
+  // used by --dry-run's preview below, which is about "what WOULD today
+  // pick", not the actual attempt/retry loop) throws when the table runs
+  // short; pickCandidatePool doesn't, because running short here just means
+  // "fewer than WORDS_PER_DAY get accepted", which main() already has a
+  // dedicated (non-crashing) branch for below.
+  const candidatePool = pickCandidatePool(freq.words, existingKeys, MAX_CANDIDATES);
 
   if (args.dryRun) {
-    console.log(`[dry-run] ${args.date} 會選出以下 ${candidates.length} 個詞（enricher=${args.enricher}, judge=${args.judge}）：`);
-    printCandidates(candidates);
+    console.log(
+      `[dry-run] ${args.date} 候選池（enricher=${args.enricher}, judge=${args.judge}, 最多嘗試 ${candidatePool.length} 個候選取 ${WORDS_PER_DAY} 詞）：`,
+    );
+    printCandidates(candidatePool);
     return;
   }
 
@@ -510,84 +844,129 @@ async function main(): Promise<void> {
 
   const existingSurfaces = collectExistingExampleSurfaces(existingDays);
   const existingExamples = collectExistingExampleJa(existingDays);
-  const ids = nextWordIds(existingDays, candidates.length);
+  const ctx = buildWordCtx(existingDays, freq.words.map((w) => w.surface));
 
-  // Code review item 1 (P0): each word is enriched independently; a
-  // per-word AiProviderError no longer aborts the whole batch (see
-  // enrichCandidates's own doc comment).
-  const { words, errors: enrichErrors } = await enrichCandidates(candidates, ids, enricher, existingSurfaces);
+  const result = await runGenerationPipeline({
+    candidates: candidatePool,
+    enricher,
+    judge,
+    existingSurfaces,
+    existingExamples,
+    knownKanji: ctx.knownKanji,
+    existingExampleJa: new Set(ctx.existingExampleJa.keys()),
+    date: args.date,
+  });
 
-  if (enrichErrors.length > 0) {
+  const { words, judgments } = finalizeAcceptedWords(existingDays, result.accepted);
+  // 2026-09-18 P1 fix: prefer each provider's own requestCount() (actual
+  // HTTP requests made, including openrouter.ts's internal backoff
+  // retries) over the pipeline's logical per-word call counters, so the
+  // step summary's "AI 呼叫次數" is honest about retries instead of
+  // undercounting them. stub/file/claude never retry at this layer, so
+  // their logical count already equals their true request count and
+  // requestCount() is simply absent for them (see Enricher.requestCount's
+  // own doc comment).
+  const totalAiCalls = (enricher.requestCount?.() ?? result.enrichCalls) + (judge.requestCount?.() ?? result.judgeCalls);
+  const acceptedKeys = new Set(result.accepted.map((a) => `${a.freqWord.surface}|${a.freqWord.reading}`));
+
+  // Case 1 (DESIGN.md §9.1): a systemic provider error (auth/http/network)
+  // aborts the run outright -- no retry, no replacement candidate, whatever
+  // was already accepted is written to pending as-is.
+  if (result.aborted) {
+    const abortEntry: PipelineErrorEntry = {
+      id: "-",
+      surface: result.aborted.candidate.surface,
+      reading: result.aborted.candidate.reading,
+      gloss: result.aborted.candidate.gloss,
+      pos: result.aborted.candidate.pos,
+      level: "N5",
+      freq_rank: result.aborted.candidate.rank,
+      kind: result.aborted.kind,
+      detail: result.aborted.detail,
+      stage: result.aborted.stage,
+    };
     const pipeline: PipelineMeta = {
       enricher: enricher.name,
       judge: judge.name,
       generated_at: new Date().toISOString(),
-      judgments: {},
-      errors: enrichErrors,
+      judgments,
+      errors: [abortEntry],
+      attempts: result.attempts,
+      skipped: result.skipped,
     };
     await writePending(args.date, { date: args.date, words }, pipeline);
-    printErrorSummary(args.date, "enrich", enrichErrors, words.length);
+    await writeStepSummary(args.date, words, result.skipped, totalAiCalls);
+    console.error(
+      `[generate-daily] ${args.date}：系統性錯誤（${abortEntry.kind}）中止整個執行（候選 ${abortEntry.surface}／${abortEntry.reading}，${result.aborted.stage} 階段）：${abortEntry.detail}`,
+    );
+    console.error(`[generate-daily] pending 檔案保留（已接受 ${words.length} 詞）：${pendingPath(args.date)}`);
+    printAttemptHistory(result.attempts, acceptedKeys);
     process.exit(2);
   }
 
-  const daySeed: DaySeed = { date: args.date, words };
   const pipeline: PipelineMeta = {
     enricher: enricher.name,
     judge: judge.name,
     generated_at: new Date().toISOString(),
-    judgments: {},
+    judgments,
     errors: [],
+    attempts: result.attempts,
+    skipped: result.skipped,
   };
-
+  const daySeed: DaySeed = { date: args.date, words };
   await writePending(args.date, daySeed, pipeline);
+  await writeStepSummary(args.date, words, result.skipped, totalAiCalls);
 
-  const ctx = buildWordCtx(existingDays, freq.words.map((w) => w.surface));
-  try {
-    validateWordFile(`${args.date}.json`, daySeed, ctx);
-  } catch (err) {
-    if (err instanceof BuildError) {
-      console.error(`[generate-daily] 驗證失敗：${err.message}`);
-      console.error(`[generate-daily] pending 檔案保留：${pendingPath(args.date)}`);
-      process.exit(1);
-    }
-    throw err;
+  console.log(
+    `[generate-daily] ${args.date}：接受 ${words.length}/${WORDS_PER_DAY} 詞，跳過 ${result.skipped.length} 個候選，enricher=${enricher.name}, judge=${judge.name}, 共 ${totalAiCalls} 次 AI 呼叫`,
+  );
+  for (const w of words) {
+    console.log(`  ${w.id}\t${w.surface}\t${w.reading}\tverified`);
+  }
+  for (const s of result.skipped) {
+    console.log(`  (skipped)\t${s.surface}\t${s.reading}\trank ${s.rank}\t${dedupProblemsForDisplay(s.problems).join("；") || "(無詳細問題)"}`);
+  }
+  printAttemptHistory(result.attempts, acceptedKeys);
+
+  // Case 2: the candidate pool ran out (or MAX_CANDIDATES was exhausted)
+  // before WORDS_PER_DAY words were accepted -- not a crash, but not a
+  // day's worth of content either. Same "leave pending for tomorrow's run
+  // to pick up where it left off" shape the rest of this pipeline already
+  // has; the skipped candidates are deliberately NOT blacklisted (DESIGN.md
+  // §9.1: they're simply first in line again next run).
+  if (words.length < WORDS_PER_DAY) {
+    console.error(`[generate-daily] ${args.date}：候選池用盡（試了 ${candidatePool.length} 個），僅接受 ${words.length}/${WORDS_PER_DAY} 詞，pending 檔案保留：${pendingPath(args.date)}`);
+    process.exit(1);
   }
 
-  const { judgments, errors: judgeErrors } = await judgeWords(words, judge, existingExamples);
-
-  if (judgeErrors.length > 0) {
-    pipeline.judgments = judgments;
-    pipeline.errors = judgeErrors;
-    await writePending(args.date, { date: args.date, words: applyJudgments(words, judgments) }, pipeline);
-    printErrorSummary(args.date, "judge", judgeErrors, words.length - judgeErrors.length);
-    process.exit(2);
-  }
-
-  const judgedWords = applyJudgments(words, judgments);
-  pipeline.judgments = judgments;
-  await writePending(args.date, { date: args.date, words: judgedWords }, pipeline);
-
-  console.log(`[generate-daily] ${args.date}：${judgedWords.length} 詞，enricher=${enricher.name}, judge=${judge.name}`);
-  for (const w of judgedWords) {
-    const issues = judgments[w.id]?.issues ?? [];
-    const status = w.verified ? "verified" : `未通過${issues.length ? "：" + issues.join("；") : ""}`;
-    console.log(`  ${w.id}\t${w.surface}\t${w.reading}\t${status}`);
-  }
-
+  // Case 3: exactly WORDS_PER_DAY accepted.
   if (args.promote) {
-    if (canPromote(judgedWords)) {
-      const finalSeed: DaySeed = { date: args.date, words: judgedWords };
-      await writeFile(wordsPath(args.date), JSON.stringify(finalSeed, null, 2) + "\n", "utf8");
+    // Final defense-in-depth gate (DESIGN.md §9.1 "再跑一次 validateWordFile
+    // 做整檔檢查"): validateWordStandalone above already checked every word
+    // in isolation, but never checked id/surface+reading/freq_rank
+    // uniqueness or confusable_with symmetry against the rest of the bank --
+    // validateWordFile is still the authority for those, unchanged.
+    try {
+      validateWordFile(`${args.date}.json`, daySeed, ctx);
+    } catch (err) {
+      if (err instanceof BuildError) {
+        console.error(`[generate-daily] 驗證失敗：${err.message}`);
+        console.error(`[generate-daily] pending 檔案保留：${pendingPath(args.date)}`);
+        process.exit(1);
+      }
+      throw err;
+    }
+
+    if (canPromote(words)) {
+      await writeFile(wordsPath(args.date), JSON.stringify(daySeed, null, 2) + "\n", "utf8");
       await rm(pendingPath(args.date));
       console.log(`[generate-daily] 已 promote：${wordsPath(args.date)}`);
     } else {
-      console.error(`[generate-daily] 無法 promote：尚有詞未通過 judge，pending 檔案保留：${pendingPath(args.date)}`);
-      for (const w of judgedWords) {
-        if (!w.verified) {
-          const issues = judgments[w.id]?.issues ?? [];
-          console.error(`  ${w.id}\t${w.surface}\t${issues.join("；") || "(無 issues，但 judge 未全部通過)"}`);
-        }
-      }
+      // Unreachable in practice (every accepted word is already
+      // verified:true -- see finalizeAcceptedWords), kept as a defensive
+      // fallback so a future change to that invariant fails loud instead of
+      // promoting something unverified.
+      console.error(`[generate-daily] 無法 promote：canPromote 判定為否，pending 檔案保留：${pendingPath(args.date)}`);
       process.exit(1);
     }
   } else {

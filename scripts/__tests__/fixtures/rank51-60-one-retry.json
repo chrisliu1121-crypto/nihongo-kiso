@@ -1,0 +1,159 @@
+{
+  "いくつ|いくつ": {
+    "example": {
+      "ja": "いくつですか。",
+      "zh": "有幾個呢？",
+      "tokens": [
+        { "surface": "いくつ", "reading": "いくつ", "gloss": "幾個" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "か", "reading": "か", "gloss": "（疑問）", "particle": true }
+      ]
+    },
+    "collocations": [],
+    "note": null
+  },
+  "いくら|いくら": {
+    "example": {
+      "ja": "いくらですか。",
+      "zh": "多少錢呢？",
+      "tokens": [
+        { "surface": "いくら", "reading": "いくら", "gloss": "多少錢" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "か", "reading": "か", "gloss": "（疑問）", "particle": true }
+      ]
+    },
+    "collocations": [],
+    "note": null
+  },
+  "どんな|どんな": {
+    "example": {
+      "ja": "どんなふくがすきですか。",
+      "zh": "喜歡什麼樣的衣服呢？",
+      "tokens": [
+        { "surface": "どんな", "reading": "どんな", "gloss": "什麼樣的" },
+        { "surface": "ふく", "reading": "ふく", "gloss": "衣服" },
+        { "surface": "が", "reading": "が", "gloss": "（對象）", "particle": true },
+        { "surface": "すきです", "reading": "すきです", "gloss": "喜歡" },
+        { "surface": "か", "reading": "か", "gloss": "（疑問）", "particle": true }
+      ]
+    },
+    "collocations": [],
+    "note": null
+  },
+  "一|いち": [
+    {
+      "example": {
+        "ja": "番号は一です。",
+        "zh": "號碼是一。",
+        "tokens": [
+          { "surface": "番号", "reading": "ばんごう", "gloss": "號碼" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "一", "reading": "いち", "gloss": "一" },
+          { "surface": "です", "reading": "です", "gloss": "是" }
+        ]
+      },
+      "collocations": [],
+      "note": null
+    },
+    {
+      "example": {
+        "ja": "番号は一です。",
+        "zh": "號碼是一。",
+        "tokens": [
+          { "surface": "番号", "reading": "ばんごう", "gloss": "號碼" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "一", "reading": "いち", "gloss": "一" },
+          { "surface": "です", "reading": "です", "gloss": "是" }
+        ]
+      },
+      "collocations": [],
+      "note": null
+    },
+    {
+      "example": {
+        "ja": "ばんごうは一です。",
+        "zh": "號碼是一。",
+        "tokens": [
+          { "surface": "ばんごう", "reading": "ばんごう", "gloss": "號碼" },
+          { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+          { "surface": "一", "reading": "いち", "gloss": "一" },
+          { "surface": "です", "reading": "です", "gloss": "是" }
+        ]
+      },
+      "collocations": [],
+      "note": null
+    }
+  ],
+  "二|に": {
+    "example": {
+      "ja": "二です。",
+      "zh": "是二。",
+      "tokens": [
+        { "surface": "二", "reading": "に", "gloss": "二" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ]
+    },
+    "collocations": [],
+    "note": null
+  },
+  "三|さん": {
+    "example": {
+      "ja": "三です。",
+      "zh": "是三。",
+      "tokens": [
+        { "surface": "三", "reading": "さん", "gloss": "三" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ]
+    },
+    "collocations": [],
+    "note": null
+  },
+  "四|よん": {
+    "example": {
+      "ja": "四です。",
+      "zh": "是四。",
+      "tokens": [
+        { "surface": "四", "reading": "よん", "gloss": "四" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ]
+    },
+    "collocations": [],
+    "note": null
+  },
+  "五|ご": {
+    "example": {
+      "ja": "五です。",
+      "zh": "是五。",
+      "tokens": [
+        { "surface": "五", "reading": "ご", "gloss": "五" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ]
+    },
+    "collocations": [],
+    "note": null
+  },
+  "六|ろく": {
+    "example": {
+      "ja": "六です。",
+      "zh": "是六。",
+      "tokens": [
+        { "surface": "六", "reading": "ろく", "gloss": "六" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ]
+    },
+    "collocations": [],
+    "note": null
+  },
+  "七|なな": {
+    "example": {
+      "ja": "七です。",
+      "zh": "是七。",
+      "tokens": [
+        { "surface": "七", "reading": "なな", "gloss": "七" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ]
+    },
+    "collocations": [],
+    "note": null
+  }
+}
