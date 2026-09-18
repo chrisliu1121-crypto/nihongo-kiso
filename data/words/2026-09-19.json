@@ -1,0 +1,510 @@
+{
+  "date": "2026-09-19",
+  "words": [
+    {
+      "id": "w_0081",
+      "surface": "今月",
+      "reading": "こんげつ",
+      "gloss": "這個月",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 81,
+      "romaji_override": null,
+      "example": {
+        "ja": "今月は休みが多いです。",
+        "zh": "這個月休假很多。",
+        "tokens": [
+          {
+            "surface": "今月",
+            "reading": "こんげつ",
+            "gloss": "這個月"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "休み",
+            "reading": "やすみ",
+            "gloss": "休假"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "多いです",
+            "reading": "おおいです",
+            "gloss": "很多"
+          }
+        ]
+      },
+      "collocations": [
+        "今月末",
+        "今月中",
+        "今月の初め"
+      ],
+      "confusable_with": [],
+      "note": "「今月」表示「這個月」。作為時間副詞使用時，後方通常不加助詞「に」；若要作為句子的主題加以強調，可加「は」成為「今月は」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0082",
+      "surface": "来月",
+      "reading": "らいげつ",
+      "gloss": "下個月",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 82,
+      "romaji_override": null,
+      "example": {
+        "ja": "来月日本へ行きます。",
+        "zh": "下個月要去日本。",
+        "tokens": [
+          {
+            "surface": "来月",
+            "reading": "らいげつ",
+            "gloss": "下個月"
+          },
+          {
+            "surface": "日本",
+            "reading": "にほん",
+            "gloss": "日本"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "来月日本へ行きます",
+        "来月の初め",
+        "来月休みます"
+      ],
+      "confusable_with": [],
+      "note": "「来月」表示「下個月」。作為時間詞直接修飾後面的動詞時，通常不加助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0083",
+      "surface": "先月",
+      "reading": "せんげつ",
+      "gloss": "上個月",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 83,
+      "romaji_override": null,
+      "example": {
+        "ja": "先月日本へ来ました。",
+        "zh": "上個月來了日本。",
+        "tokens": [
+          {
+            "surface": "先月",
+            "reading": "せんげつ",
+            "gloss": "上個月"
+          },
+          {
+            "surface": "日本",
+            "reading": "にほん",
+            "gloss": "日本"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "来ました",
+            "reading": "きました",
+            "gloss": "來了"
+          }
+        ]
+      },
+      "collocations": [
+        "先月の試験",
+        "先月買いました"
+      ],
+      "confusable_with": [],
+      "note": "「先月」表示「上個月」，直接作時間副詞使用時，後面通常不加助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0084",
+      "surface": "今年",
+      "reading": "ことし",
+      "gloss": "今年",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 84,
+      "romaji_override": null,
+      "example": {
+        "ja": "今年は日本語を勉強します。",
+        "zh": "今年要學日語。",
+        "tokens": [
+          {
+            "surface": "今年",
+            "reading": "ことし",
+            "gloss": "今年"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "日本語",
+            "reading": "にほんご",
+            "gloss": "日語"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "勉強します",
+            "reading": "べんきょうします",
+            "gloss": "學習"
+          }
+        ]
+      },
+      "collocations": [
+        "今年行きます",
+        "今年の夏",
+        "今年から"
+      ],
+      "confusable_with": [],
+      "note": "「今年」的讀音為特殊的熟字訓「ことし」，請特別注意。作為時間名詞直接修飾動作時，後面通常不接助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0085",
+      "surface": "来年",
+      "reading": "らいねん",
+      "gloss": "明年",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 85,
+      "romaji_override": null,
+      "example": {
+        "ja": "来年日本へ行きます。",
+        "zh": "明年要去日本。",
+        "tokens": [
+          {
+            "surface": "来年",
+            "reading": "らいねん",
+            "gloss": "明年"
+          },
+          {
+            "surface": "日本",
+            "reading": "にほん",
+            "gloss": "日本"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "来年の春",
+        "来年日本へ行きます",
+        "来年結婚します"
+      ],
+      "confusable_with": [],
+      "note": "「来年」是表示「明年」的時間名詞，直接作為時間副詞使用時，後面通常不加助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0086",
+      "surface": "去年",
+      "reading": "きょねん",
+      "gloss": "去年",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 86,
+      "romaji_override": null,
+      "example": {
+        "ja": "去年友達と海へ行きました。",
+        "zh": "去年我和朋友去了海邊。",
+        "tokens": [
+          {
+            "surface": "去年",
+            "reading": "きょねん",
+            "gloss": "去年"
+          },
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "海",
+            "reading": "うみ",
+            "gloss": "海邊"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きました",
+            "reading": "いきました",
+            "gloss": "去了"
+          }
+        ]
+      },
+      "collocations": [
+        "去年の夏",
+        "去年の秋",
+        "去年買いました"
+      ],
+      "confusable_with": [],
+      "note": "「去年」是表示相對時間的名詞，後面通常不需要加時間助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0087",
+      "surface": "毎日",
+      "reading": "まいにち",
+      "gloss": "每天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 87,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎日牛乳を飲みます。",
+        "zh": "我每天喝牛奶。",
+        "tokens": [
+          {
+            "surface": "毎日",
+            "reading": "まいにち",
+            "gloss": "每天"
+          },
+          {
+            "surface": "牛乳",
+            "reading": "ぎゅうにゅう",
+            "gloss": "牛奶"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "飲みます",
+            "reading": "のみます",
+            "gloss": "喝"
+          }
+        ]
+      },
+      "collocations": [
+        "毎日勉強します",
+        "毎日走ります",
+        "毎日の生活"
+      ],
+      "confusable_with": [],
+      "note": "「毎日」是表示頻率的時間副詞，後面通常不接助詞「に」，直接接續動詞。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0088",
+      "surface": "毎週",
+      "reading": "まいしゅう",
+      "gloss": "每星期",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 88,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎週部屋を掃除します。",
+        "zh": "每星期打掃房間。",
+        "tokens": [
+          {
+            "surface": "毎週",
+            "reading": "まいしゅう",
+            "gloss": "每星期"
+          },
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "掃除します",
+            "reading": "そうじします",
+            "gloss": "打掃"
+          }
+        ]
+      },
+      "collocations": [
+        "毎週日曜日",
+        "毎週土曜日"
+      ],
+      "confusable_with": [],
+      "note": "「毎週」作為時間副詞修飾動詞時，後面通常不加助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0089",
+      "surface": "毎年",
+      "reading": "まいとし",
+      "gloss": "每年",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 89,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎年海へ行きます。",
+        "zh": "每年都會去海邊。",
+        "tokens": [
+          {
+            "surface": "毎年",
+            "reading": "まいとし",
+            "gloss": "每年"
+          },
+          {
+            "surface": "海",
+            "reading": "うみ",
+            "gloss": "海邊"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "毎年夏",
+        "毎年行きます"
+      ],
+      "confusable_with": [],
+      "note": "「毎年」可讀作「まいとし」或「まいねん」，日常生活與口語中以「まいとし」更為常見。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0090",
+      "surface": "午前",
+      "reading": "ごぜん",
+      "gloss": "上午",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 90,
+      "romaji_override": null,
+      "example": {
+        "ja": "午前に仕事をします。",
+        "zh": "上午工作。",
+        "tokens": [
+          {
+            "surface": "午前",
+            "reading": "ごぜん",
+            "gloss": "上午"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "仕事",
+            "reading": "しごと",
+            "gloss": "工作"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "します",
+            "reading": "します",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "午前十時",
+        "午前中"
+      ],
+      "confusable_with": [],
+      "note": "「午前」指從午夜零時到中午十二點這段時間，常與具體時間連用（如「午前九時」），也可以加上「中」形成「午前中」（整個上午期間）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
