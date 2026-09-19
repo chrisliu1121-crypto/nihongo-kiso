@@ -1,0 +1,511 @@
+{
+  "date": "2026-09-20",
+  "words": [
+    {
+      "id": "w_0091",
+      "surface": "午後",
+      "reading": "ごご",
+      "gloss": "下午",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 91,
+      "romaji_override": null,
+      "example": {
+        "ja": "午後は家で休みます。",
+        "zh": "下午在家休息。",
+        "tokens": [
+          {
+            "surface": "午後",
+            "reading": "ごご",
+            "gloss": "下午"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "家",
+            "reading": "いえ",
+            "gloss": "家"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "休みます",
+            "reading": "やすみます",
+            "gloss": "休息"
+          }
+        ]
+      },
+      "collocations": [
+        "今日の午後",
+        "明日の午後",
+        "午後三時"
+      ],
+      "confusable_with": [],
+      "note": "「午後」表示中午十二點過後的「下午、PM」，常加在時間前面表示「下午幾點」（例：午後三時）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0092",
+      "surface": "昼",
+      "reading": "ひる",
+      "gloss": "中午／白天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 92,
+      "romaji_override": null,
+      "example": {
+        "ja": "昼に料理を作ります。",
+        "zh": "中午做料理。",
+        "tokens": [
+          {
+            "surface": "昼",
+            "reading": "ひる",
+            "gloss": "中午"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "料理",
+            "reading": "りょうり",
+            "gloss": "料理"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "作ります",
+            "reading": "つくります",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "昼ご飯",
+        "昼休み",
+        "昼に"
+      ],
+      "confusable_with": [],
+      "note": "「昼」可指正午或白天，常與「ご飯」或「休み」結合成「昼ご飯」（午餐）、「昼休み」（午休）等常用詞。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0093",
+      "surface": "夜",
+      "reading": "よる",
+      "gloss": "晚上",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 93,
+      "romaji_override": null,
+      "example": {
+        "ja": "夜は静かです。",
+        "zh": "晚上很安靜。",
+        "tokens": [
+          {
+            "surface": "夜",
+            "reading": "よる",
+            "gloss": "晚上"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "静か",
+            "reading": "しずか",
+            "gloss": "安靜"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "夜に",
+        "夜遅く"
+      ],
+      "confusable_with": [],
+      "note": "「夜」（よる）指太陽下山到天亮前的夜晚時段。表示在晚上做某事時，可說「夜に」或直接放句首作為時間名詞使用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0094",
+      "surface": "晩",
+      "reading": "ばん",
+      "gloss": "晚上",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 94,
+      "romaji_override": null,
+      "example": {
+        "ja": "晩は家で休みます。",
+        "zh": "晚上在家裡休息。",
+        "tokens": [
+          {
+            "surface": "晩",
+            "reading": "ばん",
+            "gloss": "晚上"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "家",
+            "reading": "いえ",
+            "gloss": "家"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "休みます",
+            "reading": "やすみます",
+            "gloss": "休息"
+          }
+        ]
+      },
+      "collocations": [
+        "毎晩",
+        "今晩",
+        "晩ご飯"
+      ],
+      "confusable_with": [],
+      "note": "「晩」指晚上，常構成「毎晩（每晚）」、「今晩（今晚）」或「晩ご飯（晚餐）」等複合詞。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0095",
+      "surface": "夕方",
+      "reading": "ゆうがた",
+      "gloss": "傍晚",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 95,
+      "romaji_override": null,
+      "example": {
+        "ja": "夕方は涼しいです。",
+        "zh": "傍晚很涼爽。",
+        "tokens": [
+          {
+            "surface": "夕方",
+            "reading": "ゆうがた",
+            "gloss": "傍晚"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "涼しいです",
+            "reading": "すずしいです",
+            "gloss": "很涼爽"
+          }
+        ]
+      },
+      "collocations": [
+        "夕方の風",
+        "夕方から",
+        "夕方に"
+      ],
+      "confusable_with": [],
+      "note": "「夕方」指太陽西下、天色漸暗的傍晚時分。作為時間副詞使用時，助詞「に」可以接也可以省略。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0096",
+      "surface": "週末",
+      "reading": "しゅうまつ",
+      "gloss": "週末",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 96,
+      "romaji_override": null,
+      "example": {
+        "ja": "週末は家で休みます。",
+        "zh": "週末在家休息。",
+        "tokens": [
+          {
+            "surface": "週末",
+            "reading": "しゅうまつ",
+            "gloss": "週末"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "家",
+            "reading": "いえ",
+            "gloss": "家"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "休みます",
+            "reading": "やすみます",
+            "gloss": "休息"
+          }
+        ]
+      },
+      "collocations": [
+        "週末に",
+        "良い週末を"
+      ],
+      "confusable_with": [],
+      "note": "「週末」通常指星期六與星期日。作為時間副詞修飾動詞時，助詞「に」可加可不加；若作為句子主題時則常接助詞「は」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0097",
+      "surface": "一昨日",
+      "reading": "おととい",
+      "gloss": "前天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 97,
+      "romaji_override": null,
+      "example": {
+        "ja": "一昨日図書館に行きました。",
+        "zh": "我前天去了圖書館。",
+        "tokens": [
+          {
+            "surface": "一昨日",
+            "reading": "おととい",
+            "gloss": "前天"
+          },
+          {
+            "surface": "図書館",
+            "reading": "としょかん",
+            "gloss": "圖書館"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きました",
+            "reading": "いきました",
+            "gloss": "去了"
+          }
+        ]
+      },
+      "collocations": [
+        "一昨日来ました",
+        "一昨日の朝"
+      ],
+      "confusable_with": [],
+      "note": "「一昨日（おととい）」表示「今天的前兩天（前天）」，作為時間副詞使用時，後面通常不加助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0098",
+      "surface": "明後日",
+      "reading": "あさって",
+      "gloss": "後天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 98,
+      "romaji_override": null,
+      "example": {
+        "ja": "明後日川で泳ぎます。",
+        "zh": "後天要在河裡游泳。",
+        "tokens": [
+          {
+            "surface": "明後日",
+            "reading": "あさって",
+            "gloss": "後天"
+          },
+          {
+            "surface": "川",
+            "reading": "かわ",
+            "gloss": "河川"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "泳ぎます",
+            "reading": "およぎます",
+            "gloss": "游泳"
+          }
+        ]
+      },
+      "collocations": [
+        "明後日の午後",
+        "明後日会います",
+        "明後日の天気"
+      ],
+      "confusable_with": [],
+      "note": "「明後日（あさって）」作為時間副詞使用時，通常不需要加助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0099",
+      "surface": "今夜",
+      "reading": "こんや",
+      "gloss": "今晚",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 99,
+      "romaji_override": null,
+      "example": {
+        "ja": "今夜家で映画を見ます。",
+        "zh": "今晚在家看電影。",
+        "tokens": [
+          {
+            "surface": "今夜",
+            "reading": "こんや",
+            "gloss": "今晚"
+          },
+          {
+            "surface": "家",
+            "reading": "いえ",
+            "gloss": "家"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "今夜会います",
+        "今夜の月"
+      ],
+      "confusable_with": [],
+      "note": "「今夜」表示「今天晚上」，意思與「今日の夜」或「今晩」相近。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0100",
+      "surface": "時々",
+      "reading": "ときどき",
+      "gloss": "有時候",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 100,
+      "romaji_override": null,
+      "example": {
+        "ja": "時々喫茶店に行きます。",
+        "zh": "有時候會去咖啡店。",
+        "tokens": [
+          {
+            "surface": "時々",
+            "reading": "ときどき",
+            "gloss": "有時"
+          },
+          {
+            "surface": "喫茶店",
+            "reading": "きっさてん",
+            "gloss": "咖啡店"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "時々行きます",
+        "時々食べます",
+        "時々見ます"
+      ],
+      "confusable_with": [],
+      "note": "「時々」表示頻率「有時」，頻率低於「よく」（經常），高於「あまり」（不太）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
