@@ -1,0 +1,557 @@
+{
+  "date": "2026-09-21",
+  "words": [
+    {
+      "id": "w_0101",
+      "surface": "父",
+      "reading": "ちち",
+      "gloss": "（我的）爸爸",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 101,
+      "romaji_override": null,
+      "example": {
+        "ja": "父は会社で働きます。",
+        "zh": "父親在公司工作。",
+        "tokens": [
+          {
+            "surface": "父",
+            "reading": "ちち",
+            "gloss": "父親"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "会社",
+            "reading": "かいしゃ",
+            "gloss": "公司"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "働きます",
+            "reading": "はたらきます",
+            "gloss": "工作"
+          }
+        ]
+      },
+      "collocations": [
+        "私の父",
+        "父と"
+      ],
+      "confusable_with": [],
+      "note": "「父」用於向外人提起自己的父親；若是稱呼對方的父親或在家直接叫爸爸，通常使用「お父さん」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0102",
+      "surface": "母",
+      "reading": "はは",
+      "gloss": "（我的）媽媽",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 102,
+      "romaji_override": null,
+      "example": {
+        "ja": "母の手紙を読みます。",
+        "zh": "讀媽媽的信。",
+        "tokens": [
+          {
+            "surface": "母",
+            "reading": "はは",
+            "gloss": "媽媽"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "手紙",
+            "reading": "てがみ",
+            "gloss": "信"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "読みます",
+            "reading": "よみます",
+            "gloss": "讀"
+          }
+        ]
+      },
+      "collocations": [
+        "母の手紙",
+        "母と話します",
+        "私の母"
+      ],
+      "confusable_with": [],
+      "note": "「母（はは）」是對外人稱呼「自己的母親」時使用的謙稱。若是直接稱呼自己的媽媽，或提到對方的母親時，應使用「お母さん（おかあさん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0103",
+      "surface": "お父さん",
+      "reading": "おとうさん",
+      "gloss": "爸爸",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 103,
+      "romaji_override": null,
+      "example": {
+        "ja": "お父さんは会社で働きます。",
+        "zh": "爸爸在公司工作。",
+        "tokens": [
+          {
+            "surface": "お父さん",
+            "reading": "おとうさん",
+            "gloss": "爸爸"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "会社",
+            "reading": "かいしゃ",
+            "gloss": "公司"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "働きます",
+            "reading": "はたらきます",
+            "gloss": "工作"
+          }
+        ]
+      },
+      "collocations": [
+        "お父さんと話します",
+        "お父さんの仕事"
+      ],
+      "confusable_with": [],
+      "note": "「お父さん」可用來稱呼對方的父親或在家中稱呼自己的父親；向外人提起自己的父親時，通常使用謙稱「父（ちち）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0104",
+      "surface": "お母さん",
+      "reading": "おかあさん",
+      "gloss": "媽媽",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 104,
+      "romaji_override": null,
+      "example": {
+        "ja": "お母さんと電話で話します。",
+        "zh": "跟媽媽講電話。",
+        "tokens": [
+          {
+            "surface": "お母さん",
+            "reading": "おかあさん",
+            "gloss": "媽媽"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "電話",
+            "reading": "でんわ",
+            "gloss": "電話"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（手段）",
+            "particle": true
+          },
+          {
+            "surface": "話します",
+            "reading": "はなします",
+            "gloss": "講話"
+          }
+        ]
+      },
+      "collocations": [
+        "お母さんと話します",
+        "お母さんの手紙"
+      ],
+      "confusable_with": [],
+      "note": "稱呼對方的母親、或是當面稱呼自己的母親時會用「お母さん」；向外人提及自己的母親時，則多使用謙稱「母（はは）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0105",
+      "surface": "兄",
+      "reading": "あに",
+      "gloss": "（我的）哥哥",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 105,
+      "romaji_override": null,
+      "example": {
+        "ja": "兄は会社で働きます。",
+        "zh": "我哥哥在公司工作。",
+        "tokens": [
+          {
+            "surface": "兄",
+            "reading": "あに",
+            "gloss": "哥哥"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "会社",
+            "reading": "かいしゃ",
+            "gloss": "公司"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "働きます",
+            "reading": "はたらきます",
+            "gloss": "工作"
+          }
+        ]
+      },
+      "collocations": [
+        "兄と話します",
+        "兄の部屋"
+      ],
+      "confusable_with": [],
+      "note": "向外人提到自己的哥哥時使用「兄（あに）」，稱呼對方的哥哥或在家中稱呼自己的哥哥時通常使用「お兄さん（おにいさん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0106",
+      "surface": "姉",
+      "reading": "あね",
+      "gloss": "（我的）姊姊",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 106,
+      "romaji_override": null,
+      "example": {
+        "ja": "私の姉は病院で働きます。",
+        "zh": "我的姊姊在醫院工作。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "姉",
+            "reading": "あね",
+            "gloss": "姊姊"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "病院",
+            "reading": "びょういん",
+            "gloss": "醫院"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "働きます",
+            "reading": "はたらきます",
+            "gloss": "工作"
+          }
+        ]
+      },
+      "collocations": [
+        "私の姉",
+        "姉と話します"
+      ],
+      "confusable_with": [],
+      "note": "「姉」用於向外人稱呼自己的姊姊；稱呼對方的姊姊或在家中稱呼自己的姊姊時，通常使用「お姉さん（おねえさん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0107",
+      "surface": "弟",
+      "reading": "おとうと",
+      "gloss": "弟弟",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 107,
+      "romaji_override": null,
+      "example": {
+        "ja": "弟は英語を勉強します。",
+        "zh": "弟弟學習英文。",
+        "tokens": [
+          {
+            "surface": "弟",
+            "reading": "おとうと",
+            "gloss": "弟弟"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "英語",
+            "reading": "えいご",
+            "gloss": "英文"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "勉強します",
+            "reading": "べんきょうします",
+            "gloss": "學習"
+          }
+        ]
+      },
+      "collocations": [
+        "弟さん",
+        "私の弟"
+      ],
+      "confusable_with": [],
+      "note": "稱呼自己的弟弟用「弟（おとうと）」，稱呼別人的弟弟時通常會加上敬稱使用「弟さん（おとうとさん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0108",
+      "surface": "妹",
+      "reading": "いもうと",
+      "gloss": "妹妹",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 108,
+      "romaji_override": null,
+      "example": {
+        "ja": "妹は英語を勉強します。",
+        "zh": "妹妹學習英語。",
+        "tokens": [
+          {
+            "surface": "妹",
+            "reading": "いもうと",
+            "gloss": "妹妹"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "英語",
+            "reading": "えいご",
+            "gloss": "英語"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "勉強します",
+            "reading": "べんきょうします",
+            "gloss": "學習"
+          }
+        ]
+      },
+      "collocations": [
+        "私の妹",
+        "妹と"
+      ],
+      "confusable_with": [],
+      "note": "稱呼自己的妹妹時使用「妹（いもうと）」，稱呼對方的妹妹時則使用尊稱「妹さん（いもうとさん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0109",
+      "surface": "お兄さん",
+      "reading": "おにいさん",
+      "gloss": "哥哥",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 109,
+      "romaji_override": null,
+      "example": {
+        "ja": "彼女のお兄さんは会社員です。",
+        "zh": "她的哥哥是上班族。",
+        "tokens": [
+          {
+            "surface": "彼女",
+            "reading": "かのじょ",
+            "gloss": "她"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "お兄さん",
+            "reading": "おにいさん",
+            "gloss": "哥哥"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "会社員",
+            "reading": "かいしゃいん",
+            "gloss": "上班族"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "お兄さん",
+        "兄"
+      ],
+      "confusable_with": [],
+      "note": "「お兄さん」多用來尊稱對方的哥哥或家中晚輩稱呼長輩。向外人提及自己的哥哥時，一般使用謙稱「兄（あに）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0110",
+      "surface": "お姉さん",
+      "reading": "おねえさん",
+      "gloss": "姊姊",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 110,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達のお姉さんは医者です。",
+        "zh": "朋友的姊姊是醫生。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "お姉さん",
+            "reading": "おねえさん",
+            "gloss": "姊姊"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "医者",
+            "reading": "いしゃ",
+            "gloss": "醫生"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "友達のお姉さん",
+        "お姉さんと話します"
+      ],
+      "confusable_with": [],
+      "note": "「お姉さん」通常用來稱呼對方的姊姊，或在家庭內親暱地稱呼自己的姊姊。向外人提及自己的姊姊時，一般使用謙稱「姉（あね）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
