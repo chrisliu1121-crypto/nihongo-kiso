@@ -1,0 +1,527 @@
+{
+  "date": "2026-09-23",
+  "words": [
+    {
+      "id": "w_0111",
+      "surface": "家族",
+      "reading": "かぞく",
+      "gloss": "家人",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 111,
+      "romaji_override": null,
+      "example": {
+        "ja": "家族と映画を見ます。",
+        "zh": "和家人看電影。",
+        "tokens": [
+          {
+            "surface": "家族",
+            "reading": "かぞく",
+            "gloss": "家人"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "家族と",
+        "ご家族"
+      ],
+      "confusable_with": [],
+      "note": "稱呼自己的家人用「家族」，尊稱對方的家人時通常會加上「ご」說成「ご家族」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0112",
+      "surface": "両親",
+      "reading": "りょうしん",
+      "gloss": "父母",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 112,
+      "romaji_override": null,
+      "example": {
+        "ja": "両親は元気です。",
+        "zh": "父母很健康。",
+        "tokens": [
+          {
+            "surface": "両親",
+            "reading": "りょうしん",
+            "gloss": "父母"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "元気",
+            "reading": "げんき",
+            "gloss": "健康"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "両親と話します",
+        "両親に会います",
+        "ご両親"
+      ],
+      "confusable_with": [],
+      "note": "「両親」通常用來稱呼自己的雙親；稱呼對方的父母時，禮貌上會加上「ご」，說成「ご両親（ごりょうしん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0113",
+      "surface": "子供",
+      "reading": "こども",
+      "gloss": "小孩",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 113,
+      "romaji_override": null,
+      "example": {
+        "ja": "子供が庭で遊びます。",
+        "zh": "小孩子在院子裡玩耍。",
+        "tokens": [
+          {
+            "surface": "子供",
+            "reading": "こども",
+            "gloss": "小孩"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "庭",
+            "reading": "にわ",
+            "gloss": "院子"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "遊びます",
+            "reading": "あそびます",
+            "gloss": "玩耍"
+          }
+        ]
+      },
+      "collocations": [
+        "子供の日",
+        "子供と遊ぶ"
+      ],
+      "confusable_with": [],
+      "note": "「子供」指小孩、兒童；也可以指自己的子女。複數形式為「子供たち」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0114",
+      "surface": "赤ちゃん",
+      "reading": "あかちゃん",
+      "gloss": "嬰兒",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 114,
+      "romaji_override": null,
+      "example": {
+        "ja": "部屋に赤ちゃんがいます。",
+        "zh": "房間裡有嬰兒。",
+        "tokens": [
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "赤ちゃん",
+            "reading": "あかちゃん",
+            "gloss": "嬰兒"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "います",
+            "reading": "います",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "かわいい赤ちゃん",
+        "赤ちゃんが泣く",
+        "赤ちゃんの服"
+      ],
+      "confusable_with": [],
+      "note": "「赤ちゃん」源自剛出生的新生兒皮膚泛紅的特徵（赤い），加上常用於幼童的暱稱接尾詞「ちゃん」組合而成；另有較書面或客觀的說法「赤ん坊（あかんぼう）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0115",
+      "surface": "主人",
+      "reading": "しゅじん",
+      "gloss": "（我的）先生",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 115,
+      "romaji_override": null,
+      "example": {
+        "ja": "主人は新聞を読みます。",
+        "zh": "我先生看報紙。",
+        "tokens": [
+          {
+            "surface": "主人",
+            "reading": "しゅじん",
+            "gloss": "先生"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "新聞",
+            "reading": "しんぶん",
+            "gloss": "報紙"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "読みます",
+            "reading": "よみます",
+            "gloss": "讀"
+          }
+        ]
+      },
+      "collocations": [
+        "私の主人",
+        "うちの主人"
+      ],
+      "confusable_with": [],
+      "note": "「主人」用來向別人稱呼自己的丈夫；稱呼別人的丈夫時請使用敬稱「ご主人」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0116",
+      "surface": "奥さん",
+      "reading": "おくさん",
+      "gloss": "太太",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 116,
+      "romaji_override": null,
+      "example": {
+        "ja": "奥さんは台所にいます。",
+        "zh": "太太在廚房。",
+        "tokens": [
+          {
+            "surface": "奥さん",
+            "reading": "おくさん",
+            "gloss": "太太"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "台所",
+            "reading": "だいどころ",
+            "gloss": "廚房"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "います",
+            "reading": "います",
+            "gloss": "在"
+          }
+        ]
+      },
+      "collocations": [
+        "先生の奥さん",
+        "奥さんと話します"
+      ],
+      "confusable_with": [],
+      "note": "「奥さん」用於尊稱他人的妻子，稱呼自己的妻子時通常使用「妻（つま）」或「家内（かない）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0117",
+      "surface": "部屋",
+      "reading": "へや",
+      "gloss": "房間",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 117,
+      "romaji_override": null,
+      "example": {
+        "ja": "私の部屋は広いです。",
+        "zh": "我的房間很寬敞。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "広いです",
+            "reading": "ひろいです",
+            "gloss": "寬敞"
+          }
+        ]
+      },
+      "collocations": [
+        "部屋を掃除します",
+        "部屋に入ります",
+        "明るい部屋"
+      ],
+      "confusable_with": [],
+      "note": "「部屋」指房間、室內空間。常見搭配有「部屋を掃除します（打掃房間）」、「部屋に入ります（進房間）」等。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0118",
+      "surface": "教室",
+      "reading": "きょうしつ",
+      "gloss": "教室",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 118,
+      "romaji_override": null,
+      "example": {
+        "ja": "教室を掃除します。",
+        "zh": "打掃教室。",
+        "tokens": [
+          {
+            "surface": "教室",
+            "reading": "きょうしつ",
+            "gloss": "教室"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "掃除します",
+            "reading": "そうじします",
+            "gloss": "打掃"
+          }
+        ]
+      },
+      "collocations": [
+        "教室に入る",
+        "教室を掃除する",
+        "広い教室"
+      ],
+      "confusable_with": [],
+      "note": "「教室」指的是學校或教學場所的教室。常搭配助詞「に」表示進入或存在（如：教室に入る、教室にいる），或「で」表示在該處從事活動（如：教室で勉強する）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0119",
+      "surface": "会社",
+      "reading": "かいしゃ",
+      "gloss": "公司",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 119,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎朝八時に会社へ行きます。",
+        "zh": "每天早上八點去公司。",
+        "tokens": [
+          {
+            "surface": "毎朝",
+            "reading": "まいあさ",
+            "gloss": "每天早上"
+          },
+          {
+            "surface": "八時",
+            "reading": "はちじ",
+            "gloss": "八點"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "会社",
+            "reading": "かいしゃ",
+            "gloss": "公司"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "会社に行く",
+        "会社で働く"
+      ],
+      "confusable_with": [],
+      "note": "「会社」指公司、企業。在日語初級中，表示去上班常說「会社に行きます／へ行きます」；在公司工作則搭配助詞「で」（会社で働きます）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0120",
+      "surface": "病院",
+      "reading": "びょういん",
+      "gloss": "醫院",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 120,
+      "romaji_override": null,
+      "example": {
+        "ja": "母と病院に行きます。",
+        "zh": "和母親去醫院。",
+        "tokens": [
+          {
+            "surface": "母",
+            "reading": "はは",
+            "gloss": "母親"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "病院",
+            "reading": "びょういん",
+            "gloss": "醫院"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "病院に行きます",
+        "大きな病院"
+      ],
+      "confusable_with": [],
+      "note": "「びょういん」（醫院）中間是拗長音「ょう」，注意不要和「びよういん」（美容院）的發音混淆。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
