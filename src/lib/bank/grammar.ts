@@ -4,7 +4,7 @@
 // data/bank.json themselves, so they're unit-testable without the gitignored
 // build artifact (see index.ts's and dates.ts's own header comments).
 
-import type { Bank, ContrastSet, Particle, Sentence } from "./types.ts";
+import type { Bank, ContrastSet, GrammarCategory, GrammarItem, Particle, Sentence } from "./types.ts";
 
 /** The sentence with this id, or undefined if it doesn't exist in the bank. */
 export function getSentence(bank: Bank, id: string): Sentence | undefined {
@@ -38,6 +38,52 @@ export function adjacentParticles(
 ): { prev: Particle | undefined; next: Particle | undefined } {
   const list = bank.particles.particles;
   const i = list.findIndex((p) => p.id === id);
+  if (i === -1) return { prev: undefined, next: undefined };
+  return { prev: list[i - 1], next: list[i + 1] };
+}
+
+// ---------------------------------------------------------------------------
+// Generalized grammar-item helpers (build task 2026-09-24 §A/§D). These read
+// bank.grammar (the ~30-item model), not bank.particles (kept above,
+// untouched, purely for the pre-existing 8-particle/particle-swap-exercise
+// back-compat consumers -- see types.ts's own header comment on why both
+// exist side by side). GrammarItemPage/GrammarOverview use only these.
+
+/** The grammar item with this id, or undefined if it doesn't exist. */
+export function getGrammarItem(bank: Bank, id: string): GrammarItem | undefined {
+  return bank.grammar.items.find((it) => it.id === id);
+}
+
+/** Every grammar item in this category, in data/grammar/items.json's own authored order. */
+export function itemsByCategory(bank: Bank, category: GrammarCategory): GrammarItem[] {
+  return bank.grammar.items.filter((it) => it.category === category);
+}
+
+/** The generalized contrast set with this id, or undefined if it doesn't exist (bank.grammar.contrasts, not bank.particles.contrast_sets). */
+export function getGrammarContrastSet(bank: Bank, id: string): ContrastSet | undefined {
+  return bank.grammar.contrasts.find((cs) => cs.id === id);
+}
+
+/** Every contrast set (from bank.grammar.contrasts) that includes this grammar item id. */
+export function contrastSetsForItem(bank: Bank, itemId: string): ContrastSet[] {
+  return bank.grammar.contrasts.filter((cs) => cs.particles.some((p) => p === itemId));
+}
+
+/**
+ * The grammar item immediately before/after this one WITHIN ITS OWN
+ * CATEGORY, in data/grammar/items.json's own authored order (same
+ * "authoring order is canonical" choice adjacentParticles makes above, now
+ * scoped to category since items.json interleaves categories far less
+ * tightly than the old 8-particle list did).
+ */
+export function adjacentInCategory(
+  bank: Bank,
+  id: string,
+): { prev: GrammarItem | undefined; next: GrammarItem | undefined } {
+  const item = getGrammarItem(bank, id);
+  if (!item) return { prev: undefined, next: undefined };
+  const list = itemsByCategory(bank, item.category);
+  const i = list.findIndex((it) => it.id === id);
   if (i === -1) return { prev: undefined, next: undefined };
   return { prev: list[i - 1], next: list[i + 1] };
 }

@@ -53,10 +53,19 @@ export const WORDS_PER_DAY = 10;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const ID_RE = /^w_\d{4,}$/;
 
-/** Every surface allowed to carry `particle: true` on an example token. */
+/**
+ * Every surface allowed to carry `particle: true` on an example token
+ * (word examples AND grammar sentence tokens -- both go through this same
+ * set, see build-bank.ts's enrichSentenceToken). Extended build task
+ * 2026-09-24 §A for the ~30-item grammar expansion: より だけ しか ほど さえ
+ * ので けど し ね よ なんて とは ばかり. `たら` is deliberately NOT added here --
+ * it's never its own token (「行ったら」is one verb token, see items.json's
+ * own `note` on why); see the build task's report for the reasoning.
+ */
 export const PARTICLE_SURFACES = new Set([
   "は", "が", "を", "に", "で", "と", "の", "も", "へ",
   "か", "から", "まで", "や", "ね", "よ", "でも", "には", "では", "とか",
+  "より", "だけ", "しか", "ほど", "さえ", "ので", "けど", "し", "なんて", "とは", "ばかり",
 ]);
 /** Surfaces that are, on their own as a whole token, almost never anything BUT a particle. */
 export const ALWAYS_PARTICLE_SURFACES = new Set(["は", "を", "へ", "が"]);

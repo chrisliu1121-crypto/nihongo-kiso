@@ -1,0 +1,70 @@
+{
+  "contrast_sets": [
+    {
+      "id": "cs_wa_ga",
+      "particles": ["wa", "ga"],
+      "title": "は vs が：主題與焦點",
+      "summary": "が 說「誰做的」，は 說「這句在談誰」——不是同一層的東西。",
+      "pairs": [
+        { "sentence_id": "s_g001", "note": "談「我」這個主題，平鋪直敘" },
+        { "sentence_id": "s_g002", "note": "回答「誰是學生？」，焦點在「我」" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_wa_ga_double",
+      "particles": ["wa", "ga"],
+      "title": "は 與 が 同句：大主語與小主語",
+      "summary": "兩者可以同時出現，因為一個標主題、一個標主體。",
+      "pairs": [
+        { "sentence_id": "s_g024", "note": "主題是我，「喜歡」的對象是日語" },
+        { "sentence_id": "s_g025", "note": "談大象，長的是鼻子" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_ni_de",
+      "particles": ["ni", "de"],
+      "title": "に vs で：存在的所在 vs 動作的場域",
+      "summary": "に 是靜態的點（在哪裡、到哪裡），で 是動作發生的範圍。",
+      "pairs": [
+        { "sentence_id": "s_g026", "note": "存在於公園" },
+        { "sentence_id": "s_g027", "note": "在公園這個範圍裡做「玩」的動作" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_ni_de_live",
+      "particles": ["ni", "de"],
+      "title": "に vs で：住む 與 働く",
+      "summary": "住 是附著在一個點，工作 是在一個範圍裡活動。",
+      "pairs": [
+        { "sentence_id": "s_g028", "note": "住，附著在一個點" },
+        { "sentence_id": "s_g029", "note": "工作，在一個範圍裡活動" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_to_ni",
+      "particles": ["to", "ni"],
+      "title": "と vs に：相互 vs 單向",
+      "summary": "と 表示雙方都在做，に 表示動作朝向對方。",
+      "pairs": [
+        { "sentence_id": "s_g017", "note": "和朋友交談，雙方都說" },
+        { "sentence_id": "s_g030", "note": "對朋友講，單向告知" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_wo_ga_tai",
+      "particles": ["wo", "ga"],
+      "title": "を vs が：願望的對象",
+      "summary": "〜たい 前面兩者都可，が 更強調「想要的東西本身」，を 更強調「做這個動作」；口語兩者都常見。",
+      "pairs": [
+        { "sentence_id": "s_g031", "note": "強調做「喝」這個動作" },
+        { "sentence_id": "s_g032", "note": "強調「水」這個想要的東西本身" }
+      ],
+      "exercise_ids": []
+    }
+  ]
+}

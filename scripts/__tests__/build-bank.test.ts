@@ -1,7 +1,17 @@
 import { describe, expect, it } from "vitest";
 import { kanaToCells, readingToRomaji } from "../../src/lib/kana";
 import { stripExamplePunctuation } from "../../src/lib/bank/text";
-import type { DaySeed, ExampleToken, ParticlesFile, Sentence, SentenceSeed, WordSeed } from "../../src/lib/bank/types";
+import type {
+  ContrastSet,
+  DaySeed,
+  ExampleToken,
+  GrammarFile,
+  GrammarItem,
+  ParticlesFile,
+  Sentence,
+  SentenceSeed,
+  WordSeed,
+} from "../../src/lib/bank/types";
 import type { ArrangeExercise, ParticleSwapExercise, SwapCandidate } from "../../src/lib/exercise/types";
 import {
   BuildError,
@@ -10,6 +20,8 @@ import {
   validateBank,
   validateExercise,
   validateExercises,
+  validateGrammarContrasts,
+  validateGrammarItems,
   validateParticles,
   validateSentences,
   type KanaCodec,
@@ -548,6 +560,90 @@ describe("enrichSentence", () => {
     expect(build).toThrow(BuildError);
     expect(build).toThrow(/標了 particle:true 但 surface "はな" 不在助詞白名單內/);
   });
+
+  // build task 2026-09-24 §A: bunsetsu/valid_orders/preferred_order are now
+  // optional -- a grammar example sentence (ので-clause, plain form, ends in
+  // ね/よ/か) need not carry them at all.
+  it("bunsetsu／valid_orders／preferred_order 全部省略時不報錯", () => {
+    const seed: SentenceSeed = {
+      id: "s_g100",
+      pattern_id: null,
+      level: "N5",
+      tokens: [
+        { surface: "雨", reading: "あめ", gloss: "雨" },
+        { surface: "が", reading: "が", gloss: "（主體）", particle: true },
+        { surface: "降っています", reading: "ふっています", gloss: "正在下" },
+        { surface: "ね", reading: "ね", gloss: "（確認）", particle: true },
+      ],
+      translation: "正在下雨呢。",
+      verified: true,
+      tags: [],
+    };
+    expect(() => enrichSentence(seed, "grammar-2.json", codec)).not.toThrow();
+    const sentence = enrichSentence(seed, "grammar-2.json", codec);
+    expect(sentence.bunsetsu).toBeUndefined();
+    expect(sentence.valid_orders).toBeUndefined();
+  });
+
+  it("valid_orders 存在但缺少 bunsetsu 被抓", () => {
+    const seed = makeSentenceSeed({ id: "s_g101", bunsetsu: undefined });
+    expect(() => enrichSentence(seed, "grammar-2.json", codec)).toThrow(
+      /valid_orders 存在但缺少 bunsetsu/,
+    );
+  });
+
+  it("preferred_order 存在但缺少 valid_orders 被抓", () => {
+    const seed = makeSentenceSeed({ id: "s_g102", valid_orders: undefined });
+    expect(() => enrichSentence(seed, "grammar-2.json", codec)).toThrow(
+      /preferred_order 存在但缺少 valid_orders/,
+    );
+  });
+
+  // build task 2026-09-24 §A: "述語判定順帶改進：句尾的終助詞 token（か ね よ）
+  // 略過後再判斷"
+  it("句尾終助詞（ね）被略過後，動詞文節仍判定在最後（不報錯）", () => {
+    const seed: SentenceSeed = {
+      id: "s_g103",
+      pattern_id: null,
+      level: "N5",
+      tokens: [
+        { surface: "私", reading: "わたし", gloss: "我" },
+        { surface: "は", reading: "は", gloss: "（主題）", particle: true },
+        { surface: "学生", reading: "がくせい", gloss: "學生" },
+        { surface: "です", reading: "です", gloss: "是" },
+        { surface: "ね", reading: "ね", gloss: "（確認）", particle: true },
+      ],
+      bunsetsu: [[0, 1], [2, 3], [4]],
+      valid_orders: [[0, 1, 2]],
+      preferred_order: [0, 1, 2],
+      translation: "我是學生呢。",
+      verified: true,
+      tags: [],
+    };
+    expect(() => enrichSentence(seed, "grammar-2.json", codec)).not.toThrow();
+  });
+
+  it("句尾終助詞被略過後，剩下的最後一個 token 仍不是述語時被抓", () => {
+    const seed: SentenceSeed = {
+      id: "s_g104",
+      pattern_id: null,
+      level: "N5",
+      tokens: [
+        { surface: "学生", reading: "がくせい", gloss: "學生" },
+        { surface: "です", reading: "です", gloss: "是" },
+        { surface: "私", reading: "わたし", gloss: "我" },
+        { surface: "は", reading: "は", gloss: "（主題）", particle: true },
+        { surface: "ね", reading: "ね", gloss: "（確認）", particle: true },
+      ],
+      bunsetsu: [[0, 1], [2, 3], [4]],
+      valid_orders: [[0, 1, 2]], // "です" bunsetsu first, "は" bunsetsu (then ね) last
+      preferred_order: [0, 1, 2],
+      translation: "（語序刻意顛倒，用來測試故障注入）",
+      verified: true,
+      tags: [],
+    };
+    expect(() => enrichSentence(seed, "grammar-2.json", codec)).toThrow(/動詞文節未在最後/);
+  });
 });
 
 describe("validateSentences", () => {
@@ -699,6 +795,17 @@ describe("validateExercise", () => {
     );
   });
 
+  // build task 2026-09-24 §A: bunsetsu/valid_orders are now optional on
+  // Sentence -- an arrange exercise referencing a sentence that omitted them
+  // must be caught HERE (the point of reference), not silently crash.
+  it("arrange：引用的句子缺少 bunsetsu/valid_orders 被抓", () => {
+    const noBunsetsu: Sentence = { ...EXERCISE_SENTENCE, id: "s_no_bunsetsu", bunsetsu: undefined, valid_orders: undefined };
+    const map = new Map([[noBunsetsu.id, noBunsetsu]]);
+    const exercise = makeArrangeExercise({ sentence_id: noBunsetsu.id });
+    expect(() => validateExercise(exercise, file, map)).toThrow(BuildError);
+    expect(() => validateExercise(exercise, file, map)).toThrow(/缺少 bunsetsu\/valid_orders/);
+  });
+
   it("arrange：sentence 少於 2 個文節被抓", () => {
     const oneBunsetsu: Sentence = { ...EXERCISE_SENTENCE, id: "s_one", bunsetsu: [[0, 1, 2, 3]] };
     const map = new Map([[oneBunsetsu.id, oneBunsetsu]]);
@@ -784,5 +891,164 @@ describe("validateExercises", () => {
     const a: RawExercise = { file: "a.json", exercise: makeArrangeExercise({ id: "ax_a" }) };
     const b: RawExercise = { file: "a.json", exercise: makeSwapExercise({ id: "px_a" }) };
     expect(() => validateExercises([a, b], SENTENCES_BY_ID)).not.toThrow();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Grammar items (build task 2026-09-24 §A: generalizes the fixed 8-particle
+// model into a ~30-item, category-tagged model -- data/grammar/items.json /
+// data/grammar/contrasts.json). Mirrors the "validateParticles" describe
+// block above, generalized to an open id set instead of the fixed 8.
+
+function makeGrammarItem(overrides: Partial<GrammarItem> = {}): GrammarItem {
+  return {
+    id: "kara",
+    surface: "から",
+    reading: "から",
+    category: "case",
+    core: "core",
+    senses: [{ label: "sense", explanation: "explanation", example_ids: ["s_g001"] }],
+    ...overrides,
+  };
+}
+
+describe("validateGrammarItems", () => {
+  const sentenceIds = new Set(["s_g001"]);
+
+  it("一筆合法 item 不報錯", () => {
+    const file: GrammarFile = { items: [makeGrammarItem()] };
+    expect(() => validateGrammarItems(file, sentenceIds)).not.toThrow();
+  });
+
+  it("id 不是 ascii slug 被抓", () => {
+    const file: GrammarFile = { items: [makeGrammarItem({ id: "から" })] };
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(BuildError);
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(/id 須為 ascii slug/);
+  });
+
+  it("id 重複被抓", () => {
+    const file: GrammarFile = { items: [makeGrammarItem(), makeGrammarItem()] };
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(/id 重複：kara/);
+  });
+
+  // Acceptance criterion 2(b): category 非法 -> exit 1
+  it("category 不在枚舉內被抓", () => {
+    const file: GrammarFile = {
+      items: [makeGrammarItem({ category: "unknown" as GrammarItem["category"] })],
+    };
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(BuildError);
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(/category 不在枚舉內/);
+  });
+
+  // Acceptance criterion 2(c): sense 無例句 -> exit 1
+  it("sense 無例句（example_ids 為空）被抓", () => {
+    const file: GrammarFile = {
+      items: [makeGrammarItem({ senses: [{ label: "sense", explanation: "e", example_ids: [] }] })],
+    };
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(BuildError);
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(/至少要有一個例句/);
+  });
+
+  it("senses 整體為空被抓", () => {
+    const file: GrammarFile = { items: [makeGrammarItem({ senses: [] })] };
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(/senses 不可為空/);
+  });
+
+  // Acceptance criterion 2(a): item 的 example_id 指向不存在句子 -> exit 1
+  it("senses.example_ids 指向不存在的句子被抓", () => {
+    const file: GrammarFile = {
+      items: [makeGrammarItem({ senses: [{ label: "s", explanation: "e", example_ids: ["s_missing"] }] })],
+    };
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(BuildError);
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(
+      /senses\[0\]\.example_ids\[0\] 指向不存在的句子：s_missing/,
+    );
+  });
+
+  it("cell 不在 46 格內被抓", () => {
+    const file: GrammarFile = { items: [makeGrammarItem({ cell: "xx" as GrammarItem["cell"] })] };
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(/cell 不在 46 格內：xx/);
+  });
+
+  it("weight 不在枚舉內被抓", () => {
+    const file: GrammarFile = {
+      items: [makeGrammarItem({ weight: "extreme" as GrammarItem["weight"] })],
+    };
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(/weight 不在 heavy\/medium\/light 內/);
+  });
+
+  it("contrast_with 指向不存在的 item id 被抓（不允許前向參照未寫的項目）", () => {
+    const file: GrammarFile = { items: [makeGrammarItem({ contrast_with: ["made"] })] };
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(BuildError);
+    expect(() => validateGrammarItems(file, sentenceIds)).toThrow(/contrast_with 含未知的 grammar item id：made/);
+  });
+
+  it("contrast_with 指向本檔內已存在的另一個 item 不報錯", () => {
+    const file: GrammarFile = {
+      items: [makeGrammarItem({ id: "kara", contrast_with: ["ni"] }), makeGrammarItem({ id: "ni" })],
+    };
+    expect(() => validateGrammarItems(file, sentenceIds)).not.toThrow();
+  });
+});
+
+describe("validateGrammarContrasts", () => {
+  const grammarItemIds = new Set(["wa", "ga", "kara"]);
+  const sentenceIds = new Set(["s_g001"]);
+
+  function makeContrastsFile(overrides: Partial<{ contrast_sets: ContrastSet[] }> = {}) {
+    return {
+      contrast_sets: [
+        {
+          id: "cs_test",
+          particles: ["wa", "ga"],
+          title: "t",
+          summary: "s",
+          pairs: [{ sentence_id: "s_g001", note: "n" }],
+          exercise_ids: [],
+        },
+      ],
+      ...overrides,
+    };
+  }
+
+  it("合法的 contrasts 檔不報錯", () => {
+    expect(() => validateGrammarContrasts(makeContrastsFile(), grammarItemIds, sentenceIds)).not.toThrow();
+  });
+
+  it("particles 含未知 grammar item id 被抓（不再限於固定八大助詞）", () => {
+    const file = makeContrastsFile({
+      contrast_sets: [
+        {
+          id: "cs_test",
+          particles: ["wa", "made"], // "made" not in grammarItemIds
+          title: "t",
+          summary: "s",
+          pairs: [{ sentence_id: "s_g001", note: "n" }],
+          exercise_ids: [],
+        },
+      ],
+    });
+    expect(() => validateGrammarContrasts(file, grammarItemIds, sentenceIds)).toThrow(BuildError);
+    expect(() => validateGrammarContrasts(file, grammarItemIds, sentenceIds)).toThrow(
+      /particles 含未知的 grammar item id：made/,
+    );
+  });
+
+  it("pairs.sentence_id 指向不存在的句子被抓", () => {
+    const file = makeContrastsFile({
+      contrast_sets: [
+        {
+          id: "cs_test",
+          particles: ["kara"],
+          title: "t",
+          summary: "s",
+          pairs: [{ sentence_id: "s_missing", note: "n" }],
+          exercise_ids: [],
+        },
+      ],
+    });
+    expect(() => validateGrammarContrasts(file, grammarItemIds, sentenceIds)).toThrow(
+      /pairs\[0\]\.sentence_id 指向不存在的句子：s_missing/,
+    );
   });
 });

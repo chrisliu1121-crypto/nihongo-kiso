@@ -138,7 +138,18 @@ export interface Bank {
   days: DayEntry[];
   words: Word[];
   sentences: Sentence[];
+  /**
+   * Back-compat DERIVED view of the original 8-particle model (build task
+   * 2026-09-24, §A): no longer hand-authored (data/particles.json is
+   * deleted), computed at build time from the matching 8 entries of
+   * `grammar.items` -- see build-bank.ts's `deriveParticlesFile`. Kept so
+   * every pre-existing consumer (getParticle, ParticleSwapView, swap.ts,
+   * the 24 seeded particle-swap exercises) keeps working byte-for-byte
+   * unchanged. New code should read `grammar` instead.
+   */
   particles: ParticlesFile;
+  /** The generalized ~30-item grammar model (build task 2026-09-24, §A): /grammar and /grammar/:id read this, not `particles`. */
+  grammar: GrammarBank;
   /** Practice exercises (build task 2026-09 step 5, DESIGN.md §8.5). Unlike
    *  words/sentences, nothing here is computed at build time -- same
    *  validate-and-pass-through treatment as `particles` above. */
@@ -183,17 +194,30 @@ export interface SentenceSeed {
    * 文節 (bunsetsu) partition of `tokens`, each entry a list of token
    * indices. Must cover every index in `tokens` exactly once -- this is the
    * arrange-practice block unit (DESIGN.md §8.3).
+   *
+   * OPTIONAL (build task 2026-09-24 §A): a grammar example sentence may end
+   * in a sentence-final particle (ね/よ/か), be a ので-clause, or use a
+   * plain/普通形 predicate -- none of which the arrange practice's
+   * verb-final rule needs to care about. Only a sentence actually
+   * REFERENCED by an ArrangeExercise (`sentence_id`) must supply bunsetsu +
+   * valid_orders; build-bank.ts's validateExercise enforces that at the
+   * point of reference, not here. When bunsetsu/valid_orders ARE supplied
+   * (regardless of whether anything references them for arrange practice),
+   * they're still fully validated by enrichSentence -- providing them is
+   * optional, but providing a malformed one is not.
    */
-  bunsetsu: number[][];
+  bunsetsu?: number[][];
   /**
    * Natural word orders, each expressed as a permutation of *bunsetsu*
    * indices (not token indices). The verb-final bunsetsu must be last in
    * every order (build-bank.ts checks this: the last token of the last
-   * bunsetsu must end in ます/です/ています/ません).
+   * bunsetsu, after trimming any trailing sentence-final-particle tokens
+   * か/ね/よ, must end in ます/です/ています/ません). Optional -- see
+   * `bunsetsu`'s own doc above.
    */
-  valid_orders: number[][];
-  /** The single most natural order, also a permutation of bunsetsu indices. */
-  preferred_order: number[];
+  valid_orders?: number[][];
+  /** The single most natural order, also a permutation of bunsetsu indices. Optional -- see `bunsetsu`'s own doc above; when present, `valid_orders` must be present too. */
+  preferred_order?: number[];
   translation: string;
   verified: boolean;
   /** Free-form labels for cross-referencing, e.g. "particle:wa". */
@@ -220,6 +244,91 @@ export interface Sentence extends Omit<SentenceSeed, "tokens"> {
 /** Shape of one data/sentences/*.json file. */
 export interface SentenceFile {
   sentences: SentenceSeed[];
+}
+
+// ---------------------------------------------------------------------------
+// Grammar items (build task 2026-09-24: generalizes the fixed 8-particle
+// model above into a category-tagged item model that can hold ~30 grammar
+// points -- particles, conjunctive/final particles, conjunctions, and set
+// expressions -- not just the original 8 kaku/kakari/rentai particles.
+// DESIGN.md itself doesn't cover this (it predates the expansion); the
+// authoritative spec is this build task's own prompt, section A.
+//
+// The original 8 particles are migrated INTO data/grammar/items.json (same
+// ids/content, see scripts/build-bank.ts's loadGrammar), and data/particles.json
+// is deleted. `Particle`/`ParticlesFile`/`bank.particles` above are NOT
+// removed, though: they're now a build-time DERIVED view (computed from the
+// matching 8 GrammarItems) rather than a hand-authored file, so every
+// existing consumer (getParticle, ParticleSwapView, swap.ts, the 24 seeded
+// particle-swap exercises, PARTICLE_IDS) keeps working unchanged -- see
+// build-bank.ts's `deriveParticlesFile`.
+
+/** Every category a grammar item can belong to (build task's own §A / user's content-scope list). */
+export const GRAMMAR_CATEGORY_VALUES = [
+  "case", // 格助詞
+  "focus", // 係助詞・副助詞
+  "conjunctive", // 接續助詞
+  "final", // 終助詞
+  "conjunction", // 接續詞
+  "expression", // 副詞・表現
+] as const;
+export type GrammarCategory = (typeof GRAMMAR_CATEGORY_VALUES)[number];
+
+/**
+ * Same three-value weight scale as the old Particle.weight
+ * (heavy/medium/light card sizing on /grammar) -- declared as this
+ * section's own const (not an alias of PARTICLE_WEIGHT_VALUES, which is
+ * declared further down this file) to avoid a temporal-dead-zone reference
+ * to a not-yet-initialized top-level const.
+ */
+export const GRAMMAR_WEIGHT_VALUES = ["heavy", "medium", "light"] as const;
+export type GrammarWeight = (typeof GRAMMAR_WEIGHT_VALUES)[number];
+
+/** One named usage of a grammar item, pointing at 1+ Sentences that demonstrate it (plural example_ids, unlike the old single-example ParticleSense -- build task §A). */
+export interface GrammarSense {
+  label: string;
+  explanation: string;
+  example_ids: string[];
+}
+
+/** One entry in data/grammar/items.json (build task §A). id is an ascii slug used directly in the /grammar/:id URL. */
+export interface GrammarItem {
+  id: string;
+  /** Displayed form -- may contain multiple written variants separated by "／" (e.g. "なんて／とは"). */
+  surface: string;
+  /** Kana reading; for a multi-variant surface, the reading of the FIRST variant. */
+  reading: string;
+  category: GrammarCategory;
+  /** Connection pattern, e.g. "N + だけ", "V普通形 + ので". Omitted when not meaningfully different from `core`. */
+  pattern?: string;
+  /** One-sentence core meaning. */
+  core: string;
+  /** Bridge to a Mandarin-native learner's existing intuition. */
+  zh_bridge?: string;
+  senses: GrammarSense[];
+  /** Other grammar item ids worth contrasting with. Must already exist in items.json (build-bank.ts validates this strictly -- no forward references, see the build task's own report). */
+  contrast_with?: string[];
+  weight?: GrammarWeight;
+  /** Which of the 46 gojuon-table cells this item lights up -- ONLY set for a single-mora particle (は/が/を/に/で/と/の/も). Multi-mora items (から, だけ, ので, ...) light up multiple cells via their own `reading` and have no single `cell`. */
+  cell?: CellId;
+  /** Easy-to-confuse points, shown as a bulleted list on the item page. */
+  notes?: string[];
+}
+
+/** Shape of data/grammar/items.json. */
+export interface GrammarFile {
+  items: GrammarItem[];
+}
+
+/** Shape of data/grammar/contrasts.json -- SAME shape as the old particles.json's `contrast_sets` array (the build task's own §A: "格式不變"), just no longer nested under a `particles` top-level key and no longer scoped to only the 8 particle ids. `ContrastSet.particles` (kept name for format compatibility) may now hold ANY grammar item id. */
+export interface ContrastsFile {
+  contrast_sets: ContrastSet[];
+}
+
+/** Everything /grammar and /grammar/:id read, once built (bank.grammar). */
+export interface GrammarBank {
+  items: GrammarItem[];
+  contrasts: ContrastSet[];
 }
 
 // ---------------------------------------------------------------------------
@@ -269,7 +378,14 @@ export interface ContrastPair {
 
 export interface ContrastSet {
   id: string;
-  particles: ParticleId[];
+  /**
+   * Widened from `ParticleId[]` to `string[]` (build task 2026-09-24, §A):
+   * once contrasts.json can reference any data/grammar/items.json id, not
+   * just the fixed 8 particles, this can no longer be typed as the closed
+   * ParticleId union. Every existing 8-particle contrast set still only
+   * ever contains ParticleIds, which remain assignable to `string`.
+   */
+  particles: string[];
   title: string;
   summary: string;
   pairs: ContrastPair[];

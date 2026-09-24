@@ -17,7 +17,7 @@
 // in many places that have nothing to do with runtime validation.
 
 import { z } from "zod";
-import { POS_VALUES } from "../../src/lib/bank/types.ts";
+import { GRAMMAR_CATEGORY_VALUES, GRAMMAR_WEIGHT_VALUES, POS_VALUES } from "../../src/lib/bank/types.ts";
 
 const LEVEL_VALUES = ["N5", "N4", "N3", "N2", "N1"] as const;
 
@@ -87,4 +87,37 @@ export const JudgeResultSchema = z.object({
   reading_ok: z.boolean(),
   gloss_ok: z.boolean(),
   issues: z.array(z.string()),
+});
+
+// ---------------------------------------------------------------------------
+// Grammar items (build task 2026-09-24 §A: "build-bank 驗證 items：zod
+// schema..."). Shape-only checks here; the semantic checks (id uniqueness/
+// slug format, example_ids/contrast_with referencing something real, cell
+// within the 46-cell set) live in build-bank.ts's own validateGrammarItems,
+// same split as WordSeedSchema (shape) vs enrichWord (semantics).
+
+export const GrammarSenseSchema = z.object({
+  label: z.string(),
+  explanation: z.string(),
+  example_ids: z.array(z.string()),
+});
+
+export const GrammarItemSchema = z.object({
+  id: z.string(),
+  surface: z.string(),
+  reading: z.string(),
+  category: z.enum(GRAMMAR_CATEGORY_VALUES),
+  pattern: z.string().optional(),
+  core: z.string(),
+  zh_bridge: z.string().optional(),
+  senses: z.array(GrammarSenseSchema),
+  contrast_with: z.array(z.string()).optional(),
+  weight: z.enum(GRAMMAR_WEIGHT_VALUES).optional(),
+  cell: z.string().optional(),
+  notes: z.array(z.string()).optional(),
+});
+
+/** Shape of data/grammar/items.json. */
+export const GrammarFileSchema = z.object({
+  items: z.array(GrammarItemSchema),
 });

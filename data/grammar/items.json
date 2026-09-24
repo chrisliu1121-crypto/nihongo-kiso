@@ -1,0 +1,255 @@
+{
+  "items": [
+    {
+      "id": "wa",
+      "surface": "は",
+      "reading": "は",
+      "category": "focus",
+      "core": "標記這句話在談什麼（主題），不是標記主語",
+      "zh_bridge": "「這本書啊，我看過了」的「這本書」",
+      "senses": [
+        {
+          "label": "主題",
+          "explanation": "把一個成分提到句首，宣告「接下來這句話是在談這個」，不管它在句中原本扮演什麼角色",
+          "example_ids": ["s_g001"]
+        },
+        {
+          "label": "對比",
+          "explanation": "同時提出兩個成分並用 は 標記，暗示兩者的情況不同（做了 A，但沒做 B）",
+          "example_ids": ["s_g034"]
+        }
+      ],
+      "contrast_with": ["ga", "mo"],
+      "weight": "heavy",
+      "cell": "ha"
+    },
+    {
+      "id": "ga",
+      "surface": "が",
+      "reading": "が",
+      "category": "case",
+      "core": "標記動作或狀態的主體，帶出新資訊或焦點",
+      "zh_bridge": "回答「誰？」時的那個詞：誰が来ましたか→田中さんが来ました",
+      "senses": [
+        {
+          "label": "主體",
+          "explanation": "單純陳述「誰做了／怎麼了」，常見於描述現象或第一次提到的事物",
+          "example_ids": ["s_g003"]
+        },
+        {
+          "label": "焦點（疑問詞的答案）",
+          "explanation": "回答「誰／哪個」這類疑問詞問題時，答案的那個成分要用 が，不能用 は",
+          "example_ids": ["s_g004"]
+        },
+        {
+          "label": "好き・わかる・できる 的對象",
+          "explanation": "「喜歡／懂／會」這類表示狀態或能力的謂語，對象成分用 が，不是を",
+          "example_ids": ["s_g005"]
+        }
+      ],
+      "contrast_with": ["wa", "wo"],
+      "weight": "heavy",
+      "cell": "ka"
+    },
+    {
+      "id": "wo",
+      "surface": "を",
+      "reading": "を",
+      "category": "case",
+      "core": "動作的直接對象",
+      "zh_bridge": "中文靠語序「吃飯」，日語靠 を「ご飯を食べる」",
+      "senses": [
+        {
+          "label": "受詞",
+          "explanation": "他動詞直接作用的對象，中文的「把／將」隱含的那個受詞",
+          "example_ids": ["s_g006"]
+        },
+        {
+          "label": "通過的場所",
+          "explanation": "移動動詞（歩く・走る・渡る…）經過、通過的空間，不是動作發生的固定地點",
+          "example_ids": ["s_g007"]
+        },
+        {
+          "label": "離開的起點",
+          "explanation": "「出る・降りる」這類表示離開的動詞，離開的那個場所用 を",
+          "example_ids": ["s_g008"]
+        }
+      ],
+      "contrast_with": ["ga"],
+      "weight": "medium",
+      "cell": "wo"
+    },
+    {
+      "id": "ni",
+      "surface": "に",
+      "reading": "に",
+      "category": "case",
+      "core": "一個「點」：存在的所在、到達的終點、時間點、動作的對象",
+      "zh_bridge": "中文的「在／到／給／於」四種，日語都是一個 に——注意「在食堂吃」的「在」是 で",
+      "senses": [
+        {
+          "label": "存在場所",
+          "explanation": "ある・いる 這類存在動詞，人事物「在」的那個靜態位置",
+          "example_ids": ["s_g009"]
+        },
+        {
+          "label": "目的地",
+          "explanation": "行く・来る 這類移動動詞，移動抵達的終點",
+          "example_ids": ["s_g010"]
+        },
+        {
+          "label": "時間",
+          "explanation": "具體的時間點（幾點、星期幾、幾月幾日），標記動作發生在何時",
+          "example_ids": ["s_g011"]
+        },
+        {
+          "label": "對象",
+          "explanation": "書く・話す・あげる 這類動詞，動作指向的接收者",
+          "example_ids": ["s_g012"]
+        }
+      ],
+      "contrast_with": ["de", "to"],
+      "weight": "heavy",
+      "cell": "ni"
+    },
+    {
+      "id": "de",
+      "surface": "で",
+      "reading": "で",
+      "category": "case",
+      "core": "動作發生的範圍，或動作的手段",
+      "zh_bridge": "「在食堂吃」的「在」（動作發生的地方）、「坐公車去」的「坐」——「桌上有書」的「在」是 に",
+      "senses": [
+        {
+          "label": "動作場所",
+          "explanation": "動態動詞發生的空間範圍，不是單純的存在位置",
+          "example_ids": ["s_g013"]
+        },
+        {
+          "label": "手段",
+          "explanation": "完成動作所使用的交通工具或道具",
+          "example_ids": ["s_g014"]
+        },
+        {
+          "label": "語言・方式",
+          "explanation": "以什麼語言、什麼方式進行動作",
+          "example_ids": ["s_g015"]
+        }
+      ],
+      "contrast_with": ["ni"],
+      "weight": "medium",
+      "cell": "te"
+    },
+    {
+      "id": "to",
+      "surface": "と",
+      "reading": "と",
+      "category": "case",
+      "core": "並列，或共同做某事的對象",
+      "zh_bridge": "「和」——「麵包和牛奶」「和朋友聊天」",
+      "senses": [
+        {
+          "label": "並列",
+          "explanation": "完全列舉兩個以上的名詞，等同中文的「和」",
+          "example_ids": ["s_g016"]
+        },
+        {
+          "label": "共同對象",
+          "explanation": "雙方一起進行的動作，強調對方也同時參與（相互性）",
+          "example_ids": ["s_g017"]
+        },
+        {
+          "label": "引用",
+          "explanation": "引用說出、想到、寫下的內容，接在言う・思う・書く之前",
+          "example_ids": ["s_g018"]
+        }
+      ],
+      "contrast_with": ["ni"],
+      "weight": "medium",
+      "cell": "to"
+    },
+    {
+      "id": "no",
+      "surface": "の",
+      "reading": "の",
+      "category": "case",
+      "core": "把前面的名詞變成後面名詞的修飾語",
+      "zh_bridge": "「的」——「我的書」「日語的老師」",
+      "senses": [
+        {
+          "label": "所屬",
+          "explanation": "前面的名詞擁有後面的名詞",
+          "example_ids": ["s_g019"]
+        },
+        {
+          "label": "屬性",
+          "explanation": "前面的名詞說明後面名詞的類別或性質，不是擁有關係",
+          "example_ids": ["s_g020"]
+        },
+        {
+          "label": "同位",
+          "explanation": "前後兩個名詞指同一個對象，の 相當於「這位／這個」的同位語",
+          "example_ids": ["s_g021"]
+        }
+      ],
+      "contrast_with": [],
+      "weight": "light",
+      "cell": "no"
+    },
+    {
+      "id": "mo",
+      "surface": "も",
+      "reading": "も",
+      "category": "focus",
+      "core": "「也」：取代 は・が・を 的位置，把這個成分加進同類",
+      "zh_bridge": "「我也是學生」",
+      "senses": [
+        {
+          "label": "也",
+          "explanation": "這個成分和前面提過的某個成分屬於同一類，也具有相同的狀態",
+          "example_ids": ["s_g022"]
+        },
+        {
+          "label": "全盤否定",
+          "explanation": "疑問詞（何・誰・どこ…）+ も + 否定謂語，表示「一個都沒有／哪裡都不」的全盤否定",
+          "example_ids": ["s_g023"]
+        }
+      ],
+      "contrast_with": ["wa"],
+      "weight": "light",
+      "cell": "mo"
+    },
+    {
+      "id": "kara",
+      "surface": "から",
+      "reading": "から",
+      "category": "case",
+      "pattern": "N + から",
+      "core": "動作或狀態的起點：時間的起點、地點的起點，或製成品的原料",
+      "zh_bridge": "「從」——「九點開始工作」「從車站走」；「原料」義則像「用葡萄做的酒」的「用」",
+      "senses": [
+        {
+          "label": "起點（時間）",
+          "explanation": "動作或狀態開始的時間點，常與 まで（終點）成對出現",
+          "example_ids": ["s_g035"]
+        },
+        {
+          "label": "起點（地點）",
+          "explanation": "移動或動作出發、開始的地點",
+          "example_ids": ["s_g036"]
+        },
+        {
+          "label": "原料",
+          "explanation": "製成品的原始材料，且成品已看不出原料原本的樣子（經過化學或形態上的改變，如釀造、加工）；比較 で 表手段/材料時，材料外觀通常不變（例：木で作る椅子 vs ぶどうから作るワイン）",
+          "example_ids": ["s_g037"]
+        }
+      ],
+      "contrast_with": ["ni"],
+      "weight": "medium",
+      "notes": [
+        "から 後面常與 まで 成對出現，構成「從...到...」",
+        "原料用法容易與 で（手段・材料）混淆：で 用於材料外觀不變的場合，から 用於原料經過明顯改變的場合"
+      ]
+    }
+  ]
+}

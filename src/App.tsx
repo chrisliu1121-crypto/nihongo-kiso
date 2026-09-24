@@ -8,7 +8,8 @@ import { Layout } from "./routes/Layout";
 import { DailyWords } from "./pages/DailyWords";
 import { WordBank } from "./pages/WordBank";
 import { GrammarOverview } from "./pages/GrammarOverview";
-import { ParticlePage } from "./pages/ParticlePage";
+import { GrammarItemPage } from "./pages/GrammarItemPage";
+import { VerbsPage } from "./pages/VerbsPage";
 import { PracticeArrange } from "./pages/PracticeArrange";
 import { PracticeKana } from "./pages/PracticeKana";
 import { PracticeParticle } from "./pages/PracticeParticle";
@@ -26,7 +27,8 @@ export function App() {
           <Route index element={<DailyWords />} />
           <Route path="bank" element={<WordBank />} />
           <Route path="grammar" element={<GrammarOverview />} />
-          <Route path="grammar/:particleId" element={<ParticlePage />} />
+          <Route path="grammar/verbs" element={<VerbsPage />} />
+          <Route path="grammar/:id" element={<GrammarItemPage />} />
           <Route path="texts" element={<TextList />} />
           <Route path="texts/new" element={<TextNew />} />
           <Route path="texts/:id" element={<TextDetail />} />
