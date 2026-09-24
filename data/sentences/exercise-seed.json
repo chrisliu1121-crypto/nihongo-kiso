@@ -39,7 +39,7 @@
       "tokens": [
         { "surface": "朝", "reading": "あさ", "gloss": "早上" },
         { "surface": "学校", "reading": "がっこう", "gloss": "學校" },
-        { "surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true },
+        { "surface": "に", "reading": "に", "gloss": "（到達點）", "particle": true },
         { "surface": "行きます", "reading": "いきます", "gloss": "去" }
       ],
       "bunsetsu": [[0], [1, 2], [3]],

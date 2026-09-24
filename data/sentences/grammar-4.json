@@ -110,7 +110,7 @@
       "level": "N4",
       "tokens": [
         { "surface": "家", "reading": "いえ", "gloss": "家" },
-        { "surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true },
+        { "surface": "に", "reading": "に", "gloss": "（到達點）", "particle": true },
         { "surface": "着いたら", "reading": "ついたら", "gloss": "到了之後" },
         { "surface": "電話します", "reading": "でんわします", "gloss": "打電話" }
       ],
