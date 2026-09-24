@@ -99,8 +99,16 @@ const SENTENCE_FINAL_PARTICLE_SURFACES = new Set(["か", "ね", "よ"]);
 /** `tokens` with any trailing か/ね/よ tokens removed (build task 2026-09-24 §A). Used only when checking predicate-finality for arrange practice -- never changes the sentence's own stored tokens. */
 function trimTrailingFinalParticles(tokens: SentenceToken[]): SentenceToken[] {
   let end = tokens.length;
-  while (end > 0 && SENTENCE_FINAL_PARTICLE_SURFACES.has(tokens[end - 1].surface)) end--;
+  while (
+    end > 0 &&
+    (SENTENCE_FINAL_PARTICLE_SURFACES.has(tokens[end - 1].surface) || isPunctuationSurface(tokens[end - 1].surface))
+  ) end--;
   return tokens.slice(0, end);
+}
+
+/** A token made only of Japanese/ASCII punctuation (、。！？「」…) — see enrichSentenceToken. */
+export function isPunctuationSurface(surface: string): boolean {
+  return /^[、。，,！？!?…「」『』（）()・]+$/u.test(surface);
 }
 
 /** `arr` is exactly a permutation of [0..n-1] -- same length, every index present, no duplicates. */
@@ -133,6 +141,14 @@ function enrichSentenceToken(
   id: string,
   codec: KanaCodec,
 ): BuiltSentenceToken {
+  // Punctuation token (2026-09-24): lets example sentences keep their commas
+  // (「りんごとみかん、そしてバナナ」 reads wrong without one). No reading,
+  // no gloss, never a particle, renders as plain text, lights no kana cell.
+  if (isPunctuationSurface(token.surface)) {
+    if (token.reading !== "") fail(file, id, `tokens[${index}] 標點 token 的 reading 必須是空字串`);
+    if (token.particle) fail(file, id, `tokens[${index}] 標點 token 不可標 particle`);
+    return { ...token, gloss: token.gloss ?? "", morae: [], romaji: "" };
+  }
   if (!token.gloss) {
     fail(file, id, `tokens[${index}] 缺少 gloss`);
   }
@@ -233,8 +249,9 @@ export function enrichSentence(seed: SentenceSeed, file: string, codec: KanaCode
   }
 
   const builtTokens = seed.tokens.map((t, i) => enrichSentenceToken(t, i, file, seed.id, codec));
-  const ja = builtTokens.map((t) => t.surface).join("") + "。";
-  const romaji = builtTokens.map((t) => t.romaji).join(" ");
+  const joined = builtTokens.map((t) => t.surface).join("");
+  const ja = /[。？！?!]$/.test(joined) ? joined : joined + "。";
+  const romaji = builtTokens.map((t) => t.romaji).filter(Boolean).join(" ");
 
   return { ...seed, tokens: builtTokens, ja, romaji };
 }
@@ -710,7 +727,15 @@ export async function buildBank(codec: KanaCodec): Promise<Bank> {
   // deriveParticlesFile's own doc for why this keeps every pre-existing
   // consumer of bank.particles working unchanged. validateParticles still
   // runs against it as a safety net (same function, same checks as before).
-  const particles = deriveParticlesFile(grammarFile.items, contrastsFile.contrast_sets, codec);
+  // Only contrast sets made entirely of the original 8 particles belong in
+  // this back-compat view (validateParticles still enforces PARTICLE_IDS);
+  // sets involving newer items (ね/よ, そして/それから, へ/に…) live only in
+  // bank.grammar.contrasts. Feeding all of them in broke the build as soon as
+  // the first such set was authored (2026-09-24).
+  const legacyContrastSets = contrastsFile.contrast_sets.filter((cs) =>
+    cs.particles.every((p) => (PARTICLE_IDS as readonly string[]).includes(p)),
+  );
+  const particles = deriveParticlesFile(grammarFile.items, legacyContrastSets, codec);
   validateParticles(particles, sentenceIds);
 
   const sentencesById = new Map(sentences.map((s) => [s.id, s]));

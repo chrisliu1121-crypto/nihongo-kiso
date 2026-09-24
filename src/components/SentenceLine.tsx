@@ -17,18 +17,25 @@ export function SentenceLine({ sentence, note, size = "sm" }: SentenceLineProps)
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex flex-wrap items-end gap-1.5">
-        {sentence.tokens.map((token, i) => (
-          <Token
-            key={i}
-            surface={token.surface}
-            reading={token.reading}
-            particle={token.particle}
-            gloss={token.gloss}
-            role={token.particle ? "particle" : "phrase"}
-            size={size}
-            id={`${sentence.id}:${i}`}
-          />
-        ))}
+        {sentence.tokens.map((token, i) =>
+          token.reading === "" ? (
+            // Punctuation token (、。「」…): plain text, lights nothing.
+            <span key={i} className="self-start pt-1 text-lg text-stone-500">
+              {token.surface}
+            </span>
+          ) : (
+            <Token
+              key={i}
+              surface={token.surface}
+              reading={token.reading}
+              particle={token.particle}
+              gloss={token.gloss}
+              role={token.particle ? "particle" : "phrase"}
+              size={size}
+              id={`${sentence.id}:${i}`}
+            />
+          ),
+        )}
       </div>
       <p className="text-xs text-stone-500">{sentence.translation}</p>
       {note && <p className="text-xs text-amber-700">{note}</p>}
