@@ -1,0 +1,433 @@
+{
+  "sentences": [
+    {
+      "id": "s_g200",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "雨", "reading": "あめ", "gloss": "雨" },
+        { "surface": "な", "reading": "な", "gloss": "（連接）" },
+        { "surface": "ので", "reading": "ので", "gloss": "（因為）", "particle": true },
+        { "surface": "行きません", "reading": "いきません", "gloss": "不去" }
+      ],
+      "translation": "因為下雨，所以不去。",
+      "verified": true,
+      "tags": ["conj:node"]
+    },
+    {
+      "id": "s_g201",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "頭", "reading": "あたま", "gloss": "頭" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "痛い", "reading": "いたい", "gloss": "痛" },
+        { "surface": "ので", "reading": "ので", "gloss": "（因為）", "particle": true },
+        { "surface": "今日", "reading": "きょう", "gloss": "今天" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "休みます", "reading": "やすみます", "gloss": "請假／休息" }
+      ],
+      "translation": "因為頭痛，所以今天請假。",
+      "verified": true,
+      "tags": ["conj:node", "particle:ga", "particle:wa"]
+    },
+    {
+      "id": "s_g202",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "これ", "reading": "これ", "gloss": "這個" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "高い", "reading": "たかい", "gloss": "貴" },
+        { "surface": "けど", "reading": "けど", "gloss": "（但是）", "particle": true },
+        { "surface": "買います", "reading": "かいます", "gloss": "買" }
+      ],
+      "translation": "這個雖然貴，但我要買。",
+      "verified": true,
+      "tags": ["conj:kedo", "particle:wa"]
+    },
+    {
+      "id": "s_g203",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "日本語", "reading": "にほんご", "gloss": "日語" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "難しい", "reading": "むずかしい", "gloss": "難" },
+        { "surface": "けど", "reading": "けど", "gloss": "（但是）", "particle": true },
+        { "surface": "面白い", "reading": "おもしろい", "gloss": "有趣" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "translation": "日語雖然難，但很有趣。",
+      "verified": true,
+      "tags": ["conj:kedo", "particle:wa"]
+    },
+    {
+      "id": "s_g204",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "すみません", "reading": "すみません", "gloss": "不好意思" },
+        { "surface": "けど", "reading": "けど", "gloss": "（但是）", "particle": true },
+        { "surface": "ちょっと", "reading": "ちょっと", "gloss": "一下" },
+        { "surface": "いい", "reading": "いい", "gloss": "可以" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "か", "reading": "か", "gloss": "（疑問）", "particle": true }
+      ],
+      "translation": "不好意思，可以打擾一下嗎？",
+      "verified": true,
+      "tags": ["conj:kedo"]
+    },
+    {
+      "id": "s_g205",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "雨", "reading": "あめ", "gloss": "雨" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "降ったら", "reading": "ふったら", "gloss": "下的話" },
+        { "surface": "行きません", "reading": "いきません", "gloss": "不去" }
+      ],
+      "translation": "如果下雨的話，就不去。",
+      "verified": true,
+      "tags": ["conj:tara", "particle:ga"]
+    },
+    {
+      "id": "s_g206",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "安かったら", "reading": "やすかったら", "gloss": "便宜的話" },
+        { "surface": "買います", "reading": "かいます", "gloss": "買" }
+      ],
+      "translation": "如果便宜的話，我就買。",
+      "verified": true,
+      "tags": ["conj:tara"]
+    },
+    {
+      "id": "s_g207",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "家", "reading": "いえ", "gloss": "家" },
+        { "surface": "に", "reading": "に", "gloss": "（目的地）", "particle": true },
+        { "surface": "着いたら", "reading": "ついたら", "gloss": "到了之後" },
+        { "surface": "電話します", "reading": "でんわします", "gloss": "打電話" }
+      ],
+      "translation": "到家之後我會打電話。",
+      "verified": true,
+      "tags": ["conj:tara", "particle:ni"]
+    },
+    {
+      "id": "s_g208",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "この店", "reading": "このみせ", "gloss": "這家店" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "安い", "reading": "やすい", "gloss": "便宜" },
+        { "surface": "し", "reading": "し", "gloss": "（並列理由）", "particle": true },
+        { "surface": "おいしい", "reading": "おいしい", "gloss": "好吃" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "translation": "這家店又便宜又好吃。",
+      "verified": true,
+      "tags": ["conj:shi", "particle:wa"]
+    },
+    {
+      "id": "s_g209",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "頭", "reading": "あたま", "gloss": "頭" },
+        { "surface": "も", "reading": "も", "gloss": "（也）", "particle": true },
+        { "surface": "痛い", "reading": "いたい", "gloss": "痛" },
+        { "surface": "し", "reading": "し", "gloss": "（並列理由）", "particle": true },
+        { "surface": "熱", "reading": "ねつ", "gloss": "發燒" },
+        { "surface": "も", "reading": "も", "gloss": "（也）", "particle": true },
+        { "surface": "ある", "reading": "ある", "gloss": "有" },
+        { "surface": "し", "reading": "し", "gloss": "（並列理由）", "particle": true },
+        { "surface": "今日", "reading": "きょう", "gloss": "今天" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "休みます", "reading": "やすみます", "gloss": "請假／休息" }
+      ],
+      "translation": "頭又痛，又發燒，所以今天要請假。",
+      "verified": true,
+      "tags": ["conj:shi", "particle:mo", "particle:wa"]
+    },
+    {
+      "id": "s_g210",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "明日", "reading": "あした", "gloss": "明天" },
+        { "surface": "テスト", "reading": "てすと", "gloss": "考試" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "ね", "reading": "ね", "gloss": "（確認）", "particle": true }
+      ],
+      "translation": "明天考試，對吧？",
+      "verified": true,
+      "tags": ["final:ne"]
+    },
+    {
+      "id": "s_g211",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "田中さん", "reading": "たなかさん", "gloss": "田中先生" },
+        { "surface": "も", "reading": "も", "gloss": "（也）", "particle": true },
+        { "surface": "行きます", "reading": "いきます", "gloss": "去" },
+        { "surface": "ね", "reading": "ね", "gloss": "（確認）", "particle": true }
+      ],
+      "translation": "田中先生也會去吧？",
+      "verified": true,
+      "tags": ["final:ne", "particle:mo"]
+    },
+    {
+      "id": "s_g212",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "この", "reading": "この", "gloss": "這個" },
+        { "surface": "料理", "reading": "りょうり", "gloss": "料理" },
+        { "surface": "おいしい", "reading": "おいしい", "gloss": "好吃" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "ね", "reading": "ね", "gloss": "（感嘆）", "particle": true }
+      ],
+      "translation": "這道菜真好吃呢。",
+      "verified": true,
+      "tags": ["final:ne"]
+    },
+    {
+      "id": "s_g213",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "この", "reading": "この", "gloss": "這個" },
+        { "surface": "料理", "reading": "りょうり", "gloss": "料理" },
+        { "surface": "おいしい", "reading": "おいしい", "gloss": "好吃" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "よ", "reading": "よ", "gloss": "（告知）", "particle": true }
+      ],
+      "translation": "這道菜很好吃喔。",
+      "verified": true,
+      "tags": ["final:yo"]
+    },
+    {
+      "id": "s_g214",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "もう", "reading": "もう", "gloss": "已經" },
+        { "surface": "九時", "reading": "くじ", "gloss": "九點" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "よ", "reading": "よ", "gloss": "（提醒）", "particle": true }
+      ],
+      "translation": "已經九點了喔。",
+      "verified": true,
+      "tags": ["final:yo"]
+    },
+    {
+      "id": "s_g215",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "行きません", "reading": "いきません", "gloss": "不去" },
+        { "surface": "よ", "reading": "よ", "gloss": "（強調）", "particle": true }
+      ],
+      "translation": "我可是不會去的喔。",
+      "verified": true,
+      "tags": ["final:yo", "particle:wa"]
+    },
+    {
+      "id": "s_g216",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "りんご", "reading": "りんご", "gloss": "蘋果" },
+        { "surface": "と", "reading": "と", "gloss": "（並列）", "particle": true },
+        { "surface": "みかん", "reading": "みかん", "gloss": "橘子" },
+        { "surface": "そして", "reading": "そして", "gloss": "還有" },
+        { "surface": "バナナ", "reading": "ばなな", "gloss": "香蕉" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "買いました", "reading": "かいました", "gloss": "買了" }
+      ],
+      "translation": "買了蘋果、橘子，還有香蕉。",
+      "verified": true,
+      "tags": ["conjunction:soshite", "particle:to", "particle:wo"]
+    },
+    {
+      "id": "s_g217",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "宿題", "reading": "しゅくだい", "gloss": "作業" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "して", "reading": "して", "gloss": "做" },
+        { "surface": "それから", "reading": "それから", "gloss": "然後" },
+        { "surface": "寝ます", "reading": "ねます", "gloss": "睡覺" }
+      ],
+      "translation": "做完作業，然後睡覺。",
+      "verified": true,
+      "tags": ["conjunction:sorekara", "particle:wo"]
+    },
+    {
+      "id": "s_g218",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "パン", "reading": "ぱん", "gloss": "麵包" },
+        { "surface": "と", "reading": "と", "gloss": "（並列）", "particle": true },
+        { "surface": "牛乳", "reading": "ぎゅうにゅう", "gloss": "牛奶" },
+        { "surface": "それから", "reading": "それから", "gloss": "另外" },
+        { "surface": "卵", "reading": "たまご", "gloss": "雞蛋" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "買いました", "reading": "かいました", "gloss": "買了" }
+      ],
+      "translation": "買了麵包和牛奶，另外還買了雞蛋。",
+      "verified": true,
+      "tags": ["conjunction:sorekara", "particle:to", "particle:wo"]
+    },
+    {
+      "id": "s_g219",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "電車", "reading": "でんしゃ", "gloss": "電車" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "止まって", "reading": "とまって", "gloss": "停了" },
+        { "surface": "それで", "reading": "それで", "gloss": "所以" },
+        { "surface": "遅れました", "reading": "おくれました", "gloss": "遲到了" }
+      ],
+      "translation": "電車停了，所以遲到了。",
+      "verified": true,
+      "tags": ["conjunction:sorede", "particle:ga"]
+    },
+    {
+      "id": "s_g220",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "で", "reading": "で", "gloss": "那後來呢" },
+        { "surface": "どうしたの", "reading": "どうしたの", "gloss": "怎麼了" }
+      ],
+      "translation": "那後來呢？怎麼了？",
+      "verified": true,
+      "tags": ["conjunction:sorede"],
+      "note": "句首單獨的「で」是それで的口語省略，不是格助詞で，所以 token 不標 particle"
+    },
+    {
+      "id": "s_g221",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "この店", "reading": "このみせ", "gloss": "這家店" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "安くて", "reading": "やすくて", "gloss": "便宜" },
+        { "surface": "しかも", "reading": "しかも", "gloss": "而且還" },
+        { "surface": "おいしい", "reading": "おいしい", "gloss": "好吃" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "translation": "這家店便宜，而且還很好吃。",
+      "verified": true,
+      "tags": ["conjunction:shikamo", "particle:wa"]
+    },
+    {
+      "id": "s_g222",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "頭", "reading": "あたま", "gloss": "頭" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "痛くて", "reading": "いたくて", "gloss": "痛" },
+        { "surface": "それに", "reading": "それに", "gloss": "而且" },
+        { "surface": "熱", "reading": "ねつ", "gloss": "發燒" },
+        { "surface": "も", "reading": "も", "gloss": "（也）", "particle": true },
+        { "surface": "あります", "reading": "あります", "gloss": "有" }
+      ],
+      "translation": "頭很痛，而且還發燒。",
+      "verified": true,
+      "tags": ["conjunction:soreni", "particle:ga", "particle:mo"]
+    },
+    {
+      "id": "s_g223",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "まさか", "reading": "まさか", "gloss": "沒想到" },
+        { "surface": "田中さん", "reading": "たなかさん", "gloss": "田中先生" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "来る", "reading": "くる", "gloss": "來" },
+        { "surface": "とは", "reading": "とは", "gloss": "（竟然）", "particle": true },
+        { "surface": "思いませんでした", "reading": "おもいませんでした", "gloss": "沒想到" }
+      ],
+      "translation": "真沒想到田中先生竟然會來。",
+      "verified": true,
+      "tags": ["expr:masaka", "expr:nante", "particle:ga"]
+    },
+    {
+      "id": "s_g224",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "なんと", "reading": "なんと", "gloss": "竟然" },
+        { "surface": "彼", "reading": "かれ", "gloss": "他" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "一週間", "reading": "いっしゅうかん", "gloss": "一週" },
+        { "surface": "で", "reading": "で", "gloss": "（期間）", "particle": true },
+        { "surface": "日本語", "reading": "にほんご", "gloss": "日語" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "覚えました", "reading": "おぼえました", "gloss": "學會了" }
+      ],
+      "translation": "他竟然一週就學會了日語。",
+      "verified": true,
+      "tags": ["expr:nanto", "particle:wa", "particle:de", "particle:wo"]
+    },
+    {
+      "id": "s_g225",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "なんと", "reading": "なんと", "gloss": "多麼" },
+        { "surface": "美しい", "reading": "うつくしい", "gloss": "美麗的" },
+        { "surface": "景色", "reading": "けしき", "gloss": "景色" },
+        { "surface": "でしょう", "reading": "でしょう", "gloss": "啊" }
+      ],
+      "translation": "多麼美麗的景色啊。",
+      "verified": true,
+      "tags": ["expr:nanto"]
+    },
+    {
+      "id": "s_g226",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "三時間", "reading": "さんじかん", "gloss": "三小時" },
+        { "surface": "も", "reading": "も", "gloss": "（數量強調）", "particle": true },
+        { "surface": "待ちました", "reading": "まちました", "gloss": "等了" }
+      ],
+      "translation": "竟然等了三個小時。",
+      "verified": true,
+      "tags": ["expr:mo-emph", "particle:mo"]
+    },
+    {
+      "id": "s_g227",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "漢字", "reading": "かんじ", "gloss": "漢字" },
+        { "surface": "が", "reading": "が", "gloss": "（主體）", "particle": true },
+        { "surface": "嫌いだ", "reading": "きらいだ", "gloss": "討厭" },
+        { "surface": "なんて", "reading": "なんて", "gloss": "（之類的）", "particle": true },
+        { "surface": "もったいない", "reading": "もったいない", "gloss": "可惜" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "ね", "reading": "ね", "gloss": "（感嘆）", "particle": true }
+      ],
+      "translation": "竟然討厭漢字，真是太可惜了。",
+      "verified": true,
+      "tags": ["expr:nante", "final:ne", "particle:ga"]
+    }
+  ]
+}
