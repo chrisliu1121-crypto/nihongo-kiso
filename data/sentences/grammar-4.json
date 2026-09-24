@@ -550,6 +550,19 @@
       "translation": "要吃什麼？",
       "verified": true,
       "tags": ["expr:nan", "particle:wo"]
+    },
+    {
+      "id": "s_g235",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "なんか", "reading": "なんか", "gloss": "什麼（東西）" },
+        { "surface": "食べる", "reading": "たべる", "gloss": "吃" },
+        { "surface": "？", "reading": "" }
+      ],
+      "translation": "要吃點什麼嗎？",
+      "verified": true,
+      "tags": ["expr:nan"]
     }
   ]
 }

@@ -12,6 +12,13 @@ export interface VerbEntry {
   class: VerbClass;
   gloss: string;
   /**
+   * Gloss used to build the derived forms' glosses when the automatic
+   * shortening would lose the meaning (貸す 借出 vs 借りる 借入).
+   */
+  short_gloss?: string;
+  /** Per-form gloss overrides for the basic forms (違う: ない形「沒有不同」, not「不不同」). */
+  gloss_forms?: Partial<Record<"masu" | "nai" | "te" | "ta", string>>;
+  /**
    * Display romaji of the dictionary form, only where the rule-based
    * conversion is wrong: a verb-final う after an お/う sound is a morpheme
    * boundary, not a long vowel (思う omou, not omō; DESIGN.md §7 已知限制).

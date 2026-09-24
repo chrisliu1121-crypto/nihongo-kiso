@@ -49,7 +49,8 @@ export function volitionalRomaji(reading: string): string {
 }
 
 export function formRows(verb: VerbEntry): FormRow[] {
-  const g = shortGloss(verb.gloss);
+  const g = verb.short_gloss ?? shortGloss(verb.gloss);
+  const over = verb.gloss_forms ?? {};
   const cell = (label: string, form: { surface: string; reading: string }, gloss: string): FormCell => ({
     label,
     surface: form.surface,
@@ -64,10 +65,10 @@ export function formRows(verb: VerbEntry): FormRow[] {
     title: "基本形",
     cells: [
       { ...cell("辭書形", conjugate(verb, "dictionary"), verb.gloss), romaji: verb.romaji },
-      cell("ます形", conjugate(verb, "masu"), `${g}（禮貌）`),
-      cell("ない形", conjugate(verb, "nai"), `不${g}`),
-      cell("て形", conjugate(verb, "te"), `${g}（て形）`),
-      cell("た形", conjugate(verb, "ta"), `${g}了`),
+      cell("ます形", conjugate(verb, "masu"), over.masu ?? `${g}（禮貌）`),
+      cell("ない形", conjugate(verb, "nai"), over.nai ?? `不${g}`),
+      cell("て形", conjugate(verb, "te"), over.te ?? `${g}（て形）`),
+      cell("た形", conjugate(verb, "ta"), over.ta ?? `${g}了`),
     ],
   };
 
@@ -85,7 +86,7 @@ export function formRows(verb: VerbEntry): FormRow[] {
         cell("＋ます", conjugate(pv, "masu"), `能${g}（禮貌）`),
         cell("＋ない", conjugate(pv, "nai"), `不能${g}`),
         cell("＋て", conjugate(pv, "te"), `能${g}（て形）`),
-        cell("＋た", conjugate(pv, "ta"), `能${g}了`),
+        cell("＋た", conjugate(pv, "ta"), `（當時）能${g}`),
       ],
     };
   }

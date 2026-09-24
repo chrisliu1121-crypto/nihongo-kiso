@@ -75,6 +75,19 @@ describe("formRows", () => {
     expect(formRows(byId.get("思う")!)[2].cells[0].romaji).toBe("omoō");
   });
 
+  it("short_gloss and gloss_forms keep meanings apart and avoid broken Chinese", () => {
+    expect(formRows(byId.get("貸す")!)[0].cells[2].gloss).toBe("不借出");
+    expect(formRows(byId.get("借りる")!)[0].cells[2].gloss).toBe("不借入");
+    expect(formRows(byId.get("違う")!)[0].cells[2].gloss).toBe("沒有不同");
+    expect(formRows(byId.get("ある")!)[0].cells[2].gloss).toBe("沒有");
+    expect(formRows(byId.get("書く")!)[1].cells[4].gloss).toBe("（當時）能寫");
+    for (const v of verbs) {
+      for (const row of formRows(v)) {
+        for (const c of row.cells) expect(c.gloss, `${v.surface} ${c.label}`).not.toMatch(/不不|能能/);
+      }
+    }
+  });
+
   it("shortGloss drops qualifiers and keeps the first meaning", () => {
     expect(shortGloss("使…停下／停（車）（他動）")).toBe("使…停下");
     expect(shortGloss("穿（衣服、外套）")).toBe("穿");
