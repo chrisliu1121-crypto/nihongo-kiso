@@ -65,6 +65,20 @@ export interface TokenProps {
    * are suppressed.
    */
   pinnable?: boolean;
+  /**
+   * Extra click/Enter/Space handler, called after the pin toggle (if any).
+   * For a Token that doubles as a selector, e.g. the verb chips on
+   * /grammar/verbs: pass pinnable={false} plus onActivate + selected, so the
+   * chip stays ONE focusable element (no button nested in a button) while
+   * hover still highlights the gojuon table and shows the gloss bubble.
+   */
+  onActivate?: () => void;
+  /**
+   * Selected state for a selector Token (pinnable={false}). Styled like a
+   * pinned token and exposed as aria-pressed, which also makes the
+   * glossMode="hover" bubble visible on touch screens (src/styles/index.css).
+   */
+  selected?: boolean;
   /** Render a per-mora breakdown strip below the token. Default false. */
   showMorae?: boolean;
   /**
@@ -109,6 +123,8 @@ export function Token({
   size = "md",
   interactive = true,
   pinnable = true,
+  onActivate,
+  selected,
   showMorae = false,
   id,
 }: TokenProps) {
@@ -156,8 +172,8 @@ export function Token({
   const handleEnter = () => setLayer("hover", wholeTokenSet());
   const handleLeave = () => clearLayer("hover");
   const handleActivate = () => {
-    if (!pinnable) return;
-    togglePinned(wholeTokenSet());
+    if (pinnable) togglePinned(wholeTokenSet());
+    onActivate?.();
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -171,7 +187,7 @@ export function Token({
     <div
       role="button"
       tabIndex={0}
-      aria-pressed={pinnable ? isPinned : undefined}
+      aria-pressed={pinnable ? isPinned : selected}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onFocus={handleEnter}
@@ -181,7 +197,7 @@ export function Token({
       className={`inline-flex cursor-pointer flex-col items-center rounded-lg border ${
         hoverMode ? HOVER_MODE_CLASS : "transition-colors duration-150"
       } ${PADDING_SIZE[size]} ${
-        isPinned
+        isPinned || selected
           ? "border-amber-400 bg-amber-50"
           : "border-stone-200 bg-white hover:border-amber-300 hover:bg-amber-50/60"
       } focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400`}

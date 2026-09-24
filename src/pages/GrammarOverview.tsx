@@ -17,31 +17,12 @@ import { ContrastSetView } from "../components/ContrastSetView";
 import type { ContrastSetPair } from "../components/ContrastSetView";
 import bank, { getGrammarContrastSet, getSentence, itemsByCategory } from "../lib/bank";
 import type { ContrastSet, GrammarCategory, GrammarItem, Sentence } from "../lib/bank";
+import { GrammarIndexTable, GrammarJumpSelect } from "../components/GrammarPicker";
+import { CATEGORY_DESCRIPTION, CATEGORY_LABEL, CATEGORY_ORDER } from "../lib/grammar/categories";
 
 const SKELETON_SENTENCE_ID = "s_g033";
 
 const SKELETON_LABELS = ["主題は", "時間", "地點で", "對象と／に", "受詞を", "動詞"];
-
-/** Display order + Chinese label + one-line description for each GrammarCategory (build task 2026-09-24 §D). */
-const CATEGORY_ORDER: GrammarCategory[] = ["case", "focus", "conjunctive", "final", "conjunction", "expression"];
-
-const CATEGORY_LABEL: Record<GrammarCategory, string> = {
-  case: "格助詞",
-  focus: "係助詞・副助詞",
-  conjunctive: "接續助詞",
-  final: "終助詞",
-  conjunction: "接續詞",
-  expression: "副詞・表現",
-};
-
-const CATEGORY_DESCRIPTION: Record<GrammarCategory, string> = {
-  case: "標記名詞在句中扮演的角色（誰、對誰、在哪裡、用什麼…）",
-  focus: "標記這句話在談什麼、強調什麼、限定什麼範圍",
-  conjunctive: "連接兩個子句，說明原因、轉折、假設等關係",
-  final: "加在句尾，表示語氣（確認、提醒、感嘆…）",
-  conjunction: "連接兩個句子，是句子之間的橋樑，不是助詞",
-  expression: "副詞或固定表現，常與特定語氣或句型搭配",
-};
 
 interface SlotToken {
   surface: string;
@@ -175,9 +156,18 @@ export function GrammarOverview() {
 
   return (
     <div className="space-y-10">
+      {/* 0. 快速查找：下拉選單 + 分類索引表，點了直接進該文法頁 */}
+      <section className="space-y-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h1 className="text-2xl font-bold text-stone-900">文法</h1>
+          <GrammarJumpSelect />
+        </div>
+        <GrammarIndexTable />
+      </section>
+
       {/* 1. 語序 -- DESIGN.md §2.2 */}
       <section>
-        <h1 className="text-2xl font-bold text-stone-900">語序</h1>
+        <h2 className="text-xl font-bold text-stone-900">語序</h2>
         <blockquote className="mt-3 rounded-lg border-l-4 border-amber-300 bg-amber-50/60 px-4 py-3 text-stone-700">
           中文靠位置決定角色，日語靠助詞決定角色。日語唯一硬性的位置規則是「動詞在最後」。
         </blockquote>

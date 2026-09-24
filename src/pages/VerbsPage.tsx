@@ -1,22 +1,23 @@
 // VerbsPage — "/grammar/verbs": verb classification (五段・一段・不規則) +
-// conjugation table (build task 2026-09-24 §C/§D). Reads data/grammar/verbs.json
-// directly (like kana.json elsewhere, Vite/vitest both handle a plain JSON
-// import) -- this data isn't part of data/bank.json, it has no per-word
-// derived fields the way daily words do, so there's nothing build-bank.ts
-// needs to compute for it.
+// conjugation table. Reads data/grammar/verbs.json directly (not part of
+// data/bank.json: no per-word derived fields for build-bank.ts to compute).
+//
+// Layout (2026-09-25 redesign):
+//   header + jump menu -> three class cards -> 活用表 (class tabs, the
+//   selected verb's five forms, then every verb of that class grouped by
+//   ending) -> reference: how to tell 一段 from 五段, て／た音便 table.
+// Every verb chip is a Token: hover shows the Chinese gloss bubble and
+// highlights its kana on the gojuon table; click selects it for the table.
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Token } from "../components/Token";
+import { GrammarJumpSelect } from "../components/GrammarPicker";
 import { conjugate } from "../lib/grammar/conjugate";
 import type { VerbClass, VerbForm } from "../lib/grammar/conjugate";
+import { looksIchidan, verbGroups, type VerbEntry } from "../lib/grammar/verbGroups";
+import { useMediaQuery } from "../lib/ui/useMediaQuery";
 import verbsData from "../../data/grammar/verbs.json";
-
-interface VerbEntry {
-  surface: string;
-  reading: string;
-  class: VerbClass;
-  gloss: string;
-}
 
 const verbs = (verbsData as { verbs: VerbEntry[] }).verbs;
 
@@ -48,11 +49,16 @@ const FORM_LABEL: Record<VerbForm, string> = {
   ta: "た形",
 };
 
-/** Per-form Chinese gloss shown under each Token (build task §C/§D: "gloss 用各形的中文如「寫（禮貌）」「不寫」「寫了」"). */
-function formGloss(baseGloss: string, form: VerbForm): string {
+/**
+ * Per-form Chinese gloss shown under each conjugated Token. The dictionary
+ * form keeps the full gloss; the other forms use only its first meaning
+ * without the （自動）/（他動）tag, so 止める reads 「使…停下（禮貌）」 rather
+ * than 「使…停下／停（車）（他動）（禮貌）」.
+ */
+function formGloss(fullGloss: string, form: VerbForm): string {
+  if (form === "dictionary") return fullGloss;
+  const baseGloss = fullGloss.replace(/（[自他]動）/g, "").split("／")[0];
   switch (form) {
-    case "dictionary":
-      return baseGloss;
     case "masu":
       return `${baseGloss}（禮貌）`;
     case "nai":
@@ -72,49 +78,158 @@ const ONBIN_ROWS: { endings: string; te: string; ta: string; note?: string }[] =
   { endings: "す", te: "して", ta: "した" },
 ];
 
-const ICHIDAN_EXCEPTIONS = ["帰る", "入る", "走る", "知る", "切る", "要る"];
+const LOOKALIKES = verbs.filter(looksIchidan);
+
+/** The desktop panel sticks just under the sticky header (--nav-h, see Layout.tsx). */
+const DESKTOP_QUERY = "(min-width: 1024px)";
 
 export function VerbsPage() {
-  const byClass = useMemo(() => {
-    const map = new Map<VerbClass, VerbEntry[]>();
-    for (const cls of CLASS_ORDER) map.set(cls, []);
-    for (const v of verbs) map.get(v.class)!.push(v);
-    return map;
+  const countByClass = useMemo(() => {
+    const counts = new Map<VerbClass, number>();
+    for (const v of verbs) counts.set(v.class, (counts.get(v.class) ?? 0) + 1);
+    return counts;
   }, []);
 
   const [selectedClass, setSelectedClass] = useState<VerbClass>("godan");
-  const classVerbs = byClass.get(selectedClass) ?? [];
-  const [selectedSurface, setSelectedSurface] = useState<string>(classVerbs[0]?.surface ?? "");
+  const groups = useMemo(() => verbGroups(verbs, selectedClass), [selectedClass]);
+  const [selectedSurface, setSelectedSurface] = useState<string>(groups[0]?.verbs[0]?.surface ?? "");
 
-  const selectedVerb =
-    classVerbs.find((v) => v.surface === selectedSurface) ?? classVerbs[0] ?? verbs[0];
+  const classVerbs = groups.flatMap((g) => g.verbs);
+  const selectedVerb = classVerbs.find((v) => v.surface === selectedSurface) ?? classVerbs[0];
+
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   function selectClass(cls: VerbClass): void {
     setSelectedClass(cls);
-    const first = byClass.get(cls)?.[0];
+    const first = verbGroups(verbs, cls)[0]?.verbs[0];
     if (first) setSelectedSurface(first.surface);
+  }
+
+  function selectVerb(surface: string): void {
+    setSelectedSurface(surface);
+    // Below lg the panel isn't sticky, so bring it back into view.
+    if (!isDesktop) panelRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
   return (
     <div className="space-y-8">
-      <section>
+      <section className="space-y-2">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <Link to="/grammar" className="text-sm text-stone-500 hover:text-amber-700 hover:underline">
+            ← 文法總覽
+          </Link>
+          <GrammarJumpSelect currentId="verbs" />
+        </div>
         <h1 className="text-2xl font-bold text-stone-900">動詞：五段・一段・不規則</h1>
-        <p className="mt-2 text-sm text-stone-600">
+        <p className="text-sm text-stone-600">
           日語動詞依活用方式分三大類。辭書形（字典裡查到的原形）的詞尾看得出線索，但一段動詞有一批例外，要單獨記住。
         </p>
       </section>
 
       {/* 三類說明 */}
-      <section className="grid gap-3 sm:grid-cols-3">
-        {CLASS_ORDER.filter((c) => c !== "kuru").map((cls) => (
+      <section className="grid gap-3 sm:grid-cols-2">
+        {CLASS_ORDER.map((cls) => (
           <div key={cls} className="rounded-lg border border-stone-200 bg-white p-4">
             <p className="text-sm font-semibold text-stone-800">{CLASS_LABEL[cls]}</p>
-            <p className="mt-1 text-xs text-stone-500">{CLASS_DESCRIPTION[cls]}</p>
+            <p className="mt-1 text-xs leading-relaxed text-stone-500">{CLASS_DESCRIPTION[cls]}</p>
           </div>
         ))}
-        <div className="rounded-lg border border-stone-200 bg-white p-4 sm:col-span-3">
-          <p className="text-sm font-semibold text-stone-800">{CLASS_LABEL.kuru}</p>
-          <p className="mt-1 text-xs text-stone-500">{CLASS_DESCRIPTION.kuru}</p>
+      </section>
+
+      {/* 活用表：選類別 -> 看活用 -> 依詞尾分組的動詞 */}
+      <section className="space-y-4">
+        <div>
+          <h2 className="text-lg font-semibold text-stone-800">活用表</h2>
+          <p className="mt-1 text-xs text-stone-500">
+            滑鼠移到動詞上會顯示中文，五十音表同步高亮；點一下就在上方看它的五種形。
+          </p>
+        </div>
+
+        <div role="tablist" aria-label="動詞類別" className="flex flex-wrap gap-2">
+          {CLASS_ORDER.map((cls) => (
+            <button
+              key={cls}
+              type="button"
+              role="tab"
+              aria-selected={selectedClass === cls}
+              onClick={() => selectClass(cls)}
+              className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors duration-150 ${
+                selectedClass === cls
+                  ? "border-amber-400 bg-amber-50 text-amber-800"
+                  : "border-stone-200 bg-white text-stone-600 hover:bg-stone-50"
+              }`}
+            >
+              {CLASS_LABEL[cls]}
+              <span className="ml-1.5 text-xs font-normal text-stone-400">{countByClass.get(cls) ?? 0}</span>
+            </button>
+          ))}
+        </div>
+
+        {selectedVerb && (
+          <div
+            ref={panelRef}
+            className="scroll-mt-[calc(var(--nav-h)+0.5rem)] rounded-xl border border-amber-200 bg-amber-50/70 p-4 shadow-sm backdrop-blur lg:sticky lg:top-[calc(var(--nav-h)+0.5rem)] lg:z-[25]"
+          >
+            <p className="text-xs text-stone-500">
+              <span className="font-semibold text-stone-800">{selectedVerb.surface}</span>
+              <span className="mx-1.5">·</span>
+              {selectedVerb.gloss}
+              {looksIchidan(selectedVerb) && (
+                <span className="ml-2 rounded bg-amber-200/70 px-1.5 py-0.5 text-[11px] text-amber-900">看似一段，其實五段</span>
+              )}
+            </p>
+            <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-5">
+              {FORM_ORDER.map((form) => {
+                const { surface, reading } = conjugate(selectedVerb, form);
+                return (
+                  <div key={form} className="flex flex-col items-center gap-1">
+                    <span className="text-[11px] font-medium text-stone-500">{FORM_LABEL[form]}</span>
+                    <Token
+                      surface={surface}
+                      reading={reading}
+                      gloss={formGloss(selectedVerb.gloss, form)}
+                      role="verb"
+                      size="sm"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        <div className="space-y-3">
+          {groups.map((group) => (
+            <div
+              key={group.key}
+              className={`rounded-lg border p-3 ${
+                group.warn ? "border-amber-200 bg-amber-50/40" : "border-stone-200 bg-white"
+              }`}
+            >
+              <div className="mb-2 flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                <span className="text-sm font-semibold text-stone-800">{group.label}</span>
+                <span className="text-xs text-stone-500">{group.rule}</span>
+                <span className="text-xs text-stone-400">{group.verbs.length} 個</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {group.verbs.map((v) => (
+                  <Token
+                    key={v.surface}
+                    surface={v.surface}
+                    reading={v.reading}
+                    gloss={v.gloss}
+                    glossMode="hover"
+                    role="verb"
+                    size="sm"
+                    pinnable={false}
+                    selected={selectedVerb?.surface === v.surface}
+                    onActivate={() => selectVerb(v.surface)}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -129,22 +244,22 @@ export function VerbsPage() {
         <p className="mt-2 text-sm text-stone-700">
           <strong>但有例外</strong>：下面這幾個長得像一段動詞，其實是五段動詞，只能背下來——
         </p>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {ICHIDAN_EXCEPTIONS.map((surface) => {
-            const verb = verbs.find((v) => v.surface === surface);
-            if (!verb) return null;
-            return (
-              <Token
-                key={surface}
-                surface={verb.surface}
-                reading={verb.reading}
-                gloss={verb.gloss}
-                role="verb"
-                size="sm"
-              />
-            );
-          })}
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {LOOKALIKES.map((verb) => (
+            <Token
+              key={verb.surface}
+              surface={verb.surface}
+              reading={verb.reading}
+              gloss={verb.gloss}
+              glossMode="hover"
+              role="verb"
+              size="sm"
+            />
+          ))}
         </div>
+        <p className="mt-2 text-xs text-stone-500">
+          同音不同類的好例子：着る（きる，穿，一段）／切る（きる，切，五段）；変える（かえる，改變，一段）／帰る（かえる，回去，五段）。
+        </p>
       </section>
 
       {/* て形音便規則表 */}
@@ -175,68 +290,6 @@ export function VerbsPage() {
             </tbody>
           </table>
         </div>
-      </section>
-
-      {/* 活用表：選類別 -> 選動詞 -> 看五種形 */}
-      <section>
-        <h2 className="text-lg font-semibold text-stone-800">活用表</h2>
-
-        <div className="mt-3 flex flex-wrap gap-2">
-          {CLASS_ORDER.map((cls) => (
-            <button
-              key={cls}
-              type="button"
-              onClick={() => selectClass(cls)}
-              className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors duration-150 ${
-                selectedClass === cls
-                  ? "border-amber-400 bg-amber-50 text-amber-800"
-                  : "border-stone-200 bg-white text-stone-600 hover:bg-stone-50"
-              }`}
-            >
-              {CLASS_LABEL[cls]}
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-3 flex flex-wrap gap-2">
-          {classVerbs.map((v) => (
-            <button
-              key={v.surface}
-              type="button"
-              onClick={() => setSelectedSurface(v.surface)}
-              className={`rounded-lg border px-2.5 py-1 text-sm transition-colors duration-150 ${
-                selectedVerb?.surface === v.surface
-                  ? "border-amber-400 bg-amber-50 text-amber-800"
-                  : "border-stone-200 bg-white text-stone-600 hover:bg-stone-50"
-              }`}
-            >
-              {v.surface}
-            </button>
-          ))}
-        </div>
-
-        {selectedVerb && (
-          <div className="mt-4 rounded-lg border border-stone-200 bg-white p-4">
-            <p className="text-xs text-stone-400">{selectedVerb.gloss}</p>
-            <div className="mt-3 grid gap-3 sm:grid-cols-5">
-              {FORM_ORDER.map((form) => {
-                const { surface, reading } = conjugate(selectedVerb, form);
-                return (
-                  <div key={form} className="flex flex-col items-center gap-1">
-                    <span className="text-xs font-medium text-stone-400">{FORM_LABEL[form]}</span>
-                    <Token
-                      surface={surface}
-                      reading={reading}
-                      gloss={formGloss(selectedVerb.gloss, form)}
-                      role="verb"
-                      size="md"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
       </section>
     </div>
   );

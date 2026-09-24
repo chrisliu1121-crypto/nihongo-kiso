@@ -19,25 +19,9 @@ import bank, {
   getGrammarItem,
   getSentence,
 } from "../lib/bank";
-import type { ContrastSet, GrammarCategory } from "../lib/bank";
-
-const CATEGORY_LABEL: Record<GrammarCategory, string> = {
-  case: "格助詞",
-  focus: "係助詞・副助詞",
-  conjunctive: "接續助詞",
-  final: "終助詞",
-  conjunction: "接續詞",
-  expression: "副詞・表現",
-};
-
-const CATEGORY_DESCRIPTION: Record<GrammarCategory, string> = {
-  case: "標記名詞在句中扮演的角色（誰、對誰、在哪裡、用什麼…）",
-  focus: "標記這句話在談什麼、強調什麼、限定什麼範圍",
-  conjunctive: "連接兩個子句，說明原因、轉折、假設等關係",
-  final: "加在句尾，表示語氣（確認、提醒、感嘆…）",
-  conjunction: "連接兩個句子，是句子之間的橋樑，不是助詞",
-  expression: "副詞或固定表現，常與特定語氣或句型搭配",
-};
+import type { ContrastSet } from "../lib/bank";
+import { GrammarJumpSelect } from "../components/GrammarPicker";
+import { CATEGORY_DESCRIPTION, CATEGORY_LABEL } from "../lib/grammar/categories";
 
 function resolvePairs(cs: ContrastSet): ContrastSetPair[] {
   return cs.pairs.map((p) => {
@@ -68,6 +52,13 @@ export function GrammarItemPage() {
 
   return (
     <div className="space-y-6">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <Link to="/grammar" className="text-sm text-stone-500 hover:text-amber-700 hover:underline">
+          ← 文法總覽
+        </Link>
+        <GrammarJumpSelect currentId={item.id} />
+      </div>
+
       <div className="flex items-start gap-4">
         <Token
           surface={item.surface}

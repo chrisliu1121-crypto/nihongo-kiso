@@ -7,7 +7,9 @@
 // implementation and its own self-generated expectations would never be
 // caught by a self-referential test.
 //
-// Covers all 40 verbs in data/grammar/verbs.json x all 5 forms
+// Covers every verb in data/grammar/verbs.json x all 5 forms: the original 40
+// through the full EXPECTED table below, the 2026-09-25 additions through
+// the hand-written readings in ./fixtures/verb-readings.ts
 // (dictionary/masu/nai/te/ta), plus a kanaToCells smoke check that every
 // produced reading is legal kana.
 
@@ -15,6 +17,7 @@ import { describe, expect, it } from "vitest";
 import { conjugate, type VerbClass, type VerbForm } from "../conjugate";
 import { kanaToCells } from "../../kana";
 import verbsData from "../../../../data/grammar/verbs.json";
+import { MORE_READINGS } from "./fixtures/verb-readings";
 
 interface VerbFixture {
   surface: string;
@@ -283,11 +286,48 @@ const EXPECTED: Record<string, Expected> = {
   },
 };
 
-describe("conjugate: verbs.json 全部 40 個動詞 x 5 種形", () => {
-  it("data/grammar/verbs.json 恰有 40 筆，且每筆都有對應的手寫期望", () => {
-    expect(verbs.length).toBe(40);
+const isHiragana = (ch: string) => /[ぁ-ゟ]/.test(ch);
+
+/**
+ * Independent okurigana rule for the MORE_READINGS verbs: the surface's
+ * trailing hiragana run must match the end of its reading; everything before
+ * that run (the kanji part) stays unchanged in every form, and the kana after
+ * it follows the expected reading. E.g. 思い出す/おもいだす: kana tail "す",
+ * kanji part 思い出 <-> おもいだ, so おもいだします -> 思い出します.
+ */
+function surfaceFromReading(dictSurface: string, dictReading: string, formReading: string): string {
+  let k = 0;
+  while (k < dictSurface.length && isHiragana(dictSurface[dictSurface.length - 1 - k])) k++;
+  const tail = dictSurface.slice(dictSurface.length - k);
+  if (!dictReading.endsWith(tail)) throw new Error(`${dictSurface}: 假名詞尾 ${tail} 與讀音 ${dictReading} 不一致`);
+  const kanjiPart = dictSurface.slice(0, dictSurface.length - k);
+  const readingPrefix = dictReading.slice(0, dictReading.length - k);
+  if (!formReading.startsWith(readingPrefix)) throw new Error(`${dictSurface}: ${formReading} 不以 ${readingPrefix} 開頭`);
+  return kanjiPart + formReading.slice(readingPrefix.length);
+}
+
+function expectedFor(v: VerbFixture): Expected {
+  const full = EXPECTED[v.surface];
+  if (full) return full;
+  const [masu, nai, te, ta] = MORE_READINGS[v.surface].split(" ");
+  const pair = (reading: string): FormPair => ({ surface: surfaceFromReading(v.surface, v.reading, reading), reading });
+  return { masu: pair(masu), nai: pair(nai), te: pair(te), ta: pair(ta) };
+}
+
+describe("conjugate: verbs.json 全部動詞 x 5 種形", () => {
+  it("每個動詞恰好在一張手寫期望表裡，兩張表也沒有多出 verbs.json 沒有的動詞", () => {
+    const surfaces = new Set(verbs.map((v) => v.surface));
+    expect(surfaces.size, "verbs.json 有重複的 surface").toBe(verbs.length);
     for (const v of verbs) {
-      expect(EXPECTED, `缺少 ${v.surface} 的手寫期望表`).toHaveProperty(v.surface);
+      const inFull = Object.hasOwn(EXPECTED, v.surface);
+      const inMore = Object.hasOwn(MORE_READINGS, v.surface);
+      expect(inFull !== inMore, `${v.surface} 應恰好出現在一張期望表`).toBe(true);
+    }
+    for (const s of [...Object.keys(EXPECTED), ...Object.keys(MORE_READINGS)]) {
+      expect(surfaces.has(s), `期望表的 ${s} 不在 verbs.json`).toBe(true);
+    }
+    for (const [s, forms] of Object.entries(MORE_READINGS)) {
+      expect(forms.split(" "), `${s} 應有 4 個形`).toHaveLength(4);
     }
   });
 
@@ -300,7 +340,7 @@ describe("conjugate: verbs.json 全部 40 個動詞 x 5 種形", () => {
 
       (["masu", "nai", "te", "ta"] as const satisfies readonly VerbForm[]).forEach((form) => {
         it(`${form} 形`, () => {
-          const expected = EXPECTED[v.surface][form];
+          const expected = expectedFor(v)[form];
           expect(conjugate(v, form)).toEqual(expected);
         });
       });
