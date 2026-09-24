@@ -76,8 +76,6 @@ const SENTENCES_DIR = join(PROJECT_ROOT, "data", "sentences");
 const EXERCISES_DIR = join(PROJECT_ROOT, "data", "exercises");
 const BANK_PATH = join(PROJECT_ROOT, "data", "bank.json");
 const FREQUENCY_PATH = join(PROJECT_ROOT, "data", "frequency", "n5.json");
-const GRAMMAR_ITEMS_PATH = join(PROJECT_ROOT, "data", "grammar", "items.json");
-const GRAMMAR_CONTRASTS_PATH = join(PROJECT_ROOT, "data", "grammar", "contrasts.json");
 
 /** Every valid 46-cell gojuon-table id, read straight off data/kana.json (includes "n"). Used to validate particles.json's `cell` field. */
 const VALID_CELL_IDS = new Set<string>((kanaData as { cells: { id: string }[] }).cells.map((c) => c.id));
@@ -413,30 +411,55 @@ export function validateGrammarContrasts(
   }
 }
 
+/**
+ * 2026-09-24: grammar items and contrast sets may be split across several
+ * files -- items.json plus items-<slug>.json, contrasts.json plus
+ * contrasts-<slug>.json -- so parallel content authors each own a file instead
+ * of colliding in one array. items.json / contrasts.json load first, then the
+ * suffixed files in filename order; the result is one concatenated list, and
+ * every rule in validateGrammarItems/validateGrammarContrasts (id uniqueness,
+ * contrast_with targets) applies across all files together.
+ */
+async function grammarFiles(prefix: "items" | "contrasts"): Promise<string[]> {
+  const dir = join(PROJECT_ROOT, "data", "grammar");
+  const re = new RegExp(`^${prefix}(-[a-z0-9-]+)?\\.json$`);
+  const names = (await readdir(dir)).filter((f) => re.test(f));
+  return names.sort((a, b) => (a === `${prefix}.json` ? -1 : b === `${prefix}.json` ? 1 : a.localeCompare(b)));
+}
+
 async function loadGrammarItems(): Promise<GrammarFile> {
-  const raw = await readFile(GRAMMAR_ITEMS_PATH, "utf8");
-  let parsed: unknown;
-  try {
-    parsed = JSON.parse(raw);
-  } catch (err) {
-    fail("data/grammar/items.json", "-", `JSON 解析失敗：${(err as Error).message}`);
+  const items: GrammarFile["items"] = [];
+  for (const name of await grammarFiles("items")) {
+    const label = `data/grammar/${name}`;
+    const raw = await readFile(join(PROJECT_ROOT, "data", "grammar", name), "utf8");
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (err) {
+      fail(label, "-", `JSON 解析失敗：${(err as Error).message}`);
+    }
+    const result = GrammarFileSchema.safeParse(parsed);
+    if (!result.success) {
+      const issue = result.error.issues[0];
+      const pathStr = issue.path.join(".") || "(root)";
+      fail(label, "-", `schema 驗證失敗：${pathStr} - ${issue.message}`);
+    }
+    items.push(...(result.data as GrammarFile).items);
   }
-  const result = GrammarFileSchema.safeParse(parsed);
-  if (!result.success) {
-    const issue = result.error.issues[0];
-    const pathStr = issue.path.join(".") || "(root)";
-    fail("data/grammar/items.json", "-", `schema 驗證失敗：${pathStr} - ${issue.message}`);
-  }
-  return result.data as GrammarFile;
+  return { items } as GrammarFile;
 }
 
 async function loadGrammarContrasts(): Promise<{ contrast_sets: ContrastSet[] }> {
-  const raw = await readFile(GRAMMAR_CONTRASTS_PATH, "utf8");
-  try {
-    return JSON.parse(raw) as { contrast_sets: ContrastSet[] };
-  } catch (err) {
-    fail("data/grammar/contrasts.json", "-", `JSON 解析失敗：${(err as Error).message}`);
+  const contrast_sets: ContrastSet[] = [];
+  for (const name of await grammarFiles("contrasts")) {
+    const raw = await readFile(join(PROJECT_ROOT, "data", "grammar", name), "utf8");
+    try {
+      contrast_sets.push(...(JSON.parse(raw) as { contrast_sets: ContrastSet[] }).contrast_sets);
+    } catch (err) {
+      fail(`data/grammar/${name}`, "-", `JSON 解析失敗：${(err as Error).message}`);
+    }
   }
+  return { contrast_sets };
 }
 
 /**
