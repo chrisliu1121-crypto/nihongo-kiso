@@ -11,22 +11,15 @@
         {
           "label": "主題",
           "explanation": "把一個成分提到句首，宣告「接下來這句話是在談這個」，不管它在句中原本扮演什麼角色",
-          "example_ids": [
-            "s_g001"
-          ]
+          "example_ids": ["s_g001"]
         },
         {
           "label": "對比",
           "explanation": "同時提出兩個成分並用 は 標記，暗示兩者的情況不同（做了 A，但沒做 B）",
-          "example_ids": [
-            "s_g034"
-          ]
+          "example_ids": ["s_g034"]
         }
       ],
-      "contrast_with": [
-        "ga",
-        "mo"
-      ],
+      "contrast_with": ["ga", "mo"],
       "weight": "heavy",
       "cell": "ha"
     },
@@ -41,29 +34,20 @@
         {
           "label": "主體",
           "explanation": "單純陳述「誰做了／怎麼了」，常見於描述現象或第一次提到的事物",
-          "example_ids": [
-            "s_g003"
-          ]
+          "example_ids": ["s_g003"]
         },
         {
           "label": "焦點（疑問詞的答案）",
           "explanation": "回答「誰／哪個」這類疑問詞問題時，答案的那個成分要用 が，不能用 は",
-          "example_ids": [
-            "s_g004"
-          ]
+          "example_ids": ["s_g004"]
         },
         {
           "label": "好き・わかる・できる 的對象",
           "explanation": "「喜歡／懂／會」這類表示狀態或能力的謂語，對象成分用 が，不是を",
-          "example_ids": [
-            "s_g005"
-          ]
+          "example_ids": ["s_g005"]
         }
       ],
-      "contrast_with": [
-        "wa",
-        "wo"
-      ],
+      "contrast_with": ["wa", "wo"],
       "weight": "heavy",
       "cell": "ka"
     },
@@ -78,28 +62,20 @@
         {
           "label": "受詞",
           "explanation": "他動詞直接作用的對象，中文的「把／將」隱含的那個受詞",
-          "example_ids": [
-            "s_g006"
-          ]
+          "example_ids": ["s_g006"]
         },
         {
           "label": "通過的場所",
           "explanation": "移動動詞（歩く・走る・渡る…）經過、通過的空間，不是動作發生的固定地點",
-          "example_ids": [
-            "s_g007"
-          ]
+          "example_ids": ["s_g007"]
         },
         {
           "label": "離開的起點",
           "explanation": "「出る・降りる」這類表示離開的動詞，離開的那個場所用 を",
-          "example_ids": [
-            "s_g008"
-          ]
+          "example_ids": ["s_g008"]
         }
       ],
-      "contrast_with": [
-        "ga"
-      ],
+      "contrast_with": ["ga"],
       "weight": "medium",
       "cell": "wo"
     },
@@ -114,36 +90,25 @@
         {
           "label": "存在場所",
           "explanation": "ある・いる 這類存在動詞，人事物「在」的那個靜態位置",
-          "example_ids": [
-            "s_g009"
-          ]
+          "example_ids": ["s_g009"]
         },
         {
           "label": "到達點",
           "explanation": "行く・来る 這類移動動詞，移動抵達的終點",
-          "example_ids": [
-            "s_g010"
-          ]
+          "example_ids": ["s_g010"]
         },
         {
           "label": "時間",
           "explanation": "具體的時間點（幾點、星期幾、幾月幾日），標記動作發生在何時",
-          "example_ids": [
-            "s_g011"
-          ]
+          "example_ids": ["s_g011"]
         },
         {
           "label": "對象",
           "explanation": "書く・話す・あげる 這類動詞，動作指向的接收者",
-          "example_ids": [
-            "s_g012"
-          ]
+          "example_ids": ["s_g012"]
         }
       ],
-      "contrast_with": [
-        "de",
-        "to"
-      ],
+      "contrast_with": ["de", "to"],
       "weight": "heavy",
       "cell": "ni"
     },
@@ -158,35 +123,25 @@
         {
           "label": "動作場所",
           "explanation": "動態動詞發生的空間範圍，不是單純的存在位置",
-          "example_ids": [
-            "s_g013"
-          ]
+          "example_ids": ["s_g013"]
         },
         {
           "label": "手段",
           "explanation": "完成動作所使用的交通工具或道具",
-          "example_ids": [
-            "s_g014"
-          ]
+          "example_ids": ["s_g014"]
         },
         {
           "label": "語言・方式",
           "explanation": "以什麼語言、什麼方式進行動作",
-          "example_ids": [
-            "s_g015"
-          ]
+          "example_ids": ["s_g015"]
         },
         {
           "label": "原因",
           "explanation": "以名詞表示原因、理由，後面接自然發生的結果；常見於生病、事故、天氣等客觀原因，不是說話者主動選擇的理由",
-          "example_ids": [
-            "s_g100"
-          ]
+          "example_ids": ["s_g100"]
         }
       ],
-      "contrast_with": [
-        "ni"
-      ],
+      "contrast_with": ["ni"],
       "weight": "medium",
       "cell": "te"
     },
@@ -201,28 +156,20 @@
         {
           "label": "完全列舉",
           "explanation": "完全列舉兩個以上的名詞，等同中文的「和」；與 や（部分列舉，暗示還有其他沒列出的成員）不同，と 列出的就是全部，沒有遺漏",
-          "example_ids": [
-            "s_g016"
-          ]
+          "example_ids": ["s_g016"]
         },
         {
           "label": "伴隨",
           "explanation": "雙方一起進行的動作，強調對方也同時參與（相互性）",
-          "example_ids": [
-            "s_g017"
-          ]
+          "example_ids": ["s_g017"]
         },
         {
           "label": "引用",
           "explanation": "引用說出、想到、寫下的內容，接在言う・思う・書く之前",
-          "example_ids": [
-            "s_g018"
-          ]
+          "example_ids": ["s_g018"]
         }
       ],
-      "contrast_with": [
-        "ni"
-      ],
+      "contrast_with": ["ni"],
       "weight": "medium",
       "cell": "to"
     },
@@ -237,23 +184,17 @@
         {
           "label": "所屬",
           "explanation": "前面的名詞擁有後面的名詞",
-          "example_ids": [
-            "s_g019"
-          ]
+          "example_ids": ["s_g019"]
         },
         {
           "label": "名詞修飾名詞",
           "explanation": "前面的名詞說明後面名詞的類別或性質，不是擁有關係",
-          "example_ids": [
-            "s_g020"
-          ]
+          "example_ids": ["s_g020"]
         },
         {
           "label": "同位",
           "explanation": "前後兩個名詞指同一個對象，の 相當於「這位／這個」的同位語",
-          "example_ids": [
-            "s_g021"
-          ]
+          "example_ids": ["s_g021"]
         }
       ],
       "contrast_with": [],
@@ -271,21 +212,15 @@
         {
           "label": "也",
           "explanation": "這個成分和前面提過的某個成分屬於同一類，也具有相同的狀態",
-          "example_ids": [
-            "s_g022"
-          ]
+          "example_ids": ["s_g022"]
         },
         {
           "label": "全盤否定",
           "explanation": "疑問詞（何・誰・どこ…）+ も + 否定謂語，表示「一個都沒有／哪裡都不」的全盤否定",
-          "example_ids": [
-            "s_g023"
-          ]
+          "example_ids": ["s_g023"]
         }
       ],
-      "contrast_with": [
-        "wa"
-      ],
+      "contrast_with": ["wa"],
       "weight": "light",
       "cell": "mo"
     },
@@ -301,30 +236,20 @@
         {
           "label": "起點（時間）",
           "explanation": "動作或狀態開始的時間點，常與 まで（終點）成對出現",
-          "example_ids": [
-            "s_g035"
-          ]
+          "example_ids": ["s_g035"]
         },
         {
           "label": "起點（地點）",
           "explanation": "移動或動作出發、開始的地點",
-          "example_ids": [
-            "s_g036"
-          ]
+          "example_ids": ["s_g036"]
         },
         {
           "label": "原料",
           "explanation": "製成品的原始材料，且成品已看不出原料原本的樣子（經過化學或形態上的改變，如釀造、加工）；比較 で 表手段/材料時，材料外觀通常不變（例：木で作る椅子 vs ぶどうから作るワイン）",
-          "example_ids": [
-            "s_g037"
-          ]
+          "example_ids": ["s_g037"]
         }
       ],
-      "contrast_with": [
-        "made",
-        "yori",
-        "ni"
-      ],
+      "contrast_with": ["made", "yori", "ni"],
       "weight": "medium",
       "notes": [
         "から 後面常與 まで 成對出現，構成「從...到...」",
@@ -342,14 +267,10 @@
         {
           "label": "方向",
           "explanation": "移動動詞前進、指向的方向；與 に（到達點）相比，へ 著重「朝哪個方向走」，に 著重「到達哪一點」，多數情況兩者可以互換",
-          "example_ids": [
-            "s_g101"
-          ]
+          "example_ids": ["s_g101"]
         }
       ],
-      "contrast_with": [
-        "ni"
-      ],
+      "contrast_with": ["ni"],
       "weight": "light",
       "cell": "he"
     },
@@ -365,26 +286,17 @@
         {
           "label": "比較基準",
           "explanation": "A は B より〜 句型，B 是比較的基準點，相當於中文的「比」",
-          "example_ids": [
-            "s_g104"
-          ]
+          "example_ids": ["s_g104"]
         },
         {
           "label": "起點（書面）",
           "explanation": "動作或狀態開始的時間、地點，屬於較正式、書面的說法，日常口語較常用 から",
-          "example_ids": [
-            "s_g103"
-          ]
+          "example_ids": ["s_g103"]
         }
       ],
-      "contrast_with": [
-        "kara",
-        "hodo"
-      ],
+      "contrast_with": ["kara", "hodo"],
       "weight": "medium",
-      "notes": [
-        "起點義較正式、偏書面，日常口語多用 から；比較基準義口語書面都常用"
-      ]
+      "notes": ["起點義較正式、偏書面，日常口語多用 から；比較基準義口語書面都常用"]
     },
     {
       "id": "dake",
@@ -398,14 +310,10 @@
         {
           "label": "限定（肯定句）",
           "explanation": "限定範圍在此，語氣中立客觀，後面接肯定句，單純陳述「就只有這些、不多不少」",
-          "example_ids": [
-            "s_g107"
-          ]
+          "example_ids": ["s_g107"]
         }
       ],
-      "contrast_with": [
-        "shika"
-      ],
+      "contrast_with": ["shika"],
       "weight": "medium"
     },
     {
@@ -420,18 +328,12 @@
         {
           "label": "限定（須接否定）",
           "explanation": "しか 後面一定要接否定形述語（しか〜ない），語感上強調數量少、程度不足，比 だけ 更帶主觀的不滿或可惜的語氣",
-          "example_ids": [
-            "s_g108"
-          ]
+          "example_ids": ["s_g108"]
         }
       ],
-      "contrast_with": [
-        "dake"
-      ],
+      "contrast_with": ["dake"],
       "weight": "medium",
-      "notes": [
-        "しか 一定要跟否定形一起用；單獨接肯定句是錯誤用法"
-      ]
+      "notes": ["しか 一定要跟否定形一起用；單獨接肯定句是錯誤用法"]
     },
     {
       "id": "made",
@@ -445,14 +347,10 @@
         {
           "label": "終點",
           "explanation": "動作或狀態結束的時間點或地點，常與 から（起點）成對出現，構成「從...到...」",
-          "example_ids": [
-            "s_g109"
-          ]
+          "example_ids": ["s_g109"]
         }
       ],
-      "contrast_with": [
-        "kara"
-      ],
+      "contrast_with": ["kara"],
       "weight": "medium"
     },
     {
@@ -467,21 +365,15 @@
         {
           "label": "程度",
           "explanation": "表示大約的數量或程度，相當於中文的「大約、…左右」",
-          "example_ids": [
-            "s_g106"
-          ]
+          "example_ids": ["s_g106"]
         },
         {
           "label": "比較的否定",
           "explanation": "A は B ほど〜ない 句型，表示 A 沒有達到 B 的程度，是比較句的否定形式，與 より（肯定的比較）成對",
-          "example_ids": [
-            "s_g105"
-          ]
+          "example_ids": ["s_g105"]
         }
       ],
-      "contrast_with": [
-        "yori"
-      ],
+      "contrast_with": ["yori"],
       "weight": "medium"
     },
     {
@@ -496,9 +388,7 @@
         {
           "label": "舉極端例子",
           "explanation": "舉出一個程度最輕、最基本的例子，強調「連這個都是這樣，其他更不用說」，常與否定句搭配",
-          "example_ids": [
-            "s_g110"
-          ]
+          "example_ids": ["s_g110"]
         }
       ],
       "contrast_with": [],
