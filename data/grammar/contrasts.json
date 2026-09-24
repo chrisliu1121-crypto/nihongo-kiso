@@ -65,6 +65,50 @@
         { "sentence_id": "s_g032", "note": "強調「水」這個想要的東西本身" }
       ],
       "exercise_ids": []
+    },
+    {
+      "id": "cs_he_ni",
+      "particles": ["he", "ni"],
+      "title": "へ vs に：方向與到達點",
+      "summary": "へ 強調前進的方向，に 強調到達的終點；日常對話中兩者的差異極小，多數情況可以互換。",
+      "pairs": [
+        { "sentence_id": "s_g101", "note": "へ：強調朝學校的方向前進" },
+        { "sentence_id": "s_g102", "note": "に：強調學校是移動抵達的終點" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_dake_shika",
+      "particles": ["dake", "shika"],
+      "title": "だけ vs しか：只有多少",
+      "summary": "だけ 用肯定句單純陳述「只有這樣」，しか 必須接否定句，語感上強調「不夠、太少」。",
+      "pairs": [
+        { "sentence_id": "s_g107", "note": "だけ + 肯定句：客觀陳述只有一百日圓" },
+        { "sentence_id": "s_g108", "note": "しか + 否定句：語感上覺得一百日圓不夠" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_kara_made",
+      "particles": ["kara", "made"],
+      "title": "から vs まで：起點與終點",
+      "summary": "から 標記時間或地點的起點，まで 標記終點，兩者常成對出現，構成「從...到...」。",
+      "pairs": [
+        { "sentence_id": "s_g109", "note": "から：從九點（起點）" },
+        { "sentence_id": "s_g109", "note": "まで：到五點（終點）" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_yori_hodo",
+      "particles": ["yori", "hodo"],
+      "title": "より vs ほど：比較的肯定與否定",
+      "summary": "A は B より〜 用肯定句比較兩者的差異；A は B ほど〜ない 則用否定句表示「沒有到那個程度」。",
+      "pairs": [
+        { "sentence_id": "s_g104", "note": "より + 肯定句：今天比昨天冷" },
+        { "sentence_id": "s_g105", "note": "ほど + 否定句：今天沒有昨天那麼冷" }
+      ],
+      "exercise_ids": []
     }
   ]
 }
