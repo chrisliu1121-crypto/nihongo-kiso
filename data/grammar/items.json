@@ -93,7 +93,7 @@
           "example_ids": ["s_g009"]
         },
         {
-          "label": "目的地",
+          "label": "到達點",
           "explanation": "行く・来る 這類移動動詞，移動抵達的終點",
           "example_ids": ["s_g010"]
         },
@@ -134,6 +134,11 @@
           "label": "語言・方式",
           "explanation": "以什麼語言、什麼方式進行動作",
           "example_ids": ["s_g015"]
+        },
+        {
+          "label": "原因",
+          "explanation": "以名詞表示原因、理由，後面接自然發生的結果；常見於生病、事故、天氣等客觀原因，不是說話者主動選擇的理由",
+          "example_ids": ["s_g100"]
         }
       ],
       "contrast_with": ["ni"],
@@ -149,12 +154,12 @@
       "zh_bridge": "「和」——「麵包和牛奶」「和朋友聊天」",
       "senses": [
         {
-          "label": "並列",
-          "explanation": "完全列舉兩個以上的名詞，等同中文的「和」",
+          "label": "完全列舉",
+          "explanation": "完全列舉兩個以上的名詞，等同中文的「和」；與 や（部分列舉，暗示還有其他沒列出的成員）不同，と 列出的就是全部，沒有遺漏",
           "example_ids": ["s_g016"]
         },
         {
-          "label": "共同對象",
+          "label": "伴隨",
           "explanation": "雙方一起進行的動作，強調對方也同時參與（相互性）",
           "example_ids": ["s_g017"]
         },
@@ -182,7 +187,7 @@
           "example_ids": ["s_g019"]
         },
         {
-          "label": "屬性",
+          "label": "名詞修飾名詞",
           "explanation": "前面的名詞說明後面名詞的類別或性質，不是擁有關係",
           "example_ids": ["s_g020"]
         },
@@ -250,6 +255,144 @@
         "から 後面常與 まで 成對出現，構成「從...到...」",
         "原料用法容易與 で（手段・材料）混淆：で 用於材料外觀不變的場合，から 用於原料經過明顯改變的場合"
       ]
+    },
+    {
+      "id": "he",
+      "surface": "へ",
+      "reading": "へ",
+      "category": "case",
+      "core": "動作前進的方向",
+      "zh_bridge": "「往、向」——「往學校」",
+      "senses": [
+        {
+          "label": "方向",
+          "explanation": "移動動詞前進、指向的方向；與 に（到達點）相比，へ 著重「朝哪個方向走」，に 著重「到達哪一點」，多數情況兩者可以互換",
+          "example_ids": ["s_g101"]
+        }
+      ],
+      "contrast_with": ["ni"],
+      "weight": "light",
+      "cell": "he"
+    },
+    {
+      "id": "yori",
+      "surface": "より",
+      "reading": "より",
+      "category": "case",
+      "pattern": "A は B より〜",
+      "core": "比較的基準，或書面語中動作、狀態的起點",
+      "zh_bridge": "「比」——「比昨天冷」；書面語的「從」——「會議從十點開始」",
+      "senses": [
+        {
+          "label": "比較基準",
+          "explanation": "A は B より〜 句型，B 是比較的基準點，相當於中文的「比」",
+          "example_ids": ["s_g104"]
+        },
+        {
+          "label": "起點（書面）",
+          "explanation": "動作或狀態開始的時間、地點，屬於較正式、書面的說法，日常口語較常用 から",
+          "example_ids": ["s_g103"]
+        }
+      ],
+      "contrast_with": ["kara", "hodo"],
+      "weight": "medium",
+      "notes": ["起點義較正式、偏書面，日常口語多用 から；比較基準義口語書面都常用"]
+    },
+    {
+      "id": "dake",
+      "surface": "だけ",
+      "reading": "だけ",
+      "category": "focus",
+      "pattern": "N + だけ",
+      "core": "限定範圍：只有、僅僅這樣",
+      "zh_bridge": "「只、僅」——「只有一百日圓」",
+      "senses": [
+        {
+          "label": "限定（肯定句）",
+          "explanation": "限定範圍在此，語氣中立客觀，後面接肯定句，單純陳述「就只有這些、不多不少」",
+          "example_ids": ["s_g107"]
+        }
+      ],
+      "contrast_with": ["shika"],
+      "weight": "medium"
+    },
+    {
+      "id": "shika",
+      "surface": "しか",
+      "reading": "しか",
+      "category": "focus",
+      "pattern": "N + しか + 否定形",
+      "core": "限定範圍，且語感上強調數量少、不夠——必須與否定句呼應",
+      "zh_bridge": "「只、僅」——但帶有「不夠、可惜」的語感，像「只有一百日圓（不太夠用）」",
+      "senses": [
+        {
+          "label": "限定（須接否定）",
+          "explanation": "しか 後面一定要接否定形述語（しか〜ない），語感上強調數量少、程度不足，比 だけ 更帶主觀的不滿或可惜的語氣",
+          "example_ids": ["s_g108"]
+        }
+      ],
+      "contrast_with": ["dake"],
+      "weight": "medium",
+      "notes": ["しか 一定要跟否定形一起用；單獨接肯定句是錯誤用法"]
+    },
+    {
+      "id": "made",
+      "surface": "まで",
+      "reading": "まで",
+      "category": "focus",
+      "pattern": "N + まで",
+      "core": "動作或狀態的終點：時間的終點或地點的終點",
+      "zh_bridge": "「到」——「到五點」「到車站」，常與 から（從）成對出現",
+      "senses": [
+        {
+          "label": "終點",
+          "explanation": "動作或狀態結束的時間點或地點，常與 から（起點）成對出現，構成「從...到...」",
+          "example_ids": ["s_g109"]
+        }
+      ],
+      "contrast_with": ["kara"],
+      "weight": "medium"
+    },
+    {
+      "id": "hodo",
+      "surface": "ほど",
+      "reading": "ほど",
+      "category": "focus",
+      "pattern": "N／V／A + ほど",
+      "core": "大約的程度，或用於否定句表示比較的程度不到",
+      "zh_bridge": "「大約、…的程度」；「A は B ほど〜ない」是「A 沒有 B 那麼〜」",
+      "senses": [
+        {
+          "label": "程度",
+          "explanation": "表示大約的數量或程度，相當於中文的「大約、…左右」",
+          "example_ids": ["s_g106"]
+        },
+        {
+          "label": "比較的否定",
+          "explanation": "A は B ほど〜ない 句型，表示 A 沒有達到 B 的程度，是比較句的否定形式，與 より（肯定的比較）成對",
+          "example_ids": ["s_g105"]
+        }
+      ],
+      "contrast_with": ["yori"],
+      "weight": "medium"
+    },
+    {
+      "id": "sae",
+      "surface": "さえ",
+      "reading": "さえ",
+      "category": "focus",
+      "pattern": "N + さえ",
+      "core": "舉出一個極端的例子，暗示「連這個都…，其他更不用說」",
+      "zh_bridge": "「甚至、連」——「連漢字都不會寫」",
+      "senses": [
+        {
+          "label": "舉極端例子",
+          "explanation": "舉出一個程度最輕、最基本的例子，強調「連這個都是這樣，其他更不用說」，常與否定句搭配",
+          "example_ids": ["s_g110"]
+        }
+      ],
+      "contrast_with": [],
+      "weight": "light"
     }
   ]
 }

@@ -1,0 +1,170 @@
+{
+  "sentences": [
+    {
+      "id": "s_g100",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "病気", "reading": "びょうき", "gloss": "生病" },
+        { "surface": "で", "reading": "で", "gloss": "（原因）", "particle": true },
+        { "surface": "、", "reading": "" },
+        { "surface": "学校", "reading": "がっこう", "gloss": "學校" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "休みます", "reading": "やすみます", "gloss": "請假" }
+      ],
+      "translation": "因為生病，跟學校請假。",
+      "verified": true,
+      "tags": ["particle:de"]
+    },
+    {
+      "id": "s_g101",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "学校", "reading": "がっこう", "gloss": "學校" },
+        { "surface": "へ", "reading": "へ", "gloss": "（方向）", "particle": true },
+        { "surface": "行きます", "reading": "いきます", "gloss": "去" }
+      ],
+      "translation": "去學校。",
+      "verified": true,
+      "tags": ["particle:he"],
+      "note": "cs_he_ni 對照句：へ 強調朝學校的方向前進"
+    },
+    {
+      "id": "s_g102",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "学校", "reading": "がっこう", "gloss": "學校" },
+        { "surface": "に", "reading": "に", "gloss": "（到達點）", "particle": true },
+        { "surface": "行きます", "reading": "いきます", "gloss": "去" }
+      ],
+      "translation": "去學校。",
+      "verified": true,
+      "tags": ["particle:ni"],
+      "note": "cs_he_ni 對照句：に 強調學校是移動抵達的終點"
+    },
+    {
+      "id": "s_g103",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "会議", "reading": "かいぎ", "gloss": "會議" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "十時", "reading": "じゅうじ", "gloss": "十點" },
+        { "surface": "より", "reading": "より", "gloss": "（起點：從）", "particle": true },
+        { "surface": "始めます", "reading": "はじめます", "gloss": "開始" }
+      ],
+      "translation": "會議從十點開始。",
+      "verified": true,
+      "tags": ["particle:yori", "particle:wa"],
+      "note": "より 的書面起點用法，日常口語較常用 から"
+    },
+    {
+      "id": "s_g104",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "今日", "reading": "きょう", "gloss": "今天" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "昨日", "reading": "きのう", "gloss": "昨天" },
+        { "surface": "より", "reading": "より", "gloss": "（比較基準）", "particle": true },
+        { "surface": "寒いです", "reading": "さむいです", "gloss": "冷" }
+      ],
+      "translation": "今天比昨天冷。",
+      "verified": true,
+      "tags": ["particle:yori", "particle:wa"],
+      "note": "cs_yori_hodo 對照句：より + 肯定句"
+    },
+    {
+      "id": "s_g105",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "今日", "reading": "きょう", "gloss": "今天" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "昨日", "reading": "きのう", "gloss": "昨天" },
+        { "surface": "ほど", "reading": "ほど", "gloss": "（不到…的程度）", "particle": true },
+        { "surface": "寒くないです", "reading": "さむくないです", "gloss": "不冷" }
+      ],
+      "translation": "今天沒有昨天那麼冷。",
+      "verified": true,
+      "tags": ["particle:hodo", "particle:wa"],
+      "note": "cs_yori_hodo 對照句：ほど + 否定句"
+    },
+    {
+      "id": "s_g106",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "一時間", "reading": "いちじかん", "gloss": "一小時" },
+        { "surface": "ほど", "reading": "ほど", "gloss": "（大約）", "particle": true },
+        { "surface": "待ちました", "reading": "まちました", "gloss": "等了" }
+      ],
+      "translation": "大約等了一小時。",
+      "verified": true,
+      "tags": ["particle:hodo"]
+    },
+    {
+      "id": "s_g107",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "百円", "reading": "ひゃくえん", "gloss": "一百日圓" },
+        { "surface": "だけ", "reading": "だけ", "gloss": "（只有）", "particle": true },
+        { "surface": "あります", "reading": "あります", "gloss": "有" }
+      ],
+      "translation": "只有一百日圓。",
+      "verified": true,
+      "tags": ["particle:dake"],
+      "note": "cs_dake_shika 對照句：だけ + 肯定句，語氣中立"
+    },
+    {
+      "id": "s_g108",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "百円", "reading": "ひゃくえん", "gloss": "一百日圓" },
+        { "surface": "しか", "reading": "しか", "gloss": "（只有，須接否定）", "particle": true },
+        { "surface": "ありません", "reading": "ありません", "gloss": "沒有" }
+      ],
+      "translation": "只有一百日圓而已。",
+      "verified": true,
+      "tags": ["particle:shika"],
+      "note": "cs_dake_shika 對照句：しか + 否定句，語感覺得不夠"
+    },
+    {
+      "id": "s_g109",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "会社", "reading": "かいしゃ", "gloss": "公司" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "九時", "reading": "くじ", "gloss": "九點" },
+        { "surface": "から", "reading": "から", "gloss": "（起點：從）", "particle": true },
+        { "surface": "五時", "reading": "ごじ", "gloss": "五點" },
+        { "surface": "まで", "reading": "まで", "gloss": "（終點：到）", "particle": true },
+        { "surface": "働きます", "reading": "はたらきます", "gloss": "工作" }
+      ],
+      "translation": "在公司從九點工作到五點。",
+      "verified": true,
+      "tags": ["particle:kara", "particle:made", "particle:wa"],
+      "note": "cs_kara_made 對照句：から 與 まで 成對出現"
+    },
+    {
+      "id": "s_g110",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "彼", "reading": "かれ", "gloss": "他" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "漢字", "reading": "かんじ", "gloss": "漢字" },
+        { "surface": "さえ", "reading": "さえ", "gloss": "（甚至、連）", "particle": true },
+        { "surface": "書けません", "reading": "かけません", "gloss": "不會寫" }
+      ],
+      "translation": "他連漢字都不會寫。",
+      "verified": true,
+      "tags": ["particle:sae", "particle:wa"]
+    }
+  ]
+}
