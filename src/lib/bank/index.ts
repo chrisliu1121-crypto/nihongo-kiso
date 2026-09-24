@@ -19,8 +19,15 @@ export type {
   BuiltSentenceToken,
   ContrastPair,
   ContrastSet,
+  ContrastsFile,
   DayEntry,
   DaySeed,
+  GrammarBank,
+  GrammarCategory,
+  GrammarFile,
+  GrammarItem,
+  GrammarSense,
+  GrammarWeight,
   JlptLevel,
   Particle,
   ParticleClass,
@@ -38,7 +45,7 @@ export type {
   WordExampleSeed,
   WordSeed,
 } from "./types";
-export { PARTICLE_IDS } from "./types";
+export { GRAMMAR_CATEGORY_VALUES, GRAMMAR_WEIGHT_VALUES, PARTICLE_IDS } from "./types";
 
 // Practice exercises (build task 2026-09 step 5) -- re-exported here too so
 // pages can import everything bank-shaped from one place, same as the
@@ -61,6 +68,11 @@ export {
   getContrastSet,
   getParticle,
   getSentence,
+  adjacentInCategory,
+  contrastSetsForItem,
+  getGrammarContrastSet,
+  getGrammarItem,
+  itemsByCategory,
 } from "./grammar.ts";
 export { filterWords, matchesWord } from "./search.ts";
 

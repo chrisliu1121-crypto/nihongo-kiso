@@ -1,0 +1,46 @@
+{
+  "sentences": [
+    {
+      "id": "s_g035",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "九時", "reading": "くじ", "gloss": "九點" },
+        { "surface": "から", "reading": "から", "gloss": "（起點：從）", "particle": true },
+        { "surface": "働きます", "reading": "はたらきます", "gloss": "工作" }
+      ],
+      "translation": "從九點開始工作。",
+      "verified": true,
+      "tags": ["particle:kara"],
+      "note": "から 的示範句：不附 bunsetsu/valid_orders——build task 2026-09-24 §A 起這是合法的，只有被排列練習引用的句子才需要"
+    },
+    {
+      "id": "s_g036",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "駅", "reading": "えき", "gloss": "車站" },
+        { "surface": "から", "reading": "から", "gloss": "（起點：從）", "particle": true },
+        { "surface": "歩きます", "reading": "あるきます", "gloss": "走" }
+      ],
+      "translation": "從車站走過去。",
+      "verified": true,
+      "tags": ["particle:kara"]
+    },
+    {
+      "id": "s_g037",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "ワイン", "reading": "わいん", "gloss": "葡萄酒" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "ぶどう", "reading": "ぶどう", "gloss": "葡萄" },
+        { "surface": "から", "reading": "から", "gloss": "（原料：由）", "particle": true },
+        { "surface": "作ります", "reading": "つくります", "gloss": "製作" }
+      ],
+      "translation": "葡萄酒是用葡萄製成的。",
+      "verified": true,
+      "tags": ["particle:kara", "particle:wa"]
+    }
+  ]
+}

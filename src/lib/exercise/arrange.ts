@@ -37,9 +37,18 @@ export interface Chunk {
   isPredicate: boolean;
 }
 
-/** Split `sentence` into its bunsetsu blocks, in the sentence's own authored (0..n-1) order. */
+/**
+ * Split `sentence` into its bunsetsu blocks, in the sentence's own authored
+ * (0..n-1) order. `sentence.bunsetsu`/`valid_orders` are typed optional as
+ * of build task 2026-09-24 §A (a grammar example sentence need not carry
+ * them at all), but every caller of chunksOf/judgeArrange only ever reaches
+ * a sentence through an ArrangeExercise's `sentence_id` -- and
+ * scripts/build-bank.ts's validateExercise refuses to build the bank at all
+ * if that sentence is missing either field. The `!` assertions below encode
+ * that build-time guarantee; they are not a runtime risk here.
+ */
 export function chunksOf(sentence: Sentence): Chunk[] {
-  return sentence.bunsetsu.map((tokenIndices, index) => {
+  return sentence.bunsetsu!.map((tokenIndices, index) => {
     const tokens = tokenIndices.map((i) => sentence.tokens[i]);
     const lastToken = tokens[tokens.length - 1];
     return { index, tokens, isPredicate: lastToken !== undefined && isPredicate(lastToken.surface) };
@@ -84,7 +93,7 @@ function isPermutationOf(order: readonly number[], n: number): boolean {
  *                 not reported as a verb-position error.
  */
 export function judgeArrange(sentence: Sentence, order: readonly number[]): ArrangeVerdict {
-  const nb = sentence.bunsetsu.length;
+  const nb = sentence.bunsetsu!.length;
 
   if (order.length < nb) {
     return { kind: "invalid", rule: "incomplete", note: "還沒有排完所有的積木" };
@@ -98,7 +107,7 @@ export function judgeArrange(sentence: Sentence, order: readonly number[]): Arra
   }
 
   const lastBunsetsuIndex = order[order.length - 1];
-  const lastBunsetsu = sentence.bunsetsu[lastBunsetsuIndex];
+  const lastBunsetsu = sentence.bunsetsu![lastBunsetsuIndex];
   const lastToken = sentence.tokens[lastBunsetsu[lastBunsetsu.length - 1]];
   if (!isPredicate(lastToken.surface)) {
     return {
@@ -108,7 +117,7 @@ export function judgeArrange(sentence: Sentence, order: readonly number[]): Arra
     };
   }
 
-  const isNatural = sentence.valid_orders.some((validOrder) => sameOrder(validOrder, order));
+  const isNatural = sentence.valid_orders!.some((validOrder) => sameOrder(validOrder, order));
   if (isNatural) return { kind: "natural" };
 
   return {

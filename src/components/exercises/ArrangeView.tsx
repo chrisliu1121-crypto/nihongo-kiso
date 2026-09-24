@@ -143,8 +143,12 @@ export function ArrangeView({ exercise }: ArrangeViewProps) {
     setReshuffleNonce((n) => n + 1);
   }
 
-  const preferredSurface = sentence.preferred_order
-    .map((i) => chunkByIndex.get(i)?.tokens.map((t) => t.surface).join(""))
+  // `sentence` is reached only through an ArrangeExercise's sentence_id here
+  // (the `if (!sentence) return` guard above), and build-bank.ts's
+  // validateExercise refuses to build the bank unless that sentence has
+  // preferred_order -- see arrange.ts's own comment on the same guarantee.
+  const preferredSurface = sentence
+    .preferred_order!.map((i) => chunkByIndex.get(i)?.tokens.map((t) => t.surface).join(""))
     .join("");
 
   return (

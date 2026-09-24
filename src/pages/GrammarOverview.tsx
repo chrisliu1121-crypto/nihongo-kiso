@@ -1,7 +1,13 @@
-// GrammarOverview — "/grammar": word-order skeleton + the eight-particle
-// overview (build task 2026-09 step 4, DESIGN.md §2.2/§2.3/§2.4). All
-// teaching copy here is transcribed from DESIGN.md, not invented -- see the
-// section comments below for exactly which paragraph each block comes from.
+// GrammarOverview — "/grammar": word-order skeleton + the grammar-item
+// overview, grouped by category (build task 2026-09-24 §D, generalizing the
+// original 8-particle overview from build task 2026-09 step 4, DESIGN.md
+// §2.2/§2.3/§2.4). The word-order skeleton, the "three good news" block, and
+// the は/が + other contrast sections are unchanged in substance (still
+// transcribed from DESIGN.md); only the particle-card wall below them is now
+// driven entirely by bank.grammar.items (grouped by GrammarCategory) instead
+// of a hardcoded 8-particle list, so a future content author adding a new
+// item to data/grammar/items.json never has to touch this page.
+//
 // Every example sentence renders through SentenceLine/Token so the gojuon
 // table highlights for free (DESIGN.md §5.1).
 
@@ -9,23 +15,32 @@ import { Link } from "react-router-dom";
 import { Token } from "../components/Token";
 import { ContrastSetView } from "../components/ContrastSetView";
 import type { ContrastSetPair } from "../components/ContrastSetView";
-import bank, { getContrastSet, getSentence } from "../lib/bank";
-import type { ContrastSet, Particle, ParticleClass, Sentence } from "../lib/bank";
+import bank, { getGrammarContrastSet, getSentence, itemsByCategory } from "../lib/bank";
+import type { ContrastSet, GrammarCategory, GrammarItem, Sentence } from "../lib/bank";
 
 const SKELETON_SENTENCE_ID = "s_g033";
 
 const SKELETON_LABELS = ["主題は", "時間", "地點で", "對象と／に", "受詞を", "動詞"];
 
-const CLASS_LABEL: Record<ParticleClass, string> = {
-  kaku: "格助詞",
-  kakari: "係助詞",
-  rentai: "連體助詞",
+/** Display order + Chinese label + one-line description for each GrammarCategory (build task 2026-09-24 §D). */
+const CATEGORY_ORDER: GrammarCategory[] = ["case", "focus", "conjunctive", "final", "conjunction", "expression"];
+
+const CATEGORY_LABEL: Record<GrammarCategory, string> = {
+  case: "格助詞",
+  focus: "係助詞・副助詞",
+  conjunctive: "接續助詞",
+  final: "終助詞",
+  conjunction: "接續詞",
+  expression: "副詞・表現",
 };
 
-const CLASS_DESCRIPTION: Record<ParticleClass, string> = {
-  kaku: "標記名詞在句中扮演的角色",
-  kakari: "標記這句話在談什麼（與角色是兩回事）",
-  rentai: "連接名詞與名詞",
+const CATEGORY_DESCRIPTION: Record<GrammarCategory, string> = {
+  case: "標記名詞在句中扮演的角色（誰、對誰、在哪裡、用什麼…）",
+  focus: "標記這句話在談什麼、強調什麼、限定什麼範圍",
+  conjunctive: "連接兩個子句，說明原因、轉折、假設等關係",
+  final: "加在句尾，表示語氣（確認、提醒、感嘆…）",
+  conjunction: "連接兩個句子，是句子之間的橋樑，不是助詞",
+  expression: "副詞或固定表現，常與特定語氣或句型搭配",
 };
 
 interface SlotToken {
@@ -47,7 +62,11 @@ interface SlotToken {
  * grouping; each token inside it is its own Token instance).
  */
 function bunsetsuTokens(sentence: Sentence, bunsetsuIndex: number): SlotToken[] {
-  return sentence.bunsetsu[bunsetsuIndex].map((tokenIndex) => {
+  // The skeleton sentence (s_g033) is hand-authored WITH bunsetsu (it's also
+  // used by the old arrange-practice seed set) -- the `!` reflects that,
+  // not a general guarantee every Sentence has bunsetsu (build task
+  // 2026-09-24 §A made that field optional).
+  return sentence.bunsetsu![bunsetsuIndex].map((tokenIndex) => {
     const token = sentence.tokens[tokenIndex];
     return {
       surface: token.surface,
@@ -80,50 +99,79 @@ interface ContrastBlockProps {
 }
 
 function ContrastBlock({ id }: ContrastBlockProps) {
-  const cs = getContrastSet(bank, id);
+  const cs = getGrammarContrastSet(bank, id);
   if (!cs) return null;
   return <ContrastSetView contrastSet={cs} pairs={resolvePairs(cs)} />;
 }
 
-interface ParticleCardProps {
-  particle: Particle;
+interface GrammarItemCardProps {
+  item: GrammarItem;
   large?: boolean;
 }
 
-function ParticleCard({ particle, large }: ParticleCardProps) {
+function GrammarItemCard({ item, large }: GrammarItemCardProps) {
   return (
     <Link
-      to={`/grammar/${particle.id}`}
+      to={`/grammar/${item.id}`}
       className={`flex flex-col gap-2 rounded-xl border p-4 shadow-sm transition-colors duration-150 hover:border-amber-300 hover:bg-amber-50/40 ${
         large ? "border-amber-300 bg-amber-50/60 sm:col-span-2" : "border-stone-200 bg-white"
       }`}
     >
       <Token
-        surface={particle.surface}
-        reading={particle.reading}
-        romaji={particle.romaji}
-        role="particle"
-        particle
+        surface={item.surface}
+        reading={item.reading}
+        role={item.cell ? "particle" : "phrase"}
+        particle={!!item.cell}
         interactive={false}
         size={large ? "lg" : "md"}
       />
-      <span className="text-xs font-medium uppercase tracking-wide text-stone-400">
-        {CLASS_LABEL[particle.class]}
-      </span>
-      <p className="text-sm text-stone-700">{particle.core}</p>
-      <p className="text-xs text-stone-500">{particle.zh_bridge}</p>
+      <p className="text-sm text-stone-700">{item.core}</p>
+      {item.zh_bridge && <p className="text-xs text-stone-500">{item.zh_bridge}</p>}
     </Link>
+  );
+}
+
+/**
+ * One category section of the card wall. The heading always renders (all
+ * six categories, build task 2026-09-24's own acceptance check #3: "/grammar
+ * ... 含六個分類標題") -- only the card grid is conditional, so a category a
+ * future content author hasn't filled in yet (接續詞、副詞・表現, ...) shows
+ * as an empty-but-labeled section instead of silently disappearing.
+ */
+function CategorySection({ category }: { category: GrammarCategory }) {
+  const items = itemsByCategory(bank, category);
+  const heavy = items.filter((it) => it.weight === "heavy");
+  const rest = items.filter((it) => it.weight !== "heavy");
+  return (
+    <div>
+      <p className="mb-1 text-sm font-semibold text-stone-600">{CATEGORY_LABEL[category]}</p>
+      <p className="mb-2 text-xs text-stone-400">{CATEGORY_DESCRIPTION[category]}</p>
+      {items.length === 0 ? (
+        <p className="text-xs text-stone-400 italic">（尚未收錄）</p>
+      ) : (
+        <>
+          {heavy.length > 0 && (
+            <div className="mb-3 grid gap-3 sm:grid-cols-2">
+              {heavy.map((it) => (
+                <GrammarItemCard key={it.id} item={it} large />
+              ))}
+            </div>
+          )}
+          {rest.length > 0 && (
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {rest.map((it) => (
+                <GrammarItemCard key={it.id} item={it} />
+              ))}
+            </div>
+          )}
+        </>
+      )}
+    </div>
   );
 }
 
 export function GrammarOverview() {
   const skeleton = getSentence(bank, SKELETON_SENTENCE_ID);
-  const findParticle = (id: string) => bank.particles.particles.find((p) => p.id === id);
-  const wa = findParticle("wa");
-  const ga = findParticle("ga");
-  const kakuParticles = ["wo", "ni", "de", "to"].map(findParticle).filter((p): p is Particle => !!p);
-  const kakariParticles = ["mo"].map(findParticle).filter((p): p is Particle => !!p);
-  const rentaiParticles = ["no"].map(findParticle).filter((p): p is Particle => !!p);
 
   return (
     <div className="space-y-10">
@@ -189,51 +237,23 @@ export function GrammarOverview() {
         <p className="mt-2 text-sm text-stone-700">壞消息只有助詞一項。</p>
       </section>
 
-      {/* 4. 八大助詞 -- DESIGN.md §2.3 */}
+      {/* 4. 文法項目卡片牆，依 category 分組 -- 完全來自 bank.grammar.items，
+          新增項目不需改這個頁面（build task 2026-09-24 §D） */}
       <section>
-        <h2 className="text-xl font-bold text-stone-900">八大助詞</h2>
-        <div className="mt-3 grid gap-2 sm:grid-cols-3">
-          {(["kaku", "kakari", "rentai"] as ParticleClass[]).map((cls) => (
-            <div key={cls} className="rounded-lg border border-stone-200 bg-white p-3">
-              <p className="text-sm font-semibold text-stone-800">{CLASS_LABEL[cls]}</p>
-              <p className="mt-1 text-xs text-stone-500">{CLASS_DESCRIPTION[cls]}</p>
-            </div>
+        <h2 className="text-xl font-bold text-stone-900">文法項目</h2>
+        <div className="mt-3 space-y-5">
+          {CATEGORY_ORDER.map((cat) => (
+            <CategorySection key={cat} category={cat} />
           ))}
         </div>
 
-        {wa && ga && (
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            <ParticleCard particle={wa} large />
-            <ParticleCard particle={ga} large />
-          </div>
-        )}
-
-        <div className="mt-4 space-y-4">
-          <div>
-            <p className="mb-2 text-sm font-semibold text-stone-600">格助詞</p>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {kakuParticles.map((p) => (
-                <ParticleCard key={p.id} particle={p} />
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="mb-2 text-sm font-semibold text-stone-600">係助詞</p>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {kakariParticles.map((p) => (
-                <ParticleCard key={p.id} particle={p} />
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="mb-2 text-sm font-semibold text-stone-600">連體助詞</p>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {rentaiParticles.map((p) => (
-                <ParticleCard key={p.id} particle={p} />
-              ))}
-            </div>
-          </div>
-        </div>
+        <Link
+          to="/grammar/verbs"
+          className="mt-5 flex flex-col gap-1 rounded-xl border border-sky-200 bg-sky-50 p-4 shadow-sm transition-colors duration-150 hover:border-sky-300 hover:bg-sky-100/60"
+        >
+          <span className="text-sm font-semibold text-stone-800">動詞：五段・一段・不規則 →</span>
+          <span className="text-xs text-stone-500">動詞分類與活用（ます形／ない形／て形／た形）</span>
+        </Link>
       </section>
 
       {/* 5. 為什麼 は 和 が 難 -- DESIGN.md §2.3 */}
