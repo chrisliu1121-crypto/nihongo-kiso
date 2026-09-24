@@ -1,0 +1,549 @@
+{
+  "date": "2026-09-25",
+  "words": [
+    {
+      "id": "w_0121",
+      "surface": "銀行",
+      "reading": "ぎんこう",
+      "gloss": "銀行",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 121,
+      "romaji_override": null,
+      "example": {
+        "ja": "銀行は駅の近くにあります。",
+        "zh": "銀行在車站附近。",
+        "tokens": [
+          {
+            "surface": "銀行",
+            "reading": "ぎんこう",
+            "gloss": "銀行"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "駅",
+            "reading": "えき",
+            "gloss": "車站"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "近く",
+            "reading": "ちかく",
+            "gloss": "附近"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "銀行に行く",
+        "銀行でお金を出す"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0122",
+      "surface": "郵便局",
+      "reading": "ゆうびんきょく",
+      "gloss": "郵局",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 122,
+      "romaji_override": null,
+      "example": {
+        "ja": "郵便局で切手を買います。",
+        "zh": "在郵局買郵票。",
+        "tokens": [
+          {
+            "surface": "郵便局",
+            "reading": "ゆうびんきょく",
+            "gloss": "郵局"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "切手",
+            "reading": "きって",
+            "gloss": "郵票"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "郵便局に行く",
+        "郵便局で切手を買う",
+        "近くの郵便局"
+      ],
+      "confusable_with": [],
+      "note": "「郵便局」是郵局的意思。常與助詞「で」（在～做某事）或「に／へ」（去～目的地）搭配使用。常見的關聯詞彙有「切手（郵票）」和「手紙（信）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0123",
+      "surface": "図書館",
+      "reading": "としょかん",
+      "gloss": "圖書館",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 123,
+      "romaji_override": null,
+      "example": {
+        "ja": "図書館で本を借ります。",
+        "zh": "在圖書館借書。",
+        "tokens": [
+          {
+            "surface": "図書館",
+            "reading": "としょかん",
+            "gloss": "圖書館"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "本",
+            "reading": "ほん",
+            "gloss": "書"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "借ります",
+            "reading": "かります",
+            "gloss": "借"
+          }
+        ]
+      },
+      "collocations": [
+        "図書館へ行く",
+        "図書館で本を借りる",
+        "学校の図書館"
+      ],
+      "confusable_with": [],
+      "note": "「図書館」是指圖書館。表示在圖書館做動作時，助詞使用「で」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0124",
+      "surface": "公園",
+      "reading": "こうえん",
+      "gloss": "公園",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 124,
+      "romaji_override": null,
+      "example": {
+        "ja": "広い公園で散歩します。",
+        "zh": "在寬廣的公園散步。",
+        "tokens": [
+          {
+            "surface": "広い",
+            "reading": "ひろい",
+            "gloss": "寬廣的"
+          },
+          {
+            "surface": "公園",
+            "reading": "こうえん",
+            "gloss": "公園"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "散歩します",
+            "reading": "さんぽします",
+            "gloss": "散步"
+          }
+        ]
+      },
+      "collocations": [
+        "公園に行く",
+        "公園で遊ぶ",
+        "公園を散歩する"
+      ],
+      "confusable_with": [],
+      "note": "常與助詞「で」（表示在公園進行某活動）或「に／へ」（表示前往公園）搭配使用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0125",
+      "surface": "映画館",
+      "reading": "えいがかん",
+      "gloss": "電影院",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 125,
+      "romaji_override": null,
+      "example": {
+        "ja": "映画館で映画を見ます。",
+        "zh": "在電影院看電影。",
+        "tokens": [
+          {
+            "surface": "映画館",
+            "reading": "えいがかん",
+            "gloss": "電影院"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "映画館へ行く",
+        "映画館で見る"
+      ],
+      "confusable_with": [],
+      "note": "由「映画（電影）」加上代表建築物的接尾詞「館（かん）」組合而成，意思是專門放映電影的場所。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0126",
+      "surface": "デパート",
+      "reading": "デパート",
+      "gloss": "百貨公司",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 126,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達とデパートへ行きます。",
+        "zh": "和朋友去百貨公司。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "デパート",
+            "reading": "デパート",
+            "gloss": "百貨公司"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "デパートへ行く",
+        "デパートで買い物をする"
+      ],
+      "confusable_with": [],
+      "note": "源自英語「department store」的簡稱，專指百貨公司。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0127",
+      "surface": "店",
+      "reading": "みせ",
+      "gloss": "店",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 127,
+      "romaji_override": null,
+      "example": {
+        "ja": "この店で魚を買います。",
+        "zh": "在這家店買魚。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "店",
+            "reading": "みせ",
+            "gloss": "店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "魚",
+            "reading": "さかな",
+            "gloss": "魚"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "店に入る",
+        "店の前",
+        "店で買う"
+      ],
+      "confusable_with": [],
+      "note": "在日常會話中常加上美稱「お」說成「お店（おみせ）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0128",
+      "surface": "喫茶店",
+      "reading": "きっさてん",
+      "gloss": "咖啡店",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 128,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達と喫茶店で話します。",
+        "zh": "和朋友在咖啡店聊天。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "喫茶店",
+            "reading": "きっさてん",
+            "gloss": "咖啡店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "話します",
+            "reading": "はなします",
+            "gloss": "聊天"
+          }
+        ]
+      },
+      "collocations": [
+        "喫茶店に行く",
+        "喫茶店で休む"
+      ],
+      "confusable_with": [],
+      "note": "「喫茶店」指提供咖啡、茶飲及簡餐的傳統咖啡廳，常帶有復古或悠閒的氛圍；現代連鎖咖啡店有時也會用外來語「カフェ」表示。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0129",
+      "surface": "レストラン",
+      "reading": "レストラン",
+      "gloss": "餐廳",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 129,
+      "romaji_override": null,
+      "example": {
+        "ja": "レストランで昼ご飯を食べます。",
+        "zh": "在餐廳吃午餐。",
+        "tokens": [
+          {
+            "surface": "レストラン",
+            "reading": "レストラン",
+            "gloss": "餐廳"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "昼ご飯",
+            "reading": "ひるごはん",
+            "gloss": "午餐"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "レストランに行く",
+        "レストランで食べる"
+      ],
+      "confusable_with": [],
+      "note": "外來語，源自法語 restaurant，通常指一般的餐館或西式餐廳。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0130",
+      "surface": "ホテル",
+      "reading": "ホテル",
+      "gloss": "飯店",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 130,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達とホテルに行きます。",
+        "zh": "和朋友去飯店。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "ホテル",
+            "reading": "ホテル",
+            "gloss": "飯店"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "ホテルに行きます",
+        "新しいホテル"
+      ],
+      "confusable_with": [],
+      "note": "源自英語「hotel」，指西式飯店。日式傳統旅館通常稱為「旅館（りょかん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
