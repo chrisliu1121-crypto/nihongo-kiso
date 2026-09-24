@@ -12,6 +12,10 @@ import { ParticlePage } from "./pages/ParticlePage";
 import { PracticeArrange } from "./pages/PracticeArrange";
 import { PracticeKana } from "./pages/PracticeKana";
 import { PracticeParticle } from "./pages/PracticeParticle";
+import { Settings } from "./pages/Settings";
+import { TextList } from "./pages/TextList";
+import { TextNew } from "./pages/TextNew";
+import { TextDetail } from "./pages/TextDetail";
 import { NotFound } from "./pages/NotFound";
 
 export function App() {
@@ -23,9 +27,13 @@ export function App() {
           <Route path="bank" element={<WordBank />} />
           <Route path="grammar" element={<GrammarOverview />} />
           <Route path="grammar/:particleId" element={<ParticlePage />} />
+          <Route path="texts" element={<TextList />} />
+          <Route path="texts/new" element={<TextNew />} />
+          <Route path="texts/:id" element={<TextDetail />} />
           <Route path="practice/kana" element={<PracticeKana />} />
           <Route path="practice/arrange" element={<PracticeArrange />} />
           <Route path="practice/particle" element={<PracticeParticle />} />
+          <Route path="settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
