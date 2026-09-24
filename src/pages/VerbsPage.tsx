@@ -31,7 +31,7 @@ const CLASS_LABEL: Record<VerbClass, string> = {
 
 const CLASS_DESCRIPTION: Record<VerbClass, string> = {
   godan:
-    "辭書形詞尾是う段假名（く・ぐ・す・つ・ぬ・ぶ・む・る・う之一），活用時詞尾在五十音「同一行」的五段之間變化（例：書く／書か（ない）／書き（ます）／書い（て））。",
+    "辭書形詞尾是う段假名（く・ぐ・す・つ・ぬ・ぶ・む・る・う之一）。ない形、ます形時，詞尾在五十音「同一行」之間變化（書か（ない）／書き（ます）／書く）；て形、た形則走另一套「音便」規則（書い（て）），見下方表格，不是同行變化。",
   ichidan:
     "辭書形詞尾固定是る，且る前一拍是い段或え段音（例：食べる、見る）。活用最簡單：把る去掉，直接加語尾（食べ＋ます／ない／て／た）。",
   suru: "する 本身或「N＋する」（勉強する、散歩する）。活用固定：します／しない／して／した，N 的部分不變。",
@@ -66,9 +66,9 @@ function formGloss(baseGloss: string, form: VerbForm): string {
 
 const ONBIN_ROWS: { endings: string; te: string; ta: string; note?: string }[] = [
   { endings: "う・つ・る", te: "って", ta: "った" },
-  { endings: "む・ぶ・ぬ", te: "んで", ta: "んだ", note: "連濁：で／だ，不是て／た" },
+  { endings: "む・ぶ・ぬ", te: "んで", ta: "んだ", note: "ん 之後變濁音：で／だ，不是て／た" },
   { endings: "く", te: "いて", ta: "いた", note: "例外：行く → 行って／行った（不是行いて／行いた）" },
-  { endings: "ぐ", te: "いで", ta: "いだ", note: "連濁：で／だ" },
+  { endings: "ぐ", te: "いで", ta: "いだ", note: "ぐ 的濁音保留：で／だ" },
   { endings: "す", te: "して", ta: "した" },
 ];
 
