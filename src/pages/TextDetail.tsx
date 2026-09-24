@@ -10,20 +10,31 @@
 // became the app-wide highlighted one, so a touch tap on a token can also
 // drive this page's OWN, separate alignment-highlight state below. The
 // gojuon table itself is unaffected either way.
+//
+// P1 review fix: a `status: "partial"` doc (analysis that didn't finish --
+// see analyze.ts's header) gets a "還有 n 段未分析" banner with a "繼續分析"
+// button that resumes exactly its own `pendingSegments`.
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Token } from "../components/Token";
+import { PersistenceWarning } from "../components/PersistenceWarning";
 import { useHighlightState } from "../store/useHighlight";
-import { getReaderStore } from "../lib/reader/store";
-import { safeRomaji } from "../lib/reader/analyze";
-import type { ExtractedVocab, TextDoc } from "../lib/reader/types";
-import type { MyWord } from "../lib/reader/types";
+import { useReaderStore } from "../lib/reader/useReaderStore";
+import { continueAnalysis, safeRomaji } from "../lib/reader/analyze";
+import { OpenRouterBrowserError } from "../lib/ai/openrouterBrowser";
+import { getStoredApiKey, getStoredModel } from "../lib/reader/settings";
+import type { ExtractedVocab, MyWord, TextDoc } from "../lib/reader/types";
 
 type Active =
   | { sentenceIndex: number; kind: "token"; index: number }
   | { sentenceIndex: number; kind: "chunk"; index: number }
   | null;
+
+type ContinueStatus =
+  | { kind: "idle" }
+  | { kind: "continuing"; done: number; total: number }
+  | { kind: "error"; message: string };
 
 /** If `sourceId` is one of THIS doc's own token ids ("text:<docId>:<si>:<ti>"), returns its {si, ti}; otherwise null (it's some other Token on the page, or nothing is pinned). */
 function parseOwnTokenId(sourceId: string | undefined, docId: string): { si: number; ti: number } | null {
@@ -37,32 +48,53 @@ function parseOwnTokenId(sourceId: string | undefined, docId: string): { si: num
   return { si, ti };
 }
 
+function vocabKey(v: ExtractedVocab): string {
+  return `${v.surface}|${v.reading}`;
+}
+
 export function TextDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const store = useReaderStore();
   const [doc, setDoc] = useState<TextDoc | null | undefined>(undefined);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [titleDraft, setTitleDraft] = useState("");
   const [myWords, setMyWords] = useState<MyWord[]>([]);
   const [active, setActive] = useState<Active>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
+  const [pendingWordKeys, setPendingWordKeys] = useState<Set<string>>(new Set());
+  const [continueStatus, setContinueStatus] = useState<ContinueStatus>({ kind: "idle" });
   const sentenceRefs = useRef<Array<HTMLDivElement | null>>([]);
   const highlightState = useHighlightState();
 
   useEffect(() => {
-    if (!id) return;
+    if (!id || !store) return;
     let cancelled = false;
-    const store = getReaderStore();
-    store.getText(id).then((found) => {
-      if (cancelled) return;
-      setDoc(found ?? null);
-      setTitleDraft(found?.title ?? "");
-    });
-    store.listMyWords().then((list) => {
-      if (!cancelled) setMyWords(list);
-    });
+    store
+      .getText(id)
+      .then((found) => {
+        if (cancelled) return;
+        setDoc(found ?? null);
+        setTitleDraft(found?.title ?? "");
+      })
+      .catch((err) => {
+        // P1 review fix: a rejected getText() used to leave `doc` at
+        // `undefined` forever, so the page just showed "載入中..." forever.
+        if (!cancelled) setLoadError(err instanceof Error ? err.message : String(err));
+      });
+    store
+      .listMyWords()
+      .then((list) => {
+        if (!cancelled) setMyWords(list);
+      })
+      .catch(() => {
+        // Non-fatal for this page (only affects the "已加入" state of the
+        // vocab panel) -- the doc itself still loads and renders.
+      });
     return () => {
       cancelled = true;
     };
-  }, [id]);
+  }, [id, store]);
 
   const tappedToken = useMemo(
     () => (doc ? parseOwnTokenId(highlightState.pinned?.sourceId, doc.id) : null),
@@ -93,42 +125,106 @@ export function TextDetail() {
   }
 
   async function handleTitleBlur(): Promise<void> {
-    if (!doc) return;
+    if (!doc || !store) return;
     const trimmed = titleDraft.trim();
     if (!trimmed || trimmed === doc.title) {
       setTitleDraft(doc.title);
       return;
     }
     const updated: TextDoc = { ...doc, title: trimmed, updatedAt: new Date().toISOString() };
-    await getReaderStore().putText(updated);
-    setDoc(updated);
+    try {
+      await store.putText(updated);
+      setDoc(updated);
+    } catch (err) {
+      setActionError(`改標題失敗：${err instanceof Error ? err.message : String(err)}`);
+      setTitleDraft(doc.title);
+    }
   }
 
   async function handleDelete(): Promise<void> {
-    if (!doc) return;
+    if (!doc || !store) return;
     const confirmed = window.confirm(`刪除後無法復原，確定要刪除「${doc.title}」嗎？`);
     if (!confirmed) return;
-    await getReaderStore().deleteText(doc.id);
-    navigate("/texts");
+    try {
+      await store.deleteText(doc.id);
+      navigate("/texts");
+    } catch (err) {
+      setActionError(`刪除失敗：${err instanceof Error ? err.message : String(err)}`);
+    }
   }
 
   async function handleAddWord(vocab: ExtractedVocab): Promise<void> {
-    if (!doc) return;
-    const { romaji } = safeRomaji(vocab.reading);
-    const word = await getReaderStore().addMyWord({
-      surface: vocab.surface,
-      reading: vocab.reading,
-      gloss: vocab.gloss,
-      pos: vocab.pos,
-      note: vocab.note,
-      fromTextId: doc.id,
-      fromTextTitle: doc.title,
-      romaji,
-    });
-    setMyWords((prev) => (prev.some((w) => w.id === word.id) ? prev : [word, ...prev]));
+    if (!doc || !store) return;
+    const key = vocabKey(vocab);
+    if (pendingWordKeys.has(key)) return; // already in flight -- button is disabled, but guard anyway
+    setPendingWordKeys((prev) => new Set(prev).add(key));
+    try {
+      const { romaji } = safeRomaji(vocab.reading);
+      const word = await store.addMyWord({
+        surface: vocab.surface,
+        reading: vocab.reading,
+        gloss: vocab.gloss,
+        pos: vocab.pos,
+        note: vocab.note,
+        fromTextId: doc.id,
+        fromTextTitle: doc.title,
+        romaji,
+      });
+      setMyWords((prev) => (prev.some((w) => w.id === word.id) ? prev : [word, ...prev]));
+    } catch (err) {
+      setActionError(`加入單字失敗：${err instanceof Error ? err.message : String(err)}`);
+    } finally {
+      setPendingWordKeys((prev) => {
+        const next = new Set(prev);
+        next.delete(key);
+        return next;
+      });
+    }
   }
 
-  if (doc === undefined) {
+  async function handleContinue(): Promise<void> {
+    if (!doc || !store || continueStatus.kind === "continuing") return;
+    const apiKey = getStoredApiKey();
+    if (!apiKey.trim()) {
+      setContinueStatus({ kind: "error", message: "還沒有設定 OpenRouter key，請先到設定頁輸入。" });
+      return;
+    }
+    setContinueStatus({ kind: "continuing", done: 0, total: doc.pendingSegments.length });
+    try {
+      const updated = await continueAnalysis(doc, {
+        apiKey,
+        // Keep using the model this doc was already (partly) analyzed
+        // with, rather than whatever /settings currently has, so one
+        // document's style/output doesn't shift mid-way if the user
+        // changed their default model in between.
+        model: doc.model || getStoredModel(),
+        onProgress: (done, total) => setContinueStatus({ kind: "continuing", done, total }),
+        onSegmentSaved: async (d) => {
+          setDoc(d);
+          await store.putText(d);
+        },
+      });
+      setDoc(updated);
+      setContinueStatus({ kind: "idle" });
+    } catch (err) {
+      let message = err instanceof Error ? err.message : String(err);
+      if (err instanceof OpenRouterBrowserError && err.kind === "auth") {
+        message = "OpenRouter key 無效，請到設定頁確認。";
+      } else if (err instanceof OpenRouterBrowserError && err.kind === "quota") {
+        message = "OpenRouter 額度不足，請確認帳戶餘額或改用其他模型。";
+      }
+      setContinueStatus({ kind: "error", message });
+    }
+  }
+
+  if (loadError) {
+    return (
+      <p className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+        讀取這篇文本失敗：{loadError}
+      </p>
+    );
+  }
+  if (!store || doc === undefined) {
     return <p className="text-sm text-stone-400">載入中...</p>;
   }
   if (doc === null) {
@@ -146,6 +242,8 @@ export function TextDetail() {
 
   return (
     <div className="space-y-6">
+      {!store.isPersistent && <PersistenceWarning />}
+
       <header className="space-y-2">
         <div className="flex flex-wrap items-center gap-3">
           <input
@@ -167,6 +265,32 @@ export function TextDetail() {
           {new Date(doc.updatedAt).toLocaleString()} · {doc.sentences.length} 句 · {doc.model}
         </p>
       </header>
+
+      {actionError && (
+        <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{actionError}</p>
+      )}
+
+      {doc.status === "partial" && (
+        <div className="flex flex-wrap items-center gap-3 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
+          <span>還有 {doc.pendingSegments.length} 段未分析</span>
+          <button
+            type="button"
+            onClick={() => void handleContinue()}
+            disabled={continueStatus.kind === "continuing"}
+            className="rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-amber-600 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {continueStatus.kind === "continuing" ? "分析中..." : "繼續分析"}
+          </button>
+          {continueStatus.kind === "continuing" && (
+            <span className="text-xs text-amber-700">
+              第 {Math.min(continueStatus.done + 1, continueStatus.total)} / {continueStatus.total} 段
+            </span>
+          )}
+        </div>
+      )}
+      {continueStatus.kind === "error" && (
+        <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{continueStatus.message}</p>
+      )}
 
       <div className="space-y-5 rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
         {doc.sentences.map((sentence, si) => {
@@ -254,6 +378,7 @@ export function TextDetail() {
           ) : (
             doc.extracted.vocab.map((v, i) => {
               const added = isWordAdded(v);
+              const pending = pendingWordKeys.has(vocabKey(v));
               return (
                 <div key={i} className="flex items-start justify-between gap-2 border-b border-stone-100 py-2 text-sm last:border-b-0">
                   <div>
@@ -266,11 +391,11 @@ export function TextDetail() {
                   </div>
                   <button
                     type="button"
-                    disabled={added}
+                    disabled={added || pending}
                     onClick={() => void handleAddWord(v)}
                     className="shrink-0 rounded-lg border border-stone-200 px-2 py-1 text-xs text-stone-600 hover:bg-stone-50 disabled:cursor-default disabled:border-emerald-200 disabled:bg-emerald-50 disabled:text-emerald-600"
                   >
-                    {added ? "已加入" : "加入我的單字"}
+                    {added ? "已加入" : pending ? "加入中..." : "加入我的單字"}
                   </button>
                 </div>
               );

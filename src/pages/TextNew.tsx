@@ -2,13 +2,23 @@
 // land on the new text's own page. analyzeText (src/lib/reader/analyze.ts)
 // does all the real work; this page is just the form + progress/error UI
 // around it.
+//
+// P1 review fix: analyzeText() now persists the TextDoc after EACH segment
+// succeeds (onSegmentSaved), not only once every segment has succeeded --
+// so if segment 3 of 5 fails, segments 1-2 are still saved (status
+// "partial") instead of the whole run's cost being thrown away. This page
+// tracks the last-saved doc via a ref; on failure, if anything was already
+// saved, it navigates to that doc's own page (where the "繼續分析" button
+// lives) instead of dead-ending on a bare error.
 
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { analyzeText, MAX_INPUT_LENGTH } from "../lib/reader/analyze";
 import { OpenRouterBrowserError } from "../lib/ai/openrouterBrowser";
 import { getStoredApiKey, getStoredModel } from "../lib/reader/settings";
-import { getReaderStore } from "../lib/reader/store";
+import { useReaderStore } from "../lib/reader/useReaderStore";
+import { PersistenceWarning } from "../components/PersistenceWarning";
+import type { TextDoc } from "../lib/reader/types";
 
 type Status =
   | { kind: "idle" }
@@ -16,6 +26,7 @@ type Status =
   | { kind: "error"; message: string; goToSettings?: boolean };
 
 export function TextNew() {
+  const store = useReaderStore();
   const [text, setText] = useState("");
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const navigate = useNavigate();
@@ -23,19 +34,42 @@ export function TextNew() {
   const apiKey = getStoredApiKey();
   const model = getStoredModel();
   const overLimit = text.length > MAX_INPUT_LENGTH;
-  const canAnalyze = text.trim() !== "" && !overLimit && apiKey.trim() !== "" && status.kind !== "analyzing";
+  const canAnalyze =
+    text.trim() !== "" && !overLimit && apiKey.trim() !== "" && status.kind !== "analyzing" && store !== null;
 
   async function handleAnalyze(): Promise<void> {
+    if (!store) return;
+    // Local to this one run (not a ref/state -- nothing outside this
+    // function needs it, and it must never leak into the NEXT click's run).
+    let savedDoc: TextDoc | null = null;
     setStatus({ kind: "analyzing", done: 0, total: 1 });
     try {
       const doc = await analyzeText(text, {
         apiKey,
         model,
         onProgress: (done, total) => setStatus({ kind: "analyzing", done, total }),
+        onSegmentSaved: async (d) => {
+          savedDoc = d;
+          await store.putText(d);
+        },
       });
-      await getReaderStore().putText(doc);
       navigate(`/texts/${doc.id}`);
     } catch (err) {
+      // At least one segment succeeded and was already saved (as
+      // status: "partial") before this one failed -- go straight to that
+      // doc's page, where "繼續分析" can pick up the rest, instead of
+      // stranding the user on a bare error with nothing to show for the
+      // segments that DID come back.
+      // Cast (rather than a plain `if (savedDoc)` narrowing) deliberately:
+      // `savedDoc` is only ever reassigned inside the onSegmentSaved
+      // closure above, which this compiler's control-flow analysis can't
+      // see into from here, so it narrows the read below to `never`
+      // instead of `TextDoc | null` -- the cast sidesteps that rather than
+      // fighting it.
+      if (savedDoc !== null) {
+        navigate(`/texts/${(savedDoc as TextDoc).id}`);
+        return;
+      }
       if (err instanceof OpenRouterBrowserError) {
         if (err.kind === "auth") {
           setStatus({ kind: "error", message: "OpenRouter key 無效或未設定，請到設定頁確認。", goToSettings: true });
@@ -55,6 +89,8 @@ export function TextNew() {
       <header>
         <h1 className="text-2xl font-bold text-stone-900">新增文本</h1>
       </header>
+
+      {store && !store.isPersistent && <PersistenceWarning />}
 
       {apiKey.trim() === "" && (
         <p className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">

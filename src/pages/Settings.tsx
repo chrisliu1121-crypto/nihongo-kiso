@@ -13,17 +13,19 @@ import {
   setStoredModel,
 } from "../lib/reader/settings";
 import { testConnection } from "../lib/ai/openrouterBrowser";
-import { getReaderStore } from "../lib/reader/store";
+import { useReaderStore } from "../lib/reader/useReaderStore";
+import { PersistenceWarning } from "../components/PersistenceWarning";
 
 type TestState = { status: "idle" } | { status: "testing" } | { status: "done"; ok: boolean; message: string };
 
 export function Settings() {
+  const store = useReaderStore();
   const [apiKey, setApiKey] = useState(() => getStoredApiKey());
   const [model, setModel] = useState(() => getStoredModel());
   const [showKey, setShowKey] = useState(false);
   const [savedMessage, setSavedMessage] = useState<string | null>(null);
   const [testState, setTestState] = useState<TestState>({ status: "idle" });
-  const [importMessage, setImportMessage] = useState<string | null>(null);
+  const [ioMessage, setIoMessage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   function handleSave(): void {
@@ -48,18 +50,25 @@ export function Settings() {
   }
 
   async function handleExport(): Promise<void> {
-    const store = getReaderStore();
-    const payload = await store.exportAll();
-    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    const date = new Date().toISOString().slice(0, 10);
-    a.download = `nihongo-kiso-reader-${date}.json`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
+    if (!store) return;
+    try {
+      const payload = await store.exportAll();
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      const date = new Date().toISOString().slice(0, 10);
+      a.download = `nihongo-kiso-reader-${date}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      // P1 review fix: exportAll() reading from the store can reject just
+      // like any other store call -- this used to have no try/catch at
+      // all, so a failure here silently did nothing.
+      setIoMessage(`匯出失敗：${err instanceof Error ? err.message : String(err)}`);
+    }
   }
 
   function handleImportClick(): void {
@@ -69,15 +78,14 @@ export function Settings() {
   async function handleImportFile(event: React.ChangeEvent<HTMLInputElement>): Promise<void> {
     const file = event.target.files?.[0];
     event.target.value = "";
-    if (!file) return;
+    if (!file || !store) return;
     try {
       const text = await file.text();
       const json = JSON.parse(text);
-      const store = getReaderStore();
       const result = await store.importAll(json);
-      setImportMessage(`匯入完成：文本 ${result.textsImported} 篇、單字 ${result.wordsImported} 個`);
+      setIoMessage(`匯入完成：文本 ${result.textsImported} 篇、單字 ${result.wordsImported} 個`);
     } catch (err) {
-      setImportMessage(`匯入失敗：${err instanceof Error ? err.message : String(err)}`);
+      setIoMessage(`匯入失敗：${err instanceof Error ? err.message : String(err)}`);
     }
   }
 
@@ -86,6 +94,8 @@ export function Settings() {
       <header>
         <h1 className="text-2xl font-bold text-stone-900">設定</h1>
       </header>
+
+      {store && !store.isPersistent && <PersistenceWarning />}
 
       <section className="space-y-3 rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
         <h2 className="text-lg font-semibold text-stone-800">OpenRouter</h2>
@@ -191,7 +201,7 @@ export function Settings() {
             className="hidden"
             onChange={(e) => void handleImportFile(e)}
           />
-          {importMessage && <span className="text-sm text-stone-600">{importMessage}</span>}
+          {ioMessage && <span className="text-sm text-stone-600">{ioMessage}</span>}
         </div>
       </section>
     </div>

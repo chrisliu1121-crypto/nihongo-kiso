@@ -8,9 +8,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Token } from "../components/Token";
+import { PersistenceWarning } from "../components/PersistenceWarning";
 import bank, { filterWords } from "../lib/bank";
 import type { Word } from "../lib/bank";
-import { getReaderStore } from "../lib/reader/store";
+import { useReaderStore } from "../lib/reader/useReaderStore";
 import type { MyWord } from "../lib/reader/types";
 
 interface WordRowProps {
@@ -105,25 +106,38 @@ function MyWordRow({ word, onRemove }: MyWordRowProps) {
 }
 
 export function WordBank() {
+  const store = useReaderStore();
   const [query, setQuery] = useState("");
   const [collapsedDates, setCollapsedDates] = useState<Set<string>>(() => new Set());
   const [myWords, setMyWords] = useState<MyWord[]>([]);
+  const [myWordsError, setMyWordsError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!store) return;
     let cancelled = false;
-    getReaderStore()
+    store
       .listMyWords()
       .then((list) => {
         if (!cancelled) setMyWords(list);
+      })
+      .catch((err) => {
+        // P1 review fix: a rejected listMyWords() used to leave `myWords`
+        // at [] forever with no indication anything went wrong.
+        if (!cancelled) setMyWordsError(err instanceof Error ? err.message : String(err));
       });
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [store]);
 
   async function handleRemoveMyWord(id: string): Promise<void> {
-    await getReaderStore().removeMyWord(id);
-    setMyWords((prev) => prev.filter((w) => w.id !== id));
+    if (!store) return;
+    try {
+      await store.removeMyWord(id);
+      setMyWords((prev) => prev.filter((w) => w.id !== id));
+    } catch (err) {
+      setMyWordsError(err instanceof Error ? err.message : String(err));
+    }
   }
 
   const filteredMyWords = useMemo(() => myWords.filter((w) => matchesMyWord(w, query)), [myWords, query]);
@@ -167,6 +181,13 @@ export function WordBank() {
         aria-label="搜尋單詞"
         className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 transition-colors duration-150 focus:border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-200"
       />
+
+      {store && !store.isPersistent && <PersistenceWarning />}
+      {myWordsError && (
+        <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+          讀取「我的單字」失敗：{myWordsError}
+        </p>
+      )}
 
       {myWords.length > 0 && (
         <section className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm">

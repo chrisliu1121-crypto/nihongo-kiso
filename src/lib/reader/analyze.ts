@@ -6,6 +6,16 @@
 // deterministic local computation, not a model output), and merges every
 // segment's sentences/extracted vocab into one TextDoc.
 //
+// P1 review fix ("多段分析中途失敗／離開 → 已付費的段落白費"): a multi-segment
+// document used to only get written to storage once EVERY segment had
+// succeeded -- a failure (or the user closing the tab) on segment 3 of 5
+// threw away 2 segments' worth of already-paid-for OpenRouter output.
+// processSegments() below now persists the TextDoc after each individual
+// segment succeeds (via `onSegmentSaved`), so the caller's store always
+// has whatever's been analyzed so far, tagged `status: "partial"` with the
+// remaining segments in `pendingSegments`. analyzeText() (fresh) and
+// continueAnalysis() (resume a partial doc) both go through it.
+//
 // Every step here is pure/injectable (fetchImpl, sleep) so analyze.test.ts
 // can run this whole pipeline against a fake fetch with no real network.
 
@@ -167,6 +177,12 @@ function buildSentence(raw: RawSentence): ReaderSentence {
 // individual segment to respect (a multi-segment document can still exceed
 // them in aggregate).
 
+/** Clamp `index` into [0, maxIndex] (maxIndex may be -1 when there are no sentences at all yet, in which case every index clamps to 0 -- shouldn't happen in practice since a segment producing extracted.grammar/particles also produces at least one sentence, but never index out of an empty array either way). P2 review fix companion to aiSchema.ts's `.min(0)`: the schema already rejects a NEGATIVE sentence_index outright (OpenRouter would have to violate strict-mode json_schema to produce one), but nothing stopped an in-range-but-stale index from a differently-sized segment, or arithmetic here, from pointing past the end of `sentences` -- clamping here is the actual enforcement of "always a valid index into this doc's sentences". */
+function clampSentenceIndex(index: number, maxIndex: number): number {
+  if (maxIndex < 0) return 0;
+  return Math.min(Math.max(index, 0), maxIndex);
+}
+
 function dedupeExtracted(extracted: Extracted): Extracted {
   const vocabSeen = new Set<string>();
   const vocab: ExtractedVocab[] = [];
@@ -190,14 +206,29 @@ function dedupeExtracted(extracted: Extracted): Extracted {
   const particlesSeen = new Set<string>();
   const particles: ExtractedParticle[] = [];
   for (const p of extracted.particles) {
-    const key = `${p.surface}|${p.usage}`;
-    if (particlesSeen.has(key)) continue;
-    particlesSeen.add(key);
+    if (particlesSeen.has(`${p.surface}|${p.usage}`)) continue;
+    particlesSeen.add(`${p.surface}|${p.usage}`);
     particles.push(p);
     if (particles.length >= MAX_PARTICLES) break;
   }
 
   return { vocab, grammar, particles };
+}
+
+/** Merge one segment's freshly-validated `incoming` extracted data into `existing` (already deduped/capped from prior segments): rebase its sentence_index fields by `offset` (how many sentences existed before this segment) and clamp into this doc's now-final sentence count, then re-run the same dedupe+cap pass over the combined list (existing entries keep priority on a tie, since they're listed first). */
+function mergeExtracted(existing: Extracted, incoming: Extracted, offset: number, totalSentences: number): Extracted {
+  const maxIndex = totalSentences - 1;
+  return dedupeExtracted({
+    vocab: [...existing.vocab, ...incoming.vocab],
+    grammar: [
+      ...existing.grammar,
+      ...incoming.grammar.map((g) => ({ ...g, sentence_index: clampSentenceIndex(g.sentence_index + offset, maxIndex) })),
+    ],
+    particles: [
+      ...existing.particles,
+      ...incoming.particles.map((p) => ({ ...p, sentence_index: clampSentenceIndex(p.sentence_index + offset, maxIndex) })),
+    ],
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -218,45 +249,37 @@ function generateId(): string {
 }
 
 // ---------------------------------------------------------------------------
-// Main entry point.
+// Main entry points.
 
 export interface AnalyzeOptions {
   apiKey: string;
   model: string;
   fetchImpl?: FetchLike;
   sleep?: SleepLike;
-  /** Called before each segment's request is sent, 0-based `done` (segments completed so far) out of `total`. Also called once with done === total after the last segment finishes. */
+  /** Called before each remaining segment's request is sent, 0-based `done` (segments completed so far IN THIS CALL) out of `total` (segments remaining IN THIS CALL -- not the whole document, so a "繼續分析" resume starts its own progress back at 0/n). Also called once with done === total after the last segment finishes. */
   onProgress?: (done: number, total: number) => void;
+  /**
+   * Called synchronously after EACH segment succeeds, with the TextDoc as it
+   * stands right then (status "partial" unless this was the doc's last
+   * pending segment). Callers persist this (store.putText) so a mid-run
+   * failure or page reload never loses an already-analyzed segment -- see
+   * this file's header. Awaited before the next segment is requested, so a
+   * caller that also updates on-screen state can rely on the store already
+   * reflecting this segment by the time the next `onProgress` fires.
+   */
+  onSegmentSaved?: (doc: TextDoc) => void | Promise<void>;
 }
 
-/**
- * Analyze `sourceText` end to end: segment -> one OpenRouter request per
- * segment (sequential, so onProgress reports real progress) -> validate ->
- * locally compute romaji/invalid -> merge into one TextDoc. Throws
- * OpenRouterBrowserError (network/auth/quota/...) or a plain Error (bad
- * input length, schema mismatch) on failure; never returns a partial
- * TextDoc -- a failed segment fails the whole analysis (the caller can
- * retry the same call, OpenRouter is not charged for the JSON that already
- * came back but doesn't leave localStorage/IndexedDB either way).
- */
-export async function analyzeText(sourceText: string, opts: AnalyzeOptions): Promise<TextDoc> {
-  if (sourceText.length === 0) {
-    throw new Error("請先貼上文字");
-  }
-  if (sourceText.length > MAX_INPUT_LENGTH) {
-    throw new Error(`輸入超過上限（${MAX_INPUT_LENGTH} 字），目前 ${sourceText.length} 字，請縮短後再試`);
-  }
-
-  const segments = segmentText(sourceText, MAX_SEGMENT_LENGTH);
-  const total = segments.length;
-
-  const rawSentences: RawSentence[] = [];
-  const extracted: Extracted = { vocab: [], grammar: [], particles: [] };
+/** Runs `doc.pendingSegments` through OpenRouter one at a time, appending each success onto `doc.sentences`/`doc.extracted` and shrinking `pendingSegments`, persisting via `opts.onSegmentSaved` after every success. Shared core for analyzeText (fresh, pendingSegments === the whole document) and continueAnalysis (resume, pendingSegments === whatever didn't finish last time). Throws on the first failing segment; whatever succeeded before that is already both returned-so-far-reflected in `doc` state AND (via onSegmentSaved) already persisted by the caller -- the exception itself carries no partial doc, callers that need it read it back from their own store. */
+async function processSegments(doc: TextDoc, opts: AnalyzeOptions): Promise<TextDoc> {
+  let current = doc;
+  const total = current.pendingSegments.length;
 
   for (let i = 0; i < total; i++) {
     opts.onProgress?.(i, total);
 
-    const body = buildAnalysisRequestBody(segments[i], opts.model);
+    const segment = current.pendingSegments[0];
+    const body = buildAnalysisRequestBody(segment, opts.model);
     const completion = await callOpenRouterChat({
       apiKey: opts.apiKey,
       body,
@@ -276,30 +299,75 @@ export async function analyzeText(sourceText: string, opts: AnalyzeOptions): Pro
       throw new Error(`OpenRouter 回傳的內容不符合預期格式：${result.error.message}`);
     }
 
-    const offset = rawSentences.length;
-    rawSentences.push(...result.data.sentences);
-    extracted.vocab.push(...result.data.extracted.vocab);
-    extracted.grammar.push(
-      ...result.data.extracted.grammar.map((g) => ({ ...g, sentence_index: g.sentence_index + offset })),
-    );
-    extracted.particles.push(
-      ...result.data.extracted.particles.map((p) => ({ ...p, sentence_index: p.sentence_index + offset })),
-    );
+    const offset = current.sentences.length;
+    const newSentences = result.data.sentences.map(buildSentence);
+    const sentences = [...current.sentences, ...newSentences];
+    const pendingSegments = current.pendingSegments.slice(1);
+
+    current = {
+      ...current,
+      sentences,
+      extracted: mergeExtracted(current.extracted, result.data.extracted, offset, sentences.length),
+      pendingSegments,
+      status: pendingSegments.length === 0 ? "complete" : "partial",
+      updatedAt: new Date().toISOString(),
+    };
+
+    await opts.onSegmentSaved?.(current);
   }
 
   opts.onProgress?.(total, total);
+  return current;
+}
 
-  const sentences = rawSentences.map(buildSentence);
+/**
+ * Analyze `sourceText` end to end, from scratch: segment -> one OpenRouter
+ * request per segment (sequential, persisted incrementally -- see
+ * processSegments) -> validate -> locally compute romaji/invalid -> merge
+ * into one TextDoc. Throws OpenRouterBrowserError (network/auth/quota/...)
+ * or a plain Error (bad input length, schema mismatch) if any segment
+ * fails; everything that succeeded BEFORE the failing segment is already
+ * persisted (via opts.onSegmentSaved) as a `status: "partial"` doc -- the
+ * caller should read it back from its store (by the id it saw in its own
+ * onSegmentSaved calls) rather than treat the whole analysis as having left
+ * nothing behind. Resume the rest later with continueAnalysis().
+ */
+export async function analyzeText(sourceText: string, opts: AnalyzeOptions): Promise<TextDoc> {
+  if (sourceText.length === 0) {
+    throw new Error("請先貼上文字");
+  }
+  if (sourceText.length > MAX_INPUT_LENGTH) {
+    throw new Error(`輸入超過上限（${MAX_INPUT_LENGTH} 字），目前 ${sourceText.length} 字，請縮短後再試`);
+  }
+
+  const segments = segmentText(sourceText, MAX_SEGMENT_LENGTH);
   const now = new Date().toISOString();
-
-  return {
+  const initialDoc: TextDoc = {
     id: generateId(),
     title: deriveTitle(sourceText),
     createdAt: now,
     updatedAt: now,
     source: sourceText,
     model: opts.model,
-    sentences,
-    extracted: dedupeExtracted(extracted),
+    sentences: [],
+    extracted: { vocab: [], grammar: [], particles: [] },
+    status: segments.length === 0 ? "complete" : "partial",
+    pendingSegments: segments,
   };
+
+  return processSegments(initialDoc, opts);
+}
+
+/**
+ * Resume a `status: "partial"` TextDoc: processes exactly `doc.pendingSegments`
+ * (the original text segments that didn't finish before), appending onto
+ * its existing `sentences`/`extracted` with sentence_index offsets
+ * continuing from where it left off -- the result is indistinguishable from
+ * having analyzed the whole document in one run (same sentence order, same
+ * offsets). A no-op (returns `doc` unchanged, no network call) when there's
+ * nothing pending.
+ */
+export async function continueAnalysis(doc: TextDoc, opts: AnalyzeOptions): Promise<TextDoc> {
+  if (doc.status === "complete" || doc.pendingSegments.length === 0) return doc;
+  return processSegments(doc, opts);
 }
