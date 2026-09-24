@@ -5,10 +5,13 @@
 // Same Token-only-highlight-entry rule as WordCard: this page never calls
 // setLayer/togglePinned/clearLayer itself, only renders Token instances.
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Token } from "../components/Token";
 import bank, { filterWords } from "../lib/bank";
 import type { Word } from "../lib/bank";
+import { getReaderStore } from "../lib/reader/store";
+import type { MyWord } from "../lib/reader/types";
 
 interface WordRowProps {
   word: Word;
@@ -64,9 +67,66 @@ interface DayGroup {
   words: Word[];
 }
 
+/** True if `query` (case-insensitive, trimmed) is a substring of any of `word`'s searchable text: surface, reading, romaji, gloss. Same shape as search.ts's matchesWord, for the device-local "我的單字" list (which isn't part of the pre-built bank, so it can't reuse Word's own romaji_ascii field). */
+function matchesMyWord(word: MyWord, query: string): boolean {
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  return (
+    word.surface.toLowerCase().includes(q) ||
+    word.reading.toLowerCase().includes(q) ||
+    word.romaji.toLowerCase().includes(q) ||
+    word.gloss.toLowerCase().includes(q)
+  );
+}
+
+interface MyWordRowProps {
+  word: MyWord;
+  onRemove: (id: string) => void;
+}
+
+function MyWordRow({ word, onRemove }: MyWordRowProps) {
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 py-3 last:border-b-0">
+      <div className="flex flex-wrap items-center gap-2">
+        <Token surface={word.surface} reading={word.reading} romaji={word.romaji} gloss={word.gloss} size="md" id={`myword:${word.id}`} />
+        <Link to={`/texts/${word.fromTextId}`} className="text-xs text-stone-400 underline hover:text-amber-700">
+          出自：{word.fromTextTitle}
+        </Link>
+      </div>
+      <button
+        type="button"
+        onClick={() => onRemove(word.id)}
+        className="shrink-0 rounded-lg border border-stone-200 px-2 py-1 text-xs text-stone-500 hover:bg-red-50 hover:text-red-600"
+      >
+        刪除
+      </button>
+    </div>
+  );
+}
+
 export function WordBank() {
   const [query, setQuery] = useState("");
   const [collapsedDates, setCollapsedDates] = useState<Set<string>>(() => new Set());
+  const [myWords, setMyWords] = useState<MyWord[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    getReaderStore()
+      .listMyWords()
+      .then((list) => {
+        if (!cancelled) setMyWords(list);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  async function handleRemoveMyWord(id: string): Promise<void> {
+    await getReaderStore().removeMyWord(id);
+    setMyWords((prev) => prev.filter((w) => w.id !== id));
+  }
+
+  const filteredMyWords = useMemo(() => myWords.filter((w) => matchesMyWord(w, query)), [myWords, query]);
 
   // bank.days is ascending (scripts/build-bank.ts sorts it that way) --
   // reverse for "最新在上". Filter each day's own words rather than the
@@ -107,6 +167,23 @@ export function WordBank() {
         aria-label="搜尋單詞"
         className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 transition-colors duration-150 focus:border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-200"
       />
+
+      {myWords.length > 0 && (
+        <section className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm">
+          <h2 className="px-4 pt-3 text-sm font-semibold text-stone-700">
+            我的單字 <span className="font-normal text-stone-400">（{filteredMyWords.length}）</span>
+          </h2>
+          {filteredMyWords.length === 0 ? (
+            <p className="px-4 py-3 text-sm text-stone-400">沒有符合的詞</p>
+          ) : (
+            <div className="px-4 pb-1">
+              {filteredMyWords.map((w) => (
+                <MyWordRow key={w.id} word={w} onRemove={(id) => void handleRemoveMyWord(id)} />
+              ))}
+            </div>
+          )}
+        </section>
+      )}
 
       {bank.days.length === 0 ? (
         <p className="rounded-lg border border-dashed border-stone-300 bg-white p-6 text-sm text-stone-500">
