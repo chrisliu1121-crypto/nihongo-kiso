@@ -12,7 +12,7 @@
         { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
         { "surface": "休みます", "reading": "やすみます", "gloss": "請假" }
       ],
-      "translation": "因為生病，跟學校請假。",
+      "translation": "因為生病，向學校請假。",
       "verified": true,
       "tags": ["particle:de"]
     },
@@ -138,7 +138,7 @@
       "pattern_id": null,
       "level": "N5",
       "tokens": [
-        { "surface": "会社", "reading": "かいしゃ", "gloss": "公司" },
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
         { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
         { "surface": "九時", "reading": "くじ", "gloss": "九點" },
         { "surface": "から", "reading": "から", "gloss": "（起點：從）", "particle": true },
@@ -146,7 +146,7 @@
         { "surface": "まで", "reading": "まで", "gloss": "（終點：到）", "particle": true },
         { "surface": "働きます", "reading": "はたらきます", "gloss": "工作" }
       ],
-      "translation": "在公司從九點工作到五點。",
+      "translation": "我從九點工作到五點。",
       "verified": true,
       "tags": ["particle:kara", "particle:made", "particle:wa"],
       "note": "cs_kara_made 對照句：から 與 まで 成對出現"
@@ -158,11 +158,11 @@
       "tokens": [
         { "surface": "彼", "reading": "かれ", "gloss": "他" },
         { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
-        { "surface": "漢字", "reading": "かんじ", "gloss": "漢字" },
+        { "surface": "ひらがな", "reading": "ひらがな", "gloss": "平假名" },
         { "surface": "さえ", "reading": "さえ", "gloss": "（甚至、連）", "particle": true },
         { "surface": "書けません", "reading": "かけません", "gloss": "不會寫" }
       ],
-      "translation": "他連漢字都不會寫。",
+      "translation": "他連平假名都不會寫。",
       "verified": true,
       "tags": ["particle:sae", "particle:wa"]
     }

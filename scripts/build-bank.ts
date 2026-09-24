@@ -521,7 +521,9 @@ function deriveParticlesFile(items: GrammarItem[], contrastSets: ContrastSet[], 
       core: item.core,
       zh_bridge: item.zh_bridge ?? "",
       senses: item.senses.map((s) => ({ label: s.label, example_id: s.example_ids[0] })),
-      contrast_with: (item.contrast_with ?? []) as ParticleId[],
+      // Legacy 8-particle view: drop contrast targets outside the original
+      // eight (e.g. ni -> kara), same idea as legacyContrastSets.
+      contrast_with: (item.contrast_with ?? []).filter((c) => PARTICLE_ID_SET.has(c)) as ParticleId[],
       weight: item.weight ?? "medium",
     };
   });
