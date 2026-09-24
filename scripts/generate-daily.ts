@@ -559,6 +559,37 @@ export interface RunPipelineResult {
   };
 }
 
+/**
+ * 2026-09-24: a non-AiProviderError exception (AI output hitting a shape the
+ * assembly/validation code didn't anticipate) used to be rethrown, crashing
+ * the whole night's run with nothing saved -- the 09-22 and 09-24 crons both
+ * exited 1 with no pending file and no step summary. Now it is recorded as
+ * this attempt's problem: retried with feedback like any other failure, and
+ * the candidate is skipped/replaced once attempts run out. The full stack
+ * goes to stderr (CI log) for later diagnosis.
+ */
+export function internalProblem(stage: "enrich" | "validate" | "judge", err: unknown): string {
+  const e = err instanceof Error ? err : new Error(String(err));
+  console.error(`[generate-daily] ${stage} 階段內部錯誤（${e.name}）：${e.message}\n${e.stack ?? ""}`);
+  return `內部錯誤（${stage}，${e.name}）：${e.message}。請嚴格依照 schema 重新產生。`;
+}
+
+/**
+ * On a top-level crash, write the error into $GITHUB_STEP_SUMMARY: on a public
+ * repo the job log needs a login, the summary page does not. The
+ * OPENROUTER_API_KEY value is redacted before writing.
+ */
+export async function writeCrashSummary(err: unknown): Promise<void> {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (!summaryPath) return;
+  const e = err instanceof Error ? err : new Error(String(err));
+  let text = `${e.name}: ${e.message}\n${e.stack ?? ""}`;
+  const key = process.env.OPENROUTER_API_KEY;
+  if (key) text = text.split(key).join("[REDACTED]");
+  const fence = "```";
+  await appendFile(summaryPath, `## generate-daily 崩潰\n\n${fence}\n${text.slice(0, 4000)}\n${fence}\n`, "utf8");
+}
+
 export async function runGenerationPipeline(opts: RunPipelineOptions): Promise<RunPipelineResult> {
   const wordsPerDay = opts.wordsPerDay ?? WORDS_PER_DAY;
   const maxAttempts = opts.maxAttempts ?? MAX_ATTEMPTS_PER_WORD;
@@ -611,7 +642,10 @@ export async function runGenerationPipeline(opts: RunPipelineOptions): Promise<R
           feedback = problems;
           continue;
         }
-        throw err;
+        const problems = [internalProblem("enrich", err)];
+        wordAttempts.push({ attempt: attemptNum, stage: "enrich", problems });
+        feedback = problems;
+        continue;
       }
 
       // "w_0000" is a placeholder that satisfies ID_RE (w_ + 4 digits) so
@@ -619,12 +653,17 @@ export async function runGenerationPipeline(opts: RunPipelineOptions): Promise<R
       // problem for every attempt -- the real id is only assigned once this
       // candidate is accepted and the whole day's words are sorted by rank
       // (see main()'s finalizeWords).
-      const candidateSeed: WordSeed = assembleSeed(candidate, enriched, "w_0000");
-      const validationProblems = validateWordStandalone(
-        candidateSeed,
-        { knownKanji: opts.knownKanji, existingExampleJa: opts.existingExampleJa, batchExampleJa },
-        fileLabel,
-      );
+      let validationProblems: string[];
+      try {
+        const candidateSeed: WordSeed = assembleSeed(candidate, enriched, "w_0000");
+        validationProblems = validateWordStandalone(
+          candidateSeed,
+          { knownKanji: opts.knownKanji, existingExampleJa: opts.existingExampleJa, batchExampleJa },
+          fileLabel,
+        );
+      } catch (err) {
+        validationProblems = [internalProblem("validate", err)];
+      }
       if (validationProblems.length > 0) {
         wordAttempts.push({ attempt: attemptNum, stage: "validate", problems: validationProblems });
         feedback = validationProblems;
@@ -652,7 +691,10 @@ export async function runGenerationPipeline(opts: RunPipelineOptions): Promise<R
           feedback = problems;
           continue;
         }
-        throw err;
+        const problems = [internalProblem("judge", err)];
+        wordAttempts.push({ attempt: attemptNum, stage: "judge", problems });
+        feedback = problems;
+        continue;
       }
 
       const clean = judgment.natural && judgment.reading_ok && judgment.gloss_ok && judgment.issues.length === 0;
@@ -978,8 +1020,9 @@ async function main(): Promise<void> {
 // can import the pure helpers above without side effects (same pattern as
 // build-bank.ts).
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
-  main().catch((err: unknown) => {
+  main().catch(async (err: unknown) => {
     console.error(err);
+    await writeCrashSummary(err).catch(() => {});
     process.exit(1);
   });
 }

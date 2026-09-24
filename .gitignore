@@ -4,3 +4,6 @@ data/bank.json
 *.tsbuildinfo
 .env
 .env.*
+
+# Agent worktrees (Claude Code isolation) -- never commit
+.claude/worktrees/
