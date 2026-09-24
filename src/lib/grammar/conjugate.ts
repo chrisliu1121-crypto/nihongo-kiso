@@ -12,7 +12,19 @@
 // "onbin" (音便, sound-change) cluster for te/ta.
 
 export type VerbClass = "godan" | "ichidan" | "suru" | "kuru";
-export type VerbForm = "dictionary" | "masu" | "nai" | "te" | "ta";
+export type VerbForm =
+  | "dictionary"
+  | "masu"
+  | "nai"
+  | "te"
+  | "ta"
+  /** 可能形 (書ける / 食べられる / できる / 来られる). Always an ichidan verb itself -- see potentialVerb(). */
+  | "potential"
+  /** 意向形, plain (書こう / 食べよう / しよう / 来よう). */
+  | "volitional"
+  /** 意向形, polite: the ます-stem + ましょう (書きましょう). */
+  | "volitional_polite";
+
 
 export interface VerbInput {
   surface: string;
@@ -54,6 +66,32 @@ const GODAN_MASU_STEM: Record<string, string> = {
   ぶ: "び",
   む: "み",
   る: "り",
+};
+
+/** う-dan final kana -> え-dan replacement for the potential form (+る): 書く→書ける, 買う→買える. */
+const GODAN_POTENTIAL_STEM: Record<string, string> = {
+  う: "え",
+  く: "け",
+  ぐ: "げ",
+  す: "せ",
+  つ: "て",
+  ぬ: "ね",
+  ぶ: "べ",
+  む: "め",
+  る: "れ",
+};
+
+/** う-dan final kana -> お-dan replacement for the volitional form (+う): 書く→書こう, 買う→買おう. */
+const GODAN_VOLITIONAL_STEM: Record<string, string> = {
+  う: "お",
+  く: "こ",
+  ぐ: "ご",
+  す: "そ",
+  つ: "と",
+  ぬ: "の",
+  ぶ: "ぼ",
+  む: "も",
+  る: "ろ",
 };
 
 /**
@@ -103,10 +141,19 @@ function conjugateGodan(verb: VerbInput, form: VerbForm): ConjugatedForm {
     return { surface: `${surfaceStem}${stem}ない`, reading: `${readingStem}${stem}ない` };
   }
 
-  if (form === "masu") {
+  if (form === "masu" || form === "volitional_polite") {
     const stem = GODAN_MASU_STEM[lastKana];
-    if (!stem) throw new Error(`conjugate: unsupported godan ending "${lastKana}" (masu) in ${verb.reading}`);
-    return { surface: `${surfaceStem}${stem}ます`, reading: `${readingStem}${stem}ます` };
+    if (!stem) throw new Error(`conjugate: unsupported godan ending "${lastKana}" (${form}) in ${verb.reading}`);
+    const suffix = form === "masu" ? "ます" : "ましょう";
+    return { surface: `${surfaceStem}${stem}${suffix}`, reading: `${readingStem}${stem}${suffix}` };
+  }
+
+  if (form === "potential" || form === "volitional") {
+    const table = form === "potential" ? GODAN_POTENTIAL_STEM : GODAN_VOLITIONAL_STEM;
+    const suffix = form === "potential" ? "る" : "う";
+    const stem = table[lastKana];
+    if (!stem) throw new Error(`conjugate: unsupported godan ending "${lastKana}" (${form}) in ${verb.reading}`);
+    return { surface: `${surfaceStem}${stem}${suffix}`, reading: `${readingStem}${stem}${suffix}` };
   }
 
   // te / ta
@@ -127,6 +174,9 @@ const ICHIDAN_SUFFIX: Record<Exclude<VerbForm, "dictionary">, string> = {
   nai: "ない",
   te: "て",
   ta: "た",
+  potential: "られる",
+  volitional: "よう",
+  volitional_polite: "ましょう",
 };
 
 function conjugateIchidan(verb: VerbInput, form: VerbForm): ConjugatedForm {
@@ -149,6 +199,10 @@ const SURU_SUFFIX: Record<Exclude<VerbForm, "dictionary">, string> = {
   nai: "しない",
   te: "して",
   ta: "した",
+  // する's potential is a different verb, できる (勉強する → 勉強できる).
+  potential: "できる",
+  volitional: "しよう",
+  volitional_polite: "しましょう",
 };
 
 function conjugateSuru(verb: VerbInput, form: VerbForm): ConjugatedForm {
@@ -172,6 +226,9 @@ const KURU_READING_STEM: Record<Exclude<VerbForm, "dictionary">, string> = {
   nai: "こ",
   te: "き",
   ta: "き",
+  potential: "こ",
+  volitional: "こ",
+  volitional_polite: "き",
 };
 
 const KURU_SUFFIX: Record<Exclude<VerbForm, "dictionary">, string> = {
@@ -179,6 +236,9 @@ const KURU_SUFFIX: Record<Exclude<VerbForm, "dictionary">, string> = {
   nai: "ない",
   te: "て",
   ta: "た",
+  potential: "られる",
+  volitional: "よう",
+  volitional_polite: "ましょう",
 };
 
 function conjugateKuru(verb: VerbInput, form: VerbForm): ConjugatedForm {
@@ -188,6 +248,16 @@ function conjugateKuru(verb: VerbInput, form: VerbForm): ConjugatedForm {
     surface: `${surfaceStem}${KURU_SUFFIX[form]}`,
     reading: `${KURU_READING_STEM[form]}${KURU_SUFFIX[form]}`,
   };
+}
+
+/**
+ * The potential form as a verb in its own right. Every potential verb
+ * conjugates as ichidan (書ける→書けます／書けない／書けて／書けた; できる and
+ * 来られる too), so its ます/ない/て/た forms are just conjugate() on this.
+ */
+export function potentialVerb(verb: VerbInput): VerbInput {
+  const { surface, reading } = conjugate(verb, "potential");
+  return { surface, reading, class: "ichidan" };
 }
 
 /** Conjugate `verb` into `form`. Pure function -- see this file's header comment for the per-class rules. */

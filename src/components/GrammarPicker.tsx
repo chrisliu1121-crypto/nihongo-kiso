@@ -15,6 +15,13 @@ import { CATEGORY_DESCRIPTION, CATEGORY_LABEL, CATEGORY_ORDER, VERBS_ROUTE, item
 
 const VERBS_VALUE = "__verbs";
 
+/** Entries of the 動詞 row / optgroup: the verb page and its two rule sections. */
+const VERB_LINKS = [
+  { value: VERBS_VALUE, to: VERBS_ROUTE, title: "五段・一段・不規則", hint: "ます形・ない形・て形・た形" },
+  { value: "__verbs#potential", to: `${VERBS_ROUTE}#potential`, title: "可能形", hint: "能…、會…（書ける）" },
+  { value: "__verbs#volitional", to: `${VERBS_ROUTE}#volitional`, title: "意向形", hint: "…吧、打算…（書こう）" },
+];
+
 export interface GrammarPickerProps {
   /** The grammar item id of the current page, or "verbs" on the verb page. Marks the current entry. */
   currentId?: string;
@@ -32,7 +39,8 @@ export function GrammarJumpSelect({ currentId }: GrammarPickerProps) {
         onChange={(event) => {
           const v = event.target.value;
           if (!v) return;
-          navigate(v === VERBS_VALUE ? VERBS_ROUTE : `/grammar/${v}`);
+          const verbLink = VERB_LINKS.find((l) => l.value === v);
+          navigate(verbLink ? verbLink.to : `/grammar/${v}`);
         }}
         className="min-h-9 w-full min-w-0 rounded-lg border border-stone-300 bg-white px-2.5 py-1 text-xs text-stone-800 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-200 focus:outline-none sm:w-72"
       >
@@ -51,7 +59,11 @@ export function GrammarJumpSelect({ currentId }: GrammarPickerProps) {
           );
         })}
         <optgroup label="動詞">
-          <option value={VERBS_VALUE}>五段・一段・不規則　活用表</option>
+          {VERB_LINKS.map((l) => (
+            <option key={l.value} value={l.value}>
+              {l.title}　{l.hint}
+            </option>
+          ))}
         </optgroup>
       </select>
     </label>
@@ -104,17 +116,20 @@ export function GrammarIndexTable({ currentId }: GrammarPickerProps) {
       <div className="flex flex-col gap-2 px-3 py-2.5 sm:flex-row sm:items-start sm:gap-4">
         <div className="sm:w-32 sm:shrink-0 sm:pt-1.5">
           <p className="text-sm font-semibold text-stone-700">動詞</p>
-          <p className="hidden text-[11px] leading-snug text-stone-400 sm:block">動詞分類與活用</p>
+          <p className="hidden text-[11px] leading-snug text-stone-400 sm:block">動詞分類、活用、可能形、意向形</p>
         </div>
         <div className="grid flex-1 grid-cols-2 gap-1.5 sm:grid-cols-3 xl:grid-cols-4">
-          <Link
-            to={VERBS_ROUTE}
-            aria-current={currentId === "verbs" ? "page" : undefined}
-            className={chipClass(currentId === "verbs")}
-          >
-            <span className="text-base font-medium text-stone-800">五段・一段・不規則</span>
-            <span className="truncate text-[11px] text-stone-500">ます形・ない形・て形・た形</span>
-          </Link>
+          {VERB_LINKS.map((l) => (
+            <Link
+              key={l.value}
+              to={l.to}
+              aria-current={currentId === "verbs" && l.value === VERBS_VALUE ? "page" : undefined}
+              className={chipClass(currentId === "verbs" && l.value === VERBS_VALUE)}
+            >
+              <span className="text-base font-medium text-stone-800">{l.title}</span>
+              <span className="truncate text-[11px] text-stone-500">{l.hint}</span>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

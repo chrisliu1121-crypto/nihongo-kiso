@@ -773,5 +773,7 @@ p_23 與 p_24 是 は/が、を/が 對照的主要載體，題目密度應高�
 - **相容層**：`bank.particles` 仍只輸出原八大助詞，contrast_with 與對照組都只保留八者之間的連結，供舊頁面使用。
 - **動詞**：`src/lib/grammar/conjugate.ts` 支援五段、一段、する、来る × 辭書形、ます、ない、て、た，對照手寫表測試。`/grammar/verbs` 另列一段動詞的外觀例外（帰る、入る、走る…）與て形音便表。
 - **動詞清單**（2026-09-25）：183 個常用動詞，五段依詞尾分組、一段依い段/え段分組、「看似一段其實五段」由資料推導（`src/lib/grammar/verbGroups.ts`）。每個動詞是 Token：滑過顯示中文並高亮五十音，點選切換活用面板。新增動詞的活用期望寫在 `src/lib/grammar/__tests__/fixtures/verb-readings.ts`，同樣手寫、不由引擎產生。
+- **可能形・意向形**（2026-09-25）：`conjugate()` 新增 potential／volitional／volitional_polite；可能動詞一律當一段再活用（`potentialVerb()`）。非意志動詞以 verbs.json 的 `lacks`／`lacks_note` 標記，面板改顯示原因。手寫期望在 `fixtures/verb-pot-vol.ts`。意向形的羅馬字另外組（`volitionalRomaji`），避免 おもおう 被合併成 omōu；思う・拾う・吸う 的辭書形用 `romaji` 覆寫（§7 已知限制）。
+- **なん**：expression 類的新項目，整理 〜なんです／なんだ、助詞 なんか（已加入助詞白名單）、何 讀 なん／なに 的規則，與 〜なんて 互相對照。
 - **導覽**：`/grammar` 頂端是分類索引表與下拉選單（`src/components/GrammarPicker.tsx`），各文法頁與動詞頁頂端也有同一個下拉選單。
 - **內容把關**：兩批內容各由獨立審查逐句檢查，修正紀錄見 git log（「依獨立審查修正文法內容 A／B」）。

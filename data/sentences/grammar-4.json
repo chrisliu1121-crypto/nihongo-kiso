@@ -449,6 +449,107 @@
       "translation": "討厭漢字這種事，真是太可惜了呢。",
       "verified": true,
       "tags": ["expr:nante", "final:ne", "particle:ga"]
+    },
+    {
+      "id": "s_g228",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "明日", "reading": "あした", "gloss": "明天" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "テスト", "reading": "てすと", "gloss": "考試" },
+        { "surface": "なんです", "reading": "なんです", "gloss": "（是…的，說明原因）" }
+      ],
+      "translation": "（其實是因為）明天有考試。",
+      "verified": true,
+      "tags": ["expr:nan", "particle:wa"]
+    },
+    {
+      "id": "s_g229",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "この", "reading": "この", "gloss": "這" },
+        { "surface": "歌", "reading": "うた", "gloss": "歌" },
+        { "surface": "が", "reading": "が", "gloss": "（對象）", "particle": true },
+        { "surface": "本当に", "reading": "ほんとうに", "gloss": "真的" },
+        { "surface": "好き", "reading": "すき", "gloss": "喜歡" },
+        { "surface": "なんだ", "reading": "なんだ", "gloss": "（強調語氣）" }
+      ],
+      "translation": "我真的很喜歡這首歌。",
+      "verified": true,
+      "tags": ["expr:nan", "particle:ga"]
+    },
+    {
+      "id": "s_g230",
+      "pattern_id": null,
+      "level": "N4",
+      "tokens": [
+        { "surface": "お茶", "reading": "おちゃ", "gloss": "茶" },
+        { "surface": "なんか", "reading": "なんか", "gloss": "（之類的）", "particle": true },
+        { "surface": "どう", "reading": "どう", "gloss": "怎麼樣" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "か", "reading": "か", "gloss": "（疑問）", "particle": true }
+      ],
+      "translation": "喝點茶之類的怎麼樣？",
+      "verified": true,
+      "tags": ["expr:nan"]
+    },
+    {
+      "id": "s_g231",
+      "pattern_id": null,
+      "level": "N3",
+      "tokens": [
+        { "surface": "私", "reading": "わたし", "gloss": "我" },
+        { "surface": "なんか", "reading": "なんか", "gloss": "（像我這樣的，謙虛）", "particle": true },
+        { "surface": "まだまだ", "reading": "まだまだ", "gloss": "還差得遠" },
+        { "surface": "です", "reading": "です", "gloss": "是" }
+      ],
+      "translation": "我還差得遠呢。",
+      "verified": true,
+      "tags": ["expr:nan"]
+    },
+    {
+      "id": "s_g232",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "これ", "reading": "これ", "gloss": "這個" },
+        { "surface": "は", "reading": "は", "gloss": "（主題）", "particle": true },
+        { "surface": "何", "reading": "なん", "gloss": "什麼" },
+        { "surface": "です", "reading": "です", "gloss": "是" },
+        { "surface": "か", "reading": "か", "gloss": "（疑問）", "particle": true }
+      ],
+      "translation": "這是什麼？",
+      "verified": true,
+      "tags": ["expr:nan", "particle:wa"]
+    },
+    {
+      "id": "s_g233",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "何人", "reading": "なんにん", "gloss": "幾個人" },
+        { "surface": "来ます", "reading": "きます", "gloss": "來" },
+        { "surface": "か", "reading": "か", "gloss": "（疑問）", "particle": true }
+      ],
+      "translation": "會來幾個人？",
+      "verified": true,
+      "tags": ["expr:nan"]
+    },
+    {
+      "id": "s_g234",
+      "pattern_id": null,
+      "level": "N5",
+      "tokens": [
+        { "surface": "何", "reading": "なに", "gloss": "什麼" },
+        { "surface": "を", "reading": "を", "gloss": "（受詞）", "particle": true },
+        { "surface": "食べます", "reading": "たべます", "gloss": "吃" },
+        { "surface": "か", "reading": "か", "gloss": "（疑問）", "particle": true }
+      ],
+      "translation": "要吃什麼？",
+      "verified": true,
+      "tags": ["expr:nan", "particle:wo"]
     }
   ]
 }

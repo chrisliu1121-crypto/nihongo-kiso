@@ -11,6 +11,16 @@ export interface VerbEntry {
   reading: string;
   class: VerbClass;
   gloss: string;
+  /**
+   * Display romaji of the dictionary form, only where the rule-based
+   * conversion is wrong: a verb-final う after an お/う sound is a morpheme
+   * boundary, not a long vowel (思う omou, not omō; DESIGN.md §7 已知限制).
+   */
+  romaji?: string;
+  /** Forms this verb doesn't have (non-volitional verbs such as ある、分かる、見える). */
+  lacks?: ("potential" | "volitional")[];
+  /** Why, shown in place of the missing forms. */
+  lacks_note?: string;
 }
 
 export interface VerbGroup {

@@ -242,7 +242,7 @@ export function GrammarOverview() {
           className="mt-5 flex flex-col gap-1 rounded-xl border border-sky-200 bg-sky-50 p-4 shadow-sm transition-colors duration-150 hover:border-sky-300 hover:bg-sky-100/60"
         >
           <span className="text-sm font-semibold text-stone-800">動詞：五段・一段・不規則 →</span>
-          <span className="text-xs text-stone-500">動詞分類與活用（ます形／ない形／て形／た形）</span>
+          <span className="text-xs text-stone-500">動詞分類與活用（ます形／ない形／て形／た形／可能形／意向形）</span>
         </Link>
       </section>
 

@@ -66,6 +66,8 @@ export const PARTICLE_SURFACES = new Set([
   "は", "が", "を", "に", "で", "と", "の", "も", "へ",
   "か", "から", "まで", "や", "ね", "よ", "でも", "には", "では", "とか",
   "より", "だけ", "しか", "ほど", "さえ", "ので", "けど", "し", "なんて", "とは", "ばかり",
+  // 2026-09-25: なんか（＝など 的口語，「…之類的」）, see items-connect.json "nan".
+  "なんか",
 ]);
 /** Surfaces that are, on their own as a whole token, almost never anything BUT a particle. */
 export const ALWAYS_PARTICLE_SURFACES = new Set(["は", "を", "へ", "が"]);
