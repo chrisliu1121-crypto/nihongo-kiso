@@ -34,7 +34,7 @@ export function GrammarJumpSelect({ currentId }: GrammarPickerProps) {
           if (!v) return;
           navigate(v === VERBS_VALUE ? VERBS_ROUTE : `/grammar/${v}`);
         }}
-        className="min-h-10 w-full min-w-0 rounded-lg border border-stone-300 bg-white px-3 py-1.5 text-sm text-stone-800 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-200 focus:outline-none sm:w-72"
+        className="min-h-9 w-full min-w-0 rounded-lg border border-stone-300 bg-white px-2.5 py-1 text-xs text-stone-800 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-200 focus:outline-none sm:w-72"
       >
         <option value="">選擇文法項目…</option>
         {CATEGORY_ORDER.map((cat) => {
