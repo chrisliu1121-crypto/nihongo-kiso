@@ -18,6 +18,7 @@ import type { CSSProperties } from "react";
 import kanaData from "../../data/kana.json";
 import type { CellId, KanaCell } from "../lib/kana";
 import type { Layer } from "../store/highlight";
+import { setOpen, useKanaPanelOpen } from "../store/kanaPanel";
 import { countLitCells, litCellsById } from "../store/summary";
 import { useHighlightState } from "../store/useHighlight";
 import { KanaTable } from "./KanaTable";
@@ -91,7 +92,12 @@ function MiniDotMatrix() {
 }
 
 export function KanaDrawer() {
-  const [expanded, setExpanded] = useState(false);
+  // Expanded/collapsed now lives in the kanaPanel store (build task 2026-09
+  // "五十音練習") instead of a local useState, so opening the mobile drawer
+  // records the same "peeked" signal PracticeKana.tsx reads on desktop
+  // (routes/Layout.tsx's collapsed card). Behavior here is unchanged --
+  // still a plain boolean, still toggled the same way.
+  const expanded = useKanaPanelOpen();
   const [recalcKey, setRecalcKey] = useState(0);
   const highlightState = useHighlightState();
   const litCount = countLitCells(highlightState);
@@ -100,7 +106,7 @@ export function KanaDrawer() {
   useEffect(() => {
     if (!expanded) return;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setExpanded(false);
+      if (event.key === "Escape") setOpen(false);
     };
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
@@ -113,7 +119,7 @@ export function KanaDrawer() {
         // collapses (spec). Below the drawer's own z-20.
         <div
           aria-hidden="true"
-          onClick={() => setExpanded(false)}
+          onClick={() => setOpen(false)}
           className="fixed inset-0 z-10 bg-black/20"
         />
       )}
@@ -144,7 +150,7 @@ export function KanaDrawer() {
         <button
           type="button"
           aria-expanded={expanded}
-          onClick={() => setExpanded((v) => !v)}
+          onClick={() => setOpen(!expanded)}
           className="flex h-12 w-full items-center gap-3 px-4 text-left"
         >
           <span className="shrink-0 text-xs font-semibold text-stone-700">五十音</span>

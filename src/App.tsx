@@ -10,6 +10,7 @@ import { WordBank } from "./pages/WordBank";
 import { GrammarOverview } from "./pages/GrammarOverview";
 import { ParticlePage } from "./pages/ParticlePage";
 import { PracticeArrange } from "./pages/PracticeArrange";
+import { PracticeKana } from "./pages/PracticeKana";
 import { PracticeParticle } from "./pages/PracticeParticle";
 import { NotFound } from "./pages/NotFound";
 
@@ -22,6 +23,7 @@ export function App() {
           <Route path="bank" element={<WordBank />} />
           <Route path="grammar" element={<GrammarOverview />} />
           <Route path="grammar/:particleId" element={<ParticlePage />} />
+          <Route path="practice/kana" element={<PracticeKana />} />
           <Route path="practice/arrange" element={<PracticeArrange />} />
           <Route path="practice/particle" element={<PracticeParticle />} />
           <Route path="*" element={<NotFound />} />
