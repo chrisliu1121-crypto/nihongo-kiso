@@ -1,0 +1,37 @@
+{
+  "contrast_sets": [
+    {
+      "id": "cs_ne_yo",
+      "particles": ["ne", "yo"],
+      "title": "ね vs よ：尋求同意 vs 單方告知",
+      "summary": "ね 是雙向的，希望對方也認同或回應；よ 是單向的，把自己知道、對方可能不知道的資訊傳達出去。",
+      "pairs": [
+        { "sentence_id": "s_g212", "note": "假設對方也吃過，尋求同感、確認" },
+        { "sentence_id": "s_g213", "note": "告訴對方這道菜好吃，帶推薦、告知的語氣" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_soshite_sorekara",
+      "particles": ["soshite", "sorekara"],
+      "title": "そして vs それから：並列 vs 明確的先後",
+      "summary": "そして 語氣較鄭重、單純承接或並列，時間先後感較弱；それから 更強調「做完這件事之後才做下一件」，口語中最常用來接續動作順序。",
+      "pairs": [
+        { "sentence_id": "s_g216", "note": "そして 用於並列列舉，時間先後不是重點" },
+        { "sentence_id": "s_g217", "note": "それから 明確表示做完作業後才睡覺，時間先後清楚" }
+      ],
+      "exercise_ids": []
+    },
+    {
+      "id": "cs_shikamo_soreni",
+      "particles": ["shikamo", "soreni"],
+      "title": "しかも vs それに：程度遞進 vs 單純追加",
+      "summary": "それに 只是平淡地再補充一項；しかも 語氣更強，帶著「不只如此，甚至還...」的意外或強調感。",
+      "pairs": [
+        { "sentence_id": "s_g221", "note": "しかも 強調不只便宜，甚至還好吃，程度遞進" },
+        { "sentence_id": "s_g222", "note": "それに 平緩地追加「還發燒」這件事" }
+      ],
+      "exercise_ids": []
+    }
+  ]
+}
