@@ -63,7 +63,7 @@ const RAW_GRAMMAR_SCHEMA = {
   properties: {
     pattern: { type: "string" },
     explanation: { type: "string" },
-    sentence_index: { type: "integer" },
+    sentence_index: { type: "integer", minimum: 0 },
   },
   required: ["pattern", "explanation", "sentence_index"],
   additionalProperties: false,
@@ -74,7 +74,7 @@ const RAW_PARTICLE_SCHEMA = {
   properties: {
     surface: { type: "string" },
     usage: { type: "string" },
-    sentence_index: { type: "integer" },
+    sentence_index: { type: "integer", minimum: 0 },
   },
   required: ["surface", "usage", "sentence_index"],
   additionalProperties: false,
@@ -132,13 +132,13 @@ export const RawVocabSchema = z.object({
 export const RawGrammarSchema = z.object({
   pattern: z.string(),
   explanation: z.string(),
-  sentence_index: z.number().int(),
+  sentence_index: z.number().int().min(0),
 });
 
 export const RawParticleSchema = z.object({
   surface: z.string(),
   usage: z.string(),
-  sentence_index: z.number().int(),
+  sentence_index: z.number().int().min(0),
 });
 
 export const AnalysisResponseSchema = z.object({

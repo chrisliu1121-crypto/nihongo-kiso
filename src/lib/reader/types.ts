@@ -56,7 +56,19 @@ export interface Extracted {
   particles: ExtractedParticle[];
 }
 
-/** One analyzed text (pasted article/lyrics), stored whole in IndexedDB (store.ts's `texts` object store). */
+/**
+ * One analyzed text (pasted article/lyrics), stored whole in IndexedDB
+ * (store.ts's `texts` object store).
+ *
+ * `status`/`pendingSegments` (added for the P1 "多段分析中途失敗" fix):
+ * analyze.ts persists this doc incrementally, one OpenRouter segment at a
+ * time, instead of only writing it once every segment has succeeded -- so a
+ * segment that already came back (and was already paid for) is never lost
+ * to a later segment's failure or the user navigating away/reloading mid-run.
+ * A doc read from storage with no `status` field at all predates this field
+ * (store.ts normalizes it to "complete" with `pendingSegments: []` at read
+ * time -- see store.ts's normalizeTextDoc).
+ */
 export interface TextDoc {
   id: string;
   /** Defaults to the first 20 chars of the first non-blank line of `source`; user-editable afterward. */
@@ -69,6 +81,10 @@ export interface TextDoc {
   model: string;
   sentences: ReaderSentence[];
   extracted: Extracted;
+  /** "complete": every segment of `source` has been analyzed. "partial": at least one segment in `pendingSegments` hasn't been analyzed yet (still in progress, or its last attempt failed) -- `sentences`/`extracted` hold whatever succeeded so far. */
+  status: "complete" | "partial";
+  /** Original-text segments (analyze.ts's own segmentText output) not yet folded into `sentences`/`extracted`, in the order they'll be sent. Empty when `status === "complete"`. */
+  pendingSegments: string[];
 }
 
 /** One word a user chose to add to their personal word bank from a text's "AI 擷取" panel (store.ts's `myWords` object store). Distinct from src/lib/bank/types.ts's `Word` -- this is user-picked, device-local, never in the pre-built daily bank. */

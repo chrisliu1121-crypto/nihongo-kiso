@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { createInMemoryReaderStore } from "../store";
+import {
+  createIndexedDBReaderStore,
+  createInMemoryReaderStore,
+  getReaderStore,
+  resetReaderStoreForTests,
+  type IndexedDBFactoryLike,
+} from "../store";
 import type { MyWord, TextDoc } from "../types";
 
 function makeDoc(overrides: Partial<TextDoc> = {}): TextDoc {
@@ -12,6 +18,8 @@ function makeDoc(overrides: Partial<TextDoc> = {}): TextDoc {
     model: overrides.model ?? "test/model",
     sentences: overrides.sentences ?? [],
     extracted: overrides.extracted ?? { vocab: [], grammar: [], particles: [] },
+    status: overrides.status ?? "complete",
+    pendingSegments: overrides.pendingSegments ?? [],
   };
 }
 
@@ -51,6 +59,22 @@ describe("InMemoryReaderStore: texts", () => {
     await store.putText(makeDoc({ id: "a" }));
     await store.deleteText("a");
     expect(await store.listTexts()).toEqual([]);
+  });
+
+  it("a doc written before status/pendingSegments existed is read back normalized to complete/[]", async () => {
+    const store = createInMemoryReaderStore();
+    const legacy = makeDoc({ id: "legacy" }) as Partial<TextDoc>;
+    delete legacy.status;
+    delete legacy.pendingSegments;
+    await store.putText(legacy as TextDoc);
+
+    const read = await store.getText("legacy");
+    expect(read?.status).toBe("complete");
+    expect(read?.pendingSegments).toEqual([]);
+
+    const listed = await store.listTexts();
+    expect(listed[0].status).toBe("complete");
+    expect(listed[0].pendingSegments).toEqual([]);
   });
 });
 
@@ -148,5 +172,70 @@ describe("InMemoryReaderStore: export/import round trip", () => {
   it("importAll rejects a malformed payload", async () => {
     const store = createInMemoryReaderStore();
     await expect(store.importAll({ texts: "not-an-array", myWords: [] })).rejects.toThrow();
+  });
+
+  it("importAll accepts a payload exported before status/pendingSegments existed, defaulting to complete/[]", async () => {
+    const store = createInMemoryReaderStore();
+    const doc = makeDoc({ id: "text_1" }) as Partial<TextDoc>;
+    delete doc.status;
+    delete doc.pendingSegments;
+
+    const result = await store.importAll({ texts: [doc], myWords: [] });
+    expect(result.textsImported).toBe(1);
+    const imported = await store.getText("text_1");
+    expect(imported?.status).toBe("complete");
+    expect(imported?.pendingSegments).toEqual([]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// P1 review fix: IndexedDB unavailable/failing must fall back to the
+// in-memory store instead of leaving every page's data fetch permanently
+// unsettled. Simulated here with a fake IDBFactory whose open() always
+// fails asynchronously (like a real rejected/errored IDBOpenDBRequest
+// would), since vitest's node environment has no real indexedDB at all.
+
+/** Minimal fake IDBOpenDBRequest that always fires onerror on a later microtask (never onsuccess) -- stands in for a real IndexedDB whose open() fails (private browsing, blocked site data, exhausted quota, ...). */
+function makeFailingFactory(): IndexedDBFactoryLike {
+  return {
+    open() {
+      const req = {
+        onupgradeneeded: null,
+        onsuccess: null,
+        onerror: null,
+        onblocked: null,
+        error: new Error("simulated indexedDB.open failure"),
+      } as unknown as IDBOpenDBRequest;
+      queueMicrotask(() => {
+        (req.onerror as (() => void) | null)?.();
+      });
+      return req;
+    },
+  };
+}
+
+describe("IndexedDB open failure falls back to in-memory", () => {
+  it("createIndexedDBReaderStore rejects when the injected factory's open() fails", async () => {
+    await expect(createIndexedDBReaderStore(makeFailingFactory())).rejects.toThrow();
+  });
+
+  it("getReaderStore() falls back to an in-memory store (isPersistent === false) when the global indexedDB's open() rejects", async () => {
+    resetReaderStoreForTests();
+    const original = (globalThis as { indexedDB?: unknown }).indexedDB;
+    (globalThis as { indexedDB?: unknown }).indexedDB = makeFailingFactory();
+    try {
+      const store = await getReaderStore();
+      expect(store.isPersistent).toBe(false);
+      // The fallback is still fully functional (not a dead end).
+      await store.putText(makeDoc({ id: "still-works" }));
+      expect(await store.getText("still-works")).toBeTruthy();
+    } finally {
+      if (original === undefined) {
+        delete (globalThis as { indexedDB?: unknown }).indexedDB;
+      } else {
+        (globalThis as { indexedDB?: unknown }).indexedDB = original;
+      }
+      resetReaderStoreForTests();
+    }
   });
 });

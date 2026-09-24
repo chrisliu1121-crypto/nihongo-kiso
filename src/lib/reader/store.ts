@@ -6,9 +6,11 @@
 // Split into an interface (ReaderStore) plus two implementations:
 //   - IndexedDBReaderStore: the real one, used by the app in the browser.
 //   - InMemoryReaderStore: used by tests (vitest's `environment: "node"`
-//     has no `indexedDB` global at all) and as a graceful fallback if
-//     IndexedDB is ever unavailable (e.g. a locked-down browser profile).
-// getReaderStore() picks whichever is available at call time.
+//     has no `indexedDB` global at all) and as a graceful fallback when
+//     IndexedDB is unavailable or its `open()` fails (Safari private mode,
+//     "block all site data" settings, storage quota exhausted, ...) --
+//     see getReaderStore()'s own comment: P1 review fix, a page must never
+//     get stuck on "載入中" forever just because IndexedDB didn't open.
 
 import { z } from "zod";
 import type { Extracted, MyWord, ReaderSentence, TextDoc } from "./types.ts";
@@ -34,13 +36,16 @@ export interface ImportResult {
 }
 
 export interface ReaderStore {
+  /** False for the in-memory fallback: nothing written through this store survives closing the tab. Pages show a warning banner when this is false (P1 review fix). */
+  readonly isPersistent: boolean;
+
   listTexts(): Promise<TextDoc[]>;
   getText(id: string): Promise<TextDoc | undefined>;
   putText(doc: TextDoc): Promise<void>;
   deleteText(id: string): Promise<void>;
 
   listMyWords(): Promise<MyWord[]>;
-  /** Adds a word, deduped by surface+reading -- if a word with the same surface+reading already exists, that existing word is returned unchanged (not re-added, not overwritten). */
+  /** Adds a word, deduped by surface+reading -- if a word with the same surface+reading already exists, that existing word is returned unchanged (not re-added, not overwritten). The check-then-write happens inside a single readwrite transaction (P2 review fix: two concurrent calls -- e.g. a double-click -- used to race across two separate transactions and could both pass the dedup check before either wrote). */
   addMyWord(word: NewMyWord): Promise<MyWord>;
   removeMyWord(id: string): Promise<void>;
   /** Upsert-by-id, bypassing the surface+reading dedup addMyWord applies -- used internally by importAll's merge (a same-id row from an import IS this word, not a fresh add), and safe for any other caller that already has a fully-formed MyWord (e.g. re-saving after an edit) and wants exact id semantics. */
@@ -85,12 +90,12 @@ const ExtractedVocabSchema = z.object({
 const ExtractedGrammarSchema = z.object({
   pattern: z.string(),
   explanation: z.string(),
-  sentence_index: z.number().int(),
+  sentence_index: z.number().int().min(0),
 });
 const ExtractedParticleSchema = z.object({
   surface: z.string(),
   usage: z.string(),
-  sentence_index: z.number().int(),
+  sentence_index: z.number().int().min(0),
 });
 
 const ExtractedSchema = z.object({
@@ -99,6 +104,10 @@ const ExtractedSchema = z.object({
   particles: z.array(ExtractedParticleSchema),
 });
 
+// status/pendingSegments default when absent so a JSON file exported before
+// the P1 "partial doc" fix (or a doc some other older code path wrote)
+// still imports cleanly, read as "complete" (nothing pending) -- see
+// types.ts's own TextDoc doc comment.
 const TextDocSchema = z.object({
   id: z.string(),
   title: z.string(),
@@ -108,6 +117,8 @@ const TextDocSchema = z.object({
   model: z.string(),
   sentences: z.array(ReaderSentenceSchema),
   extracted: ExtractedSchema,
+  status: z.enum(["complete", "partial"]).default("complete"),
+  pendingSegments: z.array(z.string()).default([]),
 });
 
 const MyWordSchema = z.object({
@@ -140,6 +151,22 @@ function generateWordId(): string {
     return `myword_${crypto.randomUUID()}`;
   }
   return `myword_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+}
+
+/**
+ * Backfills `status`/`pendingSegments` on a TextDoc that was written to
+ * IndexedDB before those fields existed (a real record already sitting in a
+ * user's browser, not just an import) -- read paths run every doc through
+ * this so the rest of the app never has to special-case "undefined status
+ * means complete" itself. A no-op for an already-well-formed doc.
+ */
+function normalizeTextDoc(raw: TextDoc): TextDoc {
+  if (raw.status !== undefined && raw.pendingSegments !== undefined) return raw;
+  return {
+    ...raw,
+    status: raw.status ?? "complete",
+    pendingSegments: raw.pendingSegments ?? [],
+  };
 }
 
 /** Shared merge logic for importAll -- works against any ReaderStore (IndexedDB or in-memory) purely through its own interface, so it's written once. */
@@ -180,18 +207,22 @@ async function buildExport(store: ReaderStore): Promise<ExportPayload> {
 
 // ---------------------------------------------------------------------------
 // In-memory implementation -- used by tests (no indexedDB in vitest's node
-// environment) and as a fallback.
+// environment) and as the fallback when IndexedDB is unavailable/fails.
 
 export function createInMemoryReaderStore(): ReaderStore {
   const texts = new Map<string, TextDoc>();
   const words = new Map<string, MyWord>();
 
   const store: ReaderStore = {
+    isPersistent: false,
     async listTexts() {
-      return [...texts.values()].sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : a.updatedAt > b.updatedAt ? -1 : 0));
+      return [...texts.values()]
+        .map(normalizeTextDoc)
+        .sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : a.updatedAt > b.updatedAt ? -1 : 0));
     },
     async getText(id) {
-      return texts.get(id);
+      const doc = texts.get(id);
+      return doc ? normalizeTextDoc(doc) : undefined;
     },
     async putText(doc) {
       texts.set(doc.id, doc);
@@ -203,6 +234,9 @@ export function createInMemoryReaderStore(): ReaderStore {
       return [...words.values()].sort((a, b) => (a.addedAt < b.addedAt ? 1 : a.addedAt > b.addedAt ? -1 : 0));
     },
     async addMyWord(input) {
+      // Single-threaded JS, no await between the check and the write below --
+      // no separate transaction to race across (unlike the IndexedDB
+      // implementation before its own P2 fix).
       const dup = [...words.values()].find((w) => w.surface === input.surface && w.reading === input.reading);
       if (dup) return dup;
       const word: MyWord = {
@@ -233,9 +267,20 @@ export function createInMemoryReaderStore(): ReaderStore {
 // ---------------------------------------------------------------------------
 // IndexedDB implementation.
 
-function openDb(): Promise<IDBDatabase> {
+/** The slice of IDBFactory this module actually calls -- narrowed so tests can inject a fake that fails `.open()` without needing a real IndexedDB polyfill. The real global `indexedDB` satisfies this structurally. */
+export interface IndexedDBFactoryLike {
+  open(name: string, version?: number): IDBOpenDBRequest;
+}
+
+function openDb(factory: IndexedDBFactoryLike): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    let req: IDBOpenDBRequest;
+    try {
+      req = factory.open(DB_NAME, DB_VERSION);
+    } catch (err) {
+      reject(err instanceof Error ? err : new Error(String(err)));
+      return;
+    }
     req.onupgradeneeded = () => {
       const db = req.result;
       if (!db.objectStoreNames.contains(TEXTS_STORE)) db.createObjectStore(TEXTS_STORE, { keyPath: "id" });
@@ -243,6 +288,7 @@ function openDb(): Promise<IDBDatabase> {
     };
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error ?? new Error("indexedDB.open failed"));
+    req.onblocked = () => reject(new Error("indexedDB.open blocked (另一個分頁佔用了較舊版本)"));
   });
 }
 
@@ -253,56 +299,76 @@ function promisifyRequest<T>(req: IDBRequest<T>): Promise<T> {
   });
 }
 
-export function createIndexedDBReaderStore(): ReaderStore {
-  const dbPromise = openDb();
+/**
+ * Opens (or creates) the IndexedDB database and returns a ReaderStore backed
+ * by it. Async and THROWS if `factory.open()` fails or the browser has no
+ * `indexedDB` at all -- callers (getReaderStore() below) are expected to
+ * catch that and fall back to createInMemoryReaderStore() rather than let a
+ * rejected open leave every page stuck on "載入中" (P1 review fix: the
+ * previous version built this object synchronously and only discovered an
+ * open failure the first time some page happened to call a method on it).
+ */
+export async function createIndexedDBReaderStore(factory: IndexedDBFactoryLike = indexedDB): Promise<ReaderStore> {
+  const db = await openDb(factory);
 
-  async function tx(storeName: string, mode: IDBTransactionMode): Promise<IDBObjectStore> {
-    const db = await dbPromise;
+  function tx(storeName: string, mode: IDBTransactionMode): IDBObjectStore {
     return db.transaction(storeName, mode).objectStore(storeName);
   }
 
   const store: ReaderStore = {
+    isPersistent: true,
     async listTexts() {
-      const objectStore = await tx(TEXTS_STORE, "readonly");
+      const objectStore = tx(TEXTS_STORE, "readonly");
       const all = (await promisifyRequest(objectStore.getAll())) as TextDoc[];
-      return all.sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : a.updatedAt > b.updatedAt ? -1 : 0));
+      return all.map(normalizeTextDoc).sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : a.updatedAt > b.updatedAt ? -1 : 0));
     },
     async getText(id) {
-      const objectStore = await tx(TEXTS_STORE, "readonly");
-      return (await promisifyRequest(objectStore.get(id))) as TextDoc | undefined;
+      const objectStore = tx(TEXTS_STORE, "readonly");
+      const doc = (await promisifyRequest(objectStore.get(id))) as TextDoc | undefined;
+      return doc ? normalizeTextDoc(doc) : undefined;
     },
     async putText(doc) {
-      const objectStore = await tx(TEXTS_STORE, "readwrite");
+      const objectStore = tx(TEXTS_STORE, "readwrite");
       await promisifyRequest(objectStore.put(doc));
     },
     async deleteText(id) {
-      const objectStore = await tx(TEXTS_STORE, "readwrite");
+      const objectStore = tx(TEXTS_STORE, "readwrite");
       await promisifyRequest(objectStore.delete(id));
     },
     async listMyWords() {
-      const objectStore = await tx(WORDS_STORE, "readonly");
+      const objectStore = tx(WORDS_STORE, "readonly");
       const all = (await promisifyRequest(objectStore.getAll())) as MyWord[];
       return all.sort((a, b) => (a.addedAt < b.addedAt ? 1 : a.addedAt > b.addedAt ? -1 : 0));
     },
     async addMyWord(input) {
-      const existing = await store.listMyWords();
-      const dup = existing.find((w) => w.surface === input.surface && w.reading === input.reading);
+      // P2 review fix: the dedup lookup and the write used to be two
+      // separate transactions (a listMyWords() call, then later a put() in
+      // its own readwrite tx) -- two near-simultaneous addMyWord calls for
+      // the SAME surface+reading (e.g. a double-click before the button
+      // disables) could both read "no duplicate yet" before either had
+      // written, producing two rows. Both steps now run inside one
+      // readwrite transaction: getAll() and put() are issued back to back
+      // with only synchronous work (the .find() check) between their
+      // awaits, so the transaction never auto-commits in between and no
+      // other addMyWord call can interleave.
+      const objectStore = tx(WORDS_STORE, "readwrite");
+      const all = (await promisifyRequest(objectStore.getAll())) as MyWord[];
+      const dup = all.find((w) => w.surface === input.surface && w.reading === input.reading);
       if (dup) return dup;
       const word: MyWord = {
         ...input,
         id: input.id ?? generateWordId(),
         addedAt: input.addedAt ?? new Date().toISOString(),
       };
-      const objectStore = await tx(WORDS_STORE, "readwrite");
       await promisifyRequest(objectStore.put(word));
       return word;
     },
     async removeMyWord(id) {
-      const objectStore = await tx(WORDS_STORE, "readwrite");
+      const objectStore = tx(WORDS_STORE, "readwrite");
       await promisifyRequest(objectStore.delete(id));
     },
     async putMyWord(word) {
-      const objectStore = await tx(WORDS_STORE, "readwrite");
+      const objectStore = tx(WORDS_STORE, "readwrite");
       await promisifyRequest(objectStore.put(word));
     },
     async exportAll() {
@@ -318,20 +384,42 @@ export function createIndexedDBReaderStore(): ReaderStore {
 
 // ---------------------------------------------------------------------------
 // Default selection: real IndexedDB in a browser, in-memory otherwise
-// (vitest, or a browser profile with IndexedDB disabled). Memoized so every
-// caller in the app shares the same store instance (and therefore the same
-// underlying IDBDatabase connection / in-memory Maps).
+// (vitest, or a browser whose IndexedDB is unavailable/fails to open --
+// Safari private mode, "block all site data", storage quota exhausted,
+// ...). Memoized as a Promise so every caller in the app shares the same
+// resolved store instance, and every caller that asks before it resolves
+// shares the same in-flight attempt instead of racing to open the DB twice.
 
-let singleton: ReaderStore | undefined;
+let singletonPromise: Promise<ReaderStore> | undefined;
 
-export function getReaderStore(): ReaderStore {
-  if (!singleton) {
-    singleton = typeof indexedDB !== "undefined" ? createIndexedDBReaderStore() : createInMemoryReaderStore();
+async function buildDefaultStore(): Promise<ReaderStore> {
+  if (typeof indexedDB === "undefined") {
+    return createInMemoryReaderStore();
   }
-  return singleton;
+  try {
+    return await createIndexedDBReaderStore(indexedDB);
+  } catch (err) {
+    // P1 review fix: IndexedDB existing doesn't mean it WORKS (private
+    // browsing, blocked site data, exhausted quota all throw/reject here)
+    // -- fall back instead of leaving every page's data-fetching Promise
+    // permanently unsettled.
+    console.error(
+      "[reader/store] IndexedDB 無法使用，改用僅本次分頁有效的記憶體儲存（關閉分頁後這篇文本／單字會消失）：",
+      err,
+    );
+    return createInMemoryReaderStore();
+  }
+}
+
+/** Resolves to the shared ReaderStore -- real IndexedDB when available and working, otherwise an in-memory fallback (check `.isPersistent` to tell which). Never rejects. */
+export function getReaderStore(): Promise<ReaderStore> {
+  if (!singletonPromise) {
+    singletonPromise = buildDefaultStore();
+  }
+  return singletonPromise;
 }
 
 /** Test-only: force the next getReaderStore() call to build a fresh store. */
 export function resetReaderStoreForTests(): void {
-  singleton = undefined;
+  singletonPromise = undefined;
 }
