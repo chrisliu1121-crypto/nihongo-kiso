@@ -264,10 +264,13 @@ describe("partial analysis + continueAnalysis (P1 review fix)", () => {
 
     // Every segment's own grammar entry rebased to its ABSOLUTE sentence
     // index in the finished doc.
-    const resumedIndices = resumed.extracted.grammar
-      .slice()
-      .sort((a, b) => a.pattern.localeCompare(b.pattern))
-      .map((g) => g.sentence_index);
+    // Keyed by pattern rather than sorted: localeCompare on 一/二/三 is
+    // locale-dependent (stroke order on a zh-TW Windows box, code point
+    // order on the Linux CI runner), which made this test pass locally and
+    // fail in CI.
+    const indexByPattern = (doc: TextDoc) =>
+      Object.fromEntries(doc.extracted.grammar.map((g) => [g.pattern, g.sentence_index]));
+    const resumedIndices = indexByPattern(resumed);
 
     // One-shot control run: identical source, all 3 segments succeed on
     // the first try -- must land on the exact same sentence_index values.
@@ -282,13 +285,10 @@ describe("partial analysis + continueAnalysis (P1 review fix)", () => {
       fetchImpl: fetchImplOneShot,
       sleep: vi.fn(async () => {}),
     });
-    const oneShotIndices = oneShot.extracted.grammar
-      .slice()
-      .sort((a, b) => a.pattern.localeCompare(b.pattern))
-      .map((g) => g.sentence_index);
+    const oneShotIndices = indexByPattern(oneShot);
 
     expect(resumedIndices).toEqual(oneShotIndices);
-    expect(resumedIndices).toEqual([0, 1, 2]);
+    expect(resumedIndices).toEqual({ "pattern-一": 0, "pattern-二": 1, "pattern-三": 2 });
   });
 
   it("continueAnalysis is a no-op on an already-complete doc (no network call)", async () => {
