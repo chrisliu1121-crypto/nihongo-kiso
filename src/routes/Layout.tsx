@@ -6,10 +6,11 @@
 // (src/store/highlight.ts) so it would survive a remount too, but the DOM
 // node itself must not be torn down and rebuilt on every navigation.
 
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { KanaDrawer } from "../components/KanaDrawer";
 import { KanaTable } from "../components/KanaTable";
 import { useMediaQuery } from "../lib/ui/useMediaQuery";
+import { setOpen, useKanaPanelOpen } from "../store/kanaPanel";
 
 // Beige header (#f5efe3): active = white pill + dark text + hairline ring so
 // it still reads clearly against the beige (the old amber-100 active pill
@@ -30,6 +31,17 @@ const NAV_LINK_CLASS = ({ isActive }: { isActive: boolean }) =>
 // disagrees with the CSS.
 const DESKTOP_QUERY = "(min-width: 1024px)";
 
+// The route whose desktop aside swaps the always-on <KanaTable/> for a
+// collapsed "打開會記錄為偷看" card (build task 2026-09 "五十音練習" --
+// looking the table up while doing the kana quiz should be a deliberate,
+// recorded action, not just glancing at the sidebar that's already open on
+// every other page). Kept as its own pure function (rather than inlined
+// into the component) specifically so a test can assert this route match
+// without mounting the whole Layout/Router tree.
+export function isKanaQuizRoute(pathname: string): boolean {
+  return pathname === "/practice/kana";
+}
+
 // Sticky header height lives in ONE place: --nav-h (src/styles/index.css
 // :root). The header's min-height is --nav-h (border-box, border included)
 // and the lg sticky aside's top is --nav-h + 1rem, so the gojuon table can
@@ -45,6 +57,9 @@ export function Layout() {
   // one is mounted (e.g. rotating a tablet across the breakpoint) never
   // loses hover/pinned/context state.
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
+  const location = useLocation();
+  const onKanaQuizRoute = isKanaQuizRoute(location.pathname);
+  const kanaPanelOpen = useKanaPanelOpen();
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-800">
@@ -60,6 +75,9 @@ export function Layout() {
           <NavLink to="/grammar" className={NAV_LINK_CLASS}>
             文法
           </NavLink>
+          <NavLink to="/practice/kana" className={NAV_LINK_CLASS}>
+            五十音練習
+          </NavLink>
           <NavLink to="/practice/arrange" className={NAV_LINK_CLASS}>
             排列練習
           </NavLink>
@@ -72,7 +90,15 @@ export function Layout() {
       <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-8 lg:flex-row lg:items-start">
         {isDesktop && (
           <aside className="lg:sticky lg:top-[calc(var(--nav-h)+1rem)] lg:w-[17rem] lg:shrink-0">
-            <KanaTable />
+            {onKanaQuizRoute ? (
+              <KanaQuizAside open={kanaPanelOpen} />
+            ) : (
+              // Every other route: the gojuon table stays always-on,
+              // regardless of whatever the kanaPanel store happens to hold
+              // left over from a visit to /practice/kana (spec: "離開這個
+              // 路由 -> 其他頁 aside 照舊常駐顯示（不受 store 影響）").
+              <KanaTable />
+            )}
           </aside>
         )}
 
@@ -82,6 +108,44 @@ export function Layout() {
       </div>
 
       {!isDesktop && <KanaDrawer />}
+    </div>
+  );
+}
+
+/**
+ * Desktop-only aside content for /practice/kana (build task 2026-09
+ * "五十音練習"): collapsed by default -- a plain card naming what opening it
+ * costs ("打開會記錄為偷看") -- and only mounts <KanaTable/> once the
+ * learner explicitly asks for it via the kanaPanel store. Opening it (or
+ * the mobile KanaDrawer's equivalent) is what PracticeKana.tsx reads to
+ * mark the current question `peeked: true`.
+ */
+function KanaQuizAside({ open }: { open: boolean }) {
+  if (!open) {
+    return (
+      <div className="rounded-lg border border-dashed border-stone-300 bg-white p-4 text-sm text-stone-600">
+        <p className="mb-3">五十音表（打開會記錄為偷看）</p>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="w-full rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-600 transition-colors duration-150 hover:border-amber-300 hover:bg-amber-50/60"
+        >
+          打開五十音表
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-2">
+      <KanaTable />
+      <button
+        type="button"
+        onClick={() => setOpen(false)}
+        className="w-full rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-600 transition-colors duration-150 hover:border-amber-300 hover:bg-amber-50/60"
+      >
+        收起五十音表
+      </button>
     </div>
   );
 }
