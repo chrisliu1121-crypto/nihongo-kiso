@@ -1,0 +1,526 @@
+{
+  "date": "2026-09-26",
+  "words": [
+    {
+      "id": "w_0131",
+      "surface": "大学",
+      "reading": "だいがく",
+      "gloss": "大學",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 131,
+      "romaji_override": null,
+      "example": {
+        "ja": "兄は大学で勉強します。",
+        "zh": "哥哥在大學念書。",
+        "tokens": [
+          {
+            "surface": "兄",
+            "reading": "あに",
+            "gloss": "哥哥"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "大学",
+            "reading": "だいがく",
+            "gloss": "大學"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "勉強します",
+            "reading": "べんきょうします",
+            "gloss": "念書"
+          }
+        ]
+      },
+      "collocations": [
+        "大学に行く",
+        "大学で勉強する",
+        "日本の大学"
+      ],
+      "confusable_with": [],
+      "note": "「大学」指高等教育機構。常與助詞「に」（表示前往的目的地）或「で」（表示進行活動的場所）搭配使用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0132",
+      "surface": "空港",
+      "reading": "くうこう",
+      "gloss": "機場",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 132,
+      "romaji_override": null,
+      "example": {
+        "ja": "電車で空港へ行きます。",
+        "zh": "搭電車去機場。",
+        "tokens": [
+          {
+            "surface": "電車",
+            "reading": "でんしゃ",
+            "gloss": "電車"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（方式）",
+            "particle": true
+          },
+          {
+            "surface": "空港",
+            "reading": "くうこう",
+            "gloss": "機場"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "空港へ行く",
+        "空港で待つ"
+      ],
+      "confusable_with": [],
+      "note": "「空港」指機場。常搭配助詞「へ／に」表示前往機場，或搭配「で」表示在機場進行某動作。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0133",
+      "surface": "トイレ",
+      "reading": "トイレ",
+      "gloss": "廁所",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 133,
+      "romaji_override": null,
+      "example": {
+        "ja": "トイレに行きます。",
+        "zh": "要去廁所。",
+        "tokens": [
+          {
+            "surface": "トイレ",
+            "reading": "トイレ",
+            "gloss": "廁所"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "トイレに行く",
+        "トイレに入る"
+      ],
+      "confusable_with": [],
+      "note": "「トイレ」是日常生活最常見的說法，源自英語 toilet；在較客氣或正式的場合，通常會改用「お手洗い（おてあらい）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0134",
+      "surface": "台所",
+      "reading": "だいどころ",
+      "gloss": "廚房",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 134,
+      "romaji_override": null,
+      "example": {
+        "ja": "母は台所で料理を作ります。",
+        "zh": "媽媽在廚房做料理。",
+        "tokens": [
+          {
+            "surface": "母",
+            "reading": "はは",
+            "gloss": "母親"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "台所",
+            "reading": "だいどころ",
+            "gloss": "廚房"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "料理",
+            "reading": "りょうり",
+            "gloss": "料理"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "作ります",
+            "reading": "つくります",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "台所で料理を作ります",
+        "台所を掃除します",
+        "台所にいます"
+      ],
+      "confusable_with": [],
+      "note": "「台所」是日文傳統的廚房說法，現代日常生活與房屋介紹中也常使用外來語「キッチン」（kitchen）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0135",
+      "surface": "玄関",
+      "reading": "げんかん",
+      "gloss": "玄關",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 135,
+      "romaji_override": null,
+      "example": {
+        "ja": "玄関でくつを脱ぎます。",
+        "zh": "在玄關脫鞋。",
+        "tokens": [
+          {
+            "surface": "玄関",
+            "reading": "げんかん",
+            "gloss": "玄關"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "くつ",
+            "reading": "くつ",
+            "gloss": "鞋子"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "脱ぎます",
+            "reading": "ぬぎます",
+            "gloss": "脫"
+          }
+        ]
+      },
+      "collocations": [
+        "玄関で靴を脱ぐ",
+        "玄関のドア",
+        "玄関を開ける"
+      ],
+      "confusable_with": [],
+      "note": "日本房屋的「玄関」（げんかん）是進門時脫鞋並換穿室內拖鞋的玄關區域，地面通常比室內地板略低。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0136",
+      "surface": "庭",
+      "reading": "にわ",
+      "gloss": "庭院",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 136,
+      "romaji_override": null,
+      "example": {
+        "ja": "庭にきれいな花があります。",
+        "zh": "庭院裡有漂亮的花。",
+        "tokens": [
+          {
+            "surface": "庭",
+            "reading": "にわ",
+            "gloss": "庭院"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "きれいな",
+            "reading": "きれいな",
+            "gloss": "漂亮的"
+          },
+          {
+            "surface": "花",
+            "reading": "はな",
+            "gloss": "花"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "広い庭",
+        "庭の花"
+      ],
+      "confusable_with": [],
+      "note": "「庭」指住宅或建築物附帶的庭院、花園。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0137",
+      "surface": "国",
+      "reading": "くに",
+      "gloss": "國家",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 137,
+      "romaji_override": null,
+      "example": {
+        "ja": "来週国へ帰ります。",
+        "zh": "下週要回國。",
+        "tokens": [
+          {
+            "surface": "来週",
+            "reading": "らいしゅう",
+            "gloss": "下週"
+          },
+          {
+            "surface": "国",
+            "reading": "くに",
+            "gloss": "家鄉"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "帰ります",
+            "reading": "かえります",
+            "gloss": "回去"
+          }
+        ]
+      },
+      "collocations": [
+        "国へ帰ります",
+        "外国"
+      ],
+      "confusable_with": [],
+      "note": "「国」除了指「國家」，在日語中也常指自己的「故鄉、老家」或對外國人而言的「母國」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0138",
+      "surface": "町",
+      "reading": "まち",
+      "gloss": "城鎮",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 138,
+      "romaji_override": null,
+      "example": {
+        "ja": "この町は静かです。",
+        "zh": "這座城鎮很安靜。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "町",
+            "reading": "まち",
+            "gloss": "城鎮"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "静か",
+            "reading": "しずか",
+            "gloss": "安靜"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "静かな町",
+        "この町",
+        "古い町"
+      ],
+      "confusable_with": [],
+      "note": "「町（まち）」通常指城鎮或地方行政區劃，也可以指市區或街道。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0139",
+      "surface": "道",
+      "reading": "みち",
+      "gloss": "路",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 139,
+      "romaji_override": null,
+      "example": {
+        "ja": "この道を歩きます。",
+        "zh": "走這條路。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "道",
+            "reading": "みち",
+            "gloss": "路"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（通過點）",
+            "particle": true
+          },
+          {
+            "surface": "歩きます",
+            "reading": "あるきます",
+            "gloss": "走"
+          }
+        ]
+      },
+      "collocations": [
+        "広い道",
+        "道を歩きます",
+        "狭い道"
+      ],
+      "confusable_with": [],
+      "note": "「道」表示道路。走在路上或通過這條路時，移動通過的場所常搭配助詞「を」（如：道を歩きます）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0140",
+      "surface": "橋",
+      "reading": "はし",
+      "gloss": "橋",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 140,
+      "romaji_override": null,
+      "example": {
+        "ja": "この橋は長いです。",
+        "zh": "這座橋很長。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "橋",
+            "reading": "はし",
+            "gloss": "橋"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "長いです",
+            "reading": "ながいです",
+            "gloss": "很長"
+          }
+        ]
+      },
+      "collocations": [
+        "橋をわたる",
+        "長い橋"
+      ],
+      "confusable_with": [],
+      "note": "「橋（はし）」的音調為尾高型（低-高），發音時請注意與「筷子（箸，高-低）」及「邊緣（端，低-高-高）」區分。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
