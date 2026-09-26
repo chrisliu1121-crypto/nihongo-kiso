@@ -1,0 +1,541 @@
+{
+  "date": "2026-09-27",
+  "words": [
+    {
+      "id": "w_0141",
+      "surface": "建物",
+      "reading": "たてもの",
+      "gloss": "建築物",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 141,
+      "romaji_override": null,
+      "example": {
+        "ja": "あの建物は高いです。",
+        "zh": "那棟建築物很高。",
+        "tokens": [
+          {
+            "surface": "あの",
+            "reading": "あの",
+            "gloss": "那個"
+          },
+          {
+            "surface": "建物",
+            "reading": "たてもの",
+            "gloss": "建築物"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "高いです",
+            "reading": "たかいです",
+            "gloss": "很高"
+          }
+        ]
+      },
+      "collocations": [
+        "高い建物",
+        "古い建物"
+      ],
+      "confusable_with": [],
+      "note": "名詞「建物」（たてもの）泛指各類房屋與大樓建築物。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0142",
+      "surface": "天気",
+      "reading": "てんき",
+      "gloss": "天氣",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 142,
+      "romaji_override": null,
+      "example": {
+        "ja": "今日は天気がいいです。",
+        "zh": "今天天氣很好。",
+        "tokens": [
+          {
+            "surface": "今日",
+            "reading": "きょう",
+            "gloss": "今天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "天気",
+            "reading": "てんき",
+            "gloss": "天氣"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "いい",
+            "reading": "いい",
+            "gloss": "好"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "いい天気",
+        "天気がいい",
+        "天気が悪い"
+      ],
+      "confusable_with": [],
+      "note": "常用「天気がいい」表示天氣好，「天気が悪い」表示天氣不好；名詞修飾時常說「いい天気」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0143",
+      "surface": "雨",
+      "reading": "あめ",
+      "gloss": "雨",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 143,
+      "romaji_override": null,
+      "example": {
+        "ja": "今日は雨が降ります。",
+        "zh": "今天會下雨。",
+        "tokens": [
+          {
+            "surface": "今日",
+            "reading": "きょう",
+            "gloss": "今天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "雨",
+            "reading": "あめ",
+            "gloss": "雨"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "降ります",
+            "reading": "ふります",
+            "gloss": "下"
+          }
+        ]
+      },
+      "collocations": [
+        "雨が降ります",
+        "雨の日"
+      ],
+      "confusable_with": [],
+      "note": "「下雨」固定搭配動詞「降ります（ふります）」，以助詞「が」連接成「雨が降ります」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0144",
+      "surface": "雪",
+      "reading": "ゆき",
+      "gloss": "雪",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 144,
+      "romaji_override": null,
+      "example": {
+        "ja": "冬は雪が降ります。",
+        "zh": "冬天會下雪。",
+        "tokens": [
+          {
+            "surface": "冬",
+            "reading": "ふゆ",
+            "gloss": "冬天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "雪",
+            "reading": "ゆき",
+            "gloss": "雪"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "降ります",
+            "reading": "ふります",
+            "gloss": "下"
+          }
+        ]
+      },
+      "collocations": [
+        "雪が降ります",
+        "白い雪"
+      ],
+      "confusable_with": [],
+      "note": "「雪が降ります」表示「下雪」，動詞搭配「降ります（ふります）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0145",
+      "surface": "風",
+      "reading": "かぜ",
+      "gloss": "風",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 145,
+      "romaji_override": null,
+      "example": {
+        "ja": "外は風が冷たいです。",
+        "zh": "外面風很冷。",
+        "tokens": [
+          {
+            "surface": "外",
+            "reading": "そと",
+            "gloss": "外面"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "風",
+            "reading": "かぜ",
+            "gloss": "風"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "冷たい",
+            "reading": "つめたい",
+            "gloss": "冰涼的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "冷たい風",
+        "風が強い",
+        "風がふく"
+      ],
+      "confusable_with": [],
+      "note": "「風（かぜ）」指自然界的風。表示感冒的「風邪（かぜ）」讀音相同但漢字不同。形容風在吹時常搭配動詞「吹く（ふく）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0146",
+      "surface": "空",
+      "reading": "そら",
+      "gloss": "天空",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 146,
+      "romaji_override": null,
+      "example": {
+        "ja": "青い空を見ます。",
+        "zh": "看著藍色的天空。",
+        "tokens": [
+          {
+            "surface": "青い",
+            "reading": "あおい",
+            "gloss": "藍色的"
+          },
+          {
+            "surface": "空",
+            "reading": "そら",
+            "gloss": "天空"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "青い空",
+        "空を見ます"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0147",
+      "surface": "山",
+      "reading": "やま",
+      "gloss": "山",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 147,
+      "romaji_override": null,
+      "example": {
+        "ja": "あの山は高いです。",
+        "zh": "那座山很高。",
+        "tokens": [
+          {
+            "surface": "あの",
+            "reading": "あの",
+            "gloss": "那個"
+          },
+          {
+            "surface": "山",
+            "reading": "やま",
+            "gloss": "山"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "高い",
+            "reading": "たかい",
+            "gloss": "高"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "高い山",
+        "山に行く"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0148",
+      "surface": "川",
+      "reading": "かわ",
+      "gloss": "河",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 148,
+      "romaji_override": null,
+      "example": {
+        "ja": "川で写真を撮ります。",
+        "zh": "在河邊拍照。",
+        "tokens": [
+          {
+            "surface": "川",
+            "reading": "かわ",
+            "gloss": "河川"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "写真",
+            "reading": "しゃしん",
+            "gloss": "照片"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "撮ります",
+            "reading": "とります",
+            "gloss": "拍照"
+          }
+        ]
+      },
+      "collocations": [
+        "川で泳ぎます",
+        "川の近く"
+      ],
+      "confusable_with": [],
+      "note": "「川」單獨使用時讀作「かわ」；當作河流名稱的接尾詞時，常會產生連濁變音為「〜がわ」，例如「鴨川（かもがわ）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0149",
+      "surface": "海",
+      "reading": "うみ",
+      "gloss": "海",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 149,
+      "romaji_override": null,
+      "example": {
+        "ja": "夏休みに海で泳ぎます。",
+        "zh": "暑假在海邊游泳。",
+        "tokens": [
+          {
+            "surface": "夏休み",
+            "reading": "なつやすみ",
+            "gloss": "暑假"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "海",
+            "reading": "うみ",
+            "gloss": "海"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "泳ぎます",
+            "reading": "およぎます",
+            "gloss": "游泳"
+          }
+        ]
+      },
+      "collocations": [
+        "海に行く",
+        "海で泳ぐ",
+        "青い海"
+      ],
+      "confusable_with": [],
+      "note": "「海」訓讀為「うみ」，常用來指大海或海灘；音讀為「かい」（如「海外」かいがい）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0150",
+      "surface": "花",
+      "reading": "はな",
+      "gloss": "花",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 150,
+      "romaji_override": null,
+      "example": {
+        "ja": "店で白い花を買います。",
+        "zh": "在店裡買白色的花。",
+        "tokens": [
+          {
+            "surface": "店",
+            "reading": "みせ",
+            "gloss": "店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "白い",
+            "reading": "しろい",
+            "gloss": "白色的"
+          },
+          {
+            "surface": "花",
+            "reading": "はな",
+            "gloss": "花"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "花を買う",
+        "きれいな花",
+        "赤い花"
+      ],
+      "confusable_with": [],
+      "note": "「花」的讀音為「はな」（頭高調／尾高調依方言而異，通常助詞降調），與同音的「鼻（鼻子）」聲調不同。春天賞櫻在日本文化中也常直接用「お花見（おはなみ）」來表示。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
