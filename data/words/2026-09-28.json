@@ -1,0 +1,527 @@
+{
+  "date": "2026-09-28",
+  "words": [
+    {
+      "id": "w_0151",
+      "surface": "木",
+      "reading": "き",
+      "gloss": "樹",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 151,
+      "romaji_override": null,
+      "example": {
+        "ja": "木の下で本を読みます。",
+        "zh": "在樹下看書。",
+        "tokens": [
+          {
+            "surface": "木",
+            "reading": "き",
+            "gloss": "樹"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "下",
+            "reading": "した",
+            "gloss": "下面"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "本",
+            "reading": "ほん",
+            "gloss": "書"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "読みます",
+            "reading": "よみます",
+            "gloss": "讀"
+          }
+        ]
+      },
+      "collocations": [
+        "大きな木",
+        "木の下"
+      ],
+      "confusable_with": [],
+      "note": "「木」指樹木或木材。作為星期四「木曜日」時讀作「もくようび」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0152",
+      "surface": "太陽",
+      "reading": "たいよう",
+      "gloss": "太陽",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 152,
+      "romaji_override": null,
+      "example": {
+        "ja": "太陽は明るいです。",
+        "zh": "太陽很明亮。",
+        "tokens": [
+          {
+            "surface": "太陽",
+            "reading": "たいよう",
+            "gloss": "太陽"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "明るいです",
+            "reading": "あかるいです",
+            "gloss": "很明亮"
+          }
+        ]
+      },
+      "collocations": [
+        "太陽が出ます",
+        "明るい太陽"
+      ],
+      "confusable_with": [],
+      "note": "「太陽」（たいよう）常用於客觀描述自然現象；日常生活中也可以用較為親切的「お日様」（おひさま）來稱呼太陽。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0153",
+      "surface": "月",
+      "reading": "つき",
+      "gloss": "月亮",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 153,
+      "romaji_override": null,
+      "example": {
+        "ja": "夜に月を見ます。",
+        "zh": "晚上看月亮。",
+        "tokens": [
+          {
+            "surface": "夜",
+            "reading": "よる",
+            "gloss": "夜晚"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "月",
+            "reading": "つき",
+            "gloss": "月亮"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "月を見る",
+        "きれいな月",
+        "月が出る"
+      ],
+      "confusable_with": [],
+      "note": "「月」單獨訓讀為「つき」時是指天上的月亮；若音讀為「がつ」或「げつ」則表示月份（如「一月」）或星期（如「月曜日」）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0154",
+      "surface": "星",
+      "reading": "ほし",
+      "gloss": "星星",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 154,
+      "romaji_override": null,
+      "example": {
+        "ja": "夜に星を見ます。",
+        "zh": "晚上看星星。",
+        "tokens": [
+          {
+            "surface": "夜",
+            "reading": "よる",
+            "gloss": "晚上"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "星",
+            "reading": "ほし",
+            "gloss": "星星"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "星を見ます",
+        "星が綺麗です"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0155",
+      "surface": "春",
+      "reading": "はる",
+      "gloss": "春天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 155,
+      "romaji_override": null,
+      "example": {
+        "ja": "春に日本へ行きます。",
+        "zh": "春天要去日本。",
+        "tokens": [
+          {
+            "surface": "春",
+            "reading": "はる",
+            "gloss": "春天"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "日本",
+            "reading": "にほん",
+            "gloss": "日本"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "春休み",
+        "日本の春",
+        "春が来ます"
+      ],
+      "confusable_with": [],
+      "note": "「春（はる）」是名詞，指「春天」。若要表示在春天做某事，後面常接時間助詞「に」，例如「春に行きます」（春天去）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0156",
+      "surface": "夏",
+      "reading": "なつ",
+      "gloss": "夏天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 156,
+      "romaji_override": null,
+      "example": {
+        "ja": "日本の夏は暑いです。",
+        "zh": "日本的夏天很熱。",
+        "tokens": [
+          {
+            "surface": "日本",
+            "reading": "にほん",
+            "gloss": "日本"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "夏",
+            "reading": "なつ",
+            "gloss": "夏天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "暑いです",
+            "reading": "あついです",
+            "gloss": "很熱"
+          }
+        ]
+      },
+      "collocations": [
+        "日本の夏",
+        "夏が来ます"
+      ],
+      "confusable_with": [],
+      "note": "「夏」表示夏季，常與表示炎熱的「暑い」或海邊、祭典等活動搭配使用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0157",
+      "surface": "秋",
+      "reading": "あき",
+      "gloss": "秋天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 157,
+      "romaji_override": null,
+      "example": {
+        "ja": "秋は涼しいです。",
+        "zh": "秋天很涼爽。",
+        "tokens": [
+          {
+            "surface": "秋",
+            "reading": "あき",
+            "gloss": "秋天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "涼しいです",
+            "reading": "すずしいです",
+            "gloss": "涼爽"
+          }
+        ]
+      },
+      "collocations": [
+        "日本の秋（日本的秋天）",
+        "秋の風（秋天的風）"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0158",
+      "surface": "冬",
+      "reading": "ふゆ",
+      "gloss": "冬天",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 158,
+      "romaji_override": null,
+      "example": {
+        "ja": "日本の冬は寒いです。",
+        "zh": "日本的冬天很冷。",
+        "tokens": [
+          {
+            "surface": "日本",
+            "reading": "にほん",
+            "gloss": "日本"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "冬",
+            "reading": "ふゆ",
+            "gloss": "冬天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "寒いです",
+            "reading": "さむいです",
+            "gloss": "很冷"
+          }
+        ]
+      },
+      "collocations": [
+        "冬休み（寒假）",
+        "寒い冬（寒冷的冬天）"
+      ],
+      "confusable_with": [],
+      "note": "「冬」指冬天，是四季（春、夏、秋、冬）之一。常與「寒い」搭配使用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0159",
+      "surface": "赤",
+      "reading": "あか",
+      "gloss": "紅色",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 159,
+      "romaji_override": null,
+      "example": {
+        "ja": "私は赤が好きです。",
+        "zh": "我喜歡紅色。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "赤",
+            "reading": "あか",
+            "gloss": "紅色"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "好きです",
+            "reading": "すきです",
+            "gloss": "喜歡"
+          }
+        ]
+      },
+      "collocations": [
+        "赤が好き",
+        "赤と白",
+        "赤の傘"
+      ],
+      "confusable_with": [],
+      "note": "「赤」是名詞，表示紅色本身；如果要直接修飾後面的名詞，需加上助詞「の」（如「赤の傘」），或是改用一類形容詞「赤い」（如「赤い傘」）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0160",
+      "surface": "青",
+      "reading": "あお",
+      "gloss": "藍色",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 160,
+      "romaji_override": null,
+      "example": {
+        "ja": "妹は青が好きです。",
+        "zh": "妹妹喜歡藍色。",
+        "tokens": [
+          {
+            "surface": "妹",
+            "reading": "いもうと",
+            "gloss": "妹妹"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "青",
+            "reading": "あお",
+            "gloss": "藍色"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "好きです",
+            "reading": "すきです",
+            "gloss": "喜歡"
+          }
+        ]
+      },
+      "collocations": [
+        "青が好き",
+        "青の車"
+      ],
+      "confusable_with": [],
+      "note": "「青」為名詞，表示顏色「藍色」；修飾名詞時亦常使用い形容詞形式「青い」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
