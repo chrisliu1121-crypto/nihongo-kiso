@@ -1,0 +1,537 @@
+{
+  "date": "2026-09-29",
+  "words": [
+    {
+      "id": "w_0161",
+      "surface": "白",
+      "reading": "しろ",
+      "gloss": "白色",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 161,
+      "romaji_override": null,
+      "example": {
+        "ja": "あの車は白です。",
+        "zh": "那輛車是白色的。",
+        "tokens": [
+          {
+            "surface": "あの",
+            "reading": "あの",
+            "gloss": "那個"
+          },
+          {
+            "surface": "車",
+            "reading": "くるま",
+            "gloss": "車子"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "白",
+            "reading": "しろ",
+            "gloss": "白色"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "白と黒",
+        "白の傘"
+      ],
+      "confusable_with": [],
+      "note": "「白」為名詞；修飾名詞時可使用「白の＋名詞」或改用形容詞「白い」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0162",
+      "surface": "黒",
+      "reading": "くろ",
+      "gloss": "黑色",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 162,
+      "romaji_override": null,
+      "example": {
+        "ja": "黒の傘を買います。",
+        "zh": "買黑色的雨傘。",
+        "tokens": [
+          {
+            "surface": "黒",
+            "reading": "くろ",
+            "gloss": "黑色"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "傘",
+            "reading": "かさ",
+            "gloss": "雨傘"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "黒のかばん",
+        "黒と白"
+      ],
+      "confusable_with": [],
+      "note": "「黒」（くろ）是名詞，修飾後方名詞時常以「黒の＋名詞」的形式出現；若要作為形容詞修飾，亦常使用い形容詞形式「黒い」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0163",
+      "surface": "黄色",
+      "reading": "きいろ",
+      "gloss": "黃色",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 163,
+      "romaji_override": null,
+      "example": {
+        "ja": "この花は黄色です。",
+        "zh": "這朵花是黃色的。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "花",
+            "reading": "はな",
+            "gloss": "花"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "黄色",
+            "reading": "きいろ",
+            "gloss": "黃色"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "黄色の花",
+        "黄色が好きです"
+      ],
+      "confusable_with": [],
+      "note": "「黄色」是名詞，修飾名詞時通常加「の」（如「黄色の傘」）；也有對應的い形容詞「黄色い」（如「黄色い花」）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0164",
+      "surface": "緑",
+      "reading": "みどり",
+      "gloss": "綠色",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 164,
+      "romaji_override": null,
+      "example": {
+        "ja": "緑の傘を買いました。",
+        "zh": "買了綠色的傘。",
+        "tokens": [
+          {
+            "surface": "緑",
+            "reading": "みどり",
+            "gloss": "綠色"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "傘",
+            "reading": "かさ",
+            "gloss": "傘"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買いました",
+            "reading": "かいました",
+            "gloss": "買了"
+          }
+        ]
+      },
+      "collocations": [
+        "緑の木",
+        "緑が多い",
+        "緑の野菜"
+      ],
+      "confusable_with": [],
+      "note": "「緑」是名詞，修飾後面的名詞時需要加上助詞「の」（如「緑の傘」）。另外也可以用「緑色（みどりいろ）」來表示綠色。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0165",
+      "surface": "茶色",
+      "reading": "ちゃいろ",
+      "gloss": "咖啡色",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 165,
+      "romaji_override": null,
+      "example": {
+        "ja": "茶色の財布を買います。",
+        "zh": "我要買棕色的皮夾。",
+        "tokens": [
+          {
+            "surface": "茶色",
+            "reading": "ちゃいろ",
+            "gloss": "棕色"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "財布",
+            "reading": "さいふ",
+            "gloss": "皮夾"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "茶色の財布",
+        "茶色のかばん",
+        "茶色のくつ"
+      ],
+      "confusable_with": [],
+      "note": "「茶色」為名詞，修飾其他名詞時需加上助詞「の」（如「茶色のかばん」）。另外也有い形容詞形式「茶色い」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0166",
+      "surface": "パン",
+      "reading": "パン",
+      "gloss": "麵包",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 166,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎朝パンを食べます。",
+        "zh": "每天早上吃麵包。",
+        "tokens": [
+          {
+            "surface": "毎朝",
+            "reading": "まいあさ",
+            "gloss": "每天早上"
+          },
+          {
+            "surface": "パン",
+            "reading": "パン",
+            "gloss": "麵包"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "パンを食べる",
+        "パンと牛乳"
+      ],
+      "confusable_with": [],
+      "note": "源自葡萄牙語「pão」，一般以片假名書寫。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0167",
+      "surface": "ご飯",
+      "reading": "ごはん",
+      "gloss": "飯",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 167,
+      "romaji_override": null,
+      "example": {
+        "ja": "母はご飯を作ります。",
+        "zh": "媽媽做飯。",
+        "tokens": [
+          {
+            "surface": "母",
+            "reading": "はは",
+            "gloss": "媽媽"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "ご飯",
+            "reading": "ごはん",
+            "gloss": "飯"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "作ります",
+            "reading": "つくります",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "ご飯を食べる",
+        "ご飯を作る",
+        "朝ご飯"
+      ],
+      "confusable_with": [],
+      "note": "「ご飯」既可指煮熟的「白飯、米飯」，也常用來泛指「三餐、飯食」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0168",
+      "surface": "肉",
+      "reading": "にく",
+      "gloss": "肉",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 168,
+      "romaji_override": null,
+      "example": {
+        "ja": "弟は肉をたくさん食べます。",
+        "zh": "弟弟吃很多肉。",
+        "tokens": [
+          {
+            "surface": "弟",
+            "reading": "おとうと",
+            "gloss": "弟弟"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "肉",
+            "reading": "にく",
+            "gloss": "肉"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "たくさん",
+            "reading": "たくさん",
+            "gloss": "很多"
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "肉を食べる",
+        "肉料理",
+        "牛肉"
+      ],
+      "confusable_with": [],
+      "note": "「肉」泛指各類肉品。若要指特定肉類，通常會在前面加上動物名稱，如「牛肉（ぎゅうにく）」、「豚肉（ぶたにく）」、「鶏肉（とりにく）」等。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0169",
+      "surface": "魚",
+      "reading": "さかな",
+      "gloss": "魚",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 169,
+      "romaji_override": null,
+      "example": {
+        "ja": "川に魚がいます。",
+        "zh": "河裡有魚。",
+        "tokens": [
+          {
+            "surface": "川",
+            "reading": "かわ",
+            "gloss": "河川"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "魚",
+            "reading": "さかな",
+            "gloss": "魚"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "います",
+            "reading": "います",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "魚を食べる",
+        "魚を料理する",
+        "魚を釣る"
+      ],
+      "confusable_with": [],
+      "note": "活生生的魚或做成食材的魚都稱為「魚（さかな）」。活魚在水中存在時，動詞通常使用表示有生命的「います」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0170",
+      "surface": "野菜",
+      "reading": "やさい",
+      "gloss": "蔬菜",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 170,
+      "romaji_override": null,
+      "example": {
+        "ja": "台所で野菜を洗います。",
+        "zh": "在廚房洗蔬菜。",
+        "tokens": [
+          {
+            "surface": "台所",
+            "reading": "だいどころ",
+            "gloss": "廚房"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "野菜",
+            "reading": "やさい",
+            "gloss": "蔬菜"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "洗います",
+            "reading": "あらいます",
+            "gloss": "洗"
+          }
+        ]
+      },
+      "collocations": [
+        "野菜を洗う",
+        "野菜を食べる"
+      ],
+      "confusable_with": [],
+      "note": "「野菜」指蔬菜，常與「洗う」（洗）、「食べる」（吃）等動詞搭配使用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
