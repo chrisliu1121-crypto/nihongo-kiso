@@ -1,0 +1,537 @@
+{
+  "date": "2026-09-30",
+  "words": [
+    {
+      "id": "w_0171",
+      "surface": "卵",
+      "reading": "たまご",
+      "gloss": "蛋",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 171,
+      "romaji_override": null,
+      "example": {
+        "ja": "店で卵を買います。",
+        "zh": "在店裡買蛋。",
+        "tokens": [
+          {
+            "surface": "店",
+            "reading": "みせ",
+            "gloss": "店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "卵",
+            "reading": "たまご",
+            "gloss": "蛋"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "卵を食べます",
+        "卵を買います"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0172",
+      "surface": "果物",
+      "reading": "くだもの",
+      "gloss": "水果",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 172,
+      "romaji_override": null,
+      "example": {
+        "ja": "甘い果物を食べます。",
+        "zh": "吃甜的水果。",
+        "tokens": [
+          {
+            "surface": "甘い",
+            "reading": "あまい",
+            "gloss": "甜的"
+          },
+          {
+            "surface": "果物",
+            "reading": "くだもの",
+            "gloss": "水果"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "果物を食べる",
+        "甘い果物",
+        "果物を買う"
+      ],
+      "confusable_with": [],
+      "note": "「果物（くだもの）」是水果的總稱。常與動詞「食べる（吃）」或「買う（買）」搭配使用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0173",
+      "surface": "りんご",
+      "reading": "りんご",
+      "gloss": "蘋果",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 173,
+      "romaji_override": null,
+      "example": {
+        "ja": "赤いりんごを食べます。",
+        "zh": "吃紅蘋果。",
+        "tokens": [
+          {
+            "surface": "赤い",
+            "reading": "あかい",
+            "gloss": "紅色的"
+          },
+          {
+            "surface": "りんご",
+            "reading": "りんご",
+            "gloss": "蘋果"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "赤いりんご",
+        "りんごを食べる",
+        "りんごを一つ買う"
+      ],
+      "confusable_with": [],
+      "note": "日常生活中「りんご」大多以平假名或片假名「リンゴ」表示，漢字為「林檎」，但在 N5 範圍及現代日語中極少以漢字書寫。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0174",
+      "surface": "お茶",
+      "reading": "おちゃ",
+      "gloss": "茶",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 174,
+      "romaji_override": null,
+      "example": {
+        "ja": "喫茶店でお茶を飲みます。",
+        "zh": "在咖啡店喝茶。",
+        "tokens": [
+          {
+            "surface": "喫茶店",
+            "reading": "きっさてん",
+            "gloss": "咖啡店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "お茶",
+            "reading": "おちゃ",
+            "gloss": "茶"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "飲みます",
+            "reading": "のみます",
+            "gloss": "喝"
+          }
+        ]
+      },
+      "collocations": [
+        "お茶を飲みます",
+        "冷たいお茶"
+      ],
+      "confusable_with": [],
+      "note": "在日本單說「お茶」時，通常指的是綠茶或煎茶；前面加上美化語接頭詞「お-」表達禮貌。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0175",
+      "surface": "コーヒー",
+      "reading": "コーヒー",
+      "gloss": "咖啡",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 175,
+      "romaji_override": null,
+      "example": {
+        "ja": "コーヒーに砂糖を入れます。",
+        "zh": "在咖啡裡加砂糖。",
+        "tokens": [
+          {
+            "surface": "コーヒー",
+            "reading": "コーヒー",
+            "gloss": "咖啡"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "砂糖",
+            "reading": "さとう",
+            "gloss": "砂糖"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "入れます",
+            "reading": "いれます",
+            "gloss": "加入"
+          }
+        ]
+      },
+      "collocations": [
+        "コーヒーを飲む",
+        "熱いコーヒー",
+        "アイスコーヒー"
+      ],
+      "confusable_with": [],
+      "note": "「コーヒー」是源自荷蘭語「koffie」的外來語，通常以片假名書寫。日本喫茶店常將熱咖啡簡稱為「ホット」，冰咖啡簡稱為「アイス」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0176",
+      "surface": "牛乳",
+      "reading": "ぎゅうにゅう",
+      "gloss": "牛奶",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 176,
+      "romaji_override": null,
+      "example": {
+        "ja": "店で牛乳を買います。",
+        "zh": "在店裡買牛奶。",
+        "tokens": [
+          {
+            "surface": "店",
+            "reading": "みせ",
+            "gloss": "店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "牛乳",
+            "reading": "ぎゅうにゅう",
+            "gloss": "牛奶"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "牛乳を飲む",
+        "牛乳を買う"
+      ],
+      "confusable_with": [],
+      "note": "「牛乳」指的是牛奶，日常對話中也常使用源自英語的外來語「ミルク」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0177",
+      "surface": "砂糖",
+      "reading": "さとう",
+      "gloss": "糖",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 177,
+      "romaji_override": null,
+      "example": {
+        "ja": "店で砂糖を買います。",
+        "zh": "在店裡買糖。",
+        "tokens": [
+          {
+            "surface": "店",
+            "reading": "みせ",
+            "gloss": "店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "砂糖",
+            "reading": "さとう",
+            "gloss": "糖"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "砂糖を入れる",
+        "砂糖を買う"
+      ],
+      "confusable_with": [],
+      "note": "「砂糖」為各類食用糖的總稱；生活中加在咖啡或紅茶裡的小包砂糖常直接稱作「スティックシュガー」（stick sugar）或「シュガー」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0178",
+      "surface": "塩",
+      "reading": "しお",
+      "gloss": "鹽",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 178,
+      "romaji_override": null,
+      "example": {
+        "ja": "料理に塩を入れます。",
+        "zh": "在料理裡加鹽。",
+        "tokens": [
+          {
+            "surface": "料理",
+            "reading": "りょうり",
+            "gloss": "料理"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "塩",
+            "reading": "しお",
+            "gloss": "鹽"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "入れます",
+            "reading": "いれます",
+            "gloss": "加入"
+          }
+        ]
+      },
+      "collocations": [
+        "塩を入れます",
+        "塩を取ります"
+      ],
+      "confusable_with": [],
+      "note": "日常中常加上接頭辭「お」說成「お塩（おしお）」，以增加禮貌與柔和感。用餐時也常說「塩を取ってください（請幫我拿鹽）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0179",
+      "surface": "お酒",
+      "reading": "おさけ",
+      "gloss": "酒",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 179,
+      "romaji_override": null,
+      "example": {
+        "ja": "晩にお酒を飲みます。",
+        "zh": "晚上喝酒。",
+        "tokens": [
+          {
+            "surface": "晩",
+            "reading": "ばん",
+            "gloss": "晚上"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "お酒",
+            "reading": "おさけ",
+            "gloss": "酒"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "飲みます",
+            "reading": "のみます",
+            "gloss": "喝"
+          }
+        ]
+      },
+      "collocations": [
+        "お酒を飲みます",
+        "お酒が好きです"
+      ],
+      "confusable_with": [],
+      "note": "「お酒」前面加上「お」為美化語，是日常中最普遍的稱呼方式，可泛指一切酒類，在特定語境下也可專指日本清酒。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0180",
+      "surface": "ビール",
+      "reading": "ビール",
+      "gloss": "啤酒",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 180,
+      "romaji_override": null,
+      "example": {
+        "ja": "父は晩にビールを飲みます。",
+        "zh": "父親在晚上喝啤酒。",
+        "tokens": [
+          {
+            "surface": "父",
+            "reading": "ちち",
+            "gloss": "父親"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "晩",
+            "reading": "ばん",
+            "gloss": "晚上"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "ビール",
+            "reading": "ビール",
+            "gloss": "啤酒"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "飲みます",
+            "reading": "のみます",
+            "gloss": "喝"
+          }
+        ]
+      },
+      "collocations": [
+        "冷たいビール",
+        "ビールを飲みます"
+      ],
+      "confusable_with": [],
+      "note": "外來語，源自荷蘭語「bier」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
