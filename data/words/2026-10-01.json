@@ -1,0 +1,533 @@
+{
+  "date": "2026-10-01",
+  "words": [
+    {
+      "id": "w_0181",
+      "surface": "朝ご飯",
+      "reading": "あさごはん",
+      "gloss": "早餐",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 181,
+      "romaji_override": null,
+      "example": {
+        "ja": "母と朝ご飯を作ります。",
+        "zh": "我和媽媽一起做早餐。",
+        "tokens": [
+          {
+            "surface": "母",
+            "reading": "はは",
+            "gloss": "母親"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "朝ご飯",
+            "reading": "あさごはん",
+            "gloss": "早餐"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "作ります",
+            "reading": "つくります",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "朝ご飯を食べる",
+        "朝ご飯を作る"
+      ],
+      "confusable_with": [],
+      "note": "較正式的場合也可以使用「朝食（ちょうしょく）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0182",
+      "surface": "昼ご飯",
+      "reading": "ひるごはん",
+      "gloss": "午餐",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 182,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達と昼ご飯を食べます。",
+        "zh": "和朋友一起吃午餐。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "昼ご飯",
+            "reading": "ひるごはん",
+            "gloss": "午餐"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "昼ご飯を食べる",
+        "昼ご飯を作る",
+        "昼ご飯の時間"
+      ],
+      "confusable_with": [],
+      "note": "日常會話中也常加上美化語說成「お昼ご飯」，或直接簡稱「お昼」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0183",
+      "surface": "晩ご飯",
+      "reading": "ばんごはん",
+      "gloss": "晚餐",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 183,
+      "romaji_override": null,
+      "example": {
+        "ja": "家族と晩ご飯を食べます。",
+        "zh": "和家人吃晚餐。",
+        "tokens": [
+          {
+            "surface": "家族",
+            "reading": "かぞく",
+            "gloss": "家人"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "晩ご飯",
+            "reading": "ばんごはん",
+            "gloss": "晚餐"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "晩ご飯を食べます",
+        "晩ご飯を作ります"
+      ],
+      "confusable_with": [],
+      "note": "「晩御飯」也可寫作平假名混寫的「晩ご飯」。口語中也常說「夕ご飯（ゆうごはん）」或「夜ご飯（よるごはん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0184",
+      "surface": "料理",
+      "reading": "りょうり",
+      "gloss": "料理",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 184,
+      "romaji_override": null,
+      "example": {
+        "ja": "この料理はおいしいです。",
+        "zh": "這道料理很好吃。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "料理",
+            "reading": "りょうり",
+            "gloss": "料理"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "おいしい",
+            "reading": "おいしい",
+            "gloss": "好吃"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "料理をします",
+        "料理を作ります",
+        "日本料理"
+      ],
+      "confusable_with": [],
+      "note": "「料理」可指端上桌的「菜餚」，也可以指「烹飪、做菜」的動作。表示做菜時常搭配動詞「します」或「作ります」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0185",
+      "surface": "車",
+      "reading": "くるま",
+      "gloss": "車",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 185,
+      "romaji_override": null,
+      "example": {
+        "ja": "父は車を洗います。",
+        "zh": "父親洗車。",
+        "tokens": [
+          {
+            "surface": "父",
+            "reading": "ちち",
+            "gloss": "父親"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "車",
+            "reading": "くるま",
+            "gloss": "車"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "洗います",
+            "reading": "あらいます",
+            "gloss": "洗"
+          }
+        ]
+      },
+      "collocations": [
+        "車に乗る",
+        "車を洗う",
+        "車で行く"
+      ],
+      "confusable_with": [],
+      "note": "「車」在日常會話中通常指自用汽車或轎車；搭車時助詞常接「で」（表示交通工具）或「に」（表示搭乘的對象）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0186",
+      "surface": "自転車",
+      "reading": "じてんしゃ",
+      "gloss": "腳踏車",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 186,
+      "romaji_override": null,
+      "example": {
+        "ja": "新しい自転車を買いました。",
+        "zh": "買了新的腳踏車。",
+        "tokens": [
+          {
+            "surface": "新しい",
+            "reading": "あたらしい",
+            "gloss": "新的"
+          },
+          {
+            "surface": "自転車",
+            "reading": "じてんしゃ",
+            "gloss": "腳踏車"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買いました",
+            "reading": "かいました",
+            "gloss": "買了"
+          }
+        ]
+      },
+      "collocations": [
+        "自転車に乗ります",
+        "自転車で行きます"
+      ],
+      "confusable_with": [],
+      "note": "表示作為交通工具手段時常搭配助詞「で」（例如：自転車で行きます，騎腳踏車去）；表示騎上去、乘坐時則搭配助詞「に」（例如：自転車に乗ります）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0187",
+      "surface": "バス",
+      "reading": "バス",
+      "gloss": "公車",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 187,
+      "romaji_override": null,
+      "example": {
+        "ja": "駅でバスを待ちます。",
+        "zh": "在車站等公車。",
+        "tokens": [
+          {
+            "surface": "駅",
+            "reading": "えき",
+            "gloss": "車站"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "バス",
+            "reading": "バス",
+            "gloss": "公車"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "待ちます",
+            "reading": "まちます",
+            "gloss": "等待"
+          }
+        ]
+      },
+      "collocations": [
+        "バスに乗ります",
+        "バスで行きます",
+        "バスを降ります"
+      ],
+      "confusable_with": [],
+      "note": "搭乘交通工具前往某處時使用助詞「で」（例如：バスで行きます），而「上車、搭乘」的動作對象則使用助詞「に」（例如：バスに乗ります）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0188",
+      "surface": "タクシー",
+      "reading": "タクシー",
+      "gloss": "計程車",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 188,
+      "romaji_override": null,
+      "example": {
+        "ja": "タクシーで駅に行きます。",
+        "zh": "搭計程車去車站。",
+        "tokens": [
+          {
+            "surface": "タクシー",
+            "reading": "タクシー",
+            "gloss": "計程車"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（手段）",
+            "particle": true
+          },
+          {
+            "surface": "駅",
+            "reading": "えき",
+            "gloss": "車站"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "タクシーに乗ります",
+        "タクシーで行きます"
+      ],
+      "confusable_with": [],
+      "note": "表示利用某種交通工具移動時使用助詞「で」，搭乘某種交通工具時則使用「～に乗ります」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0189",
+      "surface": "飛行機",
+      "reading": "ひこうき",
+      "gloss": "飛機",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 189,
+      "romaji_override": null,
+      "example": {
+        "ja": "飛行機で日本へ行きます。",
+        "zh": "搭飛機去日本。",
+        "tokens": [
+          {
+            "surface": "飛行機",
+            "reading": "ひこうき",
+            "gloss": "飛機"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（手段）",
+            "particle": true
+          },
+          {
+            "surface": "日本",
+            "reading": "にほん",
+            "gloss": "日本"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "飛行機に乗る（搭飛機）",
+        "飛行機で行く（搭飛機去）"
+      ],
+      "confusable_with": [],
+      "note": "表示使用飛機作為交通手段時接助詞「で」（飛行機で）；表示坐上、搭乘時則接助詞「に」（飛行機に乗ります）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0190",
+      "surface": "電話",
+      "reading": "でんわ",
+      "gloss": "電話",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 190,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生に電話をします。",
+        "zh": "打電話給老師。",
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "電話",
+            "reading": "でんわ",
+            "gloss": "電話"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "します",
+            "reading": "します",
+            "gloss": "打"
+          }
+        ]
+      },
+      "collocations": [
+        "電話をします",
+        "電話をかけます",
+        "電話番号"
+      ],
+      "confusable_with": [],
+      "note": "「電話をします」或「電話をかけます」皆表示「打電話」；受話對象後面通常接助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
