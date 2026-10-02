@@ -1,0 +1,560 @@
+{
+  "date": "2026-10-02",
+  "words": [
+    {
+      "id": "w_0191",
+      "surface": "新聞",
+      "reading": "しんぶん",
+      "gloss": "報紙",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 191,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎朝新聞を読みます。",
+        "zh": "每天早上讀報紙。",
+        "tokens": [
+          {
+            "surface": "毎朝",
+            "reading": "まいあさ",
+            "gloss": "每天早上"
+          },
+          {
+            "surface": "新聞",
+            "reading": "しんぶん",
+            "gloss": "報紙"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "読みます",
+            "reading": "よみます",
+            "gloss": "讀"
+          }
+        ]
+      },
+      "collocations": [
+        "新聞を読みます",
+        "朝の新聞"
+      ],
+      "confusable_with": [],
+      "note": "日文的「新聞」是報紙的意思，中文所說的新聞或消息在日文通常用「ニュース」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0192",
+      "surface": "雑誌",
+      "reading": "ざっし",
+      "gloss": "雜誌",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 192,
+      "romaji_override": null,
+      "example": {
+        "ja": "部屋で雑誌を読みます。",
+        "zh": "在房間裡看雜誌。",
+        "tokens": [
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "雑誌",
+            "reading": "ざっし",
+            "gloss": "雜誌"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "読みます",
+            "reading": "よみます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "雑誌を読む",
+        "雑誌を買う"
+      ],
+      "confusable_with": [],
+      "note": "「雑誌」指「雜誌」，常與動詞「読みます」（看、閱讀）或「買います」（買）搭配使用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0193",
+      "surface": "テレビ",
+      "reading": "テレビ",
+      "gloss": "電視",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 193,
+      "romaji_override": null,
+      "example": {
+        "ja": "部屋にテレビがあります。",
+        "zh": "房間裡有電視。",
+        "tokens": [
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "テレビ",
+            "reading": "テレビ",
+            "gloss": "電視"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "テレビを見る",
+        "テレビをつける"
+      ],
+      "confusable_with": [],
+      "note": "「テレビ」源自英語 television 的縮寫。初級中最常搭配的動詞為「見る（看）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0194",
+      "surface": "カメラ",
+      "reading": "カメラ",
+      "gloss": "相機",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 194,
+      "romaji_override": null,
+      "example": {
+        "ja": "昨日カメラを買いました。",
+        "zh": "昨天買了相機。",
+        "tokens": [
+          {
+            "surface": "昨日",
+            "reading": "きのう",
+            "gloss": "昨天"
+          },
+          {
+            "surface": "カメラ",
+            "reading": "カメラ",
+            "gloss": "相機"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買いました",
+            "reading": "かいました",
+            "gloss": "買了"
+          }
+        ]
+      },
+      "collocations": [
+        "カメラで写真を撮ります",
+        "新しいカメラ"
+      ],
+      "confusable_with": [],
+      "note": "外來語，源自英語「camera」。拍照時常用助詞「で」表示工具手段，如「カメラで撮ります」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0195",
+      "surface": "時計",
+      "reading": "とけい",
+      "gloss": "時鐘／手錶",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 195,
+      "romaji_override": null,
+      "example": {
+        "ja": "机の上に時計があります。",
+        "zh": "桌子上有時鐘。",
+        "tokens": [
+          {
+            "surface": "机",
+            "reading": "つくえ",
+            "gloss": "桌子"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "上",
+            "reading": "うえ",
+            "gloss": "上面"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "時計",
+            "reading": "とけい",
+            "gloss": "時鐘"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "時計を見る",
+        "新しい時計"
+      ],
+      "confusable_with": [],
+      "note": "「時計」在日語中泛指所有計時工具，無論是戴在手上的手錶（腕時計）還是擺在桌上、掛在牆上的時鐘，都可以直接稱為「時計」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0196",
+      "surface": "鍵",
+      "reading": "かぎ",
+      "gloss": "鑰匙",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 196,
+      "romaji_override": null,
+      "example": {
+        "ja": "机の上に鍵があります。",
+        "zh": "桌子上有鑰匙。",
+        "tokens": [
+          {
+            "surface": "机",
+            "reading": "つくえ",
+            "gloss": "桌子"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "上",
+            "reading": "うえ",
+            "gloss": "上面"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "鍵",
+            "reading": "かぎ",
+            "gloss": "鑰匙"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "鍵をかけます",
+        "鍵を開けます",
+        "車の鍵"
+      ],
+      "confusable_with": [],
+      "note": "「鍵をかけます」表示「上鎖、鎖門」，「鍵を開けます」表示「開鎖」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0197",
+      "surface": "かばん",
+      "reading": "かばん",
+      "gloss": "包包",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 197,
+      "romaji_override": null,
+      "example": {
+        "ja": "部屋にかばんを忘れました。",
+        "zh": "我把包包忘在房間了。",
+        "tokens": [
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "かばん",
+            "reading": "かばん",
+            "gloss": "包包"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "忘れました",
+            "reading": "わすれました",
+            "gloss": "忘了"
+          }
+        ]
+      },
+      "collocations": [
+        "かばんを持つ",
+        "かばんを開ける",
+        "かばんの中"
+      ],
+      "confusable_with": [],
+      "note": "「かばん」通常以平假名書寫，泛指各種類型的提包、背包或公事包。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0198",
+      "surface": "傘",
+      "reading": "かさ",
+      "gloss": "雨傘",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 198,
+      "romaji_override": null,
+      "example": {
+        "ja": "駅で傘を買いました。",
+        "zh": "在車站買了雨傘。",
+        "tokens": [
+          {
+            "surface": "駅",
+            "reading": "えき",
+            "gloss": "車站"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "傘",
+            "reading": "かさ",
+            "gloss": "雨傘"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買いました",
+            "reading": "かいました",
+            "gloss": "買了"
+          }
+        ]
+      },
+      "collocations": [
+        "傘を買います",
+        "傘を持ちます",
+        "傘をさします"
+      ],
+      "confusable_with": [],
+      "note": "「傘」一般指雨傘。撐傘的動詞習慣搭配「さします」，陽傘則稱為「日傘（ひがさ）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0199",
+      "surface": "眼鏡",
+      "reading": "めがね",
+      "gloss": "眼鏡",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 199,
+      "romaji_override": null,
+      "example": {
+        "ja": "机の上に眼鏡があります。",
+        "zh": "桌子上有眼鏡。",
+        "tokens": [
+          {
+            "surface": "机",
+            "reading": "つくえ",
+            "gloss": "桌子"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "上",
+            "reading": "うえ",
+            "gloss": "上面"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "眼鏡",
+            "reading": "めがね",
+            "gloss": "眼鏡"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "眼鏡をかけます（戴眼鏡）",
+        "眼鏡を買います（買眼鏡）"
+      ],
+      "confusable_with": [],
+      "note": "「戴眼鏡」在日語中習慣使用動詞「かけます」。此外，「眼鏡」在現代日語中也常常以平假名「めがね」或片假名「メガネ」表記。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0200",
+      "surface": "手紙",
+      "reading": "てがみ",
+      "gloss": "信",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 200,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達に手紙を送ります。",
+        "zh": "寄信給朋友。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "手紙",
+            "reading": "てがみ",
+            "gloss": "信"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "送ります",
+            "reading": "おくります",
+            "gloss": "寄"
+          }
+        ]
+      },
+      "collocations": [
+        "手紙を書く",
+        "手紙を出す",
+        "手紙を送る"
+      ],
+      "confusable_with": [],
+      "note": "日語的「手紙」是指信件、書信，並非中文的衛生紙或面紙。寄信時常搭配動詞「出します」或「送ります」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
