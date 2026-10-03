@@ -1,0 +1,467 @@
+{
+  "date": "2026-10-04",
+  "words": [
+    {
+      "id": "w_0211",
+      "surface": "頭",
+      "reading": "あたま",
+      "gloss": "頭",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 212,
+      "romaji_override": null,
+      "example": {
+        "ja": "頭が痛いです。",
+        "zh": "頭很痛。",
+        "tokens": [
+          {
+            "surface": "頭",
+            "reading": "あたま",
+            "gloss": "頭"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "痛いです",
+            "reading": "いたいです",
+            "gloss": "會痛"
+          }
+        ]
+      },
+      "collocations": [
+        "頭が痛い",
+        "頭がいい"
+      ],
+      "confusable_with": [],
+      "note": "「頭が痛い」用來表示頭痛，是日常非常實用的身體不適表達；另外「頭がいい」除了指頭腦好，也常指「聰明」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0212",
+      "surface": "顔",
+      "reading": "かお",
+      "gloss": "臉",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 213,
+      "romaji_override": null,
+      "example": {
+        "ja": "水で顔を洗います。",
+        "zh": "用水洗臉。",
+        "tokens": [
+          {
+            "surface": "水",
+            "reading": "みず",
+            "gloss": "水"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（方式）",
+            "particle": true
+          },
+          {
+            "surface": "顔",
+            "reading": "かお",
+            "gloss": "臉"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "洗います",
+            "reading": "あらいます",
+            "gloss": "洗"
+          }
+        ]
+      },
+      "collocations": [
+        "顔を洗います",
+        "きれいな顔"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0213",
+      "surface": "目",
+      "reading": "め",
+      "gloss": "眼睛",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 214,
+      "romaji_override": null,
+      "example": {
+        "ja": "目が痛いです。",
+        "zh": "眼睛很痛。",
+        "tokens": [
+          {
+            "surface": "目",
+            "reading": "め",
+            "gloss": "眼睛"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "痛いです",
+            "reading": "いたいです",
+            "gloss": "很痛"
+          }
+        ]
+      },
+      "collocations": [
+        "目が痛い",
+        "目が大きい",
+        "目を開ける"
+      ],
+      "confusable_with": [],
+      "note": "「目」（め）指眼睛。除了表示身體部位，日語中也常用「目がいい／悪い」來表達「視力好／差」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0214",
+      "surface": "耳",
+      "reading": "みみ",
+      "gloss": "耳朵",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 215,
+      "romaji_override": null,
+      "example": {
+        "ja": "耳が痛いです。",
+        "zh": "耳朵痛。",
+        "tokens": [
+          {
+            "surface": "耳",
+            "reading": "みみ",
+            "gloss": "耳朵"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "痛いです",
+            "reading": "いたいです",
+            "gloss": "痛"
+          }
+        ]
+      },
+      "collocations": [
+        "耳が痛い",
+        "耳が大きい"
+      ],
+      "confusable_with": [],
+      "note": "「耳が痛い」除了字面上的「耳朵痛」之外，也常作為慣用語，表示別人的批評或忠告「切中要害、聽了刺耳」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0215",
+      "surface": "口",
+      "reading": "くち",
+      "gloss": "嘴巴",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 216,
+      "romaji_override": null,
+      "example": {
+        "ja": "口を開けます。",
+        "zh": "張開嘴巴。",
+        "tokens": [
+          {
+            "surface": "口",
+            "reading": "くち",
+            "gloss": "嘴巴"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "開けます",
+            "reading": "あけます",
+            "gloss": "張開"
+          }
+        ]
+      },
+      "collocations": [
+        "口を開けます",
+        "口を閉めます",
+        "口が大きい"
+      ],
+      "confusable_with": [],
+      "note": "除了指人或動物的「嘴巴」，在日語中也常用於表示容器的開口或出入口等（如「出口」「入り口」）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0216",
+      "surface": "手",
+      "reading": "て",
+      "gloss": "手",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 217,
+      "romaji_override": null,
+      "example": {
+        "ja": "手を洗います。",
+        "zh": "洗手。",
+        "tokens": [
+          {
+            "surface": "手",
+            "reading": "て",
+            "gloss": "手"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "洗います",
+            "reading": "あらいます",
+            "gloss": "洗"
+          }
+        ]
+      },
+      "collocations": [
+        "手を洗います",
+        "手が痛いです"
+      ],
+      "confusable_with": [],
+      "note": "「手」指手部，常用搭配如「手を洗います」（洗手）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0217",
+      "surface": "足",
+      "reading": "あし",
+      "gloss": "腳",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 218,
+      "romaji_override": null,
+      "example": {
+        "ja": "足が痛いです。",
+        "zh": "腳很痛。",
+        "tokens": [
+          {
+            "surface": "足",
+            "reading": "あし",
+            "gloss": "腳"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "痛いです",
+            "reading": "いたいです",
+            "gloss": "痛"
+          }
+        ]
+      },
+      "collocations": [
+        "足が痛い",
+        "足が長い"
+      ],
+      "confusable_with": [],
+      "note": "日語的「足」通常可指踝關節以下的腳掌，也可以指整條腿。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0218",
+      "surface": "体",
+      "reading": "からだ",
+      "gloss": "身體",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 219,
+      "romaji_override": null,
+      "example": {
+        "ja": "野菜は体にいいです。",
+        "zh": "蔬菜對身體好。",
+        "tokens": [
+          {
+            "surface": "野菜",
+            "reading": "やさい",
+            "gloss": "蔬菜"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "体",
+            "reading": "からだ",
+            "gloss": "身體"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "いい",
+            "reading": "いい",
+            "gloss": "好"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "体にいい",
+        "体が丈夫です",
+        "体に気をつけてください"
+      ],
+      "confusable_with": [],
+      "note": "「体（からだ）」除了指肉體本身，也常用來代表健康狀況。「体にいい／悪い」是初級非常實用的固定搭配，表示「對健康好／壞」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0219",
+      "surface": "髪",
+      "reading": "かみ",
+      "gloss": "頭髮",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 220,
+      "romaji_override": null,
+      "example": {
+        "ja": "妹は髪が長いです。",
+        "zh": "妹妹的頭髮很長。",
+        "tokens": [
+          {
+            "surface": "妹",
+            "reading": "いもうと",
+            "gloss": "妹妹"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "髪",
+            "reading": "かみ",
+            "gloss": "頭髮"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "長いです",
+            "reading": "ながいです",
+            "gloss": "很長"
+          }
+        ]
+      },
+      "collocations": [
+        "髪が長い",
+        "髪を洗います",
+        "黒い髪"
+      ],
+      "confusable_with": [],
+      "note": "「髪（かみ）」與「紙（かみ）」讀音相同，需依上下文判斷。日常生活中也常用「髪の毛（かみのけ）」來指頭髮。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0220",
+      "surface": "歯",
+      "reading": "は",
+      "gloss": "牙齒",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 221,
+      "romaji_override": null,
+      "example": {
+        "ja": "歯が痛いです。",
+        "zh": "牙齒很痛。",
+        "tokens": [
+          {
+            "surface": "歯",
+            "reading": "は",
+            "gloss": "牙齒"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "痛いです",
+            "reading": "いたいです",
+            "gloss": "很痛"
+          }
+        ]
+      },
+      "collocations": [
+        "歯をみがきます",
+        "歯が痛いです"
+      ],
+      "confusable_with": [],
+      "note": "「歯をみがきます」表示「刷牙」，是日常生活中最常見的搭配之一。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
