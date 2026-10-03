@@ -1,0 +1,498 @@
+{
+  "date": "2026-10-03",
+  "words": [
+    {
+      "id": "w_0201",
+      "surface": "財布",
+      "reading": "さいふ",
+      "gloss": "錢包",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 202,
+      "romaji_override": null,
+      "example": {
+        "ja": "財布にお金を入れます。",
+        "zh": "把錢放進錢包裡。",
+        "tokens": [
+          {
+            "surface": "財布",
+            "reading": "さいふ",
+            "gloss": "錢包"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "お金",
+            "reading": "おかね",
+            "gloss": "錢"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "入れます",
+            "reading": "いれます",
+            "gloss": "放進"
+          }
+        ]
+      },
+      "collocations": [
+        "新しい財布",
+        "財布を忘れます"
+      ],
+      "confusable_with": [],
+      "note": "「財布」指裝鈔票與零錢的錢包。常用於「財布を忘れます（忘記帶錢包）」等生活情境。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0202",
+      "surface": "ノート",
+      "reading": "ノート",
+      "gloss": "筆記本",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 203,
+      "romaji_override": null,
+      "example": {
+        "ja": "このノートを使います。",
+        "zh": "使用這本筆記本。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這本"
+          },
+          {
+            "surface": "ノート",
+            "reading": "ノート",
+            "gloss": "筆記本"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "使います",
+            "reading": "つかいます",
+            "gloss": "使用"
+          }
+        ]
+      },
+      "collocations": [
+        "ノートをとる",
+        "ノートを買う"
+      ],
+      "confusable_with": [],
+      "note": "源自英語 notebook，在日語中專指「筆記本」。若指「筆記型電腦」，日語通常簡稱為「ノートパソコン」或「ノートPC」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0203",
+      "surface": "ペン",
+      "reading": "ペン",
+      "gloss": "筆",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 204,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達にペンを借ります。",
+        "zh": "向朋友借筆。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "ペン",
+            "reading": "ぺん",
+            "gloss": "筆"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "借ります",
+            "reading": "かります",
+            "gloss": "借"
+          }
+        ]
+      },
+      "collocations": [
+        "ペンで書く",
+        "ペンを借りる",
+        "黒いペン"
+      ],
+      "confusable_with": [],
+      "note": "「ペン」源自英語「pen」，泛指原子筆、鋼筆等筆類。日語中若特別指原子筆，也常說「ボールペン」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0204",
+      "surface": "辞書",
+      "reading": "じしょ",
+      "gloss": "字典",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 205,
+      "romaji_override": null,
+      "example": {
+        "ja": "英語の辞書を使います。",
+        "zh": "我使用英語字典。",
+        "tokens": [
+          {
+            "surface": "英語",
+            "reading": "えいご",
+            "gloss": "英語"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "辞書",
+            "reading": "じしょ",
+            "gloss": "字典"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "使います",
+            "reading": "つかいます",
+            "gloss": "使用"
+          }
+        ]
+      },
+      "collocations": [
+        "辞書を引く",
+        "辞書を使う",
+        "電子辞書"
+      ],
+      "confusable_with": [],
+      "note": "「查字典」在日文習慣說「辞書を引く」（じしょをひく），也是常考的固定搭配；日常表達也可以使用「辞書を使う」（使用字典）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0205",
+      "surface": "椅子",
+      "reading": "いす",
+      "gloss": "椅子",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 206,
+      "romaji_override": null,
+      "example": {
+        "ja": "椅子に座ります。",
+        "zh": "坐在椅子上。",
+        "tokens": [
+          {
+            "surface": "椅子",
+            "reading": "いす",
+            "gloss": "椅子"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "座ります",
+            "reading": "すわります",
+            "gloss": "坐"
+          }
+        ]
+      },
+      "collocations": [
+        "椅子に座る",
+        "木の椅子"
+      ],
+      "confusable_with": [],
+      "note": "「椅子」日常生活中也常以平假名「いす」書寫。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0206",
+      "surface": "机",
+      "reading": "つくえ",
+      "gloss": "書桌",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 207,
+      "romaji_override": null,
+      "example": {
+        "ja": "教室に机があります。",
+        "zh": "教室裡有書桌。",
+        "tokens": [
+          {
+            "surface": "教室",
+            "reading": "きょうしつ",
+            "gloss": "教室"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "机",
+            "reading": "つくえ",
+            "gloss": "書桌"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "机の上",
+        "机といす"
+      ],
+      "confusable_with": [],
+      "note": "「机」（つくえ）多指讀書或辦公用的書桌、辦公桌；一般的餐桌或茶几常使用外來語「テーブル」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0207",
+      "surface": "ドア",
+      "reading": "ドア",
+      "gloss": "門",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 208,
+      "romaji_override": null,
+      "example": {
+        "ja": "ドアを開けます。",
+        "zh": "打開門。",
+        "tokens": [
+          {
+            "surface": "ドア",
+            "reading": "ドア",
+            "gloss": "門"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "開けます",
+            "reading": "あけます",
+            "gloss": "打開"
+          }
+        ]
+      },
+      "collocations": [
+        "ドアを開けます",
+        "ドアを閉めます"
+      ],
+      "confusable_with": [],
+      "note": "源自英語「door」，多指西洋式的推拉門或房門；日式的拉門一般會用「戸（と）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0208",
+      "surface": "窓",
+      "reading": "まど",
+      "gloss": "窗戶",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 209,
+      "romaji_override": null,
+      "example": {
+        "ja": "窓を開けます。",
+        "zh": "開窗戶。",
+        "tokens": [
+          {
+            "surface": "窓",
+            "reading": "まど",
+            "gloss": "窗戶"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "開けます",
+            "reading": "あけます",
+            "gloss": "開"
+          }
+        ]
+      },
+      "collocations": [
+        "窓を開けます",
+        "窓を閉めます"
+      ],
+      "confusable_with": [],
+      "note": "指房間或建築物的「窗戶」。常與動詞「開けます」（開）、「閉めます」（關）搭配使用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0209",
+      "surface": "テーブル",
+      "reading": "テーブル",
+      "gloss": "桌子",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 210,
+      "romaji_override": null,
+      "example": {
+        "ja": "テーブルの上に花があります。",
+        "zh": "桌子上有花。",
+        "tokens": [
+          {
+            "surface": "テーブル",
+            "reading": "テーブル",
+            "gloss": "桌子"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "上",
+            "reading": "うえ",
+            "gloss": "上面"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "花",
+            "reading": "はな",
+            "gloss": "花"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "テーブルの上",
+        "テーブルといす"
+      ],
+      "confusable_with": [],
+      "note": "指餐桌、客廳茶几等西式桌子；若是讀書或辦公用的書桌，日語通常使用「机（つくえ）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0210",
+      "surface": "ベッド",
+      "reading": "ベッド",
+      "gloss": "床",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 211,
+      "romaji_override": null,
+      "example": {
+        "ja": "ベッドで寝ます。",
+        "zh": "在床上睡覺。",
+        "tokens": [
+          {
+            "surface": "ベッド",
+            "reading": "ベッド",
+            "gloss": "床"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "寝ます",
+            "reading": "ねます",
+            "gloss": "睡覺"
+          }
+        ]
+      },
+      "collocations": [
+        "ベッドで寝ます",
+        "大きいベッド"
+      ],
+      "confusable_with": [],
+      "note": "「ベッド」源自英語 bed，專指西式的床架床鋪。傳統日式鋪在地上的被褥則稱為「ふとん（布団）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
