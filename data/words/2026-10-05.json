@@ -1,0 +1,520 @@
+{
+  "date": "2026-10-05",
+  "words": [
+    {
+      "id": "w_0221",
+      "surface": "切手",
+      "reading": "きって",
+      "gloss": "郵票",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 201,
+      "romaji_override": null,
+      "example": {
+        "ja": "手紙に切手をはります。",
+        "zh": "在信上貼郵票。",
+        "tokens": [
+          {
+            "surface": "手紙",
+            "reading": "てがみ",
+            "gloss": "信"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "切手",
+            "reading": "きって",
+            "gloss": "郵票"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "はります",
+            "reading": "はります",
+            "gloss": "貼"
+          }
+        ]
+      },
+      "collocations": [
+        "切手をはる",
+        "切手を買う"
+      ],
+      "confusable_with": [],
+      "note": "「切手」是郵票，常用搭配有「切手をはります（貼郵票）」與「切手を買います（買郵票）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0222",
+      "surface": "会社員",
+      "reading": "かいしゃいん",
+      "gloss": "上班族",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 222,
+      "romaji_override": null,
+      "example": {
+        "ja": "会社員は朝早く起きます。",
+        "zh": "上班族早上很早起床。",
+        "tokens": [
+          {
+            "surface": "会社員",
+            "reading": "かいしゃいん",
+            "gloss": "上班族"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "朝",
+            "reading": "あさ",
+            "gloss": "早上"
+          },
+          {
+            "surface": "早く",
+            "reading": "はやく",
+            "gloss": "早地"
+          },
+          {
+            "surface": "起きます",
+            "reading": "おきます",
+            "gloss": "起床"
+          }
+        ]
+      },
+      "collocations": [
+        "日本の会社員",
+        "会社員になる"
+      ],
+      "confusable_with": [],
+      "note": "「会社員」指受雇於公司的受薪階級（上班族）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0223",
+      "surface": "医者",
+      "reading": "いしゃ",
+      "gloss": "醫生",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 223,
+      "romaji_override": null,
+      "example": {
+        "ja": "病院で医者に会います。",
+        "zh": "在醫院見醫生。",
+        "tokens": [
+          {
+            "surface": "病院",
+            "reading": "びょういん",
+            "gloss": "醫院"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "医者",
+            "reading": "いしゃ",
+            "gloss": "醫生"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "会います",
+            "reading": "あいます",
+            "gloss": "見面"
+          }
+        ]
+      },
+      "collocations": [
+        "医者に会います",
+        "医者に行きます",
+        "いい医者"
+      ],
+      "confusable_with": [],
+      "note": "「医者」是指醫生這個職業。在日常對話中稱呼醫生時，通常加上尊稱說「お医者さん」或直接稱呼為「先生」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0224",
+      "surface": "仕事",
+      "reading": "しごと",
+      "gloss": "工作",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 224,
+      "romaji_override": null,
+      "example": {
+        "ja": "明日は仕事があります。",
+        "zh": "明天有工作。",
+        "tokens": [
+          {
+            "surface": "明日",
+            "reading": "あした",
+            "gloss": "明天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "仕事",
+            "reading": "しごと",
+            "gloss": "工作"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "仕事をします",
+        "仕事に行きます",
+        "仕事があります"
+      ],
+      "confusable_with": [],
+      "note": "「仕事」為名詞，指「工作」或「上班的事務」。常與動詞「します（做）」搭配形成「仕事をします（工作）」，或與「行きます（去）」搭配形成「仕事に行きます（去上班）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0225",
+      "surface": "宿題",
+      "reading": "しゅくだい",
+      "gloss": "作業",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 225,
+      "romaji_override": null,
+      "example": {
+        "ja": "家で宿題をします。",
+        "zh": "在家裡寫作業。",
+        "tokens": [
+          {
+            "surface": "家",
+            "reading": "いえ",
+            "gloss": "家"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "宿題",
+            "reading": "しゅくだい",
+            "gloss": "作業"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "します",
+            "reading": "します",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "宿題をします",
+        "宿題が多いです"
+      ],
+      "confusable_with": [],
+      "note": "動詞常搭配「します」，「宿題をします」意思是「寫作業、做功課」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0226",
+      "surface": "試験",
+      "reading": "しけん",
+      "gloss": "考試",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 226,
+      "romaji_override": null,
+      "example": {
+        "ja": "漢字の試験は難しいです。",
+        "zh": "漢字考試很難。",
+        "tokens": [
+          {
+            "surface": "漢字",
+            "reading": "かんじ",
+            "gloss": "漢字"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "試験",
+            "reading": "しけん",
+            "gloss": "考試"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "難しいです",
+            "reading": "むずかしいです",
+            "gloss": "很難"
+          }
+        ]
+      },
+      "collocations": [
+        "試験の勉強",
+        "試験があります",
+        "試験は難しいです"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0227",
+      "surface": "授業",
+      "reading": "じゅぎょう",
+      "gloss": "課",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 227,
+      "romaji_override": null,
+      "example": {
+        "ja": "九時に授業があります。",
+        "zh": "九點有課。",
+        "tokens": [
+          {
+            "surface": "九時",
+            "reading": "くじ",
+            "gloss": "九點"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "授業",
+            "reading": "じゅぎょう",
+            "gloss": "課"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "授業がある",
+        "日本語の授業"
+      ],
+      "confusable_with": [],
+      "note": "「授業」指學校的授課、課程，常見搭配有「授業がある（有課）」或「授業を受ける（上課）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0228",
+      "surface": "勉強",
+      "reading": "べんきょう",
+      "gloss": "唸書",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 228,
+      "romaji_override": null,
+      "example": {
+        "ja": "漢字の勉強は難しいです。",
+        "zh": "學習漢字很難。",
+        "tokens": [
+          {
+            "surface": "漢字",
+            "reading": "かんじ",
+            "gloss": "漢字"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "勉強",
+            "reading": "べんきょう",
+            "gloss": "學習"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "難しいです",
+            "reading": "むずかしいです",
+            "gloss": "很難"
+          }
+        ]
+      },
+      "collocations": [
+        "勉強をします",
+        "日本語の勉強"
+      ],
+      "confusable_with": [],
+      "note": "「勉強」作為名詞時，常以「〜の勉強」（...的學習）的形式出現；加上「します」則成為動詞「勉強します」（讀書、學習）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0229",
+      "surface": "質問",
+      "reading": "しつもん",
+      "gloss": "問題",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 229,
+      "romaji_override": null,
+      "example": {
+        "ja": "質問があります。",
+        "zh": "我有問題。",
+        "tokens": [
+          {
+            "surface": "質問",
+            "reading": "しつもん",
+            "gloss": "問題"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "質問があります",
+        "質問します"
+      ],
+      "confusable_with": [],
+      "note": "「質問」是名詞，指提問、疑問。常搭配「あります」表示「有問題」，或接續「します」形成「質問します」（提問、發問）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0230",
+      "surface": "言葉",
+      "reading": "ことば",
+      "gloss": "詞語",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 230,
+      "romaji_override": null,
+      "example": {
+        "ja": "新しい言葉を覚えます。",
+        "zh": "記住新單字。",
+        "tokens": [
+          {
+            "surface": "新しい",
+            "reading": "あたらしい",
+            "gloss": "新的"
+          },
+          {
+            "surface": "言葉",
+            "reading": "ことば",
+            "gloss": "單字"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "覚えます",
+            "reading": "おぼえます",
+            "gloss": "記住"
+          }
+        ]
+      },
+      "collocations": [
+        "新しい言葉",
+        "言葉を覚えます"
+      ],
+      "confusable_with": [],
+      "note": "「言葉」可以指單字、詞彙，也可以指語言或說出來的話語。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
