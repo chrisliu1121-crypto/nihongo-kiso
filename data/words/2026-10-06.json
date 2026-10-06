@@ -1,0 +1,528 @@
+{
+  "date": "2026-10-06",
+  "words": [
+    {
+      "id": "w_0231",
+      "surface": "名前",
+      "reading": "なまえ",
+      "gloss": "名字",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 231,
+      "romaji_override": null,
+      "example": {
+        "ja": "あなたの名前は何ですか。",
+        "zh": "你的名字是什麼？",
+        "tokens": [
+          {
+            "surface": "あなた",
+            "reading": "あなた",
+            "gloss": "你"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "名前",
+            "reading": "なまえ",
+            "gloss": "名字"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "何",
+            "reading": "なん",
+            "gloss": "什麼"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "gloss": "（疑問）",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "名前を書きます",
+        "名前を呼びます"
+      ],
+      "confusable_with": [],
+      "note": "詢問對方的名字時，通常會加上美化語「お」，說成「お名前」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0232",
+      "surface": "意味",
+      "reading": "いみ",
+      "gloss": "意思",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 232,
+      "romaji_override": null,
+      "example": {
+        "ja": "この言葉の意味が分かりません。",
+        "zh": "我不懂這個詞語的意思。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這個"
+          },
+          {
+            "surface": "言葉",
+            "reading": "ことば",
+            "gloss": "詞語"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "意味",
+            "reading": "いみ",
+            "gloss": "意思"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "分かりません",
+            "reading": "わかりません",
+            "gloss": "不明白"
+          }
+        ]
+      },
+      "collocations": [
+        "意味が分かります",
+        "どういう意味ですか",
+        "言葉の意味"
+      ],
+      "confusable_with": [],
+      "note": "「意味」表示詞語、行為或事情的含義或意義。常用句型有「〜の意味が分かります／分かりません」（懂／不懂～的意思），詢問含義時常使用「どういう意味ですか」（是什麼意思呢？）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0233",
+      "surface": "漢字",
+      "reading": "かんじ",
+      "gloss": "漢字",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 233,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎日漢字を練習します。",
+        "zh": "每天練習漢字。",
+        "tokens": [
+          {
+            "surface": "毎日",
+            "reading": "まいにち",
+            "gloss": "每天"
+          },
+          {
+            "surface": "漢字",
+            "reading": "かんじ",
+            "gloss": "漢字"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "練習します",
+            "reading": "れんしゅうします",
+            "gloss": "練習"
+          }
+        ]
+      },
+      "collocations": [
+        "漢字の練習",
+        "漢字を覚えます"
+      ],
+      "confusable_with": [],
+      "note": "指日語書寫系統中使用的漢字，通常與平假名、片假名並用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0234",
+      "surface": "平仮名",
+      "reading": "ひらがな",
+      "gloss": "平假名",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 234,
+      "romaji_override": null,
+      "example": {
+        "ja": "平仮名を勉強します。",
+        "zh": "學習平假名。",
+        "tokens": [
+          {
+            "surface": "平仮名",
+            "reading": "ひらがな",
+            "gloss": "平假名"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "勉強します",
+            "reading": "べんきょうします",
+            "gloss": "學習"
+          }
+        ]
+      },
+      "collocations": [
+        "平仮名を勉強します",
+        "平仮名を書きます"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0235",
+      "surface": "片仮名",
+      "reading": "かたかな",
+      "gloss": "片假名",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 235,
+      "romaji_override": null,
+      "example": {
+        "ja": "教室で片仮名を習います。",
+        "zh": "在教室學習片假名。",
+        "tokens": [
+          {
+            "surface": "教室",
+            "reading": "きょうしつ",
+            "gloss": "教室"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "片仮名",
+            "reading": "かたかな",
+            "gloss": "片假名"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "習います",
+            "reading": "ならいます",
+            "gloss": "學習"
+          }
+        ]
+      },
+      "collocations": [
+        "片仮名を習います",
+        "片仮名を読みます",
+        "片仮名の言葉"
+      ],
+      "confusable_with": [],
+      "note": "一般日常多直接以片假名寫作「カタカナ」。主要用來標記外來語、外國人名地名、擬聲擬態詞，或在文章中用來表示強調。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0236",
+      "surface": "英語",
+      "reading": "えいご",
+      "gloss": "英語",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 236,
+      "romaji_override": null,
+      "example": {
+        "ja": "英語を話します。",
+        "zh": "說英語。",
+        "tokens": [
+          {
+            "surface": "英語",
+            "reading": "えいご",
+            "gloss": "英語"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "話します",
+            "reading": "はなします",
+            "gloss": "說"
+          }
+        ]
+      },
+      "collocations": [
+        "英語を話します",
+        "英語の先生",
+        "英語を勉強します"
+      ],
+      "confusable_with": [],
+      "note": "「英語」是由代表英國的「英」加上表示語言的「語」組合而成，意指英語。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0237",
+      "surface": "日本語",
+      "reading": "にほんご",
+      "gloss": "日語",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 237,
+      "romaji_override": null,
+      "example": {
+        "ja": "教室で日本語を習います。",
+        "zh": "在教室學習日語。",
+        "tokens": [
+          {
+            "surface": "教室",
+            "reading": "きょうしつ",
+            "gloss": "教室"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "日本語",
+            "reading": "にほんご",
+            "gloss": "日語"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "習います",
+            "reading": "ならいます",
+            "gloss": "學習"
+          }
+        ]
+      },
+      "collocations": [
+        "日本語を話します",
+        "日本語の先生",
+        "日本語で"
+      ],
+      "confusable_with": [],
+      "note": "「日本語」是指日語。表示「用某種語言」時，助詞通常使用「で」，例如「日本語で話します」（用日語交談）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0238",
+      "surface": "中国語",
+      "reading": "ちゅうごくご",
+      "gloss": "中文",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 238,
+      "romaji_override": null,
+      "example": {
+        "ja": "教室で中国語を習います。",
+        "zh": "在教室學習中文。",
+        "tokens": [
+          {
+            "surface": "教室",
+            "reading": "きょうしつ",
+            "gloss": "教室"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "中国語",
+            "reading": "ちゅうごくご",
+            "gloss": "中文"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "習います",
+            "reading": "ならいます",
+            "gloss": "學習"
+          }
+        ]
+      },
+      "collocations": [
+        "中国語を話します",
+        "中国語を勉強します"
+      ],
+      "confusable_with": [],
+      "note": "「中国語」是指中文。日語中常以國家名稱加上「語（ご）」來表示該國語言。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0239",
+      "surface": "外国",
+      "reading": "がいこく",
+      "gloss": "外國",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 239,
+      "romaji_override": null,
+      "example": {
+        "ja": "外国の映画を見ます。",
+        "zh": "看外國電影。",
+        "tokens": [
+          {
+            "surface": "外国",
+            "reading": "がいこく",
+            "gloss": "外國"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "外国へ行きます",
+        "外国の人",
+        "外国の料理"
+      ],
+      "confusable_with": [],
+      "note": "「外国」常用「外国へ行きます」（去外國）或以「外国の＋名詞」（外國的～）來修飾名詞。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0240",
+      "surface": "外国人",
+      "reading": "がいこくじん",
+      "gloss": "外國人",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 240,
+      "romaji_override": null,
+      "example": {
+        "ja": "外国人の友達がいます。",
+        "zh": "我有外國朋友。",
+        "tokens": [
+          {
+            "surface": "外国人",
+            "reading": "がいこくじん",
+            "gloss": "外國人"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "います",
+            "reading": "います",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "外国人の友達",
+        "外国人の先生"
+      ],
+      "confusable_with": [],
+      "note": "指非本國國籍的人。日常生活中雖然也常聽見簡稱為「外人（がいじん）」，但「外国人」是更禮貌且正式的說法。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
