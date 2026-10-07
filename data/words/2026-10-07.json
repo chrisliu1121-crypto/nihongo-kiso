@@ -1,0 +1,546 @@
+{
+  "date": "2026-10-07",
+  "words": [
+    {
+      "id": "w_0241",
+      "surface": "住所",
+      "reading": "じゅうしょ",
+      "gloss": "住址",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 241,
+      "romaji_override": null,
+      "example": {
+        "ja": "ここに住所をかきます。",
+        "zh": "在這裡寫住址。",
+        "tokens": [
+          {
+            "surface": "ここ",
+            "reading": "ここ",
+            "gloss": "這裡"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "住所",
+            "reading": "じゅうしょ",
+            "gloss": "住址"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "かきます",
+            "reading": "かきます",
+            "gloss": "寫"
+          }
+        ]
+      },
+      "collocations": [
+        "住所をかきます",
+        "新しい住所",
+        "住所と名前"
+      ],
+      "confusable_with": [],
+      "note": "「住所」意思是「住址、地址」。在日本填寫申請表或寄信時，經常會與「名前（姓名）」或「電話番号（電話號碼）」一起出現。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0242",
+      "surface": "誕生日",
+      "reading": "たんじょうび",
+      "gloss": "生日",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 242,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達の誕生日は明日です。",
+        "zh": "朋友的生日是明天。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "誕生日",
+            "reading": "たんじょうび",
+            "gloss": "生日"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "明日",
+            "reading": "あした",
+            "gloss": "明天"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "誕生日おめでとう",
+        "誕生日プレゼント"
+      ],
+      "confusable_with": [],
+      "note": "向他人祝賀生日時常說「お誕生日おめでとう（ございます）」，稱呼對方的生日時通常會加上「お」以示禮貌。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0243",
+      "surface": "趣味",
+      "reading": "しゅみ",
+      "gloss": "興趣",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 243,
+      "romaji_override": null,
+      "example": {
+        "ja": "私の趣味は音楽です。",
+        "zh": "我的興趣是音樂。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "趣味",
+            "reading": "しゅみ",
+            "gloss": "興趣"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "音楽",
+            "reading": "おんがく",
+            "gloss": "音樂"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "趣味は何ですか",
+        "趣味は音楽です"
+      ],
+      "confusable_with": [],
+      "note": "詢問對方的興趣時，常使用「趣味は何ですか」或較禮貌的「ご趣味は何ですか」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0244",
+      "surface": "音楽",
+      "reading": "おんがく",
+      "gloss": "音樂",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 244,
+      "romaji_override": null,
+      "example": {
+        "ja": "静かな音楽が好きです。",
+        "zh": "我喜歡安靜的音樂。",
+        "tokens": [
+          {
+            "surface": "静かな",
+            "reading": "しずかな",
+            "gloss": "安靜的"
+          },
+          {
+            "surface": "音楽",
+            "reading": "おんがく",
+            "gloss": "音樂"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "好きです",
+            "reading": "すきです",
+            "gloss": "喜歡"
+          }
+        ]
+      },
+      "collocations": [
+        "音楽を聞きます",
+        "音楽が好きです"
+      ],
+      "confusable_with": [],
+      "note": "「音楽」是由「音」與「楽」組成的 N5 名詞，常見搭配為「音楽を聞きます」（聽音樂）與「音楽が好きです」（喜歡音樂）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0245",
+      "surface": "歌",
+      "reading": "うた",
+      "gloss": "歌",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 245,
+      "romaji_override": null,
+      "example": {
+        "ja": "妹と歌を歌います。",
+        "zh": "和妹妹一起唱歌。",
+        "tokens": [
+          {
+            "surface": "妹",
+            "reading": "いもうと",
+            "gloss": "妹妹"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "歌",
+            "reading": "うた",
+            "gloss": "歌"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "歌います",
+            "reading": "うたいます",
+            "gloss": "唱"
+          }
+        ]
+      },
+      "collocations": [
+        "歌を歌います",
+        "日本の歌"
+      ],
+      "confusable_with": [],
+      "note": "名詞「歌（うた）」意為「歌曲」，常與動詞「歌います（うたいます，唱）」連用，構成「歌を歌います（唱歌）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0246",
+      "surface": "絵",
+      "reading": "え",
+      "gloss": "畫",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 246,
+      "romaji_override": null,
+      "example": {
+        "ja": "部屋にきれいな絵があります。",
+        "zh": "房間裡有一幅漂亮的畫。",
+        "tokens": [
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "きれいな",
+            "reading": "きれいな",
+            "gloss": "漂亮的"
+          },
+          {
+            "surface": "絵",
+            "reading": "え",
+            "gloss": "畫"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "絵を見ます",
+        "きれいな絵"
+      ],
+      "confusable_with": [],
+      "note": "「絵（え）」指圖畫、繪畫。常見搭配有「絵を見ます（看畫）」或「絵をかきます（畫畫）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0247",
+      "surface": "写真",
+      "reading": "しゃしん",
+      "gloss": "照片",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 247,
+      "romaji_override": null,
+      "example": {
+        "ja": "家族の写真を見ます。",
+        "zh": "看家人的照片。",
+        "tokens": [
+          {
+            "surface": "家族",
+            "reading": "かぞく",
+            "gloss": "家人"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "写真",
+            "reading": "しゃしん",
+            "gloss": "照片"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "見ます",
+            "reading": "みます",
+            "gloss": "看"
+          }
+        ]
+      },
+      "collocations": [
+        "写真を撮ります",
+        "家族の写真",
+        "写真を見ます"
+      ],
+      "confusable_with": [],
+      "note": "名詞「写真」意為「照片」；「拍照」常使用動詞「撮ります」搭配，表達為「写真を撮ります」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0248",
+      "surface": "スポーツ",
+      "reading": "スポーツ",
+      "gloss": "運動",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 248,
+      "romaji_override": null,
+      "example": {
+        "ja": "公園でスポーツをします。",
+        "zh": "在公園做運動。",
+        "tokens": [
+          {
+            "surface": "公園",
+            "reading": "こうえん",
+            "gloss": "公園"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "スポーツ",
+            "reading": "すぽーつ",
+            "gloss": "運動"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "します",
+            "reading": "します",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "スポーツをします",
+        "どんなスポーツ"
+      ],
+      "confusable_with": [],
+      "note": "外來語名詞，來自英語 sports，常與動詞「します」搭配表示「做運動」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0249",
+      "surface": "野球",
+      "reading": "やきゅう",
+      "gloss": "棒球",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 249,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達と野球をします。",
+        "zh": "和朋友打棒球。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "野球",
+            "reading": "やきゅう",
+            "gloss": "棒球"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "します",
+            "reading": "します",
+            "gloss": "打"
+          }
+        ]
+      },
+      "collocations": [
+        "野球をする",
+        "野球を見る"
+      ],
+      "confusable_with": [],
+      "note": "在日語中，進行球類運動等活動多搭配動詞「する」，因此「打棒球」是「野球をする」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0250",
+      "surface": "映画",
+      "reading": "えいが",
+      "gloss": "電影",
+      "pos": "名詞",
+      "level": "N5",
+      "freq_rank": 250,
+      "romaji_override": null,
+      "example": {
+        "ja": "この映画は面白いです。",
+        "zh": "這部電影很有趣。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "面白い",
+            "reading": "おもしろい",
+            "gloss": "有趣"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "映画を見る",
+        "面白い映画",
+        "映画館"
+      ],
+      "confusable_with": [],
+      "note": "「映画」表示「電影」，常見搭配動詞為「見る（看）」。在電影院看電影時會用到相關單字「映画館（えいがかん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
