@@ -1,0 +1,547 @@
+{
+  "date": "2026-10-08",
+  "words": [
+    {
+      "id": "w_0251",
+      "surface": "話す",
+      "reading": "はなす",
+      "gloss": "說話",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 251,
+      "romaji_override": null,
+      "example": {
+        "ja": "教室で先生と話します。",
+        "zh": "在教室和老師說話。",
+        "tokens": [
+          {
+            "surface": "教室",
+            "reading": "きょうしつ",
+            "gloss": "教室"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "話します",
+            "reading": "はなします",
+            "gloss": "說話"
+          }
+        ]
+      },
+      "collocations": [
+        "先生と話します",
+        "英語で話します"
+      ],
+      "confusable_with": [],
+      "note": "「話す」是五段動詞，常搭配助詞「と」表示說話的對象（和某人說話），或搭配助詞「で」表示使用的語言（用日語/英語說話）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0252",
+      "surface": "聞く",
+      "reading": "きく",
+      "gloss": "聽／問",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 252,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生の話を聞きます。",
+        "zh": "聽老師說話。",
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "話",
+            "reading": "はなし",
+            "gloss": "話"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "聞きます",
+            "reading": "ききます",
+            "gloss": "聽"
+          }
+        ]
+      },
+      "collocations": [
+        "音楽を聞きます",
+        "話を聞きます",
+        "先生に聞きます"
+      ],
+      "confusable_with": [],
+      "note": "「聞く」除了「聽（音樂、話語）」之外，搭配助詞「に」時也可以表示「向（某人）詢問、打聽」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0253",
+      "surface": "書く",
+      "reading": "かく",
+      "gloss": "寫",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 254,
+      "romaji_override": null,
+      "example": {
+        "ja": "教室で漢字をかきます。",
+        "zh": "在教室寫漢字。",
+        "tokens": [
+          {
+            "surface": "教室",
+            "reading": "きょうしつ",
+            "gloss": "教室"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "漢字",
+            "reading": "かんじ",
+            "gloss": "漢字"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "かきます",
+            "reading": "かきます",
+            "gloss": "寫"
+          }
+        ]
+      },
+      "collocations": [
+        "手紙をかきます",
+        "名前をかきます",
+        "漢字をかきます"
+      ],
+      "confusable_with": [],
+      "note": "第一類動詞（五段動詞），ます形為「かきます」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0254",
+      "surface": "買う",
+      "reading": "かう",
+      "gloss": "買",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 255,
+      "romaji_override": null,
+      "example": {
+        "ja": "父に時計を買います。",
+        "zh": "買手錶給父親。",
+        "tokens": [
+          {
+            "surface": "父",
+            "reading": "ちち",
+            "gloss": "父親"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "時計",
+            "reading": "とけい",
+            "gloss": "手錶"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "時計を買う",
+        "切符を買う",
+        "本を買う"
+      ],
+      "confusable_with": [],
+      "note": "動詞「買う」為第一類（五段）動詞，ます形為「買います」。購買的物品後接助詞「を」，買給某人時對象後方可接助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0255",
+      "surface": "売る",
+      "reading": "うる",
+      "gloss": "賣",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 256,
+      "romaji_override": null,
+      "example": {
+        "ja": "あの店で野菜を売ります。",
+        "zh": "在那家店賣蔬菜。",
+        "tokens": [
+          {
+            "surface": "あの",
+            "reading": "あの",
+            "gloss": "那個"
+          },
+          {
+            "surface": "店",
+            "reading": "みせ",
+            "gloss": "店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "野菜",
+            "reading": "やさい",
+            "gloss": "蔬菜"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "売ります",
+            "reading": "うります",
+            "gloss": "賣"
+          }
+        ]
+      },
+      "collocations": [
+        "本を売る",
+        "店で売る"
+      ],
+      "confusable_with": [],
+      "note": "「売る」為第一類動詞（五段動詞），ます形為「売ります」。反義詞為「買う」（買）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0256",
+      "surface": "使う",
+      "reading": "つかう",
+      "gloss": "使用",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 257,
+      "romaji_override": null,
+      "example": {
+        "ja": "授業で辞書を使います。",
+        "zh": "在課堂上使用字典。",
+        "tokens": [
+          {
+            "surface": "授業",
+            "reading": "じゅぎょう",
+            "gloss": "課堂"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "辞書",
+            "reading": "じしょ",
+            "gloss": "字典"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "使います",
+            "reading": "つかいます",
+            "gloss": "使用"
+          }
+        ]
+      },
+      "collocations": [
+        "辞書を使う",
+        "お金を使う",
+        "ペンを使う"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0257",
+      "surface": "作る",
+      "reading": "つくる",
+      "gloss": "做／製作",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 258,
+      "romaji_override": null,
+      "example": {
+        "ja": "紙で飛行機を作ります。",
+        "zh": "用紙做飛機。",
+        "tokens": [
+          {
+            "surface": "紙",
+            "reading": "かみ",
+            "gloss": "紙"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（材料）",
+            "particle": true
+          },
+          {
+            "surface": "飛行機",
+            "reading": "ひこうき",
+            "gloss": "飛機"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "作ります",
+            "reading": "つくります",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "料理を作る",
+        "歌を作る",
+        "友達を作る"
+      ],
+      "confusable_with": [],
+      "note": "「作る」除了用於製作實體物品、烹飪之外，也可以用於創作歌曲（歌を作る）或交朋友（友達を作る）等較抽象的場合。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0258",
+      "surface": "待つ",
+      "reading": "まつ",
+      "gloss": "等待",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 259,
+      "romaji_override": null,
+      "example": {
+        "ja": "部屋で電話を待ちます。",
+        "zh": "在房間等電話。",
+        "tokens": [
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "電話",
+            "reading": "でんわ",
+            "gloss": "電話"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "待ちます",
+            "reading": "まちます",
+            "gloss": "等待"
+          }
+        ]
+      },
+      "collocations": [
+        "電話を待ちます",
+        "人を待ちます",
+        "電車を待ちます"
+      ],
+      "confusable_with": [],
+      "note": "「待つ」為第 I 類動詞（五段動詞），ます形為「待ちます」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0259",
+      "surface": "立つ",
+      "reading": "たつ",
+      "gloss": "站立",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 260,
+      "romaji_override": null,
+      "example": {
+        "ja": "木の下に立ちます。",
+        "zh": "站在樹下。",
+        "tokens": [
+          {
+            "surface": "木",
+            "reading": "き",
+            "gloss": "樹"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "下",
+            "reading": "した",
+            "gloss": "下方"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "立ちます",
+            "reading": "たちます",
+            "gloss": "站立"
+          }
+        ]
+      },
+      "collocations": [
+        "前に立つ",
+        "木の下に立つ",
+        "電車で立つ"
+      ],
+      "confusable_with": [],
+      "note": "「立つ」為自動詞，表示站立或立起。表示站立的定點位置時常接助詞「に」，若著重在某個場所站著進行動作時也可使用「で」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0260",
+      "surface": "座る",
+      "reading": "すわる",
+      "gloss": "坐",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 261,
+      "romaji_override": null,
+      "example": {
+        "ja": "窓の近くに座ります。",
+        "zh": "坐在窗戶附近。",
+        "tokens": [
+          {
+            "surface": "窓",
+            "reading": "まど",
+            "gloss": "窗戶"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "近く",
+            "reading": "ちかく",
+            "gloss": "附近"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "座ります",
+            "reading": "すわります",
+            "gloss": "坐"
+          }
+        ]
+      },
+      "collocations": [
+        "椅子に座る",
+        "ここに座る"
+      ],
+      "confusable_with": [],
+      "note": "「座る」表示坐下的著地點時，目的地/場所通常接助詞「に」（如：椅子に座る、ここに座る）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
