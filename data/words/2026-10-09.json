@@ -1,0 +1,522 @@
+{
+  "date": "2026-10-09",
+  "words": [
+    {
+      "id": "w_0261",
+      "surface": "歩く",
+      "reading": "あるく",
+      "gloss": "走路",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 262,
+      "romaji_override": null,
+      "example": {
+        "ja": "朝公園を歩きます。",
+        "zh": "早上在公園走路。",
+        "tokens": [
+          {
+            "surface": "朝",
+            "reading": "あさ",
+            "gloss": "早上"
+          },
+          {
+            "surface": "公園",
+            "reading": "こうえん",
+            "gloss": "公園"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（經過地點）",
+            "particle": true
+          },
+          {
+            "surface": "歩きます",
+            "reading": "あるきます",
+            "gloss": "走路"
+          }
+        ]
+      },
+      "collocations": [
+        "公園を歩く",
+        "歩いて行く"
+      ],
+      "confusable_with": [],
+      "note": "「歩く」為五段動詞，ます形是「歩きます」。表示通過、漫遊某空間時（如「公園を歩きます」），地點後面常接助詞「を」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0262",
+      "surface": "走る",
+      "reading": "はしる",
+      "gloss": "跑步",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 263,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎朝公園を走ります。",
+        "zh": "每天早上在公園跑步。",
+        "tokens": [
+          {
+            "surface": "毎朝",
+            "reading": "まいあさ",
+            "gloss": "每天早上"
+          },
+          {
+            "surface": "公園",
+            "reading": "こうえん",
+            "gloss": "公園"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（經過地點）",
+            "particle": true
+          },
+          {
+            "surface": "走ります",
+            "reading": "はしります",
+            "gloss": "跑步"
+          }
+        ]
+      },
+      "collocations": [
+        "公園を走る",
+        "毎朝走る",
+        "いっしょに走る"
+      ],
+      "confusable_with": [],
+      "note": "「走る」是第1類動詞（五段動詞），雖然詞尾是「る」，但ます形是「走ります」。表示跑步移動、經過的場所時，常搭配助詞「を」（例如：公園を走る）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0263",
+      "surface": "泳ぐ",
+      "reading": "およぐ",
+      "gloss": "游泳",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 264,
+      "romaji_override": null,
+      "example": {
+        "ja": "子供とプールで泳ぎます。",
+        "zh": "和小孩在游泳池游泳。",
+        "tokens": [
+          {
+            "surface": "子供",
+            "reading": "こども",
+            "gloss": "小孩"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "プール",
+            "reading": "ぷーる",
+            "gloss": "游泳池"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "泳ぎます",
+            "reading": "およぎます",
+            "gloss": "游泳"
+          }
+        ]
+      },
+      "collocations": [
+        "海で泳ぐ",
+        "プールで泳ぐ"
+      ],
+      "confusable_with": [],
+      "note": "「泳ぐ」為第一類動詞（五段動詞），ます形為「泳ぎます」，て形為發生「い音便」的「泳いで」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0264",
+      "surface": "遊ぶ",
+      "reading": "あそぶ",
+      "gloss": "玩",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 265,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達と遊びます。",
+        "zh": "和朋友玩。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "遊びます",
+            "reading": "あそびます",
+            "gloss": "玩"
+          }
+        ]
+      },
+      "collocations": [
+        "友達と遊ぶ",
+        "公園で遊ぶ",
+        "外で遊ぶ"
+      ],
+      "confusable_with": [],
+      "note": "「遊ぶ」為五段動詞，表示遊戲、遊玩或休閒娛樂。ます形為「遊びます」，て形為「遊んで」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0265",
+      "surface": "休む",
+      "reading": "やすむ",
+      "gloss": "休息",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 266,
+      "romaji_override": null,
+      "example": {
+        "ja": "木の下で休みます。",
+        "zh": "在樹下休息。",
+        "tokens": [
+          {
+            "surface": "木",
+            "reading": "き",
+            "gloss": "樹"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "下",
+            "reading": "した",
+            "gloss": "下面"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "休みます",
+            "reading": "やすみます",
+            "gloss": "休息"
+          }
+        ]
+      },
+      "collocations": [
+        "少し休む",
+        "会社を休む",
+        "学校を休む"
+      ],
+      "confusable_with": [],
+      "note": "「休む」除了表示身體放鬆的「休息」之外，接「學校」或「公司」並搭配助詞「を」時，表示「請假、缺席」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0266",
+      "surface": "働く",
+      "reading": "はたらく",
+      "gloss": "工作",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 267,
+      "romaji_override": null,
+      "example": {
+        "ja": "朝から晩まで働きます。",
+        "zh": "從早工作到晚。",
+        "tokens": [
+          {
+            "surface": "朝",
+            "reading": "あさ",
+            "gloss": "早上"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "gloss": "（從）",
+            "particle": true
+          },
+          {
+            "surface": "晩",
+            "reading": "ばん",
+            "gloss": "晚上"
+          },
+          {
+            "surface": "まで",
+            "reading": "まで",
+            "gloss": "（到）",
+            "particle": true
+          },
+          {
+            "surface": "働きます",
+            "reading": "はたらきます",
+            "gloss": "工作"
+          }
+        ]
+      },
+      "collocations": [
+        "会社で働く",
+        "朝から晩まで働く",
+        "よく働く"
+      ],
+      "confusable_with": [],
+      "note": "「働く」為第一類動詞（五段動詞），ます形為「働きます」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0267",
+      "surface": "教える",
+      "reading": "おしえる",
+      "gloss": "教",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 268,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生は英語をおしえます。",
+        "zh": "老師教英文。",
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "英語",
+            "reading": "えいご",
+            "gloss": "英文"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "おしえます",
+            "reading": "おしえます",
+            "gloss": "教"
+          }
+        ]
+      },
+      "collocations": [
+        "英語をおしえる",
+        "おしえてください"
+      ],
+      "confusable_with": [],
+      "note": "漢字寫作「教える」，除了「教導」知識技能之外，也常用於「告訴、提供」資訊或聯絡方式（如電話號碼）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0268",
+      "surface": "習う",
+      "reading": "ならう",
+      "gloss": "學習",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 269,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生に料理を習います。",
+        "zh": "向老師學習料理。",
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "料理",
+            "reading": "りょうり",
+            "gloss": "料理"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "習います",
+            "reading": "ならいます",
+            "gloss": "學習"
+          }
+        ]
+      },
+      "collocations": [
+        "日本語を習う",
+        "先生に習う"
+      ],
+      "confusable_with": [],
+      "note": "「習う」著重於向他人請教、學習某種技能或知識，常搭配「〜に習う」（向某人學習）；而「勉強する」則多指自己用功、讀書或鑽研。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0269",
+      "surface": "分かる",
+      "reading": "わかる",
+      "gloss": "明白",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 270,
+      "romaji_override": null,
+      "example": {
+        "ja": "質問の意味が分かります。",
+        "zh": "我明白問題的意思。",
+        "tokens": [
+          {
+            "surface": "質問",
+            "reading": "しつもん",
+            "gloss": "問題"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "意味",
+            "reading": "いみ",
+            "gloss": "意思"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "分かります",
+            "reading": "わかります",
+            "gloss": "明白"
+          }
+        ]
+      },
+      "collocations": [
+        "日本語が分かる",
+        "意味が分かる",
+        "よく分かる"
+      ],
+      "confusable_with": [],
+      "note": "「分かる」表示理解的狀態或能力，所理解的對象通常接助詞「が」而非「を」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0270",
+      "surface": "知る",
+      "reading": "しる",
+      "gloss": "知道",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 271,
+      "romaji_override": null,
+      "example": {
+        "ja": "あの人の名前を知っています。",
+        "zh": "我知道那個人的名字。",
+        "tokens": [
+          {
+            "surface": "あの",
+            "reading": "あの",
+            "gloss": "那個"
+          },
+          {
+            "surface": "人",
+            "reading": "ひと",
+            "gloss": "人"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "名前",
+            "reading": "なまえ",
+            "gloss": "名字"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "知っています",
+            "reading": "しっています",
+            "gloss": "知道"
+          }
+        ]
+      },
+      "collocations": [
+        "名前を知っています",
+        "よく知っています"
+      ],
+      "confusable_with": [],
+      "note": "動詞「知る」表示處於知道的狀態時，肯定句習慣使用「知っています」，否定時則用「知りません」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
