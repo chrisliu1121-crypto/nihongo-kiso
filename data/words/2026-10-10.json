@@ -1,0 +1,504 @@
+{
+  "date": "2026-10-10",
+  "words": [
+    {
+      "id": "w_0271",
+      "surface": "読む",
+      "reading": "よむ",
+      "gloss": "讀",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 253,
+      "romaji_override": null,
+      "example": {
+        "ja": "英語の雑誌を読みます。",
+        "zh": "閱讀英文雜誌。",
+        "tokens": [
+          {
+            "surface": "英語",
+            "reading": "えいご",
+            "gloss": "英文"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "雑誌",
+            "reading": "ざっし",
+            "gloss": "雜誌"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "読みます",
+            "reading": "よみます",
+            "gloss": "閱讀"
+          }
+        ]
+      },
+      "collocations": [
+        "本を読む",
+        "雑誌を読む",
+        "手紙を読む"
+      ],
+      "confusable_with": [],
+      "note": "「読む」是他動詞，受詞用助詞「を」標示，常用於看書、讀雜誌或閱讀信件等場合。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0272",
+      "surface": "思う",
+      "reading": "おもう",
+      "gloss": "覺得",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 272,
+      "romaji_override": null,
+      "example": {
+        "ja": "私もそう思います。",
+        "zh": "我也這麼覺得。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "gloss": "（也）",
+            "particle": true
+          },
+          {
+            "surface": "そう",
+            "reading": "そう",
+            "gloss": "這樣"
+          },
+          {
+            "surface": "思います",
+            "reading": "おもいます",
+            "gloss": "覺得"
+          }
+        ]
+      },
+      "collocations": [
+        "そう思います",
+        "どう思いますか",
+        "〜と思います"
+      ],
+      "confusable_with": [],
+      "note": "常用於表達自己的意見或想法。接在普通形（簡體句）後面時，常搭配助詞「と」表示「～と思います」（我覺得～）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0273",
+      "surface": "言う",
+      "reading": "いう",
+      "gloss": "說",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 273,
+      "romaji_override": null,
+      "example": {
+        "ja": "これは英語で何と言いますか。",
+        "zh": "這個用英文怎麼說？",
+        "tokens": [
+          {
+            "surface": "これ",
+            "reading": "これ",
+            "gloss": "這個"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "英語",
+            "reading": "えいご",
+            "gloss": "英文"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（方式）",
+            "particle": true
+          },
+          {
+            "surface": "何",
+            "reading": "なん",
+            "gloss": "什麼"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（引用）",
+            "particle": true
+          },
+          {
+            "surface": "言います",
+            "reading": "いいます",
+            "gloss": "說"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "gloss": "（疑問）",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "英語で言う",
+        "何と言う",
+        "ありがとうと言う"
+      ],
+      "confusable_with": [],
+      "note": "「〜と言います」可用於引用說話的內容；詢問某事物在特定語言中的說法時，常用「〜で何と言いますか」的句型。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0274",
+      "surface": "出る",
+      "reading": "でる",
+      "gloss": "出去",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 274,
+      "romaji_override": null,
+      "example": {
+        "ja": "外に出ます。",
+        "zh": "出去外面。",
+        "tokens": [
+          {
+            "surface": "外",
+            "reading": "そと",
+            "gloss": "外面"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "出ます",
+            "reading": "でます",
+            "gloss": "出去"
+          }
+        ]
+      },
+      "collocations": [
+        "外に出る",
+        "部屋を出る",
+        "家を出る"
+      ],
+      "confusable_with": [],
+      "note": "「出る」表示從內部移動到外部。前往的地點用助詞「に/へ」（如「外に出る」），而離開的原場所則常搭配助詞「を」或「から」（如「部屋を出る」）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0275",
+      "surface": "入る",
+      "reading": "はいる",
+      "gloss": "進入",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 275,
+      "romaji_override": null,
+      "example": {
+        "ja": "喫茶店に入ります。",
+        "zh": "走進咖啡店。",
+        "tokens": [
+          {
+            "surface": "喫茶店",
+            "reading": "きっさてん",
+            "gloss": "咖啡店"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "入ります",
+            "reading": "はいります",
+            "gloss": "進入"
+          }
+        ]
+      },
+      "collocations": [
+        "部屋に入る",
+        "店に入る",
+        "おふろに入る"
+      ],
+      "confusable_with": [],
+      "note": "「入る」為第一類動詞（五段動詞），ます形為「入ります」。表示進入某空間或場所時，通常使用助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0276",
+      "surface": "開ける",
+      "reading": "あける",
+      "gloss": "打開",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 276,
+      "romaji_override": null,
+      "example": {
+        "ja": "かばんを開けます。",
+        "zh": "打開包包。",
+        "tokens": [
+          {
+            "surface": "かばん",
+            "reading": "かばん",
+            "gloss": "包包"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "開けます",
+            "reading": "あけます",
+            "gloss": "打開"
+          }
+        ]
+      },
+      "collocations": [
+        "ドアを開ける",
+        "窓を開ける",
+        "かばんを開ける"
+      ],
+      "confusable_with": [],
+      "note": "「開ける」為他動詞，表示人主動打開門、窗、包包、盒子等物品。相對應的自動詞為「開く」（あく）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0277",
+      "surface": "閉める",
+      "reading": "しめる",
+      "gloss": "關閉",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 277,
+      "romaji_override": null,
+      "example": {
+        "ja": "窓を閉めます。",
+        "zh": "關上窗戶。",
+        "tokens": [
+          {
+            "surface": "窓",
+            "reading": "まど",
+            "gloss": "窗戶"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "閉めます",
+            "reading": "しめます",
+            "gloss": "關上"
+          }
+        ]
+      },
+      "collocations": [
+        "窓を閉める",
+        "ドアを閉める"
+      ],
+      "confusable_with": [],
+      "note": "「閉める」是他動詞，常用於人去「關門」或「關窗」，對應的自動詞是「閉まる」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0278",
+      "surface": "起きる",
+      "reading": "おきる",
+      "gloss": "起床",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 278,
+      "romaji_override": null,
+      "example": {
+        "ja": "日曜日は遅く起きます。",
+        "zh": "星期日很晚起床。",
+        "tokens": [
+          {
+            "surface": "日曜日",
+            "reading": "にちようび",
+            "gloss": "星期日"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "遅く",
+            "reading": "おそく",
+            "gloss": "很晚地"
+          },
+          {
+            "surface": "起きます",
+            "reading": "おきます",
+            "gloss": "起床"
+          }
+        ]
+      },
+      "collocations": [
+        "早く起きる",
+        "遅く起きる",
+        "朝起きる"
+      ],
+      "confusable_with": [],
+      "note": "「起きる」是二類動詞（上一段動詞），ます形去「る」加「ます」，變成「起きます」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0279",
+      "surface": "寝る",
+      "reading": "ねる",
+      "gloss": "睡覺",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 279,
+      "romaji_override": null,
+      "example": {
+        "ja": "子供は部屋で寝ます。",
+        "zh": "小孩在房間睡覺。",
+        "tokens": [
+          {
+            "surface": "子供",
+            "reading": "こども",
+            "gloss": "小孩"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "寝ます",
+            "reading": "ねます",
+            "gloss": "睡覺"
+          }
+        ]
+      },
+      "collocations": [
+        "早く寝る",
+        "ベッドで寝る",
+        "十時に寝る"
+      ],
+      "confusable_with": [],
+      "note": "「寝る」為第二類動詞（一段動詞），ます形為「寝ます」。常與表示就寢時間的助詞「に」或睡覺地點的「で」連用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0280",
+      "surface": "帰る",
+      "reading": "かえる",
+      "gloss": "回去",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 280,
+      "romaji_override": null,
+      "example": {
+        "ja": "妹は国へ帰ります。",
+        "zh": "妹妹要回國。",
+        "tokens": [
+          {
+            "surface": "妹",
+            "reading": "いもうと",
+            "gloss": "妹妹"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "国",
+            "reading": "くに",
+            "gloss": "母國"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "帰ります",
+            "reading": "かえります",
+            "gloss": "回去"
+          }
+        ]
+      },
+      "collocations": [
+        "国へ帰る",
+        "家に帰る"
+      ],
+      "confusable_with": [],
+      "note": "「帰る」為一類動詞（五段動詞），雖然詞尾是「る」，但ます形為「帰ります」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
