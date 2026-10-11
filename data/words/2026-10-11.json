@@ -1,0 +1,481 @@
+{
+  "date": "2026-10-11",
+  "words": [
+    {
+      "id": "w_0281",
+      "surface": "出かける",
+      "reading": "でかける",
+      "gloss": "出門",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 281,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達と出かけます。",
+        "zh": "和朋友出門。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "出かけます",
+            "reading": "でかけます",
+            "gloss": "出門"
+          }
+        ]
+      },
+      "collocations": [
+        "友達と出かける",
+        "一人で出かける"
+      ],
+      "confusable_with": [],
+      "note": "「出かける」是一類動詞中的一段動詞（二類動詞），意思是外出、出門，ます形為「出かけます」。常與表示同伴的助詞「と」或目的地、目的連用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0282",
+      "surface": "着る",
+      "reading": "きる",
+      "gloss": "穿（上衣）",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 282,
+      "romaji_override": null,
+      "example": {
+        "ja": "黒いコートを着ます。",
+        "zh": "穿黑色大衣。",
+        "tokens": [
+          {
+            "surface": "黒い",
+            "reading": "くろい",
+            "gloss": "黑色的"
+          },
+          {
+            "surface": "コート",
+            "reading": "こーと",
+            "gloss": "大衣"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "着ます",
+            "reading": "きます",
+            "gloss": "穿"
+          }
+        ]
+      },
+      "collocations": [
+        "コートを着ます",
+        "シャツを着ます"
+      ],
+      "confusable_with": [],
+      "note": "「着る」通常用於穿上衣、襯衫、外套或連衣裙等上半身或全身衣物；褲子、裙子或鞋襪等下半身衣物則使用「はきます」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0283",
+      "surface": "脱ぐ",
+      "reading": "ぬぐ",
+      "gloss": "脫",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 283,
+      "romaji_override": null,
+      "example": {
+        "ja": "部屋で上着を脱ぎます。",
+        "zh": "在房間脫外套。",
+        "tokens": [
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "上着",
+            "reading": "うわぎ",
+            "gloss": "外套"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "脱ぎます",
+            "reading": "ぬぎます",
+            "gloss": "脫"
+          }
+        ]
+      },
+      "collocations": [
+        "くつを脱ぐ",
+        "上着を脱ぐ"
+      ],
+      "confusable_with": [],
+      "note": "「脱ぐ」用來表示脫掉鞋子、衣服或襪子等身上穿戴的物品。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0284",
+      "surface": "洗う",
+      "reading": "あらう",
+      "gloss": "洗",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 284,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎朝顔を洗います。",
+        "zh": "每天早上洗臉。",
+        "tokens": [
+          {
+            "surface": "毎朝",
+            "reading": "まいあさ",
+            "gloss": "每天早上"
+          },
+          {
+            "surface": "顔",
+            "reading": "かお",
+            "gloss": "臉"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "洗います",
+            "reading": "あらいます",
+            "gloss": "洗"
+          }
+        ]
+      },
+      "collocations": [
+        "手を洗います",
+        "顔を洗います"
+      ],
+      "confusable_with": [],
+      "note": "「洗います」是第I類動詞「洗う」的ます形，常用於洗手、洗臉等日常清潔身體或物品的動作。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0285",
+      "surface": "掃除する",
+      "reading": "そうじする",
+      "gloss": "打掃",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 285,
+      "romaji_override": null,
+      "example": {
+        "ja": "父と庭を掃除します。",
+        "zh": "和父親一起打掃庭院。",
+        "tokens": [
+          {
+            "surface": "父",
+            "reading": "ちち",
+            "gloss": "父親"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "庭",
+            "reading": "にわ",
+            "gloss": "庭院"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "掃除します",
+            "reading": "そうじします",
+            "gloss": "打掃"
+          }
+        ]
+      },
+      "collocations": [
+        "部屋を掃除する",
+        "庭を掃除する"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0286",
+      "surface": "洗濯する",
+      "reading": "せんたくする",
+      "gloss": "洗衣服",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 286,
+      "romaji_override": null,
+      "example": {
+        "ja": "日曜日に洗濯します。",
+        "zh": "星期日洗衣服。",
+        "tokens": [
+          {
+            "surface": "日曜日",
+            "reading": "にちようび",
+            "gloss": "星期日"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "洗濯します",
+            "reading": "せんたくします",
+            "gloss": "洗衣服"
+          }
+        ]
+      },
+      "collocations": [
+        "服を洗濯する",
+        "毎日洗濯する",
+        "洗濯機"
+      ],
+      "confusable_with": [],
+      "note": "「洗濯する」本身即帶有洗滌衣物的意思，受詞若為一般衣物常可省略；也可以作名詞「洗濯」搭配「する」使用（洗濯をする）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0287",
+      "surface": "練習する",
+      "reading": "れんしゅうする",
+      "gloss": "練習",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 287,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達と歌を練習します。",
+        "zh": "和朋友練習唱歌。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "歌",
+            "reading": "うた",
+            "gloss": "歌曲"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "練習します",
+            "reading": "れんしゅうします",
+            "gloss": "練習"
+          }
+        ]
+      },
+      "collocations": [
+        "歌を練習する",
+        "漢字を練習する"
+      ],
+      "confusable_with": [],
+      "note": "「練習する」是第三類動詞（サ行變格活用），敬體為「練習します」。常搭配助詞「を」表示練習的內容，例如「歌を練習します」（練習唱歌）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0288",
+      "surface": "旅行する",
+      "reading": "りょこうする",
+      "gloss": "旅行",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 288,
+      "romaji_override": null,
+      "example": {
+        "ja": "家族と旅行します。",
+        "zh": "和家人去旅行。",
+        "tokens": [
+          {
+            "surface": "家族",
+            "reading": "かぞく",
+            "gloss": "家人"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "旅行します",
+            "reading": "りょこうします",
+            "gloss": "旅行"
+          }
+        ]
+      },
+      "collocations": [
+        "日本を旅行する",
+        "友達と旅行する",
+        "一人で旅行する"
+      ],
+      "confusable_with": [],
+      "note": "「旅行する」是名詞「旅行」加上「する」構成的サ變動詞，禮貌形為「旅行します」。常與助詞「と」（表示同行對象）或「へ」（表示目的地）連用。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0289",
+      "surface": "結婚する",
+      "reading": "けっこんする",
+      "gloss": "結婚",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 289,
+      "romaji_override": null,
+      "example": {
+        "ja": "来年彼女と結婚します。",
+        "zh": "明年要和她結婚。",
+        "tokens": [
+          {
+            "surface": "来年",
+            "reading": "らいねん",
+            "gloss": "明年"
+          },
+          {
+            "surface": "彼女",
+            "reading": "かのじょ",
+            "gloss": "她"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "結婚します",
+            "reading": "けっこんします",
+            "gloss": "結婚"
+          }
+        ]
+      },
+      "collocations": [
+        "彼女と結婚します",
+        "来年結婚します"
+      ],
+      "confusable_with": [],
+      "note": "「結婚する」是三類動詞（サ變動詞），表示結婚的對象時會使用助詞「と」（～と結婚する）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0290",
+      "surface": "電話する",
+      "reading": "でんわする",
+      "gloss": "打電話",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 290,
+      "romaji_override": null,
+      "example": {
+        "ja": "明日会社に電話します。",
+        "zh": "明天打電話到公司。",
+        "tokens": [
+          {
+            "surface": "明日",
+            "reading": "あした",
+            "gloss": "明天"
+          },
+          {
+            "surface": "会社",
+            "reading": "かいしゃ",
+            "gloss": "公司"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "電話します",
+            "reading": "でんわします",
+            "gloss": "打電話"
+          }
+        ]
+      },
+      "collocations": [
+        "会社に電話する",
+        "家に電話する",
+        "後で電話する"
+      ],
+      "confusable_with": [],
+      "note": "「電話する」是名詞「電話」加上「する」構成的動詞，通話對象以助詞「に」標記。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
