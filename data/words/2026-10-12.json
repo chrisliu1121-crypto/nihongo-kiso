@@ -1,0 +1,532 @@
+{
+  "date": "2026-10-12",
+  "words": [
+    {
+      "id": "w_0291",
+      "surface": "散歩する",
+      "reading": "さんぽする",
+      "gloss": "散步",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 291,
+      "romaji_override": null,
+      "example": {
+        "ja": "子供と公園を散歩します。",
+        "zh": "和孩子在公園散步。",
+        "tokens": [
+          {
+            "surface": "子供",
+            "reading": "こども",
+            "gloss": "孩子"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "公園",
+            "reading": "こうえん",
+            "gloss": "公園"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "散歩します",
+            "reading": "さんぽします",
+            "gloss": "散步"
+          }
+        ]
+      },
+      "collocations": [
+        "公園を散歩する",
+        "朝散歩する"
+      ],
+      "confusable_with": [],
+      "note": "「散歩する」表示漫步經過某個場所時，場所通常搭配助詞「を」（如：公園を散歩する）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0292",
+      "surface": "泊まる",
+      "reading": "とまる",
+      "gloss": "住宿",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 292,
+      "romaji_override": null,
+      "example": {
+        "ja": "ホテルに泊まります。",
+        "zh": "住在飯店。",
+        "tokens": [
+          {
+            "surface": "ホテル",
+            "reading": "ホテル",
+            "gloss": "飯店"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "泊まります",
+            "reading": "とまります",
+            "gloss": "住宿"
+          }
+        ]
+      },
+      "collocations": [
+        "ホテルに泊まる",
+        "友達の家に泊まる"
+      ],
+      "confusable_with": [],
+      "note": "「泊まる」為自動詞，表示外出旅行或在別處過夜、投宿，留宿的地點通常用助詞「に」表示。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0293",
+      "surface": "乗る",
+      "reading": "のる",
+      "gloss": "搭乘",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 293,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎日バスに乗ります。",
+        "zh": "每天搭公車。",
+        "tokens": [
+          {
+            "surface": "毎日",
+            "reading": "まいにち",
+            "gloss": "每天"
+          },
+          {
+            "surface": "バス",
+            "reading": "バス",
+            "gloss": "公車"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "乗ります",
+            "reading": "のります",
+            "gloss": "搭乘"
+          }
+        ]
+      },
+      "collocations": [
+        "バスに乗る",
+        "電車に乗る",
+        "自転車に乗る"
+      ],
+      "confusable_with": [],
+      "note": "搭乘交通工具時，交通工具後面要接助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0294",
+      "surface": "降りる",
+      "reading": "おりる",
+      "gloss": "下車",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 294,
+      "romaji_override": null,
+      "example": {
+        "ja": "駅で電車を降ります。",
+        "zh": "在車站下電車。",
+        "tokens": [
+          {
+            "surface": "駅",
+            "reading": "えき",
+            "gloss": "車站"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "電車",
+            "reading": "でんしゃ",
+            "gloss": "電車"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "降ります",
+            "reading": "おります",
+            "gloss": "下車"
+          }
+        ]
+      },
+      "collocations": [
+        "電車を降ります",
+        "バスを降ります"
+      ],
+      "confusable_with": [],
+      "note": "表示離開交通工具時，脫離的場所或交通工具要搭配助詞「を」；下車的地點則使用助詞「で」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0295",
+      "surface": "会う",
+      "reading": "あう",
+      "gloss": "見面",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 295,
+      "romaji_override": null,
+      "example": {
+        "ja": "駅で友達に会います。",
+        "zh": "在車站和朋友見面。",
+        "tokens": [
+          {
+            "surface": "駅",
+            "reading": "えき",
+            "gloss": "車站"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "会います",
+            "reading": "あいます",
+            "gloss": "見面"
+          }
+        ]
+      },
+      "collocations": [
+        "友達に会う",
+        "駅で会う"
+      ],
+      "confusable_with": [],
+      "note": "表示「和某人見面」時，見面的對象通常使用助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0296",
+      "surface": "貸す",
+      "reading": "かす",
+      "gloss": "借出",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 296,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達に傘を貸します。",
+        "zh": "我把傘借給朋友。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "傘",
+            "reading": "かさ",
+            "gloss": "傘"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "貸します",
+            "reading": "かします",
+            "gloss": "借出"
+          }
+        ]
+      },
+      "collocations": [
+        "傘を貸す",
+        "友達に貸す"
+      ],
+      "confusable_with": [],
+      "note": "「貸す」表示將物品借給別人，借予的對象用助詞「に」表示；而「借りる」則是向別人借入。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0297",
+      "surface": "借りる",
+      "reading": "かりる",
+      "gloss": "借入",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 297,
+      "romaji_override": null,
+      "example": {
+        "ja": "銀行からお金を借ります。",
+        "zh": "向銀行借錢。",
+        "tokens": [
+          {
+            "surface": "銀行",
+            "reading": "ぎんこう",
+            "gloss": "銀行"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "gloss": "（從）",
+            "particle": true
+          },
+          {
+            "surface": "お金",
+            "reading": "おかね",
+            "gloss": "錢"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "借ります",
+            "reading": "かります",
+            "gloss": "借"
+          }
+        ]
+      },
+      "collocations": [
+        "本を借ります",
+        "お金を借ります",
+        "図書館で借ります"
+      ],
+      "confusable_with": [],
+      "note": "「借りる」是第二類動詞（一段動詞），ます形為「借ります」。表示借入物品或金錢，借出方（對象）可用助詞「に」或「から」表示。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0298",
+      "surface": "あげる",
+      "reading": "あげる",
+      "gloss": "給（別人）",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 298,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達に花をあげます。",
+        "zh": "送花給朋友。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "花",
+            "reading": "はな",
+            "gloss": "花"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "あげます",
+            "reading": "あげます",
+            "gloss": "送給"
+          }
+        ]
+      },
+      "collocations": [
+        "花をあげます",
+        "本をあげます",
+        "プレゼントをあげます"
+      ],
+      "confusable_with": [],
+      "note": "「あげる」表示由說話者（或說話者一方的人）給予他人，或第三者給予第三者物品，接受者後方接助詞「に」。不可用於別人給「我」物品的場合。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0299",
+      "surface": "もらう",
+      "reading": "もらう",
+      "gloss": "得到",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 299,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達から手紙をもらいます。",
+        "zh": "從朋友那裡收到信。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "gloss": "（從）",
+            "particle": true
+          },
+          {
+            "surface": "手紙",
+            "reading": "てがみ",
+            "gloss": "信"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "もらいます",
+            "reading": "もらいます",
+            "gloss": "收到"
+          }
+        ]
+      },
+      "collocations": [
+        "手紙をもらいます",
+        "友達からもらいます"
+      ],
+      "confusable_with": [],
+      "note": "「〜に／からもらいます」表示從某人那裡得到、收到物品。在初級日語中通常以平假名「もらう／もらいます」書寫。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0300",
+      "surface": "くれる",
+      "reading": "くれる",
+      "gloss": "給（我）",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 300,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達が私に花をくれます。",
+        "zh": "朋友給我花。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "花",
+            "reading": "はな",
+            "gloss": "花"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "くれます",
+            "reading": "くれます",
+            "gloss": "給"
+          }
+        ]
+      },
+      "collocations": [
+        "本をくれます",
+        "プレゼントをくれます"
+      ],
+      "confusable_with": [],
+      "note": "「くれる（くれます）」專用於別人給我或我方的人東西；如果是我給別人東西，則要使用「あげます」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
