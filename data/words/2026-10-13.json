@@ -1,0 +1,504 @@
+{
+  "date": "2026-10-13",
+  "words": [
+    {
+      "id": "w_0301",
+      "surface": "送る",
+      "reading": "おくる",
+      "gloss": "寄送",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 301,
+      "romaji_override": null,
+      "example": {
+        "ja": "家族に写真を送ります。",
+        "zh": "寄照片給家人。",
+        "tokens": [
+          {
+            "surface": "家族",
+            "reading": "かぞく",
+            "gloss": "家人"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "写真",
+            "reading": "しゃしん",
+            "gloss": "照片"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "送ります",
+            "reading": "おくります",
+            "gloss": "寄送"
+          }
+        ]
+      },
+      "collocations": [
+        "手紙を送る",
+        "写真を送る"
+      ],
+      "confusable_with": [],
+      "note": "「送る」常用於寄送信件、包裹或照片等物品；向某對象寄送時對象後方接助詞「に」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0302",
+      "surface": "持つ",
+      "reading": "もつ",
+      "gloss": "拿／持有",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 302,
+      "romaji_override": null,
+      "example": {
+        "ja": "重いかばんを持ちます。",
+        "zh": "拿沉重的包包。",
+        "tokens": [
+          {
+            "surface": "重い",
+            "reading": "おもい",
+            "gloss": "重"
+          },
+          {
+            "surface": "かばん",
+            "reading": "かばん",
+            "gloss": "包包"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "持ちます",
+            "reading": "もちます",
+            "gloss": "拿"
+          }
+        ]
+      },
+      "collocations": [
+        "かばんを持つ",
+        "傘を持つ"
+      ],
+      "confusable_with": [],
+      "note": "「持つ」基本意思是手裡「拿著、提著」物品；若用「持っています」則常用來表示「擁有」某物（如手機、車子等）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0303",
+      "surface": "忘れる",
+      "reading": "わすれる",
+      "gloss": "忘記",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 303,
+      "romaji_override": null,
+      "example": {
+        "ja": "よく傘を忘れます。",
+        "zh": "我經常忘記帶傘。",
+        "tokens": [
+          {
+            "surface": "よく",
+            "reading": "よく",
+            "gloss": "經常"
+          },
+          {
+            "surface": "傘",
+            "reading": "かさ",
+            "gloss": "雨傘"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "忘れます",
+            "reading": "わすれます",
+            "gloss": "忘記"
+          }
+        ]
+      },
+      "collocations": [
+        "傘を忘れます",
+        "名前を忘れます",
+        "宿題を忘れます"
+      ],
+      "confusable_with": [],
+      "note": "「忘れる」為第二類動詞（一段動詞），ます形為「忘れます」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0304",
+      "surface": "覚える",
+      "reading": "おぼえる",
+      "gloss": "記住",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 304,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達の名前を覚えます。",
+        "zh": "記住朋友的名字。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "名前",
+            "reading": "なまえ",
+            "gloss": "名字"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "覚えます",
+            "reading": "おぼえます",
+            "gloss": "記住"
+          }
+        ]
+      },
+      "collocations": [
+        "名前を覚える",
+        "漢字を覚える",
+        "言葉を覚える"
+      ],
+      "confusable_with": [],
+      "note": "「覚える」是第二類動詞（一段動詞），意思是「記住」、「背起來」。常與助詞「を」搭配表示所記住的內容。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0305",
+      "surface": "死ぬ",
+      "reading": "しぬ",
+      "gloss": "死",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 305,
+      "romaji_override": null,
+      "example": {
+        "ja": "川の魚が死にました。",
+        "zh": "河裡的魚死了。",
+        "tokens": [
+          {
+            "surface": "川",
+            "reading": "かわ",
+            "gloss": "河川"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "魚",
+            "reading": "さかな",
+            "gloss": "魚"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "死にました",
+            "reading": "しにました",
+            "gloss": "死了"
+          }
+        ]
+      },
+      "collocations": [
+        "魚が死にます",
+        "死にました"
+      ],
+      "confusable_with": [],
+      "note": "「死ぬ」是日語中極少數的「ぬ」行五段動詞，ます形為「死にます」，過去式為「死にました」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0306",
+      "surface": "生まれる",
+      "reading": "うまれる",
+      "gloss": "出生",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 306,
+      "romaji_override": null,
+      "example": {
+        "ja": "先月子供が生まれました。",
+        "zh": "上個月孩子出生了。",
+        "tokens": [
+          {
+            "surface": "先月",
+            "reading": "せんげつ",
+            "gloss": "上個月"
+          },
+          {
+            "surface": "子供",
+            "reading": "こども",
+            "gloss": "孩子"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "生まれました",
+            "reading": "うまれました",
+            "gloss": "出生了"
+          }
+        ]
+      },
+      "collocations": [
+        "子供が生まれる",
+        "赤ちゃんが生まれる",
+        "日本で生まれる"
+      ],
+      "confusable_with": [],
+      "note": "「生まれる」為下一段動詞，表示出生、誕生。描述已經發生的出生事實時，常使用過去式「生まれました」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0307",
+      "surface": "住む",
+      "reading": "すむ",
+      "gloss": "居住",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 307,
+      "romaji_override": null,
+      "example": {
+        "ja": "父はこの町に住んでいます。",
+        "zh": "父親住在這個城鎮。",
+        "tokens": [
+          {
+            "surface": "父",
+            "reading": "ちち",
+            "gloss": "父親"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這個"
+          },
+          {
+            "surface": "町",
+            "reading": "まち",
+            "gloss": "城鎮"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "住んで",
+            "reading": "すんで",
+            "gloss": "居住"
+          },
+          {
+            "surface": "います",
+            "reading": "います",
+            "gloss": "著"
+          }
+        ]
+      },
+      "collocations": [
+        "町に住みます",
+        "日本に住んでいます"
+      ],
+      "confusable_with": [],
+      "note": "「住む」通常與助詞「に」搭配表示居住的地點，表示目前的居住狀態時常用「〜に住んでいます」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0308",
+      "surface": "押す",
+      "reading": "おす",
+      "gloss": "推／按",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 308,
+      "romaji_override": null,
+      "example": {
+        "ja": "ここを押します。",
+        "zh": "按這裡。",
+        "tokens": [
+          {
+            "surface": "ここ",
+            "reading": "ここ",
+            "gloss": "這裡"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "押します",
+            "reading": "おします",
+            "gloss": "按"
+          }
+        ]
+      },
+      "collocations": [
+        "ボタンを押す",
+        "ドアを押す"
+      ],
+      "confusable_with": [],
+      "note": "「押す」可以表示「按（按鈕）」或「推（門）」，反義詞為「引く」（拉）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0309",
+      "surface": "引く",
+      "reading": "ひく",
+      "gloss": "拉",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 309,
+      "romaji_override": null,
+      "example": {
+        "ja": "このドアを引きます。",
+        "zh": "拉這扇門。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "ドア",
+            "reading": "ドア",
+            "gloss": "門"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "引きます",
+            "reading": "ひきます",
+            "gloss": "拉"
+          }
+        ]
+      },
+      "collocations": [
+        "ドアを引く",
+        "手を引く",
+        "辞書を引く"
+      ],
+      "confusable_with": [],
+      "note": "「引く」是「拉」的意思，相反詞是「押す」（推）。日本的門上常常會標示「引」表示要用拉的開門。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0310",
+      "surface": "切る",
+      "reading": "きる",
+      "gloss": "切",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 310,
+      "romaji_override": null,
+      "example": {
+        "ja": "パンを切ります。",
+        "zh": "切麵包。",
+        "tokens": [
+          {
+            "surface": "パン",
+            "reading": "パン",
+            "gloss": "麵包"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "切ります",
+            "reading": "きります",
+            "gloss": "切"
+          }
+        ]
+      },
+      "collocations": [
+        "パンを切る",
+        "肉を切る",
+        "紙を切る"
+      ],
+      "confusable_with": [],
+      "note": "「切る」是第一類動詞（五段動詞），雖然詞尾是「る」且倒數第二個假名為「い」段音，但並非第二類動詞，ます形為「切ります」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
