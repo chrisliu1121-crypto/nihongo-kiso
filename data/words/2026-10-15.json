@@ -1,0 +1,547 @@
+{
+  "date": "2026-10-15",
+  "words": [
+    {
+      "id": "w_0321",
+      "surface": "面白い",
+      "reading": "おもしろい",
+      "gloss": "有趣的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 321,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生の話は面白いです。",
+        "zh": "老師的話很有趣。",
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "話",
+            "reading": "はなし",
+            "gloss": "話"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "面白い",
+            "reading": "おもしろい",
+            "gloss": "有趣的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "面白い本",
+        "面白い映画",
+        "面白い話"
+      ],
+      "confusable_with": [],
+      "note": "「面白い」為い形容詞，表示「有趣的、引人入勝的」。否定形為「面白くないです」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0322",
+      "surface": "つまらない",
+      "reading": "つまらない",
+      "gloss": "無聊的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 322,
+      "romaji_override": null,
+      "example": {
+        "ja": "今日の授業はつまらないです。",
+        "zh": "今天的課很無聊。",
+        "tokens": [
+          {
+            "surface": "今日",
+            "reading": "きょう",
+            "gloss": "今天"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "授業",
+            "reading": "じゅぎょう",
+            "gloss": "課"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "つまらない",
+            "reading": "つまらない",
+            "gloss": "無聊的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "つまらない本",
+        "つまらない話"
+      ],
+      "confusable_with": [],
+      "note": "「つまらない」為い形容詞，意思是「無聊的」、「沒意思的」。修飾名詞時直接接在名詞前面。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0323",
+      "surface": "楽しい",
+      "reading": "たのしい",
+      "gloss": "開心的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 323,
+      "romaji_override": null,
+      "example": {
+        "ja": "旅行は楽しいです。",
+        "zh": "旅行很開心。",
+        "tokens": [
+          {
+            "surface": "旅行",
+            "reading": "りょこう",
+            "gloss": "旅行"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "楽しいです",
+            "reading": "たのしいです",
+            "gloss": "很開心"
+          }
+        ]
+      },
+      "collocations": [
+        "楽しいです",
+        "楽しい旅行",
+        "楽しい時間"
+      ],
+      "confusable_with": [],
+      "note": "「楽しい」用來描述客觀活動、經驗或氛圍讓人感到愉快、開心。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0324",
+      "surface": "美味しい",
+      "reading": "おいしい",
+      "gloss": "好吃的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 324,
+      "romaji_override": null,
+      "example": {
+        "ja": "美味しい魚を食べました。",
+        "zh": "吃了好吃的魚。",
+        "tokens": [
+          {
+            "surface": "美味しい",
+            "reading": "おいしい",
+            "gloss": "好吃的"
+          },
+          {
+            "surface": "魚",
+            "reading": "さかな",
+            "gloss": "魚"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べました",
+            "reading": "たべました",
+            "gloss": "吃了"
+          }
+        ]
+      },
+      "collocations": [
+        "美味しい料理",
+        "美味しいご飯",
+        "とても美味しい"
+      ],
+      "confusable_with": [],
+      "note": "「美味しい」是い形容詞，用來表示食物或飲料美味、好吃。在日常日語中，也常直接以平假名「おいしい」書寫。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0325",
+      "surface": "かわいい",
+      "reading": "かわいい",
+      "gloss": "可愛的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 325,
+      "romaji_override": null,
+      "example": {
+        "ja": "妹はとてもかわいいです。",
+        "zh": "妹妹非常可愛。",
+        "tokens": [
+          {
+            "surface": "妹",
+            "reading": "いもうと",
+            "gloss": "妹妹"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "とても",
+            "reading": "とても",
+            "gloss": "非常"
+          },
+          {
+            "surface": "かわいい",
+            "reading": "かわいい",
+            "gloss": "可愛的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "とてもかわいい",
+        "かわいい子供",
+        "かわいい花"
+      ],
+      "confusable_with": [],
+      "note": "「かわいい」是い形容詞，用於形容人、動物或事物外表可愛、討人喜愛。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0326",
+      "surface": "早い",
+      "reading": "はやい",
+      "gloss": "早的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 326,
+      "romaji_override": null,
+      "example": {
+        "ja": "明日の朝は早いです。",
+        "zh": "明天早上很早。",
+        "tokens": [
+          {
+            "surface": "明日",
+            "reading": "あした",
+            "gloss": "明天"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "朝",
+            "reading": "あさ",
+            "gloss": "早上"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "早いです",
+            "reading": "はやいです",
+            "gloss": "很早"
+          }
+        ]
+      },
+      "collocations": [
+        "朝が早い",
+        "時間が早い"
+      ],
+      "confusable_with": [],
+      "note": "「早い」主要指時刻、時間點偏早，表示動作或速度快的「速い」在日語中漢字不同。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0327",
+      "surface": "遅い",
+      "reading": "おそい",
+      "gloss": "慢的／晚的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 327,
+      "romaji_override": null,
+      "example": {
+        "ja": "この電車は遅いです。",
+        "zh": "這班電車很慢。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "電車",
+            "reading": "でんしゃ",
+            "gloss": "電車"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "遅い",
+            "reading": "おそい",
+            "gloss": "慢"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "足が遅い",
+        "時間が遅い",
+        "遅い電車"
+      ],
+      "confusable_with": [],
+      "note": "「遅い」既可以表示動作或速度「慢」，也可以表示時間「晚」或「遲」。其反義詞為「早い／速い」（はやい）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0328",
+      "surface": "近い",
+      "reading": "ちかい",
+      "gloss": "近的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 328,
+      "romaji_override": null,
+      "example": {
+        "ja": "駅は家から近いです。",
+        "zh": "車站離家很近。",
+        "tokens": [
+          {
+            "surface": "駅",
+            "reading": "えき",
+            "gloss": "車站"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "家",
+            "reading": "いえ",
+            "gloss": "家"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "gloss": "（從）",
+            "particle": true
+          },
+          {
+            "surface": "近いです",
+            "reading": "ちかいです",
+            "gloss": "近"
+          }
+        ]
+      },
+      "collocations": [
+        "駅から近い",
+        "家から近い",
+        "近いうちに"
+      ],
+      "confusable_with": [],
+      "note": "「近い」表示空間距離或時間上的「接近、短」。常用「〜から近い」（離……很近）或「〜に近い」（接近……）的句型；反義詞為「遠い（とおい）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0329",
+      "surface": "遠い",
+      "reading": "とおい",
+      "gloss": "遠的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 329,
+      "romaji_override": null,
+      "example": {
+        "ja": "私の家は駅から遠いです。",
+        "zh": "我的家離車站很遠。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "家",
+            "reading": "いえ",
+            "gloss": "家"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "駅",
+            "reading": "えき",
+            "gloss": "車站"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "gloss": "（從）",
+            "particle": true
+          },
+          {
+            "surface": "遠い",
+            "reading": "とおい",
+            "gloss": "遠"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "駅から遠い",
+        "遠い国"
+      ],
+      "confusable_with": [],
+      "note": "「遠い」是表示距離遙遠的い形容詞，常以「〜から遠い」的形式表示「離～很遠」；反義詞為「近い」（近的）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0330",
+      "surface": "重い",
+      "reading": "おもい",
+      "gloss": "重的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 330,
+      "romaji_override": null,
+      "example": {
+        "ja": "このかばんは重いです。",
+        "zh": "這個包包很重。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這個"
+          },
+          {
+            "surface": "かばん",
+            "reading": "かばん",
+            "gloss": "包包"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "重い",
+            "reading": "おもい",
+            "gloss": "重的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "重いかばん",
+        "重い本"
+      ],
+      "confusable_with": [],
+      "note": "「重い」的反義詞是「軽い」（かるい），用來表示物體的重量很重。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
