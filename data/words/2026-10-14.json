@@ -1,0 +1,546 @@
+{
+  "date": "2026-10-14",
+  "words": [
+    {
+      "id": "w_0311",
+      "surface": "高い",
+      "reading": "たかい",
+      "gloss": "貴的／高的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 311,
+      "romaji_override": null,
+      "example": {
+        "ja": "この時計は高いです。",
+        "zh": "這隻手錶很貴。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這個"
+          },
+          {
+            "surface": "時計",
+            "reading": "とけい",
+            "gloss": "手錶"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "高い",
+            "reading": "たかい",
+            "gloss": "貴的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "高い山",
+        "背が高い",
+        "高い時計"
+      ],
+      "confusable_with": [],
+      "note": "「高い」既可以用來表示價格「昂貴」，也可以表示高度「高」；形容身材高大時常說「背が高い」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0312",
+      "surface": "安い",
+      "reading": "やすい",
+      "gloss": "便宜的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 312,
+      "romaji_override": null,
+      "example": {
+        "ja": "この野菜は安いです。",
+        "zh": "這個蔬菜很便宜。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這個"
+          },
+          {
+            "surface": "野菜",
+            "reading": "やさい",
+            "gloss": "蔬菜"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "安い",
+            "reading": "やすい",
+            "gloss": "便宜的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "安い野菜",
+        "安い店",
+        "安いです"
+      ],
+      "confusable_with": [],
+      "note": "「安い」的相反詞是「高い」（貴的）。通常用來形容物品價格便宜。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0313",
+      "surface": "古い",
+      "reading": "ふるい",
+      "gloss": "舊的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 313,
+      "romaji_override": null,
+      "example": {
+        "ja": "この車は古いです。",
+        "zh": "這輛車很舊。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "車",
+            "reading": "くるま",
+            "gloss": "車子"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "古い",
+            "reading": "ふるい",
+            "gloss": "舊的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "古い本",
+        "古い車",
+        "古い建物"
+      ],
+      "confusable_with": [],
+      "note": "「古い」用來形容物品、建築或歷史年代久遠，不能用來形容人「年紀大」。其反義詞為「新しい」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0314",
+      "surface": "忙しい",
+      "reading": "いそがしい",
+      "gloss": "忙碌的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 314,
+      "romaji_override": null,
+      "example": {
+        "ja": "父は仕事で忙しいです。",
+        "zh": "父親因工作而忙碌。",
+        "tokens": [
+          {
+            "surface": "父",
+            "reading": "ちち",
+            "gloss": "父親"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "仕事",
+            "reading": "しごと",
+            "gloss": "工作"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（原因）",
+            "particle": true
+          },
+          {
+            "surface": "忙しい",
+            "reading": "いそがしい",
+            "gloss": "忙碌"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "仕事が忙しい",
+        "忙しい日"
+      ],
+      "confusable_with": [],
+      "note": "「忙しい」為い形容詞，表示「忙碌的」。其反義詞為な形容詞「暇（ひま）」（空閒的）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0315",
+      "surface": "暑い",
+      "reading": "あつい",
+      "gloss": "熱的（天氣）",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 315,
+      "romaji_override": null,
+      "example": {
+        "ja": "外はとても暑いです。",
+        "zh": "外面非常熱。",
+        "tokens": [
+          {
+            "surface": "外",
+            "reading": "そと",
+            "gloss": "外面"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "とても",
+            "reading": "とても",
+            "gloss": "非常"
+          },
+          {
+            "surface": "暑い",
+            "reading": "あつい",
+            "gloss": "熱"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "暑い日",
+        "暑い夏"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0316",
+      "surface": "寒い",
+      "reading": "さむい",
+      "gloss": "冷的（天氣）",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 316,
+      "romaji_override": null,
+      "example": {
+        "ja": "冬の朝は寒いです。",
+        "zh": "冬天的早晨很冷。",
+        "tokens": [
+          {
+            "surface": "冬",
+            "reading": "ふゆ",
+            "gloss": "冬天"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "朝",
+            "reading": "あさ",
+            "gloss": "早晨"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "寒いです",
+            "reading": "さむいです",
+            "gloss": "很冷"
+          }
+        ]
+      },
+      "collocations": [
+        "寒い日",
+        "寒い冬",
+        "とても寒い"
+      ],
+      "confusable_with": [],
+      "note": "「寒い」專門用來形容氣溫、天氣或環境的「寒冷」；若要形容物品觸感或水溫等「冰涼」，則要使用「冷たい」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0317",
+      "surface": "熱い",
+      "reading": "あつい",
+      "gloss": "燙的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 317,
+      "romaji_override": null,
+      "example": {
+        "ja": "このお茶は熱いです。",
+        "zh": "這杯茶很燙。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這個"
+          },
+          {
+            "surface": "お茶",
+            "reading": "おちゃ",
+            "gloss": "茶"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "熱い",
+            "reading": "あつい",
+            "gloss": "燙的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "熱いお茶",
+        "熱いコーヒー"
+      ],
+      "confusable_with": [],
+      "note": "「熱い」用來形容物體或觸碰到的液體溫度高（燙）；形容氣候或天氣炎熱時則寫作「暑い」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0318",
+      "surface": "涼しい",
+      "reading": "すずしい",
+      "gloss": "涼爽的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 318,
+      "romaji_override": null,
+      "example": {
+        "ja": "部屋の中は涼しいです。",
+        "zh": "房間裡面很涼爽。",
+        "tokens": [
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "中",
+            "reading": "なか",
+            "gloss": "裡面"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "涼しい",
+            "reading": "すずしい",
+            "gloss": "涼爽"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "涼しい風",
+        "涼しい日",
+        "涼しくなります"
+      ],
+      "confusable_with": [],
+      "note": "「涼しい」主要用來描述氣候或空氣令人感到舒適的「涼爽」（如秋天或冷氣房）；若是指手觸摸到的物體、飲品溫度偏冰冷，則使用「冷たい」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0319",
+      "surface": "難しい",
+      "reading": "むずかしい",
+      "gloss": "困難的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 319,
+      "romaji_override": null,
+      "example": {
+        "ja": "今日の仕事は難しいです。",
+        "zh": "今天的工作很難。",
+        "tokens": [
+          {
+            "surface": "今日",
+            "reading": "きょう",
+            "gloss": "今天"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "仕事",
+            "reading": "しごと",
+            "gloss": "工作"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "難しいです",
+            "reading": "むずかしいです",
+            "gloss": "困難"
+          }
+        ]
+      },
+      "collocations": [
+        "難しい本",
+        "難しい質問",
+        "難しくないです"
+      ],
+      "confusable_with": [],
+      "note": "「難しい」為い形容詞，否定形為「難しくないです」或「難しくありません」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0320",
+      "surface": "易しい",
+      "reading": "やさしい",
+      "gloss": "簡單的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 320,
+      "romaji_override": null,
+      "example": {
+        "ja": "この試験は易しいです。",
+        "zh": "這個考試很簡單。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這個"
+          },
+          {
+            "surface": "試験",
+            "reading": "しけん",
+            "gloss": "考試"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "易しい",
+            "reading": "やさしい",
+            "gloss": "簡單的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "易しい試験",
+        "易しい質問",
+        "易しい本"
+      ],
+      "confusable_with": [],
+      "note": "「易しい」表示內容或問題簡單、容易，反義詞為「難しい」；與表示親切溫柔的「優しい」讀音相同但意思與漢字不同。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
