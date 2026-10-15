@@ -1,0 +1,515 @@
+{
+  "date": "2026-10-16",
+  "words": [
+    {
+      "id": "w_0331",
+      "surface": "軽い",
+      "reading": "かるい",
+      "gloss": "輕的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 331,
+      "romaji_override": null,
+      "example": {
+        "ja": "この傘は軽いです。",
+        "zh": "這把傘很輕。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這把"
+          },
+          {
+            "surface": "傘",
+            "reading": "かさ",
+            "gloss": "傘"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "軽いです",
+            "reading": "かるいです",
+            "gloss": "很輕"
+          }
+        ]
+      },
+      "collocations": [
+        "軽いかばん",
+        "軽いです"
+      ],
+      "confusable_with": [],
+      "note": "「軽い」的反義詞為「重い」（おもい，重）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0332",
+      "surface": "いい",
+      "reading": "いい",
+      "gloss": "好的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 332,
+      "romaji_override": null,
+      "example": {
+        "ja": "この時計はとてもいいです。",
+        "zh": "這隻手錶非常好。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這個"
+          },
+          {
+            "surface": "時計",
+            "reading": "とけい",
+            "gloss": "手錶"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "とても",
+            "reading": "とても",
+            "gloss": "非常"
+          },
+          {
+            "surface": "いい",
+            "reading": "いい",
+            "gloss": "好"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "いい天気",
+        "頭がいい",
+        "いい人"
+      ],
+      "confusable_with": [],
+      "note": "「いい」是不規則變化的い形容詞（原形亦作「よい」）。否定形必須用「よくない」，過去形為「よかった」，不可直接變化為「いくない」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0333",
+      "surface": "悪い",
+      "reading": "わるい",
+      "gloss": "不好的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 333,
+      "romaji_override": null,
+      "example": {
+        "ja": "天気が悪いです。",
+        "zh": "天氣不好。",
+        "tokens": [
+          {
+            "surface": "天気",
+            "reading": "てんき",
+            "gloss": "天氣"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "悪いです",
+            "reading": "わるいです",
+            "gloss": "不好"
+          }
+        ]
+      },
+      "collocations": [
+        "天気が悪い",
+        "気分が悪い",
+        "頭が悪い"
+      ],
+      "confusable_with": [],
+      "note": "い形容詞「悪い」表示「不好、差、壞的」。當天氣欠佳時，常用「天気が悪い」來描述。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0334",
+      "surface": "多い",
+      "reading": "おおい",
+      "gloss": "多的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 334,
+      "romaji_override": null,
+      "example": {
+        "ja": "この町は車が多いです。",
+        "zh": "這座城鎮車很多。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這個"
+          },
+          {
+            "surface": "町",
+            "reading": "まち",
+            "gloss": "城鎮"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "車",
+            "reading": "くるま",
+            "gloss": "車輛"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "多いです",
+            "reading": "おおいです",
+            "gloss": "很多"
+          }
+        ]
+      },
+      "collocations": [
+        "人が多い",
+        "車が多い",
+        "雨が多い"
+      ],
+      "confusable_with": [],
+      "note": "「多い」通常作為句尾的謂語使用（如「〜が多いです」），一般不直接放在名詞前修飾名詞；若要修飾名詞，通常改用「たくさんの〜」或「多くの〜」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0335",
+      "surface": "少ない",
+      "reading": "すくない",
+      "gloss": "少的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 335,
+      "romaji_override": null,
+      "example": {
+        "ja": "冬は雨が少ないです。",
+        "zh": "冬天雨很少。",
+        "tokens": [
+          {
+            "surface": "冬",
+            "reading": "ふゆ",
+            "gloss": "冬天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "雨",
+            "reading": "あめ",
+            "gloss": "雨"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "少ないです",
+            "reading": "すくないです",
+            "gloss": "少"
+          }
+        ]
+      },
+      "collocations": [
+        "雨が少ない",
+        "人が少ない",
+        "時間が少ない"
+      ],
+      "confusable_with": [],
+      "note": "「少ない」多用於句尾作述語（如「〜が少ない」），原則上不直接放在名詞前面修飾名詞；修飾名詞時通常會改用「少しの～」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0336",
+      "surface": "長い",
+      "reading": "ながい",
+      "gloss": "長的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 336,
+      "romaji_override": null,
+      "example": {
+        "ja": "この映画は長いです。",
+        "zh": "這部電影很長。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這部"
+          },
+          {
+            "surface": "映画",
+            "reading": "えいが",
+            "gloss": "電影"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "長いです",
+            "reading": "ながいです",
+            "gloss": "很長"
+          }
+        ]
+      },
+      "collocations": [
+        "長い時間",
+        "長い道",
+        "夏休みが長い"
+      ],
+      "confusable_with": [],
+      "note": "「長い」既可用來形容空間、物體的長度，也常用於表示時間很長。相反詞是「短い」（短的）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0337",
+      "surface": "短い",
+      "reading": "みじかい",
+      "gloss": "短的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 337,
+      "romaji_override": null,
+      "example": {
+        "ja": "彼女の髪は短いです。",
+        "zh": "她的頭髮很短。",
+        "tokens": [
+          {
+            "surface": "彼女",
+            "reading": "かのじょ",
+            "gloss": "她"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "髪",
+            "reading": "かみ",
+            "gloss": "頭髮"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "短い",
+            "reading": "みじかい",
+            "gloss": "短的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "短い時間",
+        "短い休み",
+        "髪が短い"
+      ],
+      "confusable_with": [],
+      "note": "「短い」是い形容詞，可用來形容長度短（如頭髮、鉛筆）或時間短暫，其反義詞為「長い」。修飾名詞時直接放在名詞前面，例如「短い時間」（短暫的時間）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0338",
+      "surface": "強い",
+      "reading": "つよい",
+      "gloss": "強的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 338,
+      "romaji_override": null,
+      "example": {
+        "ja": "風が強いです。",
+        "zh": "風很大。",
+        "tokens": [
+          {
+            "surface": "風",
+            "reading": "かぜ",
+            "gloss": "風"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "強い",
+            "reading": "つよい",
+            "gloss": "強"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "風が強い",
+        "強い風"
+      ],
+      "confusable_with": [],
+      "note": "常用於描寫天氣，「風が強い」中文常翻為「風很大」。反義詞為「弱い（よわい）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0339",
+      "surface": "弱い",
+      "reading": "よわい",
+      "gloss": "弱的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 339,
+      "romaji_override": null,
+      "example": {
+        "ja": "風が弱いです。",
+        "zh": "風很弱。",
+        "tokens": [
+          {
+            "surface": "風",
+            "reading": "かぜ",
+            "gloss": "風"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "弱いです",
+            "reading": "よわいです",
+            "gloss": "很弱"
+          }
+        ]
+      },
+      "collocations": [
+        "風が弱い",
+        "体が弱い"
+      ],
+      "confusable_with": [],
+      "note": null,
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0340",
+      "surface": "明るい",
+      "reading": "あかるい",
+      "gloss": "明亮的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 340,
+      "romaji_override": null,
+      "example": {
+        "ja": "この部屋は明るいです。",
+        "zh": "這間房間很明亮。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "明るい",
+            "reading": "あかるい",
+            "gloss": "明亮的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "明るい部屋",
+        "明るい色",
+        "明るい人"
+      ],
+      "confusable_with": [],
+      "note": "「明るい」除了指光線明亮之外，也可以用來形容性格開朗、活潑。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
