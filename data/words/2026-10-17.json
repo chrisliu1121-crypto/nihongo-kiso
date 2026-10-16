@@ -1,0 +1,538 @@
+{
+  "date": "2026-10-17",
+  "words": [
+    {
+      "id": "w_0341",
+      "surface": "暗い",
+      "reading": "くらい",
+      "gloss": "暗的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 341,
+      "romaji_override": null,
+      "example": {
+        "ja": "暗い道を歩きます。",
+        "zh": "走在昏暗的路上。",
+        "tokens": [
+          {
+            "surface": "暗い",
+            "reading": "くらい",
+            "gloss": "昏暗的"
+          },
+          {
+            "surface": "道",
+            "reading": "みち",
+            "gloss": "道路"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（經過）",
+            "particle": true
+          },
+          {
+            "surface": "歩きます",
+            "reading": "あるきます",
+            "gloss": "走"
+          }
+        ]
+      },
+      "collocations": [
+        "暗い道",
+        "部屋が暗い",
+        "暗くなる"
+      ],
+      "confusable_with": [],
+      "note": "「暗い」表示光線昏暗，反義詞為「明るい」（明亮）。修飾名詞時直接放在名詞前，如「暗い道」（昏暗的道路）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0342",
+      "surface": "広い",
+      "reading": "ひろい",
+      "gloss": "寬廣的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 342,
+      "romaji_override": null,
+      "example": {
+        "ja": "広い庭があります。",
+        "zh": "有一個寬廣的院子。",
+        "tokens": [
+          {
+            "surface": "広い",
+            "reading": "ひろい",
+            "gloss": "寬廣的"
+          },
+          {
+            "surface": "庭",
+            "reading": "にわ",
+            "gloss": "院子"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "あります",
+            "reading": "あります",
+            "gloss": "有"
+          }
+        ]
+      },
+      "collocations": [
+        "広い部屋",
+        "広い庭",
+        "広い道"
+      ],
+      "confusable_with": [],
+      "note": "「広い」是い形容詞，用來形容空間、面積寬廣；反義詞為「狭い（せまい）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0343",
+      "surface": "狭い",
+      "reading": "せまい",
+      "gloss": "狹窄的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 343,
+      "romaji_override": null,
+      "example": {
+        "ja": "この部屋は狭いです。",
+        "zh": "這個房間很狹窄。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "狭い",
+            "reading": "せまい",
+            "gloss": "狹窄"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "狭い部屋",
+        "狭い道"
+      ],
+      "confusable_with": [],
+      "note": "「狭い」的反義詞是「広い」（寬敞的）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0344",
+      "surface": "甘い",
+      "reading": "あまい",
+      "gloss": "甜的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 344,
+      "romaji_override": null,
+      "example": {
+        "ja": "この果物は甘いです。",
+        "zh": "這個水果很甜。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "果物",
+            "reading": "くだもの",
+            "gloss": "水果"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "甘い",
+            "reading": "あまい",
+            "gloss": "甜的"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "甘い果物",
+        "甘いお茶",
+        "甘いパン"
+      ],
+      "confusable_with": [],
+      "note": "「甘い」表示味道甘甜，常修飾食物或飲料；反義詞為「辛い（からい，辣／鹹）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0345",
+      "surface": "辛い",
+      "reading": "からい",
+      "gloss": "辣的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 345,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達と辛い料理を食べます。",
+        "zh": "和朋友吃辣的料理。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "辛い",
+            "reading": "からい",
+            "gloss": "辣的"
+          },
+          {
+            "surface": "料理",
+            "reading": "りょうり",
+            "gloss": "料理"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "辛い料理",
+        "とても辛い",
+        "あまり辛くない"
+      ],
+      "confusable_with": [],
+      "note": "「辛い」的反義詞是「甘い」（甜的）。漢字相同但讀作「つらい」時表示「痛苦、難受」，N5 階段主要掌握「からい」（辣）的用法。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0346",
+      "surface": "眠い",
+      "reading": "ねむい",
+      "gloss": "想睡的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 347,
+      "romaji_override": null,
+      "example": {
+        "ja": "今日はとても眠いです。",
+        "zh": "今天很想睡。",
+        "tokens": [
+          {
+            "surface": "今日",
+            "reading": "きょう",
+            "gloss": "今天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "とても",
+            "reading": "とても",
+            "gloss": "很"
+          },
+          {
+            "surface": "眠い",
+            "reading": "ねむい",
+            "gloss": "想睡"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "とても眠い",
+        "少し眠い",
+        "眠い時"
+      ],
+      "confusable_with": [],
+      "note": "「眠い」是い形容詞，表示生理上感到睏倦、想睡覺。句尾加上「です」即可構成禮貌的說法。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0347",
+      "surface": "便利",
+      "reading": "べんり",
+      "gloss": "方便的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 350,
+      "romaji_override": null,
+      "example": {
+        "ja": "電車は便利です。",
+        "zh": "電車很方便。",
+        "tokens": [
+          {
+            "surface": "電車",
+            "reading": "でんしゃ",
+            "gloss": "電車"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "便利",
+            "reading": "べんり",
+            "gloss": "方便"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "便利です",
+        "便利な町"
+      ],
+      "confusable_with": [],
+      "note": "「便利」是な形容詞，修飾名詞時需加「な」（例如：便利な町）。其反義詞為「不便（ふべん）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0348",
+      "surface": "不便",
+      "reading": "ふべん",
+      "gloss": "不方便的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 351,
+      "romaji_override": null,
+      "example": {
+        "ja": "電車がありませんから不便です。",
+        "zh": "因為沒有電車，所以很不方便。",
+        "tokens": [
+          {
+            "surface": "電車",
+            "reading": "でんしゃ",
+            "gloss": "電車"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "ありません",
+            "reading": "ありません",
+            "gloss": "沒有"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "gloss": "（因為）",
+            "particle": true
+          },
+          {
+            "surface": "不便",
+            "reading": "ふべん",
+            "gloss": "不方便"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "不便な所",
+        "不便です"
+      ],
+      "confusable_with": [],
+      "note": "「不便」為な形容詞，修飾名詞時要加「な」（如「不便な所」），句尾作述語時接「です」。反義詞是「便利」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0349",
+      "surface": "有名",
+      "reading": "ゆうめい",
+      "gloss": "有名的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 352,
+      "romaji_override": null,
+      "example": {
+        "ja": "あの店は有名です。",
+        "zh": "那家店很有名。",
+        "tokens": [
+          {
+            "surface": "あの",
+            "reading": "あの",
+            "gloss": "那個"
+          },
+          {
+            "surface": "店",
+            "reading": "みせ",
+            "gloss": "店"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "有名",
+            "reading": "ゆうめい",
+            "gloss": "有名"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "有名です",
+        "有名な人"
+      ],
+      "confusable_with": [],
+      "note": "「有名」為な形容詞，修飾名詞時需在後方加上「な」（例：有名な店）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0350",
+      "surface": "元気",
+      "reading": "げんき",
+      "gloss": "有精神的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 353,
+      "romaji_override": null,
+      "example": {
+        "ja": "私の弟はとても元気です。",
+        "zh": "我的弟弟非常有精神。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "弟",
+            "reading": "おとうと",
+            "gloss": "弟弟"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "とても",
+            "reading": "とても",
+            "gloss": "非常"
+          },
+          {
+            "surface": "元気",
+            "reading": "げんき",
+            "gloss": "有精神"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "お元気ですか",
+        "元気な子供"
+      ],
+      "confusable_with": [],
+      "note": "「元気」是な形容詞，用來形容人有精神、有活力或身體健康；常用的寒暄問候語「お元気ですか」（您好嗎？）即是由此而來。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
