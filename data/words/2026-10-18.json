@@ -1,0 +1,524 @@
+{
+  "date": "2026-10-18",
+  "words": [
+    {
+      "id": "w_0351",
+      "surface": "賑やか",
+      "reading": "にぎやか",
+      "gloss": "熱鬧的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 349,
+      "romaji_override": null,
+      "example": {
+        "ja": "にぎやかな店に入ります。",
+        "zh": "進入熱鬧的店。",
+        "tokens": [
+          {
+            "surface": "にぎやかな",
+            "reading": "にぎやかな",
+            "gloss": "熱鬧的"
+          },
+          {
+            "surface": "店",
+            "reading": "みせ",
+            "gloss": "店"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "入ります",
+            "reading": "はいります",
+            "gloss": "進入"
+          }
+        ]
+      },
+      "collocations": [
+        "にぎやかな店",
+        "にぎやかな学校",
+        "にぎやかになります"
+      ],
+      "confusable_with": [],
+      "note": "在 N5 程度通常以平假名「にぎやか」書寫。為「な形容詞」，修飾名詞時後面需接「な」（例：にぎやかな店）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0352",
+      "surface": "親切",
+      "reading": "しんせつ",
+      "gloss": "親切的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 354,
+      "romaji_override": null,
+      "example": {
+        "ja": "あの医者は親切です。",
+        "zh": "那位醫生很親切。",
+        "tokens": [
+          {
+            "surface": "あの",
+            "reading": "あの",
+            "gloss": "那個"
+          },
+          {
+            "surface": "医者",
+            "reading": "いしゃ",
+            "gloss": "醫生"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "親切",
+            "reading": "しんせつ",
+            "gloss": "親切"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "親切な人",
+        "親切にします"
+      ],
+      "confusable_with": [],
+      "note": "「親切」是 な 形容詞，修飾名詞時接「な」（如「親切な人」），表示待人親切或好心。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0353",
+      "surface": "大丈夫",
+      "reading": "だいじょうぶ",
+      "gloss": "沒問題的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 355,
+      "romaji_override": null,
+      "example": {
+        "ja": "体は大丈夫ですか。",
+        "zh": "身體還好嗎？",
+        "tokens": [
+          {
+            "surface": "体",
+            "reading": "からだ",
+            "gloss": "身體"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "大丈夫",
+            "reading": "だいじょうぶ",
+            "gloss": "沒問題"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "gloss": "（疑問）",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "大丈夫ですか",
+        "大丈夫です"
+      ],
+      "confusable_with": [],
+      "note": "「大丈夫」常在口語中用來關心對方的身體狀況、詢問是否需要幫忙，或是確認時間安排是否方便；回答時可用「大丈夫です」表示沒問題或婉拒協助。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0354",
+      "surface": "大切",
+      "reading": "たいせつ",
+      "gloss": "重要的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 356,
+      "romaji_override": null,
+      "example": {
+        "ja": "家族は大切です。",
+        "zh": "家人很重要。",
+        "tokens": [
+          {
+            "surface": "家族",
+            "reading": "かぞく",
+            "gloss": "家人"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "大切",
+            "reading": "たいせつ",
+            "gloss": "重要"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "大切です",
+        "大切な本",
+        "大切にします"
+      ],
+      "confusable_with": [],
+      "note": "な形容詞。修飾名詞時用「大切な＋名詞」（例：大切な人），句尾斷句用「大切です」；「大切にします」表示「珍惜、重視」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0355",
+      "surface": "大変",
+      "reading": "たいへん",
+      "gloss": "辛苦的／嚴重的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 357,
+      "romaji_override": null,
+      "example": {
+        "ja": "仕事は大変です。",
+        "zh": "工作很辛苦。",
+        "tokens": [
+          {
+            "surface": "仕事",
+            "reading": "しごと",
+            "gloss": "工作"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "大変",
+            "reading": "たいへん",
+            "gloss": "辛苦"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "大変な仕事",
+        "大変ですね"
+      ],
+      "confusable_with": [],
+      "note": "「大変」除了作為形容詞表示「辛苦、不得了、嚴重」之外，也常作為副詞修飾形容詞或動詞，表示「非常、很」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0356",
+      "surface": "簡単",
+      "reading": "かんたん",
+      "gloss": "簡單的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 358,
+      "romaji_override": null,
+      "example": {
+        "ja": "簡単な料理を作ります。",
+        "zh": "做簡單的料理。",
+        "tokens": [
+          {
+            "surface": "簡単な",
+            "reading": "かんたんな",
+            "gloss": "簡單的"
+          },
+          {
+            "surface": "料理",
+            "reading": "りょうり",
+            "gloss": "料理"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "作ります",
+            "reading": "つくります",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "簡単な料理",
+        "簡単な質問"
+      ],
+      "confusable_with": [],
+      "note": "「簡単」為な形容詞，修飾名詞時後面需加上「な」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0357",
+      "surface": "上手",
+      "reading": "じょうず",
+      "gloss": "擅長的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 359,
+      "romaji_override": null,
+      "example": {
+        "ja": "妹は絵が上手です。",
+        "zh": "妹妹擅長畫畫。",
+        "tokens": [
+          {
+            "surface": "妹",
+            "reading": "いもうと",
+            "gloss": "妹妹"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "絵",
+            "reading": "え",
+            "gloss": "畫畫"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "上手",
+            "reading": "じょうず",
+            "gloss": "擅長"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "絵が上手です",
+        "料理が上手です",
+        "歌が上手です"
+      ],
+      "confusable_with": [],
+      "note": "「上手」常用「〜が上手です」的句型表示擅長某項技能，通常用來稱讚他人，謙虛起見一般不用於自己。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0358",
+      "surface": "下手",
+      "reading": "へた",
+      "gloss": "不擅長的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 360,
+      "romaji_override": null,
+      "example": {
+        "ja": "私は歌が下手です。",
+        "zh": "我不擅長唱歌。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "歌",
+            "reading": "うた",
+            "gloss": "唱歌"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "下手",
+            "reading": "へた",
+            "gloss": "不擅長"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "歌が下手",
+        "料理が下手",
+        "下手な字"
+      ],
+      "confusable_with": [],
+      "note": "「下手」表示不擅長某事，對象通常以助詞「が」標記。直接用來形容他人往往顯得失禮，主要用於自謙或熟人之間的日常談話。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0359",
+      "surface": "暇",
+      "reading": "ひま",
+      "gloss": "空閒的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 361,
+      "romaji_override": null,
+      "example": {
+        "ja": "午後は暇ですか。",
+        "zh": "下午有空嗎？",
+        "tokens": [
+          {
+            "surface": "午後",
+            "reading": "ごご",
+            "gloss": "下午"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "暇",
+            "reading": "ひま",
+            "gloss": "有空"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "gloss": "（疑問）",
+            "particle": true
+          }
+        ]
+      },
+      "collocations": [
+        "暇な時",
+        "暇です"
+      ],
+      "confusable_with": [],
+      "note": "「暇」是な形容詞，修飾名詞時要加「な」（例如：暇な日）。意思是「有空、閒暇」，其反義詞為「忙しい」（忙碌）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0360",
+      "surface": "綺麗",
+      "reading": "きれい",
+      "gloss": "漂亮的／乾淨的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 362,
+      "romaji_override": null,
+      "example": {
+        "ja": "この部屋は綺麗です。",
+        "zh": "這個房間很乾淨。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "部屋",
+            "reading": "へや",
+            "gloss": "房間"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "綺麗",
+            "reading": "きれい",
+            "gloss": "乾淨"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "綺麗な花",
+        "綺麗な部屋",
+        "綺麗になります"
+      ],
+      "confusable_with": [],
+      "note": "「綺麗」是「な形容詞」，修飾名詞時要加「な」（如：綺麗な花）。除了表示「漂亮、美麗」之外，也常用來形容環境「乾淨、整潔」。平時也常寫作平假名「きれい」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
