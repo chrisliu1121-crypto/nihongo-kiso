@@ -1,0 +1,519 @@
+{
+  "date": "2026-10-19",
+  "words": [
+    {
+      "id": "w_0361",
+      "surface": "嫌い",
+      "reading": "きらい",
+      "gloss": "討厭的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 363,
+      "romaji_override": null,
+      "example": {
+        "ja": "魚が嫌いです。",
+        "zh": "我討厭吃魚。",
+        "tokens": [
+          {
+            "surface": "魚",
+            "reading": "さかな",
+            "gloss": "魚"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "嫌い",
+            "reading": "きらい",
+            "gloss": "討厭"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "嫌いな食べ物",
+        "嫌いです"
+      ],
+      "confusable_with": [],
+      "note": "「嫌い」是な形容詞，表示討厭、不喜歡的對象通常以助詞「が」標示（～が嫌いです）。修飾名詞時要加上「な」，如「嫌いな食べ物」（討厭的食物）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0362",
+      "surface": "同じ",
+      "reading": "おなじ",
+      "gloss": "相同的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 364,
+      "romaji_override": null,
+      "example": {
+        "ja": "私たちは同じ本を買います。",
+        "zh": "我們買相同的書。",
+        "tokens": [
+          {
+            "surface": "私たち",
+            "reading": "わたしたち",
+            "gloss": "我們"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "同じ",
+            "reading": "おなじ",
+            "gloss": "相同的"
+          },
+          {
+            "surface": "本",
+            "reading": "ほん",
+            "gloss": "書"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "買います",
+            "reading": "かいます",
+            "gloss": "買"
+          }
+        ]
+      },
+      "collocations": [
+        "同じ本",
+        "同じ人",
+        "同じ部屋"
+      ],
+      "confusable_with": [],
+      "note": "「同じ」雖然常被歸類為「な形容詞」，但修飾名詞時不加「な」，直接接續名詞（如「同じ本」）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0363",
+      "surface": "特別",
+      "reading": "とくべつ",
+      "gloss": "特別的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 365,
+      "romaji_override": null,
+      "example": {
+        "ja": "この料理は特別です。",
+        "zh": "這道料理很特別。",
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "gloss": "這"
+          },
+          {
+            "surface": "料理",
+            "reading": "りょうり",
+            "gloss": "料理"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "特別",
+            "reading": "とくべつ",
+            "gloss": "特別"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "特別な日",
+        "特別な人",
+        "特別な料理"
+      ],
+      "confusable_with": [],
+      "note": "「特別」為な形容詞，修飾名詞時需加上「な」（如：特別な日）；亦可作副詞使用，表示「格外、特別地」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0364",
+      "surface": "必要",
+      "reading": "ひつよう",
+      "gloss": "必要的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 366,
+      "romaji_override": null,
+      "example": {
+        "ja": "お金が必要です。",
+        "zh": "需要錢。",
+        "tokens": [
+          {
+            "surface": "お金",
+            "reading": "おかね",
+            "gloss": "錢"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "必要です",
+            "reading": "ひつようです",
+            "gloss": "需要"
+          }
+        ]
+      },
+      "collocations": [
+        "お金が必要です",
+        "時間が必要です",
+        "必要な物"
+      ],
+      "confusable_with": [],
+      "note": "「必要」為な形容詞，常用句型為「〜が必要です」，表示「需要某物/某事」，所需要的對象通常用助詞「が」標記。修飾名詞時接「な」（如：必要な物）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0365",
+      "surface": "素敵",
+      "reading": "すてき",
+      "gloss": "很棒的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 367,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達の家はとても素敵です。",
+        "zh": "朋友的家非常棒。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "家",
+            "reading": "いえ",
+            "gloss": "房子"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "とても",
+            "reading": "とても",
+            "gloss": "非常"
+          },
+          {
+            "surface": "素敵",
+            "reading": "すてき",
+            "gloss": "很棒"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "素敵な家",
+        "とても素敵です"
+      ],
+      "confusable_with": [],
+      "note": "「素敵」為な形容詞，修飾名詞時接「な」（如「素敵な～」）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0366",
+      "surface": "とても",
+      "reading": "とても",
+      "gloss": "非常",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 368,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生はとても親切です。",
+        "zh": "老師非常親切。",
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "とても",
+            "reading": "とても",
+            "gloss": "非常"
+          },
+          {
+            "surface": "親切",
+            "reading": "しんせつ",
+            "gloss": "親切"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "とても親切です",
+        "とても暑いです",
+        "とても面白いです"
+      ],
+      "confusable_with": [],
+      "note": "「とても」是程度副詞，修飾形容詞或動詞，表示程度極高，相當於中文的「非常」或「很」，通常用於肯定句。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0367",
+      "surface": "少し",
+      "reading": "すこし",
+      "gloss": "一點點",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 369,
+      "romaji_override": null,
+      "example": {
+        "ja": "日本語が少し分かります。",
+        "zh": "我懂一點點日語。",
+        "tokens": [
+          {
+            "surface": "日本語",
+            "reading": "にほんご",
+            "gloss": "日語"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "少し",
+            "reading": "すこし",
+            "gloss": "一點點"
+          },
+          {
+            "surface": "分かります",
+            "reading": "わかります",
+            "gloss": "懂"
+          }
+        ]
+      },
+      "collocations": [
+        "少し分かります",
+        "少し食べます"
+      ],
+      "confusable_with": [],
+      "note": "「少し」是副詞，用來修飾動詞或形容詞，表示數量或程度「少許、一點點」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0368",
+      "surface": "たくさん",
+      "reading": "たくさん",
+      "gloss": "很多",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 370,
+      "romaji_override": null,
+      "example": {
+        "ja": "店で果物をたくさん買いました。",
+        "zh": "在店裡買了很多水果。",
+        "tokens": [
+          {
+            "surface": "店",
+            "reading": "みせ",
+            "gloss": "店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "果物",
+            "reading": "くだもの",
+            "gloss": "水果"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "たくさん",
+            "reading": "たくさん",
+            "gloss": "很多"
+          },
+          {
+            "surface": "買いました",
+            "reading": "かいました",
+            "gloss": "買了"
+          }
+        ]
+      },
+      "collocations": [
+        "たくさん食べる",
+        "たくさんある",
+        "たくさんの人"
+      ],
+      "confusable_with": [],
+      "note": "「たくさん」是表示數量「很多」的副詞，通常直接放在動詞前面修飾動作的量（如「たくさん買います」）；若修飾名詞時，多以「たくさんの＋名詞」的形式呈現。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0369",
+      "surface": "もっと",
+      "reading": "もっと",
+      "gloss": "更加",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 371,
+      "romaji_override": null,
+      "example": {
+        "ja": "もっと早く走ります。",
+        "zh": "跑得更快。",
+        "tokens": [
+          {
+            "surface": "もっと",
+            "reading": "もっと",
+            "gloss": "更加"
+          },
+          {
+            "surface": "早く",
+            "reading": "はやく",
+            "gloss": "快地"
+          },
+          {
+            "surface": "走ります",
+            "reading": "はしります",
+            "gloss": "跑"
+          }
+        ]
+      },
+      "collocations": [
+        "もっと早く",
+        "もっとたくさん",
+        "もっと勉強します"
+      ],
+      "confusable_with": [],
+      "note": "「もっと」是副詞，表示程度或數量「更加、更……」，常用於修飾副詞、形容詞或動詞。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0370",
+      "surface": "あまり",
+      "reading": "あまり",
+      "gloss": "不太（後接否定）",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 372,
+      "romaji_override": null,
+      "example": {
+        "ja": "肉はあまり食べません。",
+        "zh": "我不太吃肉。",
+        "tokens": [
+          {
+            "surface": "肉",
+            "reading": "にく",
+            "gloss": "肉"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "あまり",
+            "reading": "あまり",
+            "gloss": "不太"
+          },
+          {
+            "surface": "食べません",
+            "reading": "たべません",
+            "gloss": "不吃"
+          }
+        ]
+      },
+      "collocations": [
+        "あまり食べません",
+        "あまり寒くないです",
+        "あまり分かりません"
+      ],
+      "confusable_with": [],
+      "note": "「あまり」通常與否定句型搭配使用，表示「不太……」、「不怎麼……」的意思。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
