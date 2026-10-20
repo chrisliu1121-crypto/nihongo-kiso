@@ -1,0 +1,549 @@
+{
+  "date": "2026-10-20",
+  "words": [
+    {
+      "id": "w_0371",
+      "surface": "痛い",
+      "reading": "いたい",
+      "gloss": "痛的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 346,
+      "romaji_override": null,
+      "example": {
+        "ja": "歯が痛いですから、何も食べません。",
+        "zh": "因為牙齒痛，所以什麼都不吃。",
+        "tokens": [
+          {
+            "surface": "歯",
+            "reading": "は",
+            "gloss": "牙齒"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "痛い",
+            "reading": "いたい",
+            "gloss": "痛"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "gloss": "（因為）",
+            "particle": true
+          },
+          {
+            "surface": "何",
+            "reading": "なに",
+            "gloss": "什麼"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "gloss": "（也）",
+            "particle": true
+          },
+          {
+            "surface": "食べません",
+            "reading": "たべません",
+            "gloss": "不吃"
+          }
+        ]
+      },
+      "collocations": [
+        "歯が痛い",
+        "おなかが痛い",
+        "頭が痛い"
+      ],
+      "confusable_with": [],
+      "note": "表示身體某部位疼痛時，常用「（部位）が痛いです」的句型。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0372",
+      "surface": "静か",
+      "reading": "しずか",
+      "gloss": "安靜的",
+      "pos": "な形容詞",
+      "level": "N5",
+      "freq_rank": 348,
+      "romaji_override": null,
+      "example": {
+        "ja": "教室で静かに本を読みます。",
+        "zh": "在教室安靜地看書。",
+        "tokens": [
+          {
+            "surface": "教室",
+            "reading": "きょうしつ",
+            "gloss": "教室"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "静かに",
+            "reading": "しずかに",
+            "gloss": "安靜地"
+          },
+          {
+            "surface": "本",
+            "reading": "ほん",
+            "gloss": "書"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "読みます",
+            "reading": "よみます",
+            "gloss": "閱讀"
+          }
+        ]
+      },
+      "collocations": [
+        "静かな部屋",
+        "静かにする"
+      ],
+      "confusable_with": [],
+      "note": "「静か」是 な形容詞，修飾名詞時加「な」（静かな），修飾動詞時則加「に」（静かに）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0373",
+      "surface": "全然",
+      "reading": "ぜんぜん",
+      "gloss": "完全（不）",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 373,
+      "romaji_override": null,
+      "example": {
+        "ja": "漢字が全然分かりません。",
+        "zh": "完全不懂漢字。",
+        "tokens": [
+          {
+            "surface": "漢字",
+            "reading": "かんじ",
+            "gloss": "漢字"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "全然",
+            "reading": "ぜんぜん",
+            "gloss": "完全"
+          },
+          {
+            "surface": "分かりません",
+            "reading": "わかりません",
+            "gloss": "不懂"
+          }
+        ]
+      },
+      "collocations": [
+        "全然分かりません",
+        "全然寒くないです"
+      ],
+      "confusable_with": [],
+      "note": "「全然」通常與否定形式搭配使用，表示「一點也不……」或「完全不……」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0374",
+      "surface": "全部",
+      "reading": "ぜんぶ",
+      "gloss": "全部",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 374,
+      "romaji_override": null,
+      "example": {
+        "ja": "お金を全部使いました。",
+        "zh": "把錢全都花完了。",
+        "tokens": [
+          {
+            "surface": "お金",
+            "reading": "おかね",
+            "gloss": "錢"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "全部",
+            "reading": "ぜんぶ",
+            "gloss": "全部"
+          },
+          {
+            "surface": "使いました",
+            "reading": "つかいました",
+            "gloss": "花了"
+          }
+        ]
+      },
+      "collocations": [
+        "全部で",
+        "全部食べます"
+      ],
+      "confusable_with": [],
+      "note": "「全部」可作副詞直接修飾動詞，表示動作徹底完成；加上助詞「で」成「全部で」時，則表示「總共、合計」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0375",
+      "surface": "一緒に",
+      "reading": "いっしょに",
+      "gloss": "一起",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 375,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達と一緒に晩ご飯を食べます。",
+        "zh": "和朋友一起吃晚餐。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（和）",
+            "particle": true
+          },
+          {
+            "surface": "一緒に",
+            "reading": "いっしょに",
+            "gloss": "一起"
+          },
+          {
+            "surface": "晩ご飯",
+            "reading": "ばんごはん",
+            "gloss": "晚餐"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べます",
+            "reading": "たべます",
+            "gloss": "吃"
+          }
+        ]
+      },
+      "collocations": [
+        "友達と一緒に",
+        "一緒に行きます",
+        "一緒に食べます"
+      ],
+      "confusable_with": [],
+      "note": "「一緒に」是副詞，表示「一起」。常與助詞「と」搭配，形成「〜と一緒に」（和～一起……）的常用句型。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0376",
+      "surface": "一番",
+      "reading": "いちばん",
+      "gloss": "最",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 376,
+      "romaji_override": null,
+      "example": {
+        "ja": "春が一番好きです。",
+        "zh": "最喜歡春天。",
+        "tokens": [
+          {
+            "surface": "春",
+            "reading": "はる",
+            "gloss": "春天"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "一番",
+            "reading": "いちばん",
+            "gloss": "最"
+          },
+          {
+            "surface": "好き",
+            "reading": "すき",
+            "gloss": "喜歡"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "一番好き",
+        "一番高い"
+      ],
+      "confusable_with": [],
+      "note": "「一番」作為副詞時表示「最……」，常用於表達程度最高或個人的喜好偏向。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0377",
+      "surface": "本当に",
+      "reading": "ほんとうに",
+      "gloss": "真的",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 377,
+      "romaji_override": null,
+      "example": {
+        "ja": "外は本当に寒いです。",
+        "zh": "外面真的很冷。",
+        "tokens": [
+          {
+            "surface": "外",
+            "reading": "そと",
+            "gloss": "外面"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "本当に",
+            "reading": "ほんとうに",
+            "gloss": "真的"
+          },
+          {
+            "surface": "寒いです",
+            "reading": "さむいです",
+            "gloss": "很冷"
+          }
+        ]
+      },
+      "collocations": [
+        "本当にありがとうございます",
+        "本当に難しいです",
+        "本当に暑いです"
+      ],
+      "confusable_with": [],
+      "note": "「本当に」是副詞，表示「真的」、「實在是」，用來強調程度或確認事情的真實性，常接在形容詞或動詞前。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0378",
+      "surface": "多分",
+      "reading": "たぶん",
+      "gloss": "大概",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 378,
+      "romaji_override": null,
+      "example": {
+        "ja": "明日は多分雨が降ります。",
+        "zh": "明天大概會下雨。",
+        "tokens": [
+          {
+            "surface": "明日",
+            "reading": "あした",
+            "gloss": "明天"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "多分",
+            "reading": "たぶん",
+            "gloss": "大概"
+          },
+          {
+            "surface": "雨",
+            "reading": "あめ",
+            "gloss": "雨"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "降ります",
+            "reading": "ふります",
+            "gloss": "下"
+          }
+        ]
+      },
+      "collocations": [
+        "多分大丈夫です",
+        "多分来ます"
+      ],
+      "confusable_with": [],
+      "note": "「多分」為副詞，表示推測或不確定的判斷，常譯為「大概」、「可能」。在日語中也常常以平假名「たぶん」書寫。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0379",
+      "surface": "例えば",
+      "reading": "たとえば",
+      "gloss": "例如",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 379,
+      "romaji_override": null,
+      "example": {
+        "ja": "例えばりんごが好きです。",
+        "zh": "例如我喜歡蘋果。",
+        "tokens": [
+          {
+            "surface": "例えば",
+            "reading": "たとえば",
+            "gloss": "例如"
+          },
+          {
+            "surface": "りんご",
+            "reading": "りんご",
+            "gloss": "蘋果"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "好きです",
+            "reading": "すきです",
+            "gloss": "喜歡"
+          }
+        ]
+      },
+      "collocations": [
+        "例えばこれ",
+        "例えば日本料理"
+      ],
+      "confusable_with": [],
+      "note": "常用於舉例說明，放在句首引出具體例子。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0380",
+      "surface": "特に",
+      "reading": "とくに",
+      "gloss": "特別是",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 380,
+      "romaji_override": null,
+      "example": {
+        "ja": "私は特に魚が好きです。",
+        "zh": "我特別喜歡魚。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "特に",
+            "reading": "とくに",
+            "gloss": "特別"
+          },
+          {
+            "surface": "魚",
+            "reading": "さかな",
+            "gloss": "魚"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "好きです",
+            "reading": "すきです",
+            "gloss": "喜歡"
+          }
+        ]
+      },
+      "collocations": [
+        "特に好き",
+        "特にありません"
+      ],
+      "confusable_with": [],
+      "note": "副詞，用於在多個事物或整體中特別提出某個對象，表示「特別是……」。後接否定時「特にありません」表示「沒有特別的（事情／意見）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
