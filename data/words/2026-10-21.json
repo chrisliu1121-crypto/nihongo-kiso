@@ -1,0 +1,517 @@
+{
+  "date": "2026-10-21",
+  "words": [
+    {
+      "id": "w_0381",
+      "surface": "すぐ",
+      "reading": "すぐ",
+      "gloss": "馬上",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 381,
+      "romaji_override": null,
+      "example": {
+        "ja": "電車がすぐ来ます。",
+        "zh": "電車馬上就來。",
+        "tokens": [
+          {
+            "surface": "電車",
+            "reading": "でんしゃ",
+            "gloss": "電車"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "すぐ",
+            "reading": "すぐ",
+            "gloss": "馬上"
+          },
+          {
+            "surface": "来ます",
+            "reading": "きます",
+            "gloss": "來"
+          }
+        ]
+      },
+      "collocations": [
+        "すぐ行きます",
+        "すぐに",
+        "すぐ近く"
+      ],
+      "confusable_with": [],
+      "note": "副詞，表示時間緊接「馬上、立刻」，或距離「就在附近」。口語中也常以「すぐに」的形式出現。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0382",
+      "surface": "もう",
+      "reading": "もう",
+      "gloss": "已經",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 382,
+      "romaji_override": null,
+      "example": {
+        "ja": "私はもう昼ご飯を食べました。",
+        "zh": "我已經吃了午餐。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "もう",
+            "reading": "もう",
+            "gloss": "已經"
+          },
+          {
+            "surface": "昼ご飯",
+            "reading": "ひるごはん",
+            "gloss": "午餐"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "食べました",
+            "reading": "たべました",
+            "gloss": "吃了"
+          }
+        ]
+      },
+      "collocations": [
+        "もう食べました",
+        "もう帰りました",
+        "もう十二時です"
+      ],
+      "confusable_with": [],
+      "note": "「もう」後接動詞過去式時表示動作「已經」完成；另外接在數量詞前時則有「再、另外」的意思（如「もう一度」）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0383",
+      "surface": "まだ",
+      "reading": "まだ",
+      "gloss": "還沒／還",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 383,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達はまだ来ません。",
+        "zh": "朋友還沒來。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "まだ",
+            "reading": "まだ",
+            "gloss": "還"
+          },
+          {
+            "surface": "来ません",
+            "reading": "きません",
+            "gloss": "沒來"
+          }
+        ]
+      },
+      "collocations": [
+        "まだ来ません",
+        "まだです"
+      ],
+      "confusable_with": [],
+      "note": "「まだ」搭配否定形表示「還沒……」，在回答問題時也可以直接說「まだです（還沒）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0384",
+      "surface": "ゆっくり",
+      "reading": "ゆっくり",
+      "gloss": "慢慢地",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 384,
+      "romaji_override": null,
+      "example": {
+        "ja": "家でゆっくり休みます。",
+        "zh": "在家好好休息。",
+        "tokens": [
+          {
+            "surface": "家",
+            "reading": "いえ",
+            "gloss": "家"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "ゆっくり",
+            "reading": "ゆっくり",
+            "gloss": "好好地"
+          },
+          {
+            "surface": "休みます",
+            "reading": "やすみます",
+            "gloss": "休息"
+          }
+        ]
+      },
+      "collocations": [
+        "ゆっくり話します",
+        "ゆっくり休みます"
+      ],
+      "confusable_with": [],
+      "note": "「ゆっくり」除了表示動作步調「慢」之外，也常用於「悠閒地、放鬆地、好好地」做某事。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0385",
+      "surface": "だんだん",
+      "reading": "だんだん",
+      "gloss": "漸漸地",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 385,
+      "romaji_override": null,
+      "example": {
+        "ja": "外はだんだん寒くなります。",
+        "zh": "外面漸漸變冷了。",
+        "tokens": [
+          {
+            "surface": "外",
+            "reading": "そと",
+            "gloss": "外面"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "だんだん",
+            "reading": "だんだん",
+            "gloss": "漸漸地"
+          },
+          {
+            "surface": "寒く",
+            "reading": "さむく",
+            "gloss": "冷"
+          },
+          {
+            "surface": "なります",
+            "reading": "なります",
+            "gloss": "變"
+          }
+        ]
+      },
+      "collocations": [
+        "だんだん寒くなります",
+        "だんだん分かります"
+      ],
+      "confusable_with": [],
+      "note": "「だんだん」表示狀態隨時間「漸漸地、逐步地」改變，句尾常與表示變化的「〜くなります／〜になります」搭配。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0386",
+      "surface": "ちょうど",
+      "reading": "ちょうど",
+      "gloss": "剛好",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 386,
+      "romaji_override": null,
+      "example": {
+        "ja": "今ちょうど三時です。",
+        "zh": "現在剛好是三點。",
+        "tokens": [
+          {
+            "surface": "今",
+            "reading": "いま",
+            "gloss": "現在"
+          },
+          {
+            "surface": "ちょうど",
+            "reading": "ちょうど",
+            "gloss": "剛好"
+          },
+          {
+            "surface": "三時",
+            "reading": "さんじ",
+            "gloss": "三點"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "ちょうどいい",
+        "ちょうど今"
+      ],
+      "confusable_with": [],
+      "note": "「ちょうど」為副詞，表示「剛好」、「正好」，常用於描述時間、數量或程度恰到好處。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0387",
+      "surface": "いつも",
+      "reading": "いつも",
+      "gloss": "總是",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 387,
+      "romaji_override": null,
+      "example": {
+        "ja": "私はいつも七時に起きます。",
+        "zh": "我總是七點起床。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "いつも",
+            "reading": "いつも",
+            "gloss": "總是"
+          },
+          {
+            "surface": "七時",
+            "reading": "しちじ",
+            "gloss": "七點"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "起きます",
+            "reading": "おきます",
+            "gloss": "起床"
+          }
+        ]
+      },
+      "collocations": [
+        "いつも元気です",
+        "いつも七時に起きます",
+        "いつもありがとうございます"
+      ],
+      "confusable_with": [],
+      "note": "「いつも」是副詞，表示「總是、平常一直」的頻率，通常修飾後面的動詞或形容詞。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0388",
+      "surface": "たまに",
+      "reading": "たまに",
+      "gloss": "偶爾",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 388,
+      "romaji_override": null,
+      "example": {
+        "ja": "たまに喫茶店で本を読みます。",
+        "zh": "偶爾在咖啡廳看書。",
+        "tokens": [
+          {
+            "surface": "たまに",
+            "reading": "たまに",
+            "gloss": "偶爾"
+          },
+          {
+            "surface": "喫茶店",
+            "reading": "きっさてん",
+            "gloss": "咖啡店"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "本",
+            "reading": "ほん",
+            "gloss": "書"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "読みます",
+            "reading": "よみます",
+            "gloss": "閱讀"
+          }
+        ]
+      },
+      "collocations": [
+        "たまに行きます",
+        "たまに食べます",
+        "たまに会います"
+      ],
+      "confusable_with": [],
+      "note": "「たまに」是表示發生頻率較低的副詞，相當於中文的「偶爾」，頻率比「時々（有時）」更低。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0389",
+      "surface": "初めて",
+      "reading": "はじめて",
+      "gloss": "第一次",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 389,
+      "romaji_override": null,
+      "example": {
+        "ja": "初めて日本に来ました。",
+        "zh": "第一次來日本。",
+        "tokens": [
+          {
+            "surface": "初めて",
+            "reading": "はじめて",
+            "gloss": "第一次"
+          },
+          {
+            "surface": "日本",
+            "reading": "にほん",
+            "gloss": "日本"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "来ました",
+            "reading": "きました",
+            "gloss": "來了"
+          }
+        ]
+      },
+      "collocations": [
+        "初めて見ます",
+        "初めて日本に来ました"
+      ],
+      "confusable_with": [],
+      "note": "「初めて」是副詞，用來修飾動詞，表示「第一次做某件事」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0390",
+      "surface": "一人で",
+      "reading": "ひとりで",
+      "gloss": "獨自",
+      "pos": "副詞",
+      "level": "N5",
+      "freq_rank": 390,
+      "romaji_override": null,
+      "example": {
+        "ja": "一人で日本へ行きます。",
+        "zh": "一個人去日本。",
+        "tokens": [
+          {
+            "surface": "一人で",
+            "reading": "ひとりで",
+            "gloss": "獨自"
+          },
+          {
+            "surface": "日本",
+            "reading": "にほん",
+            "gloss": "日本"
+          },
+          {
+            "surface": "へ",
+            "reading": "へ",
+            "gloss": "（目的地）",
+            "particle": true
+          },
+          {
+            "surface": "行きます",
+            "reading": "いきます",
+            "gloss": "去"
+          }
+        ]
+      },
+      "collocations": [
+        "一人で行きます",
+        "一人で住みます",
+        "一人で食べます"
+      ],
+      "confusable_with": [],
+      "note": "「一人で」是副詞用法，表示「獨自一人、自己一個人」做某個動作。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
