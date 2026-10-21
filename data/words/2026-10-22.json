@@ -1,0 +1,475 @@
+{
+  "date": "2026-10-22",
+  "words": [
+    {
+      "id": "w_0391",
+      "surface": "おはようございます",
+      "reading": "おはようございます",
+      "gloss": "早安",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 391,
+      "romaji_override": null,
+      "example": {
+        "ja": "毎朝おはようございますと言います。",
+        "zh": "每天早上都會說早安。",
+        "tokens": [
+          {
+            "surface": "毎朝",
+            "reading": "まいあさ",
+            "gloss": "每天早上"
+          },
+          {
+            "surface": "おはようございます",
+            "reading": "おはようございます",
+            "gloss": "早安"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（內容）",
+            "particle": true
+          },
+          {
+            "surface": "言います",
+            "reading": "いいます",
+            "gloss": "說"
+          }
+        ]
+      },
+      "collocations": [
+        "おはようございますと言います",
+        "毎朝おはようございます"
+      ],
+      "confusable_with": [],
+      "note": "早晨見面時的寒暄語，對長輩、老師或同事使用以表禮貌；平輩或熟人之間常簡稱「おはよう」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0392",
+      "surface": "こんにちは",
+      "reading": "こんにちは",
+      "gloss": "你好",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 392,
+      "romaji_override": null,
+      "example": {
+        "ja": "昼のあいさつはこんにちはです。",
+        "zh": "白天的問候是你好。",
+        "tokens": [
+          {
+            "surface": "昼",
+            "reading": "ひる",
+            "gloss": "白天"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "あいさつ",
+            "reading": "あいさつ",
+            "gloss": "問候"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "こんにちは",
+            "reading": "こんにちは",
+            "gloss": "你好"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "昼のあいさつ",
+        "笑顔でこんにちは"
+      ],
+      "confusable_with": [],
+      "note": "「こんにちは」主要用於白天（約上午十點至日落前）的見面招呼。句尾的「は」為助詞演變而來，讀作「wa」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0393",
+      "surface": "こんばんは",
+      "reading": "こんばんは",
+      "gloss": "晚安（見面時）",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 393,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生こんばんは。",
+        "zh": "老師，晚上好。",
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "こんばんは",
+            "reading": "こんばんは",
+            "gloss": "晚上好"
+          }
+        ]
+      },
+      "collocations": [
+        "先生、こんばんは"
+      ],
+      "confusable_with": [],
+      "note": "「こんばんは」通常以平假名書寫，為夜間見面時的問候語。字尾的「は」讀作「wa」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0394",
+      "surface": "さようなら",
+      "reading": "さようなら",
+      "gloss": "再見",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 394,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生にさようならを言います。",
+        "zh": "向老師說再見。",
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "さようなら",
+            "reading": "さようなら",
+            "gloss": "再見"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "言います",
+            "reading": "いいます",
+            "gloss": "說"
+          }
+        ]
+      },
+      "collocations": [
+        "さようならを言います",
+        "先生にさようなら"
+      ],
+      "confusable_with": [],
+      "note": "「さようなら」常用於放學對老師說，或預期較長時間不會再見面時。平日與朋友、同事道別時，通常更常說「じゃあ、また」（回頭見）或「失礼します」「お疲れ様でした」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0395",
+      "surface": "すみません",
+      "reading": "すみません",
+      "gloss": "不好意思",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 395,
+      "romaji_override": null,
+      "example": {
+        "ja": "私はすみませんと言いました。",
+        "zh": "我說了不好意思。",
+        "tokens": [
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "gloss": "我"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "すみません",
+            "reading": "すみません",
+            "gloss": "不好意思"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（引述）",
+            "particle": true
+          },
+          {
+            "surface": "言いました",
+            "reading": "いいました",
+            "gloss": "說了"
+          }
+        ]
+      },
+      "collocations": [
+        "すみません、あの",
+        "どうもすみません",
+        "すみませんでした"
+      ],
+      "confusable_with": [],
+      "note": "「すみません」可用於向他人搭話（不好意思、請問）、道歉（對不起）或是向對方表達輕微的謝意。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0396",
+      "surface": "ごめんなさい",
+      "reading": "ごめんなさい",
+      "gloss": "對不起",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 396,
+      "romaji_override": null,
+      "example": {
+        "ja": "本当にごめんなさい。",
+        "zh": "真的很對不起。",
+        "tokens": [
+          {
+            "surface": "本当に",
+            "reading": "ほんとうに",
+            "gloss": "真的"
+          },
+          {
+            "surface": "ごめんなさい",
+            "reading": "ごめんなさい",
+            "gloss": "對不起"
+          }
+        ]
+      },
+      "collocations": [
+        "本当にごめんなさい",
+        "ごめんなさいね"
+      ],
+      "confusable_with": [],
+      "note": "「ごめんなさい」常用於向親近的朋友、家人或晚輩道歉，語氣較為隨和。對長輩、上司或在正式商務場合時，應改用較客氣的「すみません」或「申し訳ありません」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0397",
+      "surface": "いただきます",
+      "reading": "いただきます",
+      "gloss": "我開動了",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 397,
+      "romaji_override": null,
+      "example": {
+        "ja": "ご飯の前にいただきますと言います。",
+        "zh": "吃飯前會說「我開動了」。",
+        "tokens": [
+          {
+            "surface": "ご飯",
+            "reading": "ごはん",
+            "gloss": "飯"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "前",
+            "reading": "まえ",
+            "gloss": "前"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（時間）",
+            "particle": true
+          },
+          {
+            "surface": "いただきます",
+            "reading": "いただきます",
+            "gloss": "我開動了"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（引述）",
+            "particle": true
+          },
+          {
+            "surface": "言います",
+            "reading": "いいます",
+            "gloss": "說"
+          }
+        ]
+      },
+      "collocations": [
+        "いただきますと言います"
+      ],
+      "confusable_with": [],
+      "note": "用餐前雙手合十說的寒暄語，表達對食材及做菜者的感謝。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0398",
+      "surface": "お願いします",
+      "reading": "おねがいします",
+      "gloss": "拜託了",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 398,
+      "romaji_override": null,
+      "example": {
+        "ja": "これをお願いします。",
+        "zh": "麻煩給我這個。",
+        "tokens": [
+          {
+            "surface": "これ",
+            "reading": "これ",
+            "gloss": "這個"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "お願いします",
+            "reading": "おねがいします",
+            "gloss": "麻煩了"
+          }
+        ]
+      },
+      "collocations": [
+        "よろしくお願いします",
+        "これをお願いします"
+      ],
+      "confusable_with": [],
+      "note": "「お願いします」用於向對方提出請求、點餐或託付事物時，意思是「麻煩了」或「拜託了」。初次見面或請求照顧時也常說「よろしくお願いします」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0399",
+      "surface": "どういたしまして",
+      "reading": "どういたしまして",
+      "gloss": "不客氣",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 399,
+      "romaji_override": null,
+      "example": {
+        "ja": "どういたしまして。",
+        "zh": "不客氣。",
+        "tokens": [
+          {
+            "surface": "どういたしまして",
+            "reading": "どういたしまして",
+            "gloss": "不客氣"
+          }
+        ]
+      },
+      "collocations": [
+        "いいえ、どういたしまして"
+      ],
+      "confusable_with": [],
+      "note": "用於回應對方的道謝（如「ありがとうございます」），意思是「不客氣」。對長輩或上司時通常會改用更客氣的說法。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0400",
+      "surface": "いってきます",
+      "reading": "いってきます",
+      "gloss": "我出門了",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 400,
+      "romaji_override": null,
+      "example": {
+        "ja": "母にいってきますと言います。",
+        "zh": "對母親說「我出門了」。",
+        "tokens": [
+          {
+            "surface": "母",
+            "reading": "はは",
+            "gloss": "母親"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "いってきます",
+            "reading": "いってきます",
+            "gloss": "我出門了"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（內容）",
+            "particle": true
+          },
+          {
+            "surface": "言います",
+            "reading": "いいます",
+            "gloss": "說"
+          }
+        ]
+      },
+      "collocations": [
+        "いってきますと言います"
+      ],
+      "confusable_with": [],
+      "note": "出門離開家或辦公室時對留在原處的人說的寒暄語，對方通常會回答「いってらっしゃい」（路上小心）。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ]
+}
