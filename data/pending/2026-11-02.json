@@ -1,0 +1,498 @@
+{
+  "date": "2026-11-02",
+  "words": [
+    {
+      "id": "w_0401",
+      "surface": "いってらっしゃい",
+      "reading": "いってらっしゃい",
+      "gloss": "路上小心",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 401,
+      "romaji_override": null,
+      "example": {
+        "ja": "母はいってらっしゃいと言います。",
+        "zh": "媽媽會說路上小心。",
+        "tokens": [
+          {
+            "surface": "母",
+            "reading": "はは",
+            "gloss": "媽媽"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "gloss": "（主題）",
+            "particle": true
+          },
+          {
+            "surface": "いってらっしゃい",
+            "reading": "いってらっしゃい",
+            "gloss": "路上小心"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（引述）",
+            "particle": true
+          },
+          {
+            "surface": "言います",
+            "reading": "いいます",
+            "gloss": "說"
+          }
+        ]
+      },
+      "collocations": [
+        "いってらっしゃいと言う",
+        "いってきますといってらっしゃい"
+      ],
+      "confusable_with": [],
+      "note": "目送家人、同事或朋友外出時使用的寒暄語，意思是「路上小心」，常作為對方說「いってきます（我出門了）」時的回答。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0402",
+      "surface": "ただいま",
+      "reading": "ただいま",
+      "gloss": "我回來了",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 402,
+      "romaji_override": null,
+      "example": {
+        "ja": "玄関でただいまのあいさつをします。",
+        "zh": "在玄關打「我回來了」的招呼。",
+        "tokens": [
+          {
+            "surface": "玄関",
+            "reading": "げんかん",
+            "gloss": "玄關"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "gloss": "（地點）",
+            "particle": true
+          },
+          {
+            "surface": "ただいま",
+            "reading": "ただいま",
+            "gloss": "我回來了"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "あいさつ",
+            "reading": "あいさつ",
+            "gloss": "打招呼"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "します",
+            "reading": "します",
+            "gloss": "做"
+          }
+        ]
+      },
+      "collocations": [
+        "ただいまのあいさつ",
+        "ただいまと言います"
+      ],
+      "confusable_with": [],
+      "note": "「ただいま」是回到家或辦公室時對在場的人說的寒暄語，對方通常會回應「おかえりなさい（歡迎回來）」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0403",
+      "surface": "おかえりなさい",
+      "reading": "おかえりなさい",
+      "gloss": "歡迎回來",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 403,
+      "romaji_override": null,
+      "example": {
+        "ja": "お母さん、おかえりなさい。",
+        "zh": "媽媽，歡迎回來。",
+        "tokens": [
+          {
+            "surface": "お母さん",
+            "reading": "おかあさん",
+            "gloss": "媽媽"
+          },
+          {
+            "surface": "おかえりなさい",
+            "reading": "おかえりなさい",
+            "gloss": "歡迎回來"
+          }
+        ]
+      },
+      "collocations": [
+        "ただいま",
+        "おかえり"
+      ],
+      "confusable_with": [],
+      "note": "用於迎接外出歸來的人（多用於家人或同住者）。對方回到家通常會先說「ただいま（我回來了）」，此時回應「おかえりなさい」。對家人或親近的朋友亦可簡稱「おかえり」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0404",
+      "surface": "おやすみなさい",
+      "reading": "おやすみなさい",
+      "gloss": "晚安（睡前）",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 404,
+      "romaji_override": null,
+      "example": {
+        "ja": "家族におやすみなさいと言います。",
+        "zh": "對家人說晚安。",
+        "tokens": [
+          {
+            "surface": "家族",
+            "reading": "かぞく",
+            "gloss": "家人"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "gloss": "（對象）",
+            "particle": true
+          },
+          {
+            "surface": "おやすみなさい",
+            "reading": "おやすみなさい",
+            "gloss": "晚安"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "gloss": "（內容）",
+            "particle": true
+          },
+          {
+            "surface": "言います",
+            "reading": "いいます",
+            "gloss": "說"
+          }
+        ]
+      },
+      "collocations": [
+        "おやすみなさいと言います",
+        "ではおやすみなさい"
+      ],
+      "confusable_with": [],
+      "note": "「おやすみなさい」是睡前或夜間分別時使用的問候語，中文通常譯為「晚安」。對平輩或晚輩也可以簡化說「おやすみ」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0405",
+      "surface": "はじめまして",
+      "reading": "はじめまして",
+      "gloss": "初次見面",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 405,
+      "romaji_override": null,
+      "example": {
+        "ja": "はじめましてよろしくお願いします。",
+        "zh": "初次見面，請多多指教。",
+        "tokens": [
+          {
+            "surface": "はじめまして",
+            "reading": "はじめまして",
+            "gloss": "初次見面"
+          },
+          {
+            "surface": "よろしく",
+            "reading": "よろしく",
+            "gloss": "請多關照"
+          },
+          {
+            "surface": "お願いします",
+            "reading": "おねがいします",
+            "gloss": "拜託您"
+          }
+        ]
+      },
+      "collocations": [
+        "はじめまして、どうぞよろしく",
+        "はじめまして、よろしくお願いします"
+      ],
+      "confusable_with": [],
+      "note": "初次與人見面時使用的固定問候語，通常後面會接著自我介紹與「よろしくお願いします」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0406",
+      "surface": "わかりました",
+      "reading": "わかりました",
+      "gloss": "我明白了",
+      "pos": "表現",
+      "level": "N5",
+      "freq_rank": 406,
+      "romaji_override": null,
+      "example": {
+        "ja": "先生の話がわかりました。",
+        "zh": "我聽懂了老師說的話。",
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "gloss": "老師"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "話",
+            "reading": "はなし",
+            "gloss": "話"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "わかりました",
+            "reading": "わかりました",
+            "gloss": "明白了"
+          }
+        ]
+      },
+      "collocations": [
+        "よくわかりました",
+        "はい、わかりました"
+      ],
+      "confusable_with": [],
+      "note": "「わかります」的過去式，常用於回應對方的指示、解釋或交代，表示「我明白了」、「知道了」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0407",
+      "surface": "冷たい",
+      "reading": "つめたい",
+      "gloss": "冰的／冷的",
+      "pos": "い形容詞",
+      "level": "N5",
+      "freq_rank": 407,
+      "romaji_override": null,
+      "example": {
+        "ja": "手が冷たいです。",
+        "zh": "手很冰。",
+        "tokens": [
+          {
+            "surface": "手",
+            "reading": "て",
+            "gloss": "手"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "gloss": "（主語）",
+            "particle": true
+          },
+          {
+            "surface": "冷たい",
+            "reading": "つめたい",
+            "gloss": "冰冷"
+          },
+          {
+            "surface": "です",
+            "reading": "です",
+            "gloss": "是"
+          }
+        ]
+      },
+      "collocations": [
+        "冷たい水",
+        "手が冷たい"
+      ],
+      "confusable_with": [],
+      "note": "「冷たい」用於形容觸覺上的冰冷或液體、物體的溫度低；形容天氣或氣溫寒冷時則使用「寒い」。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    },
+    {
+      "id": "w_0408",
+      "surface": "撮る",
+      "reading": "とる",
+      "gloss": "拍（照）",
+      "pos": "動詞",
+      "level": "N5",
+      "freq_rank": 408,
+      "romaji_override": null,
+      "example": {
+        "ja": "友達の写真を撮ります。",
+        "zh": "拍朋友的照片。",
+        "tokens": [
+          {
+            "surface": "友達",
+            "reading": "ともだち",
+            "gloss": "朋友"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "gloss": "（的）",
+            "particle": true
+          },
+          {
+            "surface": "写真",
+            "reading": "しゃしん",
+            "gloss": "照片"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "gloss": "（受詞）",
+            "particle": true
+          },
+          {
+            "surface": "撮ります",
+            "reading": "とります",
+            "gloss": "拍"
+          }
+        ]
+      },
+      "collocations": [
+        "写真を撮る",
+        "カメラで撮る"
+      ],
+      "confusable_with": [],
+      "note": "「撮る」是第I類動詞（五段動詞），專用於拍照或攝影，最常見的搭配是「写真を撮る」。與同音的「取る」（拿取）漢字不同，初學時需特別注意區分。",
+      "pitch": null,
+      "audio": null,
+      "source": "n5-freq",
+      "verified": true
+    }
+  ],
+  "pipeline": {
+    "enricher": "openrouter",
+    "judge": "openrouter",
+    "generated_at": "2026-11-02T00:06:34.787Z",
+    "judgments": {
+      "w_0401": {
+        "natural": true,
+        "reading_ok": true,
+        "gloss_ok": true,
+        "issues": []
+      },
+      "w_0402": {
+        "natural": true,
+        "reading_ok": true,
+        "gloss_ok": true,
+        "issues": []
+      },
+      "w_0403": {
+        "natural": true,
+        "reading_ok": true,
+        "gloss_ok": true,
+        "issues": []
+      },
+      "w_0404": {
+        "natural": true,
+        "reading_ok": true,
+        "gloss_ok": true,
+        "issues": []
+      },
+      "w_0405": {
+        "natural": true,
+        "reading_ok": true,
+        "gloss_ok": true,
+        "issues": []
+      },
+      "w_0406": {
+        "natural": true,
+        "reading_ok": true,
+        "gloss_ok": true,
+        "issues": []
+      },
+      "w_0407": {
+        "natural": true,
+        "reading_ok": true,
+        "gloss_ok": true,
+        "issues": []
+      },
+      "w_0408": {
+        "natural": true,
+        "reading_ok": true,
+        "gloss_ok": true,
+        "issues": []
+      }
+    },
+    "errors": [],
+    "attempts": {
+      "いってらっしゃい|いってらっしゃい": [
+        {
+          "attempt": 1,
+          "stage": "judge",
+          "problems": [
+            "與既有例句「母にいってきますと言います。」句型與用字幾乎完全雷同（僅替換引號內招呼語）。"
+          ]
+        },
+        {
+          "attempt": 2,
+          "stage": "judge",
+          "problems": [
+            "動詞「ふります（振る）」超出 N5 程度詞彙範圍。"
+          ]
+        }
+      ],
+      "ただいま|ただいま": [
+        {
+          "attempt": 1,
+          "stage": "judge",
+          "problems": [
+            "與既有例句「母にいってきますと言います。」句型與用字高度雷同。"
+          ]
+        }
+      ],
+      "冷たい|つめたい": [
+        {
+          "attempt": 1,
+          "stage": "judge",
+          "problems": [
+            "例句與既有例句「外は風が冷たいです。」在場景與用字上（皆為形容風很冷）高度雷同。"
+          ]
+        }
+      ]
+    },
+    "skipped": []
+  }
+}
